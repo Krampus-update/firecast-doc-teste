@@ -1,7 +1,7 @@
 site_name: Firecast Documentation
 repo_url: https://github.com/Krampus-update/firecast-doc-test
 theme: 
-  name: custommill
+  name: material
 nav:
   - 'Introdução': 'Introducao.md'
   - 'Primeiros passos': 'Primeirospassos.md'
