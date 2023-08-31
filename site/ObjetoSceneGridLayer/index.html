@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto SceneGridLayer - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto SceneGridLayer", url: "#_top", children: [
+				]},
+				{title: "Objeto SceneGridLayer", url: "#objeto-scenegridlayer_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneGraphicItemList/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneGraphicItemList/" class="btn btn-sm btn-link">
+			Objeto SceneGraphicItemList
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoScenePluginAttachment/" class="btn btn-sm btn-link">
+			Objeto ScenePluginAttachment
+		</a>
+		<a href="../ObjetoScenePluginAttachment/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-scenegridlayer">Objeto SceneGridLayer</h1>
+<h1 id="objeto-scenegridlayer_1">Objeto SceneGridLayer</h1>
+<p>O Objeto SceneGridLayer representa o grid do tabuleiro de combate e possui informações e utilitários a respeito do mesmo.</p>
+<p>&nbsp;</p>
+<p>O SceneGridLayer de um scene pode ser obtido através da propriedade "<a href="../ObjetoScene/#prop%20grid">grid</a>" do <a href="../ObjetoScene/">objeto Scene</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O o<strong>bjeto SceneGridLayer</strong> herda de <a href="../ObjetoSceneBaseObject/">SceneBaseObject</a> e possui também todas as suas características.</p>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o objeto também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>scene</strong></td>
+<td><a href="../ObjetoScene/">Objeto Scene</a></td>
+<td>(Somente Leitura) Contém o <a href="../ObjetoScene/">Objeto Scene</a> a qual este SceneGridLayer pertence.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>gridType</strong></td>
+<td>Enumerado: "square" "vertHex" "horzHex"</td>
+<td>Define o tipo de grid que o tabuleiro de combate utiliza.&nbsp; "square": Grid com células quadradas <img alt="Image" src="../lib/NewItem216.png" />&nbsp; "vertHex": Grid com células hexagonais organizadas verticalmente. <img alt="Image" src="../lib/NewItem217.png" />&nbsp; "horzHex": Grid com células hexagonais organizadas horizontalmente.&nbsp; <img alt="Image" src="../lib/NewItem218.png" />&nbsp;</td>
+</tr>
+<tr>
+<td><strong>squareDiagonals</strong></td>
+<td>Enumerado: "simplified" "manhattan" "alternated" "euclidean"</td>
+<td>Quando gridType for "square", esta propriedade define como as diagonais do grid quadriculado devem se comportar e pode ser um dos seguintes valores:&nbsp; "simplified" - (Valor padrão) Movimento pelas diagonais simplificado. Andar pelas diagonais possui o mesmo "custo" que andar pelas laterais. "manhattan" - O movimento pelas diagonais custam 2x o custo de andar pelas laterais. "alternated" - O primeiro movimento diagonal custa 1x, o segundo custa 2x, o terceiro custa 1x, o quarto 2x, e assim por diante. "euclidean" - O custo de andar pelas diagonais é igual à distância real.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>offsetX</strong></td>
+<td>Double</td>
+<td>Define o deslocamento em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> que a primeira célula do grid (i:0, j:0) deve receber no eixo X.&nbsp; Em outras palavras, offsetX e offsetY são usadas para ajuste fino para posicionar corretamente o grid no tabuleiro.&nbsp; O RRPG faz um "WrapAround" no offset: Se você especificar um OffsetX que equivalha a 3,3 células por exemplo, o RRPG fará um deslocamento de apenas 0,3 células, pois deslocar 3,3 ou deslocar 0,3 células produz o mesmo resultado visual.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>offsetY</strong></td>
+<td>Double</td>
+<td>Define o deslocamento em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> que a primeira célula do grid (i:0, j:0) deve receber no eixo Y.&nbsp; Em outras palavras, offsetX e offsetY são usadas para ajuste fino para posicionar corretamente o grid no tabuleiro.&nbsp; O RRPG faz um "WrapAround" no offset: Se você especificar um OffsetY que equivalha a 3,1 células por exemplo, o RRPG fará um deslocamento de apenas 0,1 células, pois deslocar 3,1 ou deslocar 0,1 células produz o mesmo resultado visual.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>cellSize</strong></td>
+<td>Double</td>
+<td>Define o tamanho de cada célula do grid em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a>. Exemplo: 1.5 significa que cada célula do grid ocupam 1.5 metros no espaço do mundo do tabuleiro (ou outra unidade de medida, conforme a propriedade <a href="../ObjetoScene/#prop%20worldMetricName">scene.worldMetricName</a>). &nbsp; Dimensões se o gridType for "square": <img alt="Image" src="../lib/NewItem219.png" /> &nbsp; Dimensões se o gridType for "vertHex": <img alt="Image" src="../lib/NewItem220.png" />&nbsp; Dimensões se o gridType for "horzHex":<img alt="Image" src="../lib/NewItem221.png" />&nbsp;</td>
+</tr>
+<tr>
+<td><strong>gridColor</strong></td>
+<td><a href="../StringdecoresnoLuaForm/">String de Cor</a></td>
+<td>Define a cor da linha do grid.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>gridThickness</strong></td>
+<td>Double</td>
+<td>Define, em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>, a espessura das linhas do grid.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>drawGrid</strong></td>
+<td>Boolean</td>
+<td>True se as linhas do grid devem ser desenhadas, ou false se as linhas do grid devem ser invisíveis.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>rowCount</strong></td>
+<td>Integer</td>
+<td>(Somente Leitura) Com base no tamanho do tabuleiro (propriedade <a href="../ObjetoScene/#prop%20worldWidth">scene.worldWidth</a>) e no tamanho de cada célula da grid (cellSize), esta propriedade contém quantas linhas a grid/matriz tem.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>colCount</strong></td>
+<td>Integer</td>
+<td>(Somente Leitura) Com base no tamanho do tabuleiro (<a href="../ObjetoScene/#prop%20worldHeight">scene.worldHeight</a>) e no tamanho de cada célula da grid (cellSize), esta propriedade contém quantas colunas a grid/matriz tem.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>grid:cellToWorld(i, j)</strong></td>
+<td>Dada uma coordenada de matriz/grid Aij, retorna qual é a posição <strong>central</strong> desta célula em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a>. &nbsp; Parâmetros: i - Número inteiro contendo qual linha a célula se encontra, o valor "i" da coordenada Aij. A primeira linha da grid começa no índice 0. j - Número inteiro contendo qual coluna a célula se encontra, o valor "j" da coordenada Aij. A primeira coluna da grid começa no índice 0.&nbsp; Retorno:&nbsp; Esta função retorna dois valores na seguinte ordem: worldX - Um número em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> contendo onde, no eixo X, fica o centro da célula informada. worldY - Um número em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> contendo onde, no eixo Y, fica o centro da célula informada.&nbsp; Observações: Se a célula não existir de fato na grid, a função retornará a posição de onde seria o centro desta célula se ela existisse.&nbsp; Exemplo: local wX, wY = scene.grid:cellToWorld(10, 5);&nbsp; Neste exemplo, o centro da célula [Linha 10, Coluna 5] fica na coordenada (wX, wY) em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a>. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>grid:worldToCell(worldX, worldY)</strong></td>
+<td>Dada uma posição em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a>, retorna qual célula da grid que este ponto pertence.&nbsp; Parâmetros: worldX - Número em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> contendo a posição no eixo X worldY - Número em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> contendo a posição no eixo Y&nbsp; Retorno: Esta função retorna dois valores na seguinte ordem: i - Número inteiro contendo qual linha a célula se encontra j - Número inteiro contendo qual coluna a célula se encontra&nbsp; Observações: Se o ponto (worldX, worldY) não estiver dentro das dimensões do tabuleiro, a função retornará qual célula a posição se refere se o tabuleiro fosse maior.&nbsp; Exemplo: local i, j = scene.grid:worldToCell(16, 6);&nbsp; Meste exemplo, a posição do <a href="../MetricadoMundovsMetricadaTela/">mundo</a> (x: 16, y: 6) pertence à célula Aij [Linha i, Coluna j].&nbsp;</td>
+</tr>
+<tr>
+<td><strong>grid:shortestPath(srcI, srcJ, destI, destJ[, options])</strong></td>
+<td>Dada duas coordenadas de matriz/grid Aij, calcula e retorna o caminho mais curto entres as duas células da grid.&nbsp; Parâmetros: srcI - Número inteiro contendo qual linha a célula origem se encontra, o valor "i" da coordenada Aij. A primeira linha da grid começa no índice 0. srcJ - Número inteiro contendo qual coluna a célula origem se encontra, o valor "j" da coordenada Aij. A primeira coluna da grid começa no índice 0. destI - Número inteiro contendo qual linha a célula destino se encontra, o valor "i" da coordenada Aij. destJ - Número inteiro contendo qual coluna a célula destino se encontra, o valor "j" da coordenada Aij. (OPCIONAL) options - Uma tabela lua contendo opções de como o caminho mais curto deve ser calculado e pode possuir os seguintes atributos: diagonals - Válido apenas para grid do tipo "square", Define como o cálculo deve se comportar em relação às diagonais do grid e pode conter um dos seguintes valores: "simplified" - (Valor padrão) Movimento pelas diagonais simplificado. Andar pelas diagonais possui o mesmo "custo" que andar pelas laterais. "manhattan" - O movimento pelas diagonais custam 2x o custo de andar pelas laterais. "alternated" - O primeiro movimento diagonal custa 1x, o segundo custa 2x, o terceiro custa 1x, o quarto 2x, e assim por diante. "euclidean" - O custo de andar pelas diagonais é igual à distância real. endOfGrid - O que acontece quando a célula destino estiver fora dos limites do tabuleiro/grid? Pode conter um dos seguintes valores: "fail" - (Valor padrão) a busca pelo menor caminho falha. "continue" - Ignora o fato e continua como se existisse um grid além dos limites do tabuleiro. "trunc" - A busca pelo menor caminho leva até o ponto dentro do tabuleiro mais perto do ponto destino. continuationData - Se quiser emendar caminhos de forma adequada, passe aqui o continuationData retornado pela última chamada de shortestPath. trackCollisions - True se quiser que o sistema&nbsp; rastreie colisões durante o movimento. O padrão é false. collisionRadius - Comprimento do raio de um círculo (em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a>) que será utilizado durante o rastreio de colisões de movimento.&nbsp; Retorno: Esta função retorna 4 valores na seguinte ordem: success - True se conseguiu encontrar um menor caminho ou false se não foi possível. distance - Quando success for true, contém um número contendo a distância do caminho encontrado em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> . steps - Quando success for true, contém os movimentos necessários no grid para chegar ao destino. É um array (tabela lua indexada de 1 a #tabela) de tabelas luas, cada uma contendo as propriedades "i"e "j" das coordenadas Aij de cada célula no caminho. continuationData - Um valor que você pode passar para a próxima chamada de "grid:shortestPath" se quiser emendar caminhos de forma adequada.&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onChange</strong></td>
+<td>Evento que é disparado quando o Grid do scene mudar.&nbsp; As seguintes situações disparam este evento: Alteração no tamanho do Scene (propriedades <a href="../ObjetoScene/#prop%20worldWidth">scene.worldWidth</a> e <a href="../ObjetoScene/#prop%20worldHeight">scene.worldHeight</a>) Alteração em algumas das seguintes propriedades do grid: gridType, cellSize, offsetX, offsetY, gridColor, gridThickness e drawGrid&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-um-plug-in-que-descobre-em-qual-celula-do-grid-o-usuario-clicou">Exemplo 1 - Um plug-in que descobre em qual célula do grid o usuário clicou</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                    <em>-- Manipular o evento onMouseUp do Viewport afim de detectar o click do mouse</em>                 scene.viewport.onMouseUp =             <strong>function</strong> (event)                 <em>-- Converter coordenada de tela do click para coordenada de mundo</em>                 <strong>local</strong> wx, wy = scene.viewport:screenToWorld(event.x,                                                             event.y);                                                                                                                                                     <em>-- Converter coordenada de mundo para coordenada do grid</em>                 <strong>local</strong> i, j = scene.grid:worldToCell(wx, wy);                                         <em>-- Exibir uma Mensagem sobre a célula clicada     *                 showMessage("Click na célula [Linha " .. i ..                             ", Coluna " .. j .. "]");             </em><em>end</em><em>;                   </em><em>end</em>*); &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-ebooks-for-amazon-kindle">Free Kindle producer</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneGraphicItemList/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneGraphicItemList/" class="btn btn-sm btn-link">
+			Objeto SceneGraphicItemList
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoScenePluginAttachment/" class="btn btn-sm btn-link">
+			Objeto ScenePluginAttachment
+		</a>
+		<a href="../ObjetoScenePluginAttachment/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoSceneGridLayer.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

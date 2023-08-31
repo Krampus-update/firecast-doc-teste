@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca NDB - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca NDB", url: "#_top", children: [
+				]},
+				{title: "Biblioteca NDB", url: "#biblioteca-ndb_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca NDB", url: "#_top", children: [
+				]},
+				]},
+				{title: "Fun\u00e7\u00f5es de persist\u00eancia de dados do NodeDatabase", url: "#funcoes-de-persistencia-de-dados-do-nodedatabase", children: [
+				]},
+				{title: "Fun\u00e7\u00f5es de gerenciamento de permiss\u00f5es do NodeDatabase", url: "#funcoes-de-gerenciamento-de-permissoes-do-nodedatabase", children: [
+				]},
+				{title: "Fun\u00e7\u00f5es de comunica\u00e7\u00e3o atrav\u00e9s do NodeDatabase", url: "#funcoes-de-comunicacao-atraves-do-nodedatabase", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-ndb">Biblioteca NDB</h1>
+<h1 id="biblioteca-ndb_1">Biblioteca NDB</h1>
+<p>A biblioteca ndb provê funções para manipular NodeDatabases, como abrir um NodeDatabase, retornar o nó pai de um nó, etc..</p>
+<p>Todas as funções estão contidas na table/variável "NDB" da unidade "ndb.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "ndb.lua"</em> require("ndb.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> NDB.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-ndb">Funções da biblioteca NDB</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.load(fileName [, userName])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Carrega um NodeDatabase que está localizado no <a href="../HDVirtual/">HD Virtual</a> do plug-in e retorna o nodo raiz.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>fileName – cadeia de caracteres identificando o nome do arquivo</li>
+<li>[Opcional] userName – Se você desejar fazer controle de permissões em um NodeDatabase local, passe neste parâmetro uma cadeia de caracteres identificando o usuário que está abrindo o database. Normalmente <strong>não</strong> é preciso se preocupar com este parâmetro, e basta omitir seu valor na chamada da função.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna um <a href="../ObjetoNodo/">Objeto Nodo</a>, representado a raiz do NodeDatabase.<ul>
+<li>Todas as alterações feitas neste nodo (e em seus nodos filhos) serão salvas automaticamente no arquivo passado no parâmetro “fileName”.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O parâmetro “fileName” é expandido (através da função “<a href="../BibliotecaVHD/#expandFileName">VHD.expandFileName</a>”) antes de procurar o arquivo.</li>
+<li>Caso o arquivo não exista, um novo é criado automaticamente.<ul>
+<li>Se foi fornecido um caminho curto no parâmetro “fileName” (não relativo à raiz do HD Virtual), então o nome do arquivo é expandido em relação ao diretório “/” (raiz do HD Virtual) antes da criação do arquivo.</li>
+</ul>
+</li>
+<li>O formato do arquivo é XML.</li>
+<li>Se o arquivo especificado fizer parte da pasta <a href="../ProjetosdePlugin/">projeto do plug-in,</a> o NodeDatabase será aberto em modo somente leitura.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.newMemNodeDatabase()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria um novo NodeDatabase temporário que reside apenas na memória. Quando o RRPG fecha, os dados salvos neste NodeDatabase são perdidos.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há.</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna um <a href="../ObjetoNodo/">Objeto Nodo</a>, representado a raiz do NodeDatabase temporário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.newObserver(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria um novo <a href="../ObjetoNodeObserver/">objeto NodeObserver</a> para o nodo passado como parâmetro. Um NodeObserver é capaz de monitorar e notificar as mudanças ocorridas em um determinado Nodo de NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> que deseja monitorar mudanças.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um novo <a href="../ObjetoNodeObserver/">objeto NodeObserver</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.newTransaction(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Cria uma nova transação para controlar como as mudanças são salvas/compartilhadas em um NodeDatabase</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que deseja controlar as mudanças.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoNodeTransaction/">objeto NodeTransaction</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Apenas criar um NodeTransaction não faz com que as mudanças sejam controladas. É preciso chamar o método <a href="./#ndb.pushTransaction()">NDB.pushTransaction</a> para ativar a captura de mudanças para o controle.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.isNodeObject(value)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Verifica se determinado valor é um <a href="../ObjetoNodo/">objeto nodo</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>value - O valor que deseja verificar se é um objeto nodo.&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li><strong>true</strong> se o valor passado é um <a href="../ObjetoNodo/">objeto nodo</a> válido</li>
+<li><strong>false</strong> se o valor passado não for um <a href="../ObjetoNodo/">objeto nodo</a> válido.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getRoot(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o nodo raiz de um nodo, isto é, o nodo mais externo do NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - Um <a href="../ObjetoNodo/">objeto nodo</a> do qual se deseja obter a raiz.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoNodo/">objeto nodo</a> representando o nodo raiz do NodeDatabase.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getParent(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o nodo pai de um nodo, isto é, o nodo que contém o nodo passado como parâmetro.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - Um <a href="../ObjetoNodo/">objeto nodo</a> do qual se deseja obter o nodo pai.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoNodo/">objeto nodo</a> representando o nodo pai ou <strong>nil</strong> se o parâmetro node for um nodo raiz.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getChildNodes(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna todos os nodos filhos de um determinado nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> do qual se deseja obter os nodos filhos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um arranjo (tabela/objeto LUA) onde cada índice, começando do 1, contém um <a href="../ObjetoNodo/">objeto nodo</a> filho do nodo passado como parâmetro.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getAttributes(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna uma tabela contendo todos os atributos e&nbsp; valores de um determinado objeto nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> do qual se deseja obter todos os atributos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma tabela/objeto LUA contendo pares de nomeAtributo=valorAtributo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função não retorna os nodos filhos do objeto nodo. Retorna apenas os atributos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getNodeName(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o nome de um objeto nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> de qual deseja obter o nome.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres (string) contendo o nome do nodo ou <strong>nil</strong> se o parâmetro node não for um objeto nodo válido.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getPersistedAttributeValue(node, attributeName)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o valor que está persistido/salvo no servidor de um atributo de um objeto nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> de qual deseja obter o valor persistido.</li>
+<li>attributeName - Cadeia de caracteres contendo o nome do atributo/campo que se deseja obter o valor persistido.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O valor persistido ou <strong>nil</strong> caso não seja encontrado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Devido a existência de transações no NodeDatabase e também devido à caracteristica assíncrona do NodeDatabase, o valor dos atributos do NodeDatabases podem, temporariamente, não refletir ao valor salvo no servidor e nem ao valor que os outros usuários remotos tem acesso.&nbsp;</li>
+<li>Esta função retorna o valor que foi aprovado pelo servidor e que é conhecido pelos outros usuários remotos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.createChildNode(node, childName)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria um nodo filho dentro de um nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> que receberá o novo nodo filho.</li>
+<li>childName - uma cadeia de caracteres (string) contendo o nome do novo nodo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoNodo/">objeto nodo</a> representando o nodo filho recém criado ou <strong>nil</strong> caso a operação falhe.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.deleteNode(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Remove um nodo do Node Database.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> que deseja remover.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Não é possível remover um nodo raiz do NodeDatabase.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.clearNode(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Limpa um objeto nodo, isto é, remove todos os atributos e todos os nodos filhos de um determinado nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - O <a href="../ObjetoNodo/">objeto nodo</a> o qual deseja limpar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Diferente da função "ndb.deleteNode", esta função não remove o nodo passado como parâmetro do NodeDatabase.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.copy(destinationNode, sourceNode)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Copia os dados de um node de NodeDatabase para outro node de NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>destinationNode - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que será o destino da operação de cópia.</li>
+<li>sourceNode - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que será a fonte da operação de cópia.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Os dados de destinationNode serão apagados antes da cópia começar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.beginUpdate(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Coloca o Node Database em estado de "em alterações". Enquanto estiver neste estado, as sincronizações de dados e notificações/eventos referentes a alterações no NodeDatabase serão adiadas até que este saia do modo "em alterações".</p>
+<p>Alterar o NodeDatabase para o modo de alterações pode melhorar a performance de procedimentos que fazem várias alterações consecutivas no mesmo.&nbsp;</p>
+<p>Para tirar o NodeDatabase do estado "em alterações", invoque a função <a href="./#ndb.endUpdate">NDB.endUpdate</a>.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - Um <a href="../ObjetoNodo/">objeto nodo</a> cujo NodeDatabase deseja colocar no modo "em alterações".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Você pode invocar beginUpdate mais de uma vez no mesmo NodeDatabase. Para cada chamada de <a href="./#ndb.beginUpdate">NDB.beginUpdate</a>, deve haver uma chamada de <a href="./#ndb.endUpdate">NDB.endUpdate</a> para fazer com que o NodeDatabase saia do estado "em alterações".</li>
+<li>Apesar de ser passado um <a href="../ObjetoNodo/">objeto nodo</a> no parâmetro, o NodeDatabase inteiro será colocado no estado em alterações.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.endUpdate(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Faz com que o NodeDatabase saia do modo "em alterações" que havia sido previamente ativado pela função <a href="./#ndb.beginUpdate">NDB.beginUpdate.</a></p>
+<p>Ao sair do modo "em alterações", as mudanças feitas serão sincronizadas e os devidos eventos/notificações serão invocadas!</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - Um <a href="../ObjetoNodo/">objeto nodo</a> cujo NodeDatabase deseja retirado do modo "em alterações".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Para cada chamada de <a href="./#ndb.beginUpdate">NDB.beginUpdate</a>, deve haver uma chamada de <a href="./#ndb.endUpdate">NDB.endUpdate</a> para fazer com que o NodeDatabase saia do estado "em alterações".</li>
+<li>Apesar de ser passado um <a href="../ObjetoNodo/">objeto nodo</a> no parâmetro, o NodeDatabase inteiro será retirado do modo "em alterações".</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getState(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o estado de um NodeDatabase</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - Um <a href="../ObjetoNodo/">objeto nodo</a> cujo NodeDatabase deseja verificar o estado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres, podendo ser:<ul>
+<li>"open" - O NodeDatabase está aberto e funcional</li>
+<li>"opening" - O NodeDatabase está abrindo/carregando</li>
+<li>"closed" - O NodeDatabase está fechado. Algum erro de carregamento pode ter ocorrido ou a conexão com o armazenamento foi perdida.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.onReady(node, callback[, failCallback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Monitora um NodeDatabase e notifica o programador quando ele estiver pronto para ser usado</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - Um <a href="../ObjetoNodo/">objeto nodo</a> cujo NodeDatabase deseja monitorar o estado.</li>
+<li>callback - Um método que será chamado quando o objeto nodo estiver pronto para ser usado, isto é, ele foi completamente carregado e está pronto para ter seus dados acessados.</li>
+<li>(OPCIONAL) failCallback - Um método que será chamado se ocorrer algum erro durante o carregamento do NodeDatabase.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Às vezes, apenas ter a referência ao <a href="../ObjetoNodo/">objeto nodo</a> não significa que ele já está pronto para ser usado. Algumas vezes ocorre um carregamento de dados em segundo plano pela internet e, enquanto ocorre este carregamento, o objeto nodo não aceita operações. Esta é uma boa maneira de saber quando o nodeDatabase está de fato pronto!</li>
+<li>Quando node já estiver carregado, callback será chamado imediatamente após um delay de 1 milisegundo.</li>
+<li>Quando node estiver carregando, callback será chamado&nbsp; quando o processo de carregamento chegar ao fim.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.pushTransaction(node, transaction)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Ativa uma transação em um NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que deseja controlar as mudanças.</li>
+<li>transaction - um <a href="../ObjetoNodeTransaction/">objeto NodeTransaction</a> previamente criado pela função <a href="./#ndb.newTransaction()">NDB.newTransaction</a> que controlará as próximas mudanças no NodeDatabase.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Após ativar uma transação, todas as alterações que ocorrerem no NodeDatabase serão mantidas localmente e não serão compartilhadas automaticamente com os outros usuários. Você deverá controlar o que acontecerá com estas mudanças ao invocar "<a href="../ObjetoNodeTransaction/#transaction:rollback()">transaction:rollback()</a>" se quiser desfazê-las ou "<a href="../ObjetoNodeTransaction/#transaction:commit()">transaction:commit()</a>" para confirmá-las e compartilhar-lhas com os outros usuários.</li>
+<li>Para cada chamada de <a href="./#ndb.pushTransaction()">NDB.pushTransaction()</a>, deve haver uma chamada de <a href="./#ndb.popTransaction">NDB.popTransaction()</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.popTransaction(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Desativa a última transação ativada em um NodeDatabase pela função <a href="./#ndb.popTransaction">NDB.pushTransaction</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que deseja para de controlar as mudanças.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Para cada chamada de <a href="./#ndb.pushTransaction()">NDB.pushTransaction()</a>, deve haver uma chamada de <a href="./#ndb.popTransaction">NDB.popTransaction()</a>.</li>
+<li>Se antes de chamar pushTransaction o NodeDatabase já estava sendo controlado por alguma transação, esta transação será restaurada.</li>
+<li>Apenas invocar este método não é o suficiente para realizar o controle das mudanças. Você o invocar o método "<a href="../ObjetoNodeTransaction/#transaction:rollback()">rollback()</a>" da transaction se quiser desfazer as mudanças capturadas ou invocar o método "<a href="../ObjetoNodeTransaction/#transaction:commit()">commit()</a>" da transaction para confirmar e compartilhar as mudanças capturadas.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getServerUTCTime(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retorna a data e hora do servidor do NodeDatabase em UTC (Coordinated Universal Time)</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que deseja consultar o servidor.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um número de ponto flutuante contendo quantos dias se passaram desde 30/12/1899 00:00. Exemplo: 2.75 representa a data 01/01/1900 18:00</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função retorna imediatamente, mas o valor retornado é um valor aproximado, podendo ser diferente do horário do servidor de fato em alguns segundos.</li>
+</ul>
+<p>&nbsp;</p>
+<h1 id="funcoes-de-persistencia-de-dados-do-nodedatabase">Funções de persistência de dados do NodeDatabase</h1>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.exportXML(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Salva o conteúdo de um node de NodeDatabase como XML</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase que se deseja salvar os dados.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres representando o conteúdo do Node e nodes filhos como um XML (codificado em UTF-8)</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.importXML(destinationNode, xmlString)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Carrega os dados de um XML em um node de NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>destinationNode - um <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase onde os dados serão carregados.</li>
+<li>xmlString - Uma cadeia de caracteres cujo conteúdo é o XML contendo os dados a serem carregados.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Os dados de destinationNode serão apagados antes da importação.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 id="funcoes-de-gerenciamento-de-permissoes-do-nodedatabase">Funções de gerenciamento de permissões do NodeDatabase</h1>
+<p>NodeDatabases permitem definir permissões aos usuários, podendo, por exemplo, selecionar quais pessoas poderão alterar um Objeto Nodo e/ou quais pessoas não poderão saber da existência de algum Objeto Nodo.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.setPermission(node, selKind, selId, permission, allowance)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Define uma permissão a alguém a um <a href="../ObjetoNodo/">Objeto nodo</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> o qual deseja definir a permissão.</li>
+<li>selKind - Selector Kind, uma cadeia de caracteres podendo ser "group" ou "user". A combinação dos parâmetros selKind + selId define a quem esta permissão deve ser aplicada.</li>
+<li>selId - Selector Id, uma cadeia de caracteres contendo a identificação do usuário ou grupo de usuários a quem esta permissão deve ser aplicada.&nbsp;<ul>
+<li>se selKind for "user", selId contém o login do usuário RRPG que deseja conceder/negar a permissão.</li>
+<li>se selKind for "group", selId pode conter um dos seguintes valores:</li>
+<li>"todos" - A permissão será aplicada a TODOS do RRPG</li>
+<li>"mestresAux" - A permissão será a aplicada a todos os mestres auxiliares da mesa.</li>
+<li>"mestres" - A permissão será aplicada a todos que possuírem o modo +mestre na mesa.</li>
+<li>"jogadores" - A permissão será aplicada a todos que possuírem o modo +jogador na mesa.</li>
+<li>"espectadores" - A permissão será aplicada a todos que forem espectadores na mesa.</li>
+<li>"criadorDaMesa" - A permissão será aplicada em quem tiver criado a mesa.</li>
+<li>"criador" - A permissão será aplicada em quem criou o NodeDatabase (Válido somente se for node for de um NodeDatabase de um personagem)</li>
+<li>"dono" - A permissão será aplicada em quem for dono do NodeDatabase (Válido somente se for node for de um NodeDatabase de um personagem)</li>
+<li>"cegos" - A permissão será aplicada em quem tiver o modo +cego na mesa.</li>
+<li>"mudos" - A permissão será aplicada em quem tiver o modo +mudo na mesa.</li>
+<li>"voices" - A permissão será aplicada em quem tiver o modo +voz na mesa.</li>
+</ul>
+</li>
+<li>permission - Uma cadeia de caracteres identificando qual permissão está sendo definida e pode conter um dos seguintes valores:<ul>
+<li>"read" - Permissão para ler valores de atributos do objeto nodo e permissão para saber que o objeto nodo existe.</li>
+<li>"write" - Permissão para escrever valores de atributos no objeto nodo.</li>
+<li>"createChild" - Permissão para criar Objetos Nodos filhos ao objeto nodo passado em parâmetro.</li>
+<li>"delete" - Permissão para apagar Objetos Nodos.</li>
+<li>"readPermissions" - Permissão para ler as permissões do objeto nodo (Uma meta-permissão).</li>
+<li>"writePermissions" - Permissão para definir permissões no objeto nodo (Uma meta-permissão).</li>
+<li>"writeMetaPermissions" - Permissão para definir meta-permissões no nodo. Quem possui esta permissão é capaz de escolher quem pode gerenciar permissões! (Uma meta-permissão)</li>
+</ul>
+</li>
+<li>allowance - Define se a permissão é concedida ou negada. Pode ser um dos seguintes valores:<ul>
+<li>"allow" - Esta cadeia de caracteres define que a permissão é concedida.</li>
+<li>"deny" - Esta cadeia de caracteres define que a permissão é negada.</li>
+<li>"strongAllow" - Esta cadeia de caracteres define que a permissão é concedida. A diferença entre "allow" e "strongAllow" se dá quando um usuário for afetado por "deny" e "allow/strongAllow" ao mesmo tempo: Se o usuário for afetado por "deny" e "allow" ao mesmo tempo, "deny" prevalece. Se for afetado por "deny" e "strongAllow" ao mesmo tempo, "strongAllow" prevalece.</li>
+<li><strong>nil</strong> - Nil significa: Remover, não definir, não conceder e nem negar esta permissão: A permissão será herdada do objeto nodo Pai do objeto passado como parâmetro.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se selKind for "user" e selId não identificar um usuário válido do RRPG, está função falhará.</li>
+<li>As permissões funcionam de forma herdada: Isto é, todos os nodos filhos do "node" também respeitarão esta permissão se ela não for redefinida no filho.</li>
+<li>Se em um mesmo nodo um usuário for afetado ao mesmo tempo por uma definição de permissão deny e por uma definição de permissão allow, "deny" prevalecerá por ser mais forte que "allow". Se em um mesmo nodo um usuário for afetado ao mesmo tempo por uma definição de permissão deny e por uma definição de permissão strongAllow, "strongAllow" prevalecerá por ser mais forte que "deny".<ul>
+<li>Exemplos de uso em que um usuário pode ser afetado por mais de uma definição de permissão:</li>
+<li>Você quer que todos os jogadores consigam ver um nodo, exceto José: Adiciona-se uma permissão "group jogadores read allow" e uma permissão "user José read deny". Mesmo fazendo parte do grupo Jogadores, José não terá permissão de leitura por deny ser mais forte que allow.</li>
+<li>Se você quer que NENHUM jogador consiga ver um nodo, exceto José: Adiciona-se uma permissão "group jogadores read deny" e uma permissão "user José read strongAllow". Mesmo fazendo parte do grupo Jogadores, José terá permissão de leitura por strongAllow ser mais forte que deny.</li>
+</ul>
+</li>
+<li>Mesmo que você não defina permissões, todo NodeDatabase possui um conjunto de permissões básicos que são herdados em todos os Nodos caso não sejam redefinidos.</li>
+<li>Por segurança:<ul>
+<li>Esta função possui um gatilho que não permite o usuário remover sua própria permissão de "read", "readPermissions", "writePermissions" e "writeMetaPermissions" quando for possuidor de tais permissões.</li>
+<li>Para conceder/negar permissões "read", "write", "createChild" e "delete", o usuário atual deve possuir a permissão "writePermissions". Para conceder/negar as meta-permissões "readPermissions", "writePermissions" e "writeMetaPermissions", o usuário deve possuir também a permissão "writeMetaPermissions". Por padrão, apenas o criador da sala possui "writeMetaPermissions" e todos os mestres possuem "writePermissions".</li>
+<li>Um Super Usuário não é afetado por nenhuma definição de permissão de usuário e tem acesso total. Quando um usuário for o criador da mesa e estiver com o modo +mestre nesta mesma mesa, ele é considerado um Super Usuário.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplos:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Não permitir nem os jogadores e nem os espectadores verem os valores de Sheet</em> NDB.setPermission(sheet, "group", "jogadores", "read", "deny"); NDB.setPermission(sheet, "group", "espectadores", "read", "deny"); <em>-- Desfazer as permissões acima, voltando para valores padrões/herdados.</em> NDB.setPermission(sheet, "group", "jogadores", "read", nil); NDB.setPermission(sheet, "group", "espectadores", "read", nil);  <em>-- Permitir que +jogadores possam alterar valores de sheet</em> NDB.setPermission(sheet, "group", "jogadores", "write", "allow");  <em>-- Permitir que o usuário AlyssonRPG tenha permissões de mestre:</em> NDB.setPermission(sheet, "user", "AlyssonRPG", "read", "allow"); NDB.setPermission(sheet, "user", "AlyssonRPG", "write", "allow"); NDB.setPermission(sheet, "user", "AlyssonRPG", "createChild", "allow"); NDB.setPermission(sheet, "user", "AlyssonRPG", "delete", "allow"); NDB.setPermission(sheet, "user", "AlyssonRPG", "readPermissions", "allow"); NDB.setPermission(sheet, "user", "AlyssonRPG", "writePermissions", "allow");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.getPermission(node, selKind, selId, permission)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna a definição de uma permissão de alguém de um <a href="../ObjetoNodo/">Objeto nodo</a> que foi previamente definida pelo método <a href="./#ndb.setPermission">NDB.setPermission</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> o qual deseja consultar a permissão.</li>
+<li>selKind - Selector Kind, uma cadeia de caracteres podendo ser "group" ou "user". A combinação dos parâmetros selKind + selId define de quem a permissão deve ser consultada.</li>
+<li>selId - Selector Id, uma cadeia de caracteres contendo a identificação do usuário ou grupo de usuários de quem a permissão deve ser consultada.<ul>
+<li>se selKind for "user", selId contém o login do usuário RRPG que deseja consultar a permissão.</li>
+<li>se selKind for "group", selId pode conter um dos seguintes valores:</li>
+<li>"todos" - Permissão que foi aplicada a TODOS do RRPG</li>
+<li>"mestresAux" - Permissão que foi aplicada a todos os mestres auxiliares da mesa.</li>
+<li>"mestres" - Permissão que foi aplicada a todos que possuírem o modo +mestre na mesa.</li>
+<li>"jogadores" - Permissão que foi aplicada a todos que possuírem o modo +jogador na mesa.</li>
+<li>"espectadores" - Permissão que foi aplicada a todos que forem espectadores na mesa.</li>
+<li>"criadorDaMesa" - Permissão que foi aplicada em quem tiver criado a mesa.</li>
+<li>"criador" - Permissão que foi aplicada em quem criou o NodeDatabase (Válido somente se for node for de um NodeDatabase de um personagem)</li>
+<li>"dono" - Permissão que foi aplicada em quem for dono do NodeDatabase (Válido somente se for node for de um NodeDatabase de um personagem)</li>
+<li>"cegos" - Permissão que foi aplicada em quem tiver o modo +cego na mesa.</li>
+<li>"mudos" - Permissão que foi aplicada em quem tiver o modo +mudo na mesa.</li>
+<li>"voices" - Permissão que foi aplicada em quem tiver o modo +voz na mesa.</li>
+</ul>
+</li>
+<li>permission - Uma cadeia de caracteres identificando qual permissão está sendo consultada e pode conter um dos seguintes valores:<ul>
+<li>"read" - Permissão para ler valores de atributos do objeto nodo e permissão para saber que o objeto nodo existe.</li>
+<li>"write" - Permissão para escrever valores de atributos no objeto nodo.</li>
+<li>"createChild" - Permissão para criar Objetos Nodos filhos ao objeto nodo passado em parâmetro.</li>
+<li>"delete" - Permissão para apagar Objetos Nodos.</li>
+<li>"readPermissions" - Permissão para ler as permissões do objeto nodo (Uma meta-permissão).</li>
+<li>"writePermissions" - Permissão para definir permissões no objeto nodo (Uma meta-permissão).</li>
+<li>"writeMetaPermissions" - Permissão para definir meta-permissões no nodo. Quem possui esta permissão é capaz de escolher quem pode gerenciar permissões! (Uma meta-permissão)</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<p>&nbsp; &nbsp; A função pode retornar um dos 4 abaixo:</p>
+<ul>
+<li>&nbsp;</li>
+<li>"allow"&nbsp; - Cadeia de caracteres que informa que a permissão foi concedida</li>
+<li>"deny" - Cadeia de caracteres que informa que a permissão foi negada.</li>
+<li>"strongAllow" - Cadeia de caracteres que informa que a permissão é concedida. A diferença entre "allow" e "strongAllow" se dá quando um usuário for afetado por "deny" e "allow/strongAllow" ao mesmo tempo: Se o usuário for afetado por "deny" e "allow" ao mesmo tempo, "deny" prevalece. Se for afetado por "deny" e "strongAllow" ao mesmo tempo, "strongAllow" prevalece.</li>
+<li><strong>nil</strong> - Nil significa que a permissão não foi definida, não foi concedida e nem negada: A permissão está sendo herdada do objeto nodo Pai do objeto passado como parâmetro</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função retorna se há uma definição de permissão em determinado nodo mas não analisa a herança de permissões. Caso queira testar se o usuário possui permissão, seja por uma definição local ou herdada, utilize o método <a href="./#ndb.testPermission">NDB.testPermission</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.testPermission(node, permission)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Realiza um teste de permissão: Verifica se o usuário atual possui determinada permissão em um objeto nodo, seja permissão herdada ou permissão definida localmente.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> o qual deseja testar a permissão.</li>
+<li>permission - Uma cadeia de caracteres identificando qual permissão está sendo testada e pode conter um dos seguintes valores:<ul>
+<li>"read" - Permissão para ler valores de atributos do objeto nodo e permissão para saber que o objeto nodo existe.</li>
+<li>"write" - Permissão para escrever valores de atributos no objeto nodo.</li>
+<li>"createChild" - Permissão para criar Objetos Nodos filhos ao objeto nodo passado em parâmetro.</li>
+<li>"delete" - Permissão para apagar Objetos Nodos.</li>
+<li>"readPermissions" - Permissão para ler as permissões do objeto nodo (Uma meta-permissão).</li>
+<li>"writePermissions" - Permissão para definir permissões no objeto nodo (Uma meta-permissão).</li>
+<li>"writeMetaPermissions" - Permissão para definir meta-permissões no nodo. Quem possui esta permissão é capaz de escolher quem pode gerenciar permissões! (Uma meta-permissão)</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Booleano <strong>true</strong> se o usuário possui permissão, senão <strong>false</strong>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.enumPermissions(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna todas as permissões que foram definidas em um determinado objeto nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> o qual deseja enumerar as permissão.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um array (tabela Lua indexada de 1 a #retorno), onde cada item é uma tabela contendo as seguintes propriedades:<ul>
+<li>selKind - Selector Kind, uma cadeia de caracteres podendo ser "group" ou "user". A combinação dos parâmetros selKind + selId define a quem a permissão é aplicada.</li>
+<li>selId - Selector ID, uma cadeia de caracteres contendo a identificação do usuário ou grupo de usuários a quem a permissão é aplicada.</li>
+<li>se selKind for "user", selId contém o login do usuário RRPG a quem a permissão é aplicada.</li>
+<li>se selKind for "group", selId pode conter um dos seguintes valores:<ul>
+<li>"todos" - Permissão que foi aplicada a TODOS do RRPG</li>
+<li>"mestresAux" - Permissão que foi aplicada a todos os mestres auxiliares da mesa.</li>
+<li>"mestres" - Permissão que foi aplicada a todos que possuírem o modo +mestre na mesa.</li>
+<li>"jogadores" - Permissão que foi aplicada a todos que possuírem o modo +jogador na mesa.</li>
+<li>"espectadores" - Permissão que foi aplicada a todos que forem espectadores na mesa.</li>
+<li>"criadorDaMesa" - Permissão que foi aplicada em quem tiver criado a mesa.</li>
+<li>"criador" - Permissão que foi aplicada em quem criou o NodeDatabase (Válido somente se for node for de um NodeDatabase de um personagem)</li>
+<li>"dono" - Permissão que foi aplicada em quem for dono do NodeDatabase (Válido somente se for node for de um NodeDatabase de um personagem)</li>
+<li>"cegos" - Permissão que foi aplicada em quem tiver o modo +cego na mesa.</li>
+<li>"mudos" - Permissão que foi aplicada em quem tiver o modo +mudo na mesa.</li>
+<li>"voices" - Permissão que foi aplicada em quem tiver o modo +voz na mesa.</li>
+</ul>
+</li>
+<li>permission - Uma cadeia de caracteres identificando qual permissão foi aplicada e pode conter um dos seguintes valores:</li>
+<li>"read" - Permissão para ler valores de atributos do objeto nodo e permissão para saber que o objeto nodo existe.</li>
+<li>"write" - Permissão para escrever valores de atributos no objeto nodo.</li>
+<li>"createChild" - Permissão para criar Objetos Nodos filhos ao objeto nodo passado em parâmetro.</li>
+<li>"delete" - Permissão para apagar Objetos Nodos.</li>
+<li>"readPermissions" - Permissão para ler as permissões do objeto nodo (Uma meta-permissão).</li>
+<li>"writePermissions" - Permissão para definir permissões no objeto nodo (Uma meta-permissão).</li>
+<li>"writeMetaPermissions" - Permissão para definir meta-permissões no nodo. Quem possui esta permissão é capaz de escolher quem pode gerenciar permissões! (Uma meta-permissão)</li>
+<li>allowance - Define se a permissão foi concedida ou negada. Pode conter um dos seguintes valores:</li>
+<li>"allow" - Esta cadeia de caracteres define que a permissão foi concedida.</li>
+<li>"deny" - Esta cadeia de caracteres define que a permissão foi negada.</li>
+<li>"strongAllow" - Esta cadeia de caracteres define que a permissão é concedida. A diferença entre "allow" e "strongAllow" se dá quando um usuário for afetado por "deny" e "allow/strongAllow" ao mesmo tempo: Se o usuário for afetado por "deny" e "allow" ao mesmo tempo, "deny" prevalece. Se for afetado por "deny" e "strongAllow" ao mesmo tempo, "strongAllow" prevalece.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.resetPermissions(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exclui todas as definições de permissões em um determinado objeto nodo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> que deseja limpar as definições de permissões.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.editPermissions(node)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Apresenta uma interface padrão para o usuário editar as permissões de um Node do NodeDatabase</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> que o usuário editará as permissões.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 id="funcoes-de-comunicacao-atraves-do-nodedatabase">Funções de comunicação através do NodeDatabase</h1>
+<p>NodeDatabases permitem o envio e recebimento de mensagens aos usuários que estão acessando o mesmo NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.broadcastMessage(node, messageId, message[, loopBack])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Envia uma mensagem a todos os outros usuários que estão com o nodeDatabase aberto.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase a qual deseja enviar uma mensagem</li>
+<li>messageId - Uma cadeia de caracteres contendo a identificação da mensagem.</li>
+<li>message - A mensagem a ser transmitida. Aqui são aceitos textos, tabelas lua, números e booleanos.</li>
+<li>(OPICIONAL) loopBack - Informa se quer que esta mensagem seja retransmitida para você mesmo. Valor padrão: false</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A mensagem enviada é entregue a todos os outros usuários conectados no NodeDatabase.</li>
+<li>Para receber as mensagens recebidas, o usuário destinatário deve ter previamente invocado a função <a href="./#newBroadcastListener">NDB.newBroadcastListener</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> NDB.newBroadcastListener(node, messageId, callback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>\
+Cria uma escuta de mensagens para receber mensagens postadas pela função <a href="./#broadcastMessage">NDB.broadcastMessage</a>.&nbsp;</p>
+<p>\
+Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>node - <a href="../ObjetoNodo/">Objeto nodo</a> do NodeDatabase do qual deseja receber mensagens.</li>
+<li>messageId - Uma cadeia de caracteres contendo a identificação das mensagens que deseja receber. Deve ser igual ao messageId usado na função <a href="./#broadcastMessage">NDB.broadcastMessage</a>.</li>
+<li>callback - Uma função que será invocada ao receber mensagens. Esta função recebe três parâmetros na seguinte ordem:<ul>
+<li>sender - Cadeia de caracteres contendo o <strong>login</strong> do usuário que enviou a mensagem</li>
+<li>messageId - Cadeia de caracteres contendo a identificação da mensagem recebida</li>
+<li>message - A mensagem que foi postada.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna um objeto representando o Listener.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Importante: Mantenha referência ao objeto retornado por esta função enquanto quiser que a escuta esteja ativa. Se o coletor de lixo LUA coletar este objeto, a escuta é destruída e a função callback não será mais invocada.</li>
+<li>Se quiser destruir a escuta imediatamente, invoque a função destroy do objeto retornado.... obj:destroy();</li>
+<li>Nos casos das fichas e janelas acopláveis, o RRPG mantém nodeDatabases carregados mesmo após o usuário fechar a janela da ficha. Por este motivo, a função callback pode ser invocada para uma ficha que não possui mais janela. Se fizer uso de mensagens, esteja preparado para este comportamento.</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Effortlessly Create Encrypted, Password-Protected PDFs</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaNDB.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

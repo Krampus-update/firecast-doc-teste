@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag recordList - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag recordList", url: "#_top", children: [
+				]},
+				{title: "Tag recordList", url: "#tag-recordlist_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagradioButton/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagradioButton/" class="btn btn-sm btn-link">
+			Tag radioButton
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagrectangle/" class="btn btn-sm btn-link">
+			Tag rectangle
+		</a>
+		<a href="../Tagrectangle/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-recordlist">Tag recordList</h1>
+<h1 id="tag-recordlist_1">Tag recordList</h1>
+<p>&nbsp;</p>
+<p>A tag/componente <strong>recordList</strong> é uma lista de registros na interface. Usada em conjunto com um <a href="../NodeDatabase/">NodeDatabase</a>, o controle apresenta um painel na interface para cada item/nodo filho de um campo.</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O painel dos itens é customizado pelo programador.</li>
+<li>O painel dos itens deve ser um form (ver <a href="../Tagform/">Tag form</a>) e é chamado de Template Form.</li>
+<li>Você vai precisar de ao menos dois arquivos de extensão ".lfm": Um onde se encontra o recordList, e outro representando o painel item.</li>
+<li>Cada item possui seu próprio <a href="../ObjetoNodo/">objeto nodo</a>, e cada painel de item é automaticamente ligado a seu <a href="../LuaFormeNodeDatabase/#Escopo%20de%20dados">escopo de dados</a>.</li>
+</ul>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>recordList</strong> possui <strong>todas</strong> as características da tag layout.&nbsp;</p>
+<p>Veja:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../Taglayout/">Tag layout</a></li>
+<li><a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a><strong>.</strong></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o <strong>recordList</strong> possui também as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>field</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o recordList passa a usar este campo para salvar e apresentar os itens desta lista.&nbsp; Observações: Deve ser preenchido para o recordList funcionar. O campo informado se tornará um nodo no NodeDatabase&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>templateForm</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Identifica qual é o template form do record list, isto é, o painel que será exibido para cada item.&nbsp; Deve ser igual ao atributo "name" de um form contido em algum arquivo ".lfm" do projeto do plugin.&nbsp; Sim, você precisará de outro arquivo ".lfm" para definir fazer esta tag funcionar.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>itemHeight</strong></td>
+<td>Float</td>
+<td>&#54;4.0</td>
+<td>Altura padrão de cada item do recordList.&nbsp; Este valor é usado quando a propriedade "height" do Template Form não for definida.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>minQt</strong></td>
+<td>Integer</td>
+<td>&#48;</td>
+<td>Define qual é a quantidade mínima de itens que este recordList deve apresentar na interface.&nbsp; Experimente colocar o valor 1 nesta propriedade. As vezes isto ajuda o usuário =)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>autoHeight</strong></td>
+<td>Boolean</td>
+<td>False</td>
+<td>Quando true, o recordList automaticamente se expande/contrai na vertical para melhor visualização de seus itens.&nbsp; Quando false, o recordList apresenta barras de rolagens quando o conteúdo for maior que sua altura.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>layout</strong></td>
+<td>Enumerado: "vertical" "horizontal" "horizontalTiles" "verticalTiles"</td>
+<td>"vertical"</td>
+<td>Define como são organizados visualmente os itens do recordList.&nbsp; "vertical' - Os itens são empilhados de forma vertical, 1 item por linha. A altura de cada painel é definido pela propriedade "height" do templateForm e a largura é ajustada para equivaler à largura do recordList.&nbsp; "horizontal" - Os Itens são empilhados lado a lado, de forma horizontal em apenas 1 linha. A largura de cada painel é definido pelo atributo "width" do templateForm e a altura é ajustada para equivaler à altura do recordList. A propriedade autoHeight é desativada ao usar este layout.&nbsp; "horizontalTiles" - Os itens são dispostos na horizontal (lado a lado), podendo quebrar de linha quando for preciso mais espaço. Tanto a altura quanto a largura de cada painel são definidos pelas propriedades "width" e "height" do templateForm.&nbsp; "verticalTiles" - Os itens são dispostos na vertical, podendo ocupar mais de 1 coluna quando houver espaço para isso. Tanto a altura quanto a largura de cada painel são definidos pelas propriedades "width" e "height" do templateForm.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>selectable</strong></td>
+<td>Boolean</td>
+<td>False</td>
+<td>Indica se o recordList deve funcionar visualmente como uma lista de itens selecionáveis.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>selectedNode</strong></td>
+<td><a href="../ObjetoNodo/">Objeto Nodo</a></td>
+<td>\&lt;\&lt; Não há &gt;&gt;</td>
+<td>Contém o <a href="../ObjetoNodo/">Objeto Nodo</a> do item atualmente focado/selecionado no recordList.&nbsp; Caso não haja seleção, contém <strong>nil</strong>.&nbsp; Ao atribuir um valor, o recordList procura qual de seus itens está associado ao nodo e o seleciona. Caso não encontre, a seleção será desfeita e selectedNode passará a ser <strong>nil</strong>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>selectedForm</strong></td>
+<td><a href="../Tagform/">Objeto Form</a></td>
+<td>\&lt;\&lt; Não há &gt;&gt;</td>
+<td>(Somente Leitura) Contém o <a href="../Tagform/">Objeto Form</a> do item atualmente focado/selecionado no recordList.&nbsp; Caso não haja seleção, contém <strong>nil</strong>.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>recordList:append();</strong></td>
+<td>Insere um novo item ao recordList.&nbsp; Retorno: Caso consiga inserir um novo item, retorna o novo <a href="../ObjetoNodo/">objeto Nodo </a>do item inserido, senão retorna <strong>nil</strong>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>recordList:sort();</strong></td>
+<td>Força o recordList a executar uma reordenação de seus itens.&nbsp; Observação: Você deve manipular o evento <a href="./#Evento%20onEndEnumeration">onCompare</a> para definir como os itens serão ordenados.</td>
+</tr>
+<tr>
+<td><strong>recordList:scrollToNode(node)</strong></td>
+<td>Se a propriedade "autoHeight" for false, este método movimenta as barras de rolagem do recordList para que o painel do nodo fique visível na tela do usuário.&nbsp; Parâmetros: node - um <a href="../ObjetoNodo/">objeto Nodo</a> identificando o nodo do item que deseja tornar visível na tela do usuário. &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onSelect</strong></td>
+<td>Este evento é invocado quando a seleção do recordList muda, isto é, quando um item for selecionado ou quando nenhum item estiver selecionado.&nbsp; Observações:&nbsp; Para descobrir qual item foi selecionado, utilize as propriedades <a href="./#propriedade%20selectedNode">selectedNode</a> e <a href="./#propriedade%20selectedForm">selectedForm</a> Este evento é disparado mesmo quando a propriedade "selectable" for false.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeginEnumeration</strong></td>
+<td>Este evento é invocado quando o recordList começar a enumerar as mudanças de itens, disparando, logo a seguir, 0 ou mais eventos onItemAdded e/ou onItemRemoved.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onItemAdded</strong></td>
+<td>Evento disparado quando um item for carregado/adicionado visualmente no recordList&nbsp; Parâmetros: node - <a href="../ObjetoNodo/">Objeto Nodo</a> do item adicionado. form - <a href="../Tagform/">Objeto Form</a> do item adicionado.&nbsp; Observações: Este evento representa um item que foi enumerado visualmente na lista e não necessariamente que um novo item foi inserido nos dados salvos. Durante o carregamento dos dados, este evento é disparado para cada item carregado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onItemRemoved</strong></td>
+<td>Evento disparado quando um item for descarregado/removido visualmente do recordList&nbsp; Parâmetros: node - <a href="../ObjetoNodo/">Objeto Nodo</a> do item removido. form - <a href="../Tagform/">Objeto Form</a> do item removido.&nbsp; Observações: Este evento representa um item que deixou de ser enumerado visualmente da lista e não necessariamente que um item foi deletado dos dados salvos.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onEndEnumeration</strong></td>
+<td>Este evento é invocado quando o recordList terminar de enumerar as mudanças de itens e não houver outro evento onItemAdded e/ou oItemRemoved para disparar a seguir.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onCompare</strong></td>
+<td>Este evento é invocado em momentos chaves para garantir a ordenação dos itens que são mostrados na interface. Quando invocado, o evento traz 2 nodos para que o programador retorne, entre os dois, qual deve aparecer antes.&nbsp; Parâmetros: nodeA - <a href="../ObjetoNodo/">Objeto Nodo</a> contendo um nodo que deve ser comparado. nodeB - <a href="../ObjetoNodo/">Objeto Nodo</a> contendo o outro nodo que deve ser comparado.&nbsp; Retorno: Retorne um número <strong>menor</strong> que 0 se "nodeA" deve ser exibido <strong>antes</strong> de "nodeB" Retorne um número <strong>maior</strong> que 0 se "nodeA" deve ser exibido <strong>depois</strong> de "nodeB" Retorne 0 se os dois são equivalentes na questão da ordem.&nbsp; Observação: Veja o <a href="./#Exemplo%202%20-%20ordenação">exemplo 2</a> para entender melhor como este evento funciona.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Veja <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></p>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-lista-simples-de-edits">Exemplo 1 - Lista simples de edits</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Arquivo “ficha.lfm”</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                 <strong>\&lt;button</strong> left="20" top="20" height="25" text="Nova Magia" width="80"                 onClick="self.rclMagias:append();"<strong>/&gt;</strong> &nbsp; &nbsp; &nbsp; &nbsp;  <strong>\&lt;recordList</strong> name="rclMagias" field="magias" templateForm="frmItemDeMagia"                     left="20" top="60" width="300" autoHeight="true"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Arquivo “itemDeMagia.lfm”</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmItemDeMagia" height="30" margins="{top=2,bottom=2}"<strong>&gt;</strong>                <strong>\&lt;edit</strong> align="client" field="nome" margins="{right=2}"<strong>/&gt;</strong>                 <strong>\&lt;button</strong> align="right" text="Apagar" width="80"                 onClick="ndb.deleteNode(sheet);"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>A tag recordList do arquivo "ficha.lfm" utiliza o form do arquivo"itemDeMagia.lfm" quando é definido sua propriedade "templateForm".</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem100.png" /> &nbsp; <img alt="Image" src="../lib/NewItem101.png" /></p>
+<p>&nbsp;</p>
+<p>Note que existe uma instância de "frmItemDeMagia" para cada item existente.</p>
+<p>&nbsp;</p>
+<p>Observação: No botão apagar foi utilizada a <a href="../BibliotecaNDB/">biblioteca "ndb</a>" para apagar um item. Leia mais sobre em:</p>
+<ul>
+<li><a href="../NodeDatabase/">NodeDatabase</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Detalhes que valem prestar a atenção:</p>
+<ul>
+<li>Na tag <strong>form</strong> do arquivo "itemDeMagia.lfm", a propriedade "height" foi definida. Esta é a altura do painel que se repete para cada item. Provavelmente você precisará definir um valor "height" apropriado para seu caso =).</li>
+<li>A variável "sheet" que foi referenciada no arquivo "itemDeMagia.lfm" representa <a href="../ObjetoNodo/">o objeto nodo</a> do item ligado ao painel e não da ficha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-adicionando-uma-ordenacao-ao-exemplo-1">Exemplo 2 - Adicionando uma ordenação ao Exemplo 1</h3>
+<p>&nbsp;</p>
+<p>Manipulando o evento OnCompare parar ordenar de forma crescente pelo atributo "nome" dos itens.</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>.....</strong> <strong>.....</strong> <strong>\&lt;recordList</strong> name="rclMagias" field="magias" templateForm="frmItemDeMagia"                         left="20" top="60" width="300" autoHeight="true"<strong>&gt;</strong>         <strong>\&lt;event</strong> name="onCompare"<strong>&gt;</strong>                 return utils.compareStringPtBr(nodeA.nome, nodeB.nome);         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/recordList&gt;</strong> <strong>...</strong> <strong>...</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Ordenando pelo \&lt;custo, nome&gt;. Isto é, ordenar pelo custo e considerar o nome em caso de empate.</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;recordList</strong> name="rclMagias" field="magias" templateForm="frmItemDeMagia"                         left="20" top="60" width="300" autoHeight="true"<strong>&gt;</strong>         <strong>\&lt;event</strong> name="onCompare"<strong>&gt;</strong>\&lt;![CDATA[                                if (nodeA.custo or 0) \&lt; (nodeB.custo or 0) then                         return -1;                 elseif (nodeA.custo or 0) &gt; (nodeB.custo or 0) then                         return 1;                 else                            return utils.compareStringPtBr(nodeA.nome, nodeB.nome);                 end;                                ]]&gt;         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/recordList&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Maximize Your PDF Protection with These Simple Steps</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagradioButton/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagradioButton/" class="btn btn-sm btn-link">
+			Tag radioButton
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagrectangle/" class="btn btn-sm btn-link">
+			Tag rectangle
+		</a>
+		<a href="../Tagrectangle/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/TagrecordList.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:43 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

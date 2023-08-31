@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto SceneViewport - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto SceneViewport", url: "#_top", children: [
+				]},
+				{title: "Objeto SceneViewport", url: "#objeto-sceneviewport_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneToken/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneToken/" class="btn btn-sm btn-link">
+			Objeto SceneToken
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-link">
+			Estrutura SceneRect
+		</a>
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-sceneviewport">Objeto SceneViewport</h1>
+<h1 id="objeto-sceneviewport_1">Objeto SceneViewport</h1>
+<p>O Objeto Viewport representa a tela do usuário, a janela de exibição, onde o scene está sendo renderizado.</p>
+<p>&nbsp;</p>
+<p>O Viewport de um scene pode ser obtido através da propriedade "<a href="../ObjetoScene/#prop%20viewport">viewport</a>" do <a href="../ObjetoScene/">objeto Scene</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O o<strong>bjeto SceneViewport</strong> herda de <a href="../ObjetoSceneBaseObject/">SceneBaseObject</a> e possui também todas as suas características.</p>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o objeto SceneViewport também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>scene</strong></td>
+<td><a href="../ObjetoScene/">Objeto Scene</a></td>
+<td>(Somente Leitura) Contém o <a href="../ObjetoScene/">Objeto Scene</a> que este Viewport renderiza.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>width</strong></td>
+<td>Double</td>
+<td>(Somente Leitura) Contem a LARGURA em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Tela</a> do viewport, isto é, da janela onde o scene está sendo renderizado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>Double</td>
+<td>(Somente Leitura) Contem a ALTURA em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Tela</a> do viewport, isto é, da janela onde o scene está sendo renderizado. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>worldX</strong></td>
+<td>Double</td>
+<td>Define, em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Mundo</a>, em qual posição do eixo X do mundo o ponto (X: 0, Y: 0) da tela aponta.&nbsp; As propriedades "worldX" e "worldY" servem para fazer "scroll" no scene.&nbsp; Se quiser fazer um scroll para a direita, por exemplo, incrementa-se o valor de worldX. Se quiser fazer um scroll para cima, decrementa-se o valor de worldY;&nbsp; Este é um valor local e não é compartilhado com os outros usuários que estão visualizando o mesmo scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>worldY</strong></td>
+<td>Double</td>
+<td>Define, em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Mundo</a>, em qual posição do eixo Y do mundo o ponto (X: 0, Y: 0) da tela aponta.&nbsp; As propriedades "worldX" e "worldY" servem para fazer "scroll" no scene.&nbsp; Se quiser fazer um scroll para a direita, por exemplo, incrementa-se o valor de worldX. Se quiser fazer um scroll para cima, decrementa-se o valor de worldY;&nbsp; Este é um valor local e não é compartilhado com os outros usuários que estão visualizando o mesmo scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>scale</strong></td>
+<td>Double</td>
+<td>Define a escala entre a <a href="../MetricadoMundovsMetricadaTela/">Métrica do Mundo</a> e a <a href="../MetricadoMundovsMetricadaTela/">Métrica da Tela</a> do Scene.&nbsp; Em outras palavras, esta propriedade controla o "zoom" do Scene.&nbsp; Exemplo: Um valor 32.0 significa que cada unidade métrica do mundo ocupam 32 unidades métricas de tela.&nbsp; Se quiser, por exemplo, efetuar um zoom+ no scene, incrementa-se "scale". Se quiser reduzir o zoom pela metade, divide-se por dois o valor de "scale".&nbsp; Este é um valor local e não é compartilhado com os outros usuários que estão visualizando o mesmo scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>cursor</strong></td>
+<td>Enumerado: "default" "arrow" "handPoint" "hourGlass" "IBeam" "size" "sizeNESW" "sizeNS" "sizeNWSE" "sizeWE" "upArrow" "drag" "noDrop" "hSplit" "vSplit" "multiDrag" "sqlWait" "no" "appStart" "help" "cross"</td>
+<td>Define qual cursor de mouse deve ser apresentado quando o mouse estiver em em cima do viewport do scene.&nbsp; "default" - Cursor padrão, uma seta padrão. "arrow" - Uma seta padrão. "handPoint" - Uma mão com um dedo apontando para cima. Normalmente é usado para identificar um item selecionável/clicável "hourGlass" - Uma ampulheta para indicar um processo em andamento. "IBeam" - Cursor que sinaliza a possibilidade de entrar com texto no controle. "size" - Indicação de possibilidade de redimensionamento. "sizeNESW" - Indicação de possibilidade de redimensionamento no sentido Nordeste-Sudoeste "sizeNS" - Indicação de possibilidade de redimensionamento no sentido Norte-Sul "sizeNWSE" - Indicação de possibilidade de redimensionamento no sentido Noroeste-Sudeste "sizeWE" - Indicação de possibilidade de redimensionamento no sentido Leste-Oeste "upArrow" - Uma seta apontando para cima. "drag" - Um cursor indicando que itens estão sendo arrastados. "noDrop" - Indicação de que não é possível arrastar para este alvo. "hSplit" -&nbsp; Indicação de splitter horizontal "vSplit" - Indicação de splitter vertical. "multiDrag" - Indicação de que vários itens estão sendo arrastados. "sqlWait" - Ampulheta indicando um processo de banco de dados em andamento. "no" - Uma indicação de negação, de que não é possível fazer algo. "appStart" - Combinação de "default" e "hourGlass", normalmente usado para indicar que um aplicativo está sendo aberto. "help" - Uma seta com um ponto de interrogação. "cross" - Um cursor em formato de cruz, usado para indicar um posicionamento preciso.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>viewport:screenToWorld(screenX, screenY)</strong></td>
+<td>Converte uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a> em uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O ponto (screenX, screenY) da tela do usuário representa qual ponto (worldX, worldY) do tabuleiro?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: screenX - a posição do eixo X do ponto da tela screenY - a posição do eixo Y do ponto da tela&nbsp; Retorno: Esta função retorna 2 valores na seguinte ordem: worldX e worldY contendo o ponto convertido em métricas de mundo.&nbsp; Exemplo de uso: local worldX, worldY = scene.viewport:screenToWorld(10, 50);&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:screenToWorld(screenRect)</strong></td>
+<td>Converte um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a> em um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O retângulo "screenRect" da tela do usuário representa qual retângulo do tabuleiro?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: screenRect - Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo que será convertido.&nbsp; Retorno: Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo convertido em métricas de mundo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:worldToScreen(worldX, worldY)</strong></td>
+<td>Converte uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a> em uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O ponto (worldX, worldY) do mundo do scene fica em qual posição (screenX, screenY) na tela do usuário?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: worldX - a posição do eixo X do mundo do scene. worldY - a posição do eixo Y do mundo do scene.&nbsp; Retorno: Esta função retorna 2 valores na seguinte ordem: screenX e screenY contendo o ponto convertido em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; Exemplo de uso: local screenX, screenY = scene.viewport:worldToScreen(3, 4.5);&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:worldToScreen(worldRect)</strong></td>
+<td>Converte um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a> em um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O retângulo "worldRect" do mundo do scene ocupa qual retângulo da tela do usuário?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: worldRect - Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo que será convertido.&nbsp; Retorno: Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo convertido em métricas de tela.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:getScrollBounds()</strong>&nbsp;</td>
+<td>Retorna os limites de scroll para os valores worldX e worldY.&nbsp; Retorno: Esta função retorna 4 valores numéricos na seguinte ordem e definição: minX - Um número. O scene não deixa a propriedade worldX ficar menor que este valor. minY - Um número. O scene não deixa a propriedade worldY ficar menor que este valor; maxX - Um número. O scene não deixa a propriedade worldX ficar maior que este valor. maxY - Um número. O scene não deixa a propriedade worldY ficar maior que este valor.&nbsp; Exemplo de uso: local minX, minY, maxX, maxY = viewport:getScrollBounds(); &nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:setupToolCategory(name, title, order)</strong></td>
+<td>Atualiza ou cria uma categoria de ferramentas no Scene.&nbsp; Parâmetros: name - Uma cadeia de caracteres contendo o nome da categoria. Este nome pode ser referenciado depois pela função <a href="./#addToolButton()">addToolButton</a> title - Uma cadeia de caracteres contendo a descrição/título da categoria. order - Um número definindo a ordem da categoria. Esta categoria será exibida depois/abaixo de outra categoria de ordem menor. (A grosso modo, quem tiver número de ordem menor fica na frente)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:addToolButton(categoryName, title, &nbsp; iconURL, order, options, callback [, deactivationCallback])</strong></td>
+<td>Adiciona um botão-ferramenta ao Scene.&nbsp; Parâmetros: categoryName - O nome da categoria em que o botão deve ser inserido. Este é o mesmo nome usado na função <a href="./#setupToolCategory">setupToolCategory</a>. Se for especificado uma categoria inexistente, ela será criada. title - Cadeia de caracteres contendo o título do botão. iconURL - Cadeia de caracteres contendo o endereço/caminho de uma imagem que será utilizada como ícone da ferramenta. Pode ser um endereço de internet (exemplo: “<a href="http://xxxx.com.br/a.png">http://xxxx.com.br/a.png</a>”)&nbsp; Pode ser o caminho de um arquivo contido no pacote do plugin. Pode ser um arquivo que se encontra no <a href="../HDVirtual/">HD Virtual</a> do plugin instalado. order - Um número contendo a ordem do botão em sua categoria. A grosso modo, quem tiver um número de ordem menor fica na frente. options - <strong>nil</strong> ou uma tabela LUA podendo conter os seguintes atributos: "selectable" - Booleano, onde true significa que a ferramenta é uma ferramenta selecionável. Uma ferramenta selecionável permanece ativa até que fique "não selecionada". Por padrão, este valor é false e significa que a ferramenta executa algo que não precisa mudar seleção da ferramenta ativa. defaultOfCategory - Booleano onde true significa que esta ferramenta é a padrão da categoria que está e que ela será utilizada quando o usuário clicar na categoria. O padrão é false. dontFocus - Booleano onde true significa que a ferramenta não deve ser focada como ferramenta padrão da categoria após o usuário clicar nela. O padrão é false. DontFocus não funciona se selectable estiver ativo. callback - Uma função que será chamada quando o usuário ativar/clicar esta ferramenta. (OPCIONAL) deactivationCallback - Uma função que será chamada quando esta ferramenta estava selecionada e o usuário selecionou outra. Este callback é chamado apenas se a ferramenta for do tipo "selecionável" e o Scene espera que sua ferramenta pare de fazer o que ela faz quando selecionada.&nbsp; Retorno: Esta função retorna um número identificador do ToolButton no scene. Este mesmo valor pode ser utilizado posteriormente na função <a href="./#removeToolButton()">removeToolButton</a>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:removeToolButton(toolID)</strong></td>
+<td>Remove um botão ferramenta que foi previamente adicionado pela função <a href="./#addToolButton()">addToolButton</a>.&nbsp; Parâmetros: toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:checkToolButton(toolID[, checked])</strong></td>
+<td>Marca ou desmarca um ToolButton. A marcação é uma mera indicação visual para o usuário entender que o Tool está ativo de alguma forma.&nbsp; Podem existir mais de 1 ToolButton marcados ao mesmo tempo.&nbsp; Parâmetros: toolID - toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton. (OPCIONAL) checked - Um booleano, onde <strong>true</strong> significa marcar o tool button e <strong>false</strong> significa desmarcar o tool button. Se não informado, true será utilizado como padrão.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:isToolButtonChecked(toolID)</strong></td>
+<td>Retorna se um determinado ToolButto está marcado. A marcação é uma mera indicação visual para o usuário entender que o Tool está ativo de alguma forma.&nbsp; Podem existir mais de 1 ToolButton marcados ao mesmo tempo.&nbsp; Parâmetros: toolID - toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton.&nbsp; Retorno: Um Boolean, onde <strong>true</strong> significa que o toolbutton está marcado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:selectDefaultToolButton()</strong></td>
+<td>Seleciona a Ferramenta/Tool Button padrão. Pode existir apenas uma ferramenta selecionada ao mesmo tempo e representa a ferramenta que o usuário está trabalhando no momento.&nbsp; A ferramenta padrão normalmente é a de "selecionar/movimentar" itens do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:selectToolButton(toolID)</strong></td>
+<td>Seleciona a Ferramenta/Tool Button especificada pelo padrão. Pode existir apenas uma ferramenta selecionada ao mesmo tempo e representa a ferramenta que o usuário está trabalhando no momento.&nbsp; Parâmetros: toolID - toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:showForm(form[, options])</strong></td>
+<td>Exibe uma janela na interface do usuário na forma de um Popup flutuante acima do viewport do scene.&nbsp; Parâmetros: form - O formulário a ser exibido na interface. Deve ser um <a href="../Tagform/">objeto Lua Form já instanciado.</a> (OPCIONAL) options - Uma tabela/objeto LUA contendo as opções da exibição do popup. As opções são: onClose - [function, padrão = nil] - Uma função lua que será invocada quando o popup for fechado. placement - [string enumerado] - Onde o popup será exibido.. Os possíveis valores são: "center" - no centro da tela "bottom" - na parte de baixo da tela "top" - na parte de cima da tela "left" - à esquerda na tela "right" - à direita na tela "topLeft" -&nbsp; no canto superior esquerdo da tela "topRight - no canto superior direito da tela "bottomLeft" - no canto inferior esquerdo da tela "bottomRight" - no canto inferior direito da tela "mouse" - onde o mouse está atualmente "mouseCenter" - centralizado onde o mouse está atualmente. nil ou não informado - Posição personalizada.&nbsp; &nbsp; &nbsp; Retorno:&nbsp; &nbsp; &nbsp; Se conseguir exibir o form como um popup no viewport, retorna <strong>true</strong>; Senão retorna <strong>false</strong>.&nbsp; Observações: A função não espera o popup fechar para retornar. Após esta chamada, o código LUA continuará sua execução normal enquanto o form é mostrado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:closeForm(form)</strong></td>
+<td>Fecha uma janela popup que foi previamente aberta pela da função viewport:showPopup.&nbsp; Parâmetros: form - O formulário a ser fechado/tirado da interface. Deve ser um <a href="../Tagform/">objeto Lua Form já instanciado</a>&nbsp; &nbsp; &nbsp; Retorno:&nbsp; &nbsp; &nbsp; Se conseguir fechar o form, retorna <strong>true</strong>; Senão retorna <strong>false</strong>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:needRepaint()</strong></td>
+<td>Informa ao RRPG que o Scene precisa ser redesenhado.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos-para-renderizacao">Métodos para renderização</h3>
+<p>Todos os métodos listados abaixos são válidos APENAS dentro de eventos "onBeforeDraw"s e "OnAfterDraw"s</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>viewport:prepareFill(color)</strong></td>
+<td>Prepara o viewport para renderizar o preenchimento de polígonos com uma cor sólida.&nbsp; Parâmetros: color - uma <a href="../StringdecoresnoLuaForm/">cadeia de caracteres contendo uma cor</a>.&nbsp; Observações: Após chamar este método, os métodos viewport:fill*** utilizarão esta cor no desenho.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:prepareDraw(color [, thickness, strokeCap, strokeJoin, strokeDash])</strong></td>
+<td>Prepara o viewport para renderizar o contorno de polígonos com uma cor sólida.&nbsp; Parâmetros: color -&nbsp; uma <a href="../StringdecoresnoLuaForm/">cadeia de caracteres contendo uma cor</a>. (OPCIONAL) thickness - A espessura do contorno <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>. Se omitido, o valor padrão é 1.0; (OPCIONAL) strokeCap - Define o estilo gráfico usado ao desenhar o fim das linhas. Pode ser "flat" (linhas com pontas retangulares) ou "round" (linhas com pontas arredondadas). Se omitido, o valor padrão é "flat". (OPCIONAL) strokeJoin - Define o estilo gráfico usado ao juntar segmentos de linha em uma forma. Pode ser "miter" (As quinas/junções são "quadradas"), "round" (As quinas/junções são arredondadas) ou "bevel" (As quintas/junções são ligadas de forma diagonal). Se omitido, o valor padrão é "miter" (OPCIONAL) strokeDash - Define o estilo gráfico da linha. Pode ser "solid" (A linha é sólida), "dash" (A linha é tracejada), "dot" (A linha é feita de pontos), "dashDot" (A linha é alternada entre traços e pontos), ou "dashDotDot" (A linha é alternada entre traço, ponto e ponto). Se omitido, o valor padrão é "solid"&nbsp; Observações: Após chamar este método, os métodos viewport:draw*** utilizarão estas configurações.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:prepareFont(size [,fontName, bold, italic, underline])</strong></td>
+<td>Prepara o viewport para preencher textos com uma determinada fonte.&nbsp; Parâmetros: size - Um número contendo o tamanho da fonte. Ex: 12 (OPCIONAL) fontName - O nome da fonte a ser usada. Se <strong>nil</strong>, uma fonte padrão será utilizada. (OPCIONAL) bold - True se desejar que a fonte esteja em negrito. (OPCIONAL) italic - True se desejar que a fonte esteja em itálico. (OPCIONAL) underline - True se desejar que a fonte esteja sublinhada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillRect(left, top, right, bottom[, opacity])</strong></td>
+<td>Desenha o preenchimento de um retângulo na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do retângulo, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillEllipse(left, top, right, bottom[, opacity])</strong></td>
+<td>Desenha o preenchimento de uma elipse/figura oval na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor da elipse, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillPolygon(polygon[, opacity])</strong></td>
+<td>Desenha o preenchimento de um polígono na tela do scene.&nbsp; Parâmetros: polygon - Um array de tabelas que contém propriedades x e y, e cada cada item do array representando um vértice do polígono. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do polígono, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillACell(i, j [, opacity])</strong></td>
+<td>Desenha o preenchimento de uma célula do grid do scene.&nbsp; Parâmetros: i - a posição i da célula "Aij" j - a posição j da célula "Aij" (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do retângulo, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:drawRect(left, top, right, bottom[, opacity])</strong></td>
+<td>Desenha o contorno de um retângulo na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do retângulo, invoque primeiro o método "prepareDraw"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:drawEllipse(left, top, right, bottom[, opacity])</strong>&nbsp;</td>
+<td>Desenha o contorno de uma elipse/figura oval na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor da elipse, invoque primeiro o método "prepareDraw"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:drawLine(startX, startY, endX, endY [,opacity])</strong></td>
+<td>Desenha uma linha na tela do scene.&nbsp; Parâmetros: startX - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve se originar. startY - Posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve se originar. endX - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve finalizar. endY - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve finalizar. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:textSize(txt)</strong></td>
+<td>Calcula o tamanho do texto usando a fonte configurada no viewport.&nbsp; Parâmetros: txt - A cadeia de caracteres que será medida.&nbsp; Retorno: x - A largura do texto em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>&nbsp; y - A altura do texto em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> &nbsp; Observações: Para definir a fonte, invoque primeiro o método "prepareFont"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillText(x, y, txt [, opacity])</strong></td>
+<td>Desenha um texto no scene.&nbsp; Parâmetros: x - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. y - Posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. txt - A cadeia de caracteres que será desenhada. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir a fonte, invoque primeiro o método "prepareFont" Para definir o material/cor do texto, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillTextFit(x, y, right, bottom, txt[, horzTextAlign, vertTextAlign, , opacity])</strong></td>
+<td>Desenha um texto no scene de forma a fazer cabe-lo da melhor forma em um retângulo definido.&nbsp; Parâmetros: x - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. y - Posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. right - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. txt - A cadeia de caracteres que será desenhada. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir a fonte, invoque primeiro o método "prepareFont" Para definir o material/cor do texto, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:pushRenderState()</strong></td>
+<td>Salva as configurações atuais de renderização para que possam ser restauradas mais tardes usando popRenderState.&nbsp; Observação: Para cada chamada de pushRenderState, deve haver uma chamada de popRenderState.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:popRenderState()</strong></td>
+<td>Restaura as configurações de renderização previamente salvadas pelo método pushRenderState.&nbsp; Observação: Para cada chamada de pushRenderState, deve haver uma chamada de popRenderState.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:pushRotationTransform(angle, centerX, centerY)</strong></td>
+<td>Empurra uma transformação de rotação no viewport.&nbsp; Parâmetros: angle - Angulo em graus da rotação que deve ser feita. centerX - Posição do pivô de rotação no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela.</a> centerY - Posição do pivô de rotação no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela.</a>&nbsp; Observações: As próximas renderizações serão rotacionadas com esta configuração até a chamada de popTransform. Para cada chamada de pushRotationTransform deve haver uma chamada de popTransform.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:pushWorldToScreenTransform();</strong></td>
+<td>Empurra uma transformação de coordenadas em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> para <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> no viewport.&nbsp; Após a chamada desta função, todos os métodos de desenho entenderão que as coordenadas passadas estão em métrica de mundo.&nbsp; Observações: Para cada chamada de pushWorldToScreenTransform deve haver uma chamada de popTransform.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:popTransform();</strong></td>
+<td>Remove do viewport a última transformação que havia sido empurrada.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onChange</strong></td>
+<td>Evento que é disparado quando o Viewport do scene mudar.&nbsp; As seguintes situações disparam este evento: Alteração no tamanho da tela (propriedades width e height) Alteração no scroll do viewport (propriedades worldX e worldY) Alteração no zoom do viewport (propriedade scale)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseDown</strong></td>
+<td>Este evento é invocado quando um botão do mouse é pressionado sobre o Viewport ou quando o dedo toca a tela (touchscreen).&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: button – indica qual botão do mouse foi pressionado, e pode conter um dos seguintes valores: “left”, “middle” ou “right”... Quando o dedo é pressionado (touchscreen), este valor é “left” e isTouch = true. x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi pressionado. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi pressionado. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseMove</strong></td>
+<td>Este evento é invocado quando o mouse se movimenta pelo viewport ou quando o dedo (touchscreen) é arrastado pelo viewport.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando para onde o mouse moveu. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando para onde o mouse moveu. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseUp</strong></td>
+<td>Este evento é invocado quando um botão do mouse é liberado sobre o Viewport ou quando o dedo solta da tela (touchscreen).&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: button – indica qual botão do mouse foi liberado, e pode conter um dos seguintes valores: “left”, “middle” ou “right”... Quando o dedo é levantado (touchscreen), este valor é “left” e isTouch = true. x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi liberado. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi liberado. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseDblClick</strong></td>
+<td>Este evento é invocado quando o usuário realiza a ação duplo clique com o mouse sobre o Viewport.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde ocorreu o duplo clique. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde ocorreu o duplo clique. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen. &nbsp; Observação: Este evento é disparado junto com onMouseDown e onMouseUp na seguinte ordem: Mouse Down -&gt; Mouse Up -&gt; Mouse Down -&gt; Dbl Click -&gt; Mouse Up&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseWheel</strong></td>
+<td>Este evento é invocado quando a "rodinha" do mouse é é rolada sobre o Viewport.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: delta - Um número que indica a distancia que a roda foi rodada. Se for positivo, significa que a rodinha foi rolada para cima e se for negativo significa que ela foi rolada para baixo.&nbsp; shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Se seu evento controlou adequadamente este evento e não quer que nenhum outro plug-in tente manipular mais este evento, retorne explicitamente true usando "return true;"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onFallbackMouseWheel</strong></td>
+<td>Idêntico ao evento onMouseWheel, porém é chamado apenas quando nenhum código tratar o evento onMouseWheel.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureBeginZoom</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, começa a realizar um gesto de zoom.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô do zoom. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô do zoom.&nbsp; Observações: Neste momento, o usuário ainda não realizou zoom, apenas destacou sua intenção de o fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureZoom</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de zoom.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô do zoom. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô do zoom. delta - Um número contendo a distância em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> do zoom desejado. Se negativo, é um gesto de zoom out. Este valor é a variação da distância deste o último evento onGestureZoom.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureEndZoom</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, finaliza um gesto de zoom.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô do zoom. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô do zoom.&nbsp; Observações: Neste momento, o usuário já realizou todo zoom que queria fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureBeginRotation</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, começa a realizar um gesto de rotação.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô da rotação. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô da rotação.&nbsp; Observações: Neste momento, o usuário ainda não realizou rotação, apenas destacou sua intenção de o fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureRotation</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de rotação.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô da rotação. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô da rotação. angle - Número contendo o ângulo da rotação em graus. Valor positivo significa rotação em sentido anti-horário, valor negativo em sentido horário.&nbsp; Este valor é a variação do ângulo deste o último evento onGestureRotation.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureEndRotation</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, finaliza um gesto de rotação.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô da rotação. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô da rotação.&nbsp; Observações: Neste momento, o usuário já realizou toda rotação que queria fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureBeginPan</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, começa a realizar um gesto de deslize/scroll.&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado.&nbsp; Observações: Neste momento, o usuário ainda não realizou deslizamento, apenas destacou sua intenção de o fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGesturePan</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de deslize/scroll.&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Este representa onde, no viewport, está o ponteiro/dedo. y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Este representa onde, no viewport, está o ponteiro/dedo.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureEndPan</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, finaliza um gesto de deslize/scroll.&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureLongTap</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de longTap (pressionar e segurar por algum tempo)&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado.&nbsp; y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onKeyDown</strong></td>
+<td>Este evento é invocado quando uma tecla (teclado) é pressionada no Scene.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos key - Cadeia de caracteres contendo a letra do teclado que foi pressionada keyCode – Código numérico da tecla que foi pressionada (algumas teclas, como F7, por exemplo, não representam uma letra, daí a necessidade do keyCode) shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Observações: Se você alterar o valor de key e/ou keyCode, a mudança é incorporada. Caso queira suprimir/ignorar a tecla que acabou de ser pressionada, atribua event.key = "" e event.keyCode = 0. Se a combinação de teclas pressionada puder ser um atalho, então event.key virá com valor "" (string vazio) e event.keyCode com valor diferente de 0. Se a combinação de teclas pressionada puder ser tratada como um caractere exibível, event.key vira com uma string contendo apenas este caracter e event.keyCode virá com valor igual a 0. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>onKeyUp</strong></td>
+<td>Este evento é invocado quando uma tecla (teclado) é liberada.&nbsp; Parâmetros: event - uma tabela Lua que contém as mesmas propriedades descritas no <a href="./#Evento%20OnKeyDown">evento onKeyDown</a> mas com informações sobre a tecla liberada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawBkgLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado antes do RRPG pintar a camada background do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawGridLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar a camada background e antes de pintar o grid do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawObjsLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar o grid e antes de pintar a camada objetos do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawTokensLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar a camada objetos e antes de pintar a camada tokens do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onAfterDrawLayers</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar a camada tokens.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onStartDrop</strong></td>
+<td>Evento que é chamado quando alguém arrasta uma informação (drag) em cima do scene e você deseja informar quais ações ou dados existem em um determinado ponto do tabuleiro.&nbsp; Parâmetros: drop - <a href="../ObjetoDrop/">Objeto Drop</a> o qual você deve preencher as informações para o RRPG acasalar o drag com o drop. x - Numero contendo a posição do eixo X, em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>, de onde o drop está tentando ser feito. y - Numero contendo a posição do eixo y, em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>, de onde o drop está tentando ser feito. drag - <a href="../ObjetoDrag/">Objeto Drag</a> representando a informação que está sendo arrastada. Você não deve alterar as propriedades deste objeto.&nbsp; Por favor, consulte <a href="../ArrastandoeSoltandoInformacoesDr/">Arrastando-e-Soltando Informações / Drag and Drop</a> para conhecer melhor sobre o processo drag and drop.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-um-plugin-que-detecta-quando-o-viewport-de-um-scene-muda">Exemplo 1 - Um plugin que detecta quando o Viewport de um scene muda</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                            scene.viewport.onChange =  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>function</strong>()                 <strong>local</strong> r = scene.viewport:screenToWorld({left=0, top=0,                                                         right=scene.viewport.width,                                                         bottom=scene.viewport.height});                         <strong>local</strong> texto = "O Viewport mudou..<strong>\n</strong>" ..                               "Dimensões da tela: "    .. scene.viewport.width .. " por " ..                               scene.viewport.height .. "<strong>\n</strong>" ..                               "Posicao do Scroll: " .. scene.viewport.worldX .. " por " ..                               scene.viewport.worldY .. "<strong>\n</strong>" ..                               "Região do Scene que é exibido neste viewport: " ..                               string.format("[(left %f, top %f)(right %f, bottom %f)]",                                             r.left, r.top, r.right, r.bottom);                                               showMessage(texto);             <strong>end</strong>;            <strong>end</strong>);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-um-plug-in-que-descobre-em-qual-celula-do-grid-o-usuario-clicou">Exemplo 2 - Um plug-in que descobre em qual célula do grid o usuário clicou</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                    <em>-- Manipular o evento onMouseUp do Viewport afim de detectar o click do mouse</em>                 scene.viewport.onMouseUp =             <strong>function</strong> (event)                 <em>-- Converter coordenada de tela do click para coordenada de mundo</em>                 <strong>local</strong> wx, wy = scene.viewport:screenToWorld(event.x,                                                             event.y);                                                                                                                                                     <em>-- Converter coordenada de mundo para coordenada do grid</em>                 <strong>local</strong> i, j = scene.grid:worldToCell(wx, wy);                                         <em>-- Exibir uma Mensagem sobre a célula clicada     *                 showMessage("Click na célula [Linha " .. i ..                             ", Coluna " .. j .. "]");             </em><em>end</em><em>;                   </em><em>end</em>*); &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="exemplo-3-um-plug-in-que-adicionaremove-uma-marca-personalizada-quando-o-usuario-clica-nos-itens-do-scene">Exemplo 3 - Um plug-in que adiciona/remove uma marca personalizada quando o usuário clica nos itens do scene.</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                                    <em>-- Manipular o evento OnMouseDown do Viewport</em>                 scene.viewport.onMouseDown = <strong>function</strong>(event)             <em>-- Usuário clicou no Scene</em>             <em>-- Transformar as coordenadas de tela em métrica de mundo</em>             <strong>local</strong> worldX, worldY = scene.viewport:screenToWorld(event.x, event.y);                         <em>-- Localizar o item que o usuário clicou</em>             <strong>local</strong> item = scene.items:itemAtPoint(worldX, worldY);                         <strong>if</strong> item ~= nil <strong>then</strong>                 <em>-- Encontrou um item na posição clicada.             *                 </em><em>local</em><em> NOME_MINHA_MARCA = "MarcaExemplo";                                 </em>-- Localizar uma operação gráfica neste item com o nosso nome<em>                 </em><em>local</em><em> opGrafica = item.canvas:findByName(NOME_MINHA_MARCA);                                 </em><em>if</em><em> opGrafica == nil </em><em>then</em><em>                     </em>--[[ A operação gráfica da minha marca ainda não<em>                         </em>existe neste token/item. Vamos criar ]]<em>                                             opGrafica = item.canvas:addBitmap();                     opGrafica.name = NOME_MINHA_MARCA; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </em>-- Abaixo, URL da imagem da nossa marca.<em>                     opGrafica.url = "https://wiki.teamfortress.com/w/images/d/dd/Bleed_drop.png?t=20110425044341";                     opGrafica.x = 0.25;                     opGrafica.width = 0.3;                     opGrafica.y = -0.1;                     opGrafica.height = 0.3;                     opGrafica.z = 10;                                       </em><em>else</em><em>                     </em>-- Vamos apagar nossa operação gráfica previamente criada<em>                     opGrafica:delete();                 </em><em>end</em><em>;             </em><em>end</em><em>;                    </em><em>end</em><em>;                     </em><em>end</em>*);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem222.png" /> Item sem a marca</th>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem223.png" /> Item com a marca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpauthoringsoftware.com/articles/what-is-a-help-authoring-tool/">Simplify Your Help Documentation Process with a Help Authoring Tool</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneToken/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneToken/" class="btn btn-sm btn-link">
+			Objeto SceneToken
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-link">
+			Estrutura SceneRect
+		</a>
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoSceneViewport.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

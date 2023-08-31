@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag dataScopeBox - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag dataScopeBox", url: "#_top", children: [
+				]},
+				{title: "Tag dataScopeBox", url: "#tag-datascopebox_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "\u0026nbsp;", url: "#_1", children: [
+				]},
+				{title: "Exemplos:", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagdataLink/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagdataLink/" class="btn btn-sm btn-link">
+			Tag dataLink
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagedit/" class="btn btn-sm btn-link">
+			Tag edit
+		</a>
+		<a href="../Tagedit/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-datascopebox">Tag dataScopeBox</h1>
+<h1 id="tag-datascopebox_1">Tag dataScopeBox</h1>
+<p>&nbsp;</p>
+<p>A tag/componente <strong>dataScopeBox</strong> funciona como a <a href="../Taglayout/">tag layout</a>, porém permite definir em qual <a href="../ObjetoNodo/">objeto Nodo</a> seus controles salvarão/lerão os dados (NodeDatabase);</p>
+<p>Após definir o nodo escopo, todos os componentes visuais que estão dentro desta tag passarão a ler e salvar os dados neste nodo.</p>
+<p>&nbsp;</p>
+<p>Saiba mais sobre escopo de dados do NodeDatabase em <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase.</a></p>
+<p>&nbsp;</p>
+<p><strong>Atenção</strong>: A <a href="../Tagpopup/">tag popup</a> não é capturada pelo escopo de dados definido pelo dataScopeBox.</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>dataScopeBox</strong> possui <strong>todas</strong> as características de uma <a href="../Taglayout/">tag layout</a>.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Veja:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../Taglayout/">Tag layout</a></li>
+<li><a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a><strong>.</strong></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o <strong>dataScopeBox</strong> possui também as seguintes características:</p>
+<h3 id="propriedades">Propriedades</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>scopeNode,</strong> <strong>nodeObject ou ** </strong>node**</td>
+<td><a href="../ObjetoNodo/">Objeto Nodo</a></td>
+<td><strong>nil</strong></td>
+<td>Define em qual <a href="../ObjetoNodo/">objeto nodo</a> de um NodeDatabase os controles de edição deste dataScopeBox devem salvar os dados.&nbsp; Observações:&nbsp; Se for <strong>nil</strong>, os controles dentro desta tag que salvam/carregam dados no NodeDatabase ficam desabilitados. Só é possível alterar esta propriedade utilizando código Lua.&nbsp; Veja também:&nbsp; <a href="../NodeDatabase/">NodeDatabase</a> <a href="../LuaFormeNodeDatabase/#Escopo%20de%20dados">Escopo de Dados</a>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<p>É possível invocar métodos dos controles usando código LUA.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>dataScopeBox:setNodeObject(nodeObject)</strong></td>
+<td>Método alternativo para alterar a propriedade "<a href="./#propriedade%20scopeNode">scopeNode</a>"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>dataScopeBox:getNodeObject();</strong></td>
+<td>Método alternativo que retorna o valor da propriedade "<a href="./#propriedade%20scopeNode">scopeNode</a>"&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos-da-tag-datascopebox">Eventos da tag dataScopeBox</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onNodeReady</strong>&nbsp;</td>
+<td>Este evento é invocado quando o <a href="../ObjetoNodo/">objeto nodo</a> de um NodeDatabase associado a este dataScopeBox está pronto para ser usado.&nbsp; Quando este evento é chamado, você pode assumir: a propriedade "node" do dataScopeBox está diferente de nil e possui uma referência válida para um <a href="../ObjetoNodo/">objeto nodo</a>. O processo de carregamento do nodeDatabase associado já chegou ao fim. Você já consegue acessar os dados armazenados nele normalmente.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onNodeUnready</strong>&nbsp;</td>
+<td>Este evento é invocado quando o <a href="../ObjetoNodo/">objeto nodo</a> de um NodeDatabase associado a este dataScopeBox <strong>deixa de estar</strong> pronto para ser usado.&nbsp; Quando este evento é chamado, você pode assumir: a propriedade "node" do dataScopeBox não contém mais uma referência válida para um objeto nodo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onNodeChanged</strong>&nbsp;</td>
+<td>Este evento é invocado um <a href="../ObjetoNodo/">objeto nodo</a> de um NodeDatabase é associado ou desassociado a este dataScopeBox.&nbsp; Ver <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Veja também <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form.</a></p>
+<h2 id="_1">&nbsp;</h2>
+<h2 id="exemplos">Exemplos:</h2>
+<h3 id="exemplo-1-lista-com-painel-de-detalhes">Exemplo 1 - Lista com Painel de Detalhes</h3>
+<p>&nbsp;</p>
+<p>Veja o tutorial <a href="../Criarumalistadinamicapaineldedet/">Criar uma lista dinâmica + painel de detalhes</a> para ver o exemplo completo .</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-ebooks-for-amazon-kindle">Full-featured Kindle eBooks generator</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagdataLink/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagdataLink/" class="btn btn-sm btn-link">
+			Tag dataLink
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagedit/" class="btn btn-sm btn-link">
+			Tag edit
+		</a>
+		<a href="../Tagedit/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/TagdataScopeBox.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

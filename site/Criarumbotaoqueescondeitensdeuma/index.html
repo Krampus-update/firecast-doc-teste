@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Criar um botão que esconde itens de uma lista dinâmica - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Criar um bot\u00e3o que esconde itens de uma lista din\u00e2mica", url: "#_top", children: [
+				]},
+				{title: "Criar um bot\u00e3o que esconde itens de uma lista din\u00e2mica de alguns usu\u00e1rios.", url: "#criar-um-botao-que-esconde-itens-de-uma-lista-dinamica-de-alguns-usuarios", children: [
+						
+				{title: "Come\u00e7ando....", url: "#_top", children: [
+				]},
+				{title: "Pr\u00f3ximos passos", url: "#proximos-passos", children: [
+				]},
+				{title: "Resultado final", url: "#resultado-final", children: [
+				]},
+				{title: "C\u00f3digo fonte final (sem os coment\u00e1rios)", url: "#codigo-fonte-final-sem-os-comentarios", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-link">
+			Criar uma lista dinâmica + painel de detalhes
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Criarumajanelaacoplaveldemesa/" class="btn btn-sm btn-link">
+			Criar uma janela acoplável de mesa
+		</a>
+		<a href="../Criarumajanelaacoplaveldemesa/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="criar-um-botao-que-esconde-itens-de-uma-lista-dinamica">Criar um botão que esconde itens de uma lista dinâmica</h1>
+<h1 id="criar-um-botao-que-esconde-itens-de-uma-lista-dinamica-de-alguns-usuarios">Criar um botão que esconde itens de uma lista dinâmica de alguns usuários.</h1>
+<p>&nbsp;</p>
+<p>Atenção: Este é um tópico avançado e requer o conhecimento de <a href="../Criarumalistadinamicanaficha/">como criar uma lista dinâmica</a>.</p>
+<p>&nbsp;</p>
+<p>Este tipo de funcionalidade é útil quando em uma ficha ou em uma janela acoplável é necessário esconder certos itens de certos usuários, por exemplo:</p>
+<ul>
+<li>&nbsp;</li>
+<li>NPCs - Talvez o mestre queira esconder determinado NPC dos jogadores</li>
+<li>Equipamentos - Talvez um jogador de um grupo possua um equipamento que o Mestre deseja que os demais jogadores não saibam de sua existência.</li>
+<li>Uma anotação secreta, que somente o mestre pode visualizar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="comecando">Começando....</h2>
+<p>&nbsp;</p>
+<p>Vamos supor que você já tenha implementado em seu código uma lista dinâmica com a seguinte aparência:</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem208.png" /></p>
+<p>&nbsp;</p>
+<p>e com o seguinte código:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Arquivo Principal “ficha.lfm”</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>        &nbsp;         <strong>\&lt;layout</strong> align="top" height="30"<strong>&gt;</strong>                 <strong>\&lt;button</strong> align="left" text="Novo" onClick="self.rclLista:append();"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong>       &nbsp;         <strong>\&lt;recordList</strong> name="rclLista" align="client" field="itens"  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; templateForm="frmItem"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Arquivo Secundário “item.lfm”</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmItem" height="30" margins="{top=2,bottom=2}"<strong>&gt;</strong>            <strong>\&lt;edit</strong> align="client" field="descricao" margins="{right=2}"<strong>/&gt;</strong>       <strong>\&lt;button</strong> align="right" text="Apagar" width="80"            onClick="ndb.deleteNode(sheet);"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="proximos-passos">Próximos passos</h2>
+<p>Para adicionar a funcionalidade de esconder item, você deverá fazer as seguintes alterações em seu arquivo equivalente ao "item.lfm" (aquele que repete para cada item na lista):</p>
+<ul>
+<li>&nbsp;</li>
+<li>Criar um botão novo ou outra funcionalidade que permita o usuário clicar e realizar uma ação. Neste tutorial usaremos a <a href="../TagimageCheckBox/">tag imageCheckBox</a> pelo simples fato de eu achá-la bacana =).\
+&nbsp;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;imageCheckBox</strong> name="cbxInvisivel" align="right" width="25" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margins="{left=2, right=2}"&nbsp;                checkedImage="images/invisivel.png"                     uncheckedImage="images/visivel.png"                autoChange="false"                onClick="self:alternarVisibilidade();" <strong>/&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>\
+Esta é a imagem "images/invisivel.png": <img alt="Image" src="../lib/NewItem209.png" />\
+Esta é a imagem "images/visivel.png: <img alt="Image" src="../lib/NewItem210.png" />\
+Note que a propriedade autoChange foi setada para false para que a tag não mude automaticamente sua propriedade "checked".</p>
+<p>Note também que ao clicar no imageCheckBox, será invocada a função "self:alternarVisibilidade"</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Criar o código da função "self:alternarVisibilidade" que utiliza a função <a href="../BibliotecaNDB/#ndb.setPermission">ndb.setPermission</a></li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>\&lt;script&gt;         <strong>function</strong> self:alternarVisibilidade()                 <strong>if</strong> self.cbxInvisivel.checked <strong>then</strong>                         <em>-- o imageCheckbox está marcando como invisivel..</em>                         <em>-- Vamos mudar as permissões para tornar visivel então..</em>&nbsp;                                             <em>-- resetar as permissões de read dos jogadores e espectadores</em>                         ndb.setPermission(sheet, "group", "jogadores", "read", nil);                         ndb.setPermission(sheet, "group", "espectadores", "read", nil;                 <strong>else</strong>                         <em>-- o imageCheckbox está marcando como visível</em>                         <em>-- Vamos mudar as permissões para tornar invisível então...</em>                                                 <em>-- negar as permissões de read dos jogadores e espectadores</em>                         ndb.setPermission(sheet, "group", "jogadores", "read", "deny");                         ndb.setPermission(sheet, "group", "espectadores", "read", "deny");                 <strong>end</strong>;         <strong>end</strong>; \&lt;/script&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Criar um código que fica responsável por atualizar o estado do imageCheckBox conforme as permissões existentes e alteradas:\
+\
+&nbsp;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>\&lt;script&gt;         <strong>function</strong> self:atualizarCbxInvisivel()                 <em>-- Esta função é chamada em vários pontos para atualizar o estado do checkbox de invisibilidade</em>&nbsp;                               <em>-- Marcar o checkbox se existir uma permissão "read deny" para jogadores ou para espectadores</em>                 self.cbxInvisivel.checked = ndb.getPermission(sheet, "group", "espectadores", "read") == "deny" <strong>or</strong>                                             ndb.getPermission(sheet, "group", "jogadores", "read") == "deny";                                                                                        <em>-- Permitir o click no checkbox apenas se o usuário atual possuir a permissão "writePermissions"</em>                 self.cbxInvisivel.enabled = ndb.testPermission(sheet, "writePermissions");         <strong>end</strong>; \&lt;/script&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>\
+Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>&nbsp;</li>
+<li>Função <a href="../BibliotecaNDB/#ndb.getPermission">ndb.getPermission</a></li>
+<li>Função <a href="../BibliotecaNDB/#ndb.setPermission">ndb.testPermission</a></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Criar um <a href="../ObjetoNodeObserver/">NodeObserver</a> que será responsável por invocar a função acima "self:atualizarCbxInvisivel" quando ocorrer alguma mudança nas permissões do NodeDatabase. O NodeObserver será criado no evento <a href="../Tagform/#onScopeNodeChanged">onScopeNodeChanged</a> da <a href="../Tagform/">tag Form</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>\&lt;event name="onScopeNodeChanged"&gt;         <strong>if</strong> self.observer ~= nil <strong>then</strong>                 <em>-- Já tinhamos criado um observer, vamos desativá-lo.</em>                                self.observer.enabled = false;                 self.observer = nil;         <strong>end</strong>;                <strong>if</strong> sheet ~= nil <strong>then</strong>                 <em>-- O form foi ligado a um NodeDatabase!</em>                 <em>-- Vamos criar um NodeObserver para este nodo.</em>                                self.observer = ndb.newObserver(sheet);                                self.observer.onPermissionListChanged =                         <strong>function</strong>(node)                                 <em>-- Esta função será chamada quando</em>                                 <em>-- as definições de permissões de sheet mudarem</em>                                                                 self:atualizarCbxInvisivel();                         <strong>end</strong>;                                        self.observer.onFinalPermissionsCouldBeChanged =                         <strong>function</strong>(node)                                 <em>-- Esta função será chamada quando</em>                                 <em>-- minhas permissões em sheet puderem</em>                                 <em>-- ter sido afetadas por alterações de permissões</em>                                 <em>-- no NodeDatabase ou porque me tornei * &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </em>-- mestre/jogador/espectador<em>                                                                 self:atualizarCbxInvisivel();                         </em><em>end</em><em>;                                       </em>-- Devemos atualizar o checkbox agora também  *                 self:atualizarCbxInvisivel();           <strong>end</strong>; \&lt;/event&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="resultado-final">Resultado final</h2>
+<p>O que aparece para os Mestres da mesa:</p>
+<p><img alt="Image" src="../lib/NewItem211.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>O que os Jogadores e Espectadores da mesa veem:</p>
+<p><img alt="Image" src="../lib/NewItem212.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="codigo-fonte-final-sem-os-comentarios">Código fonte final (sem os comentários)</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Arquivo Principal “ficha.lfm”</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>        &nbsp;         <strong>\&lt;layout</strong> align="top" height="30"<strong>&gt;</strong>                 <strong>\&lt;button</strong> align="left" text="Novo" onClick="self.rclLista:append();"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong>       &nbsp;         <strong>\&lt;recordList</strong> name="rclLista" align="client" field="itens"  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; templateForm="frmItem"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Arquivo Secundário “item.lfm”</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmItem" height="30" margins="{top=2,bottom=2}"<strong>&gt;</strong>            <strong>\&lt;script&gt;</strong>          function self:alternarVisibilidade()          &nbsp; &nbsp; if self.cbxInvisivel.checked then               &nbsp; &nbsp; ndb.setPermission(sheet, "group", "jogadores", "read", nil);                   ndb.setPermission(sheet, "group", "espectadores", "read", nil);              else                   ndb.setPermission(sheet, "group", "jogadores", "read", "deny");                   ndb.setPermission(sheet, "group", "espectadores", "read", "deny");              end;        &nbsp; end;           function self:atualizarCbxInvisivel()                    &nbsp; &nbsp; self.cbxInvisivel.checked = ndb.getPermission(sheet, "group", "espectadores", "read") == "deny" or                                          ndb.getPermission(sheet, "group", "jogadores", "read") == "deny"                                                                                                   self.cbxInvisivel.enabled = ndb.testPermission(sheet, "writePermissions");          end;     <strong>\&lt;/script&gt;</strong>      <strong>\&lt;edit</strong> align="client" field="descricao" margins="{right=2}"<strong>/&gt;</strong>            <strong>\&lt;imageCheckBox</strong> name="cbxInvisivel" align="right" width="25" margins="{left=2, right=2}"                    checkedImage="images/invisivel.png"                     uncheckedImage="images/visivel.png"                    autoChange="false"                    onClick="self:alternarVisibilidade();" <strong>/&gt;</strong>            <strong>\&lt;button</strong> align="right" text="Apagar" width="80" onClick="ndb.deleteNode(sheet);"<strong>/&gt;</strong>                            <strong>\&lt;event</strong> name="onScopeNodeChanged"<strong>&gt;</strong>             if self.observer ~= nil then                        self.observer.enabled = false;                     self.observer = nil;             end;&nbsp;                           if sheet ~= nil then                        self.observer = ndb.newObserver(sheet);                     self.observer.onPermissionListChanged =            &nbsp;                function(node)                                                      self:atualizarCbxInvisivel();                             end;                                                    self.observer.onFinalPermissionsCouldBeChanged =                             function(node)                                     self:atualizarCbxInvisivel();                             end;                                                    self:atualizarCbxInvisivel();               end;     <strong>\&lt;/event&gt;</strong> <strong>\&lt;/form&gt;</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/stunning-user-interface/">Maximize Your Productivity with HelpNDoc's Efficient User Interface</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-link">
+			Criar uma lista dinâmica + painel de detalhes
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Criarumajanelaacoplaveldemesa/" class="btn btn-sm btn-link">
+			Criar uma janela acoplável de mesa
+		</a>
+		<a href="../Criarumajanelaacoplaveldemesa/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Criarumbotaoqueescondeitensdeuma.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

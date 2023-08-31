@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="./img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Firecast SDK 3 - Firecast Documentation</title>
+		<link href="./bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="./css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="./css/highlight-github.css">
+		<script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '.';
+			var home_url = './home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Firecast SDK 3", url: "#_top", children: [
+						
+				{title: "Table of contents", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="./js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="firecast-sdk-3">Firecast SDK 3</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="Introducao/">Introdução</a></li>
+<li><a href="Primeirospassos/">Primeiros passos</a></li>
+<li><a href="HistoricodeVersoes/">Histórico de Versões</a></li>
+<li><a href="Tutoriais/">Tutoriais</a></li>
+<li><a href="CriarummodelodefichaapartirdeumP/">Criar um modelo de ficha à partir de um PDF</a></li>
+<li><a href="Criarcamposcalculadosemfichas/">Criar campos calculados em fichas</a></li>
+<li><a href="Criarabasparaaficha/">Criar abas para a ficha</a></li>
+<li><a href="Permitirousuarioescolherumaimage/">Permitir o usuário escolher uma imagem dentro da ficha</a></li>
+<li><a href="Criarumalistadinamicanaficha/">Criar uma lista dinâmica na ficha</a></li>
+<li><a href="Fazerumafichaenviarrolagensparaa/">Fazer uma ficha enviar rolagens para a mesa</a></li>
+<li><a href="Criarumalistadinamicapaineldedet/">Criar uma lista dinâmica + painel de detalhes</a></li>
+<li><a href="Criarumbotaoqueescondeitensdeuma/">Criar um botão que esconde itens de uma lista dinâmica</a></li>
+<li><a href="Criarumajanelaacoplaveldemesa/">Criar uma janela acoplável de mesa</a></li>
+<li><a href="Criandoumpluginparavariosidiomas/">Criando um plug-in para vários idiomas</a></li>
+<li><a href="Referencias/">Referências</a></li>
+<li><a href="ProjetosdePlugin/">Projetos de Plug-in</a><ul>
+<li><a href="Criandoumnovoprojetodeplugin/">Criando um novo projeto de plug-in</a></li>
+<li><a href="Testandooprojetodeplugin/">Testando o projeto de plug-in</a></li>
+<li><a href="Disponibilizandoumplugin/">Disponibilizando um plug-in</a></li>
+</ul>
+</li>
+<li><a href="Arquivosemumprojetodeplugin/">Arquivos em um projeto de plug-in</a><ul>
+<li><a href="Oarquivomodulexml/">O arquivo "module.xml"</a></li>
+</ul>
+</li>
+<li><a href="FerramentasdoSDK3/">Ferramentas do SDK 3</a><ul>
+<li><a href="Ferramentardk/">Ferramenta rdk</a></li>
+<li><a href="comandordkp/">comando "rdk p"</a></li>
+<li><a href="comandordkc/">comando "rdk c"</a></li>
+<li><a href="comandordki/">comando "rdk i"</a></li>
+<li><a href="comandordkpdf/">comando "rdk pdf"</a></li>
+<li><a href="comandordklfm/">comando "rdk lfm"</a></li>
+</ul>
+</li>
+<li><a href="SandboxesdePlugins/">Sandboxes de Plug-ins</a></li>
+<li><a href="ModelosdeFichas/">Modelos de Fichas</a></li>
+<li><a href="HDVirtual/">HD Virtual</a></li>
+<li><a href="NodeDatabase/">NodeDatabase</a></li>
+<li><a href="ArrastandoeSoltandoInformacoesDr/">Arrastando e Soltando Informações / Drag And Drop</a></li>
+<li><a href="InterfacesVisuaisLuaForms/">Interfaces Visuais (Lua Forms)</a><ul>
+<li><a href="Guias/">Guias</a></li>
+<li><a href="PosicaoeTamanhodosControles/">Posição e Tamanho dos Controles</a></li>
+<li><a href="PontoLogicovsPixel/">Ponto Lógico vs Pixel</a></li>
+<li><a href="OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></li>
+<li><a href="TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></li>
+<li><a href="StringdecoresnoLuaForm/">String de cores no Lua Form</a></li>
+<li><a href="LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+<li><a href="LuaFormeInstancias/">Lua Form e Instâncias</a></li>
+<li><a href="EstilosemCascata/">Estilos em Cascata</a></li>
+<li><a href="DividindooarquivoLuaFormemdocume/">Dividindo o arquivo Lua Form em documentos menores</a></li>
+<li><a href="TagssuportadaspeloLuaForm/">Tags suportadas pelo Lua Form</a></li>
+<li><a href="Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a></li>
+<li><a href="Caracteristicasdetodasastagsdete/">Características de todas as tags de textos</a></li>
+<li><a href="Caracteristicasdetagsshapes/">Características de tags shapes</a></li>
+<li><a href="TagactivityIndicator/">Tag activityIndicator</a></li>
+<li><a href="Tagbutton/">Tag button</a></li>
+<li><a href="TagcolorComboBox/">Tag colorComboBox</a></li>
+<li><a href="TagcomboBox/">Tag comboBox</a></li>
+<li><a href="TagcheckBox/">Tag checkBox</a></li>
+<li><a href="TagdataLink/">Tag dataLink</a></li>
+<li><a href="TagdataScopeBox/">Tag dataScopeBox</a></li>
+<li><a href="Tagedit/">Tag edit</a></li>
+<li><a href="Tagevent/">Tag event</a></li>
+<li><a href="TagflowLayout/">Tag flowLayout</a></li>
+<li><a href="TagflowLineBreak/">Tag flowLineBreak</a></li>
+<li><a href="TagflowPart/">Tag flowPart</a></li>
+<li><a href="Tagform/">Tag form</a></li>
+<li><a href="Taggroup/">Tag group</a></li>
+<li><a href="TaghorzLine/">Tag horzLine</a></li>
+<li><a href="Tagimage/">Tag image</a></li>
+<li><a href="TagimageCheckBox/">Tag imageCheckBox</a></li>
+<li><a href="Tagimport/">Tag import</a></li>
+<li><a href="Taglabel/">Tag label</a></li>
+<li><a href="Taglayout/">Tag layout</a></li>
+<li><a href="Tagpath/">Tag path</a></li>
+<li><a href="Tagpopup/">Tag popup</a></li>
+<li><a href="TagpopupForm/">Tag popupForm</a></li>
+<li><a href="TagprogressBar/">Tag progressBar</a></li>
+<li><a href="TagradioButton/">Tag radioButton</a></li>
+<li><a href="TagrecordList/">Tag recordList</a></li>
+<li><a href="Tagrectangle/">Tag rectangle</a></li>
+<li><a href="TagrichEdit/">Tag richEdit</a></li>
+<li><a href="Tagscript/">Tag script</a></li>
+<li><a href="TagscrollBox/">Tag scrollBox</a></li>
+<li><a href="Tagstyle/">Tag style</a></li>
+<li><a href="Tagtab/">Tag tab</a></li>
+<li><a href="TagtabControl/">Tag tabControl</a></li>
+<li><a href="Tagtemplate/">Tag template</a></li>
+<li><a href="TagtextEditor/">Tag textEditor</a></li>
+<li><a href="Tagtimer/">Tag timer</a></li>
+<li><a href="Frames/">Frames</a></li>
+<li><a href="ArquivodeDefinicaodeFrame/">Arquivo de Definição de Frame</a></li>
+<li><a href="FrameseRegioes/">Frames e Regiões</a></li>
+<li><a href="Exemplosdeframes/">Exemplos de frames</a><ul>
+<li><a href="1Backgroundqueesticaparaonovotam/">1 - Background que estica para o novo tamanho</a></li>
+<li><a href="2Backgroundqueserepeteparapreenc/">2 - Background que se repete para preencher o tamanho</a></li>
+<li><a href="3Framecom2partesfixase1parteques/">3 - Frame com 2 partes fixas e 1 parte que se estica</a></li>
+<li><a href="4Frameretangulardinamicousandova/">4 - Frame retangular dinâmico, usando vários arquivos de imagens</a></li>
+<li><a href="5Framecomregioes/">5 - Frame com regiões</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="BibliotecasLUA/">Bibliotecas LUA</a><ul>
+<li><a href="AsyncPromiselibrary/">Async.Promise library</a></li>
+<li><a href="Promiseobject/">Promise object</a></li>
+<li><a href="BibliotecaDialogs/">Biblioteca Dialogs</a></li>
+<li><a href="BibliotecaFireDrive/">Biblioteca FireDrive</a></li>
+<li><a href="BibliotecaGUI/">Biblioteca GUI</a></li>
+<li><a href="ObjetoInertialMovement/">Objeto InertialMovement</a></li>
+<li><a href="ObjetoDrag/">Objeto Drag</a></li>
+<li><a href="ObjetoDrop/">Objeto Drop</a></li>
+<li><a href="BibliotecaLocale/">Biblioteca Locale</a></li>
+<li><a href="BibliotecaInternet/">Biblioteca Internet</a></li>
+<li><a href="ObjetoHTTPRequest/">Objeto HTTPRequest</a></li>
+<li><a href="BibliotecaNDB/">Biblioteca NDB</a></li>
+<li><a href="ObjetoNodo/">Objeto Nodo</a></li>
+<li><a href="ObjetoNodeObserver/">Objeto NodeObserver</a></li>
+<li><a href="ObjetoNodeTransaction/">Objeto NodeTransaction</a></li>
+<li><a href="ObjetoNodeUndoData/">Objeto NodeUndoData</a></li>
+<li><a href="BibliotecaFirecast/">Biblioteca Firecast</a></li>
+<li><a href="ObjetoMesa/">Objeto Mesa</a></li>
+<li><a href="ObjetoJogador/">Objeto Jogador</a></li>
+<li><a href="ObjetoRolagem/">Objeto Rolagem</a></li>
+<li><a href="ObjetoBibliotecaItem/">Objeto BibliotecaItem</a></li>
+<li><a href="ObjetoPersonagem/">Objeto Personagem</a></li>
+<li><a href="ObjetoSceneUnitClass/">Objeto SceneUnitClass</a></li>
+<li><a href="ObjetoChat/">Objeto Chat</a></li>
+<li><a href="ObjetoWrappedObject/">Objeto WrappedObject</a></li>
+<li><a href="BibliotecaFirecastMessaging/">Biblioteca Firecast.Messaging</a></li>
+<li><a href="ListadeMensagensEventosdoRRPG/">Lista de Mensagens-Eventos do RRPG</a><ul>
+<li><a href="MensagensdeConexao/">Mensagens de Conexão</a></li>
+<li><a href="MensagensdoGerenciadordePlugins/">Mensagens do Gerenciador de Plugins</a></li>
+<li><a href="MensagensdeChat/">Mensagens de Chat</a></li>
+<li><a href="MensagensdeEstadodasMesas/">Mensagens de Estado das Mesas</a></li>
+</ul>
+</li>
+<li><a href="BibliotecaFirecastPlugins/">Biblioteca Firecast.Plugins</a></li>
+<li><a href="BibliotecaFirecastRequests/">Biblioteca Firecast.Requests</a></li>
+<li><a href="BibliotecaSceneLib/">Biblioteca SceneLib</a></li>
+<li><a href="VisaogeraldaSceneLib/">Visão geral da SceneLib</a></li>
+<li><a href="MetricadoMundovsMetricadaTela/">Métrica do Mundo vs Métrica da Tela</a></li>
+<li><a href="Ascamadasdotabuleiro/">As camadas do tabuleiro</a></li>
+<li><a href="ObjetoScene/">Objeto Scene</a></li>
+<li><a href="ObjetoSceneBaseObject/">Objeto SceneBaseObject</a></li>
+<li><a href="ObjetoSceneCanvas/">Objeto SceneCanvas</a></li>
+<li><a href="ObjetoSceneDrawingOp/">Objeto SceneDrawingOp</a></li>
+<li><a href="ObjetoSceneDrawingOpBitmap/">Objeto SceneDrawingOpBitmap</a></li>
+<li><a href="ObjetoSceneDawingOpPath/">Objeto SceneDawingOpPath</a></li>
+<li><a href="ObjetoSceneDrawingOpText/">Objeto SceneDrawingOpText</a></li>
+<li><a href="ObjetoSceneEffectArea/">Objeto SceneEffectArea</a></li>
+<li><a href="ObjetoSceneFogOfWar/">Objeto SceneFogOfWar</a></li>
+<li><a href="ObjetoSceneGraphicItem/">Objeto SceneGraphicItem</a></li>
+<li><a href="ObjetoSceneGraphicItemList/">Objeto SceneGraphicItemList</a></li>
+<li><a href="ObjetoSceneGridLayer/">Objeto SceneGridLayer</a></li>
+<li><a href="ObjetoScenePluginAttachment/">Objeto ScenePluginAttachment</a></li>
+<li><a href="ObjetoSceneUserDrawing/">Objeto SceneUserDrawing</a></li>
+<li><a href="ObjetoSceneToken/">Objeto SceneToken</a></li>
+<li><a href="ObjetoSceneViewport/">Objeto SceneViewport</a></li>
+<li><a href="EstruturaSceneRect/">Estrutura SceneRect</a></li>
+<li><a href="BibliotecaSystem/">Biblioteca System</a></li>
+<li><a href="BibliotecaUtils/">Biblioteca Utils</a></li>
+<li><a href="ObjetoStream/">Objeto Stream</a></li>
+<li><a href="BibliotecaVHD/">Biblioteca VHD</a></li>
+<li><a href="Loglibrary/">Log library</a></li>
+</ul>
+</li>
+<li><a href="Macros/">Macros</a></li>
+<li><a href="BibliotecaparaMacrosemLua/">Biblioteca para Macros em Lua</a></li>
+<li><a href="Apendice/">Apêndice</a></li>
+<li><a href="AlinguagemdeprogramacaoLUA/">A linguagem de programação LUA</a></li>
+<li><a href="DocumentosXML/">Documentos XML</a></li>
+<li><a href="FAQPerguntasFrequentes/">FAQ -  Perguntas Frequentes</a></li>
+</ul>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/index.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

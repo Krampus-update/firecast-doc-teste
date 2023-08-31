@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag event - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag event", url: "#_top", children: [
+				]},
+				{title: "Tag event", url: "#tag-event_1", children: [
+						
+				{title: "Caracter\u00edsticas", url: "#_top", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Tagedit/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Tagedit/" class="btn btn-sm btn-link">
+			Tag edit
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagflowLayout/" class="btn btn-sm btn-link">
+			Tag flowLayout
+		</a>
+		<a href="../TagflowLayout/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-event">Tag event</h1>
+<h1 id="tag-event_1">Tag event</h1>
+<p>Esta tag especial serve para tratar um evento de uma tag/controle usando a linguagem de programação LUA (veja <a href="../AlinguagemdeprogramacaoLUA/">A linguagem de programação LUA</a>).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>O corpo da tag contém código de programação LUA</li>
+<li>Esta tag não cria nenhum controle.</li>
+<li>Você deve colocar a tag <strong>event</strong> dentro da tag que deseja tratar o evento.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: Não deixe de ler as <a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></p>
+<h2 id="caracteristicas">Características</h2>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>\&lt;Não há valor padrão&gt;</td>
+<td>Identifica o nome do evento que deseja manipular.&nbsp; Cada tag/controle possui seu próprio conjunto de eventos que podem ser tratados. Consulte a documentação!&nbsp; O preenchimento desta propriedade é obrigatório.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-ola-mundo-com-um-botao">Exemplo 1 - Olá mundo com um botão.</h3>
+<p>&nbsp;</p>
+<p>A tag <strong>event</strong> está dentro da tag <strong>button</strong>, portanto, a tag está manipulando o evento "onClick" do <strong>button</strong></p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;button</strong> left="20" top="20" text="clique"<strong>&gt;</strong>                 <strong>\&lt;event</strong> name="onClick"<strong>&gt;</strong>                         showMessage("Olá mundo!");                 <strong>\&lt;/event&gt;</strong>         <strong>\&lt;/button&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem102.png" /></p>
+<p>\
+<strong>Importante</strong>: Não deixe de ler as <a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-centralizando-um-controle-na-interface-visual">Exemplo 2 - Centralizando um controle na interface visual</h3>
+<p>&nbsp;</p>
+<p>A tag <strong>event</strong> está dentro da tag <strong>form</strong>, portanto ela está manipulando o evento "onResize" do <strong>form</strong>.</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;event</strong> name="onResize"<strong>&gt;</strong>                 self.btnMeuBotao.left = self.width / 2 - self.btnMeuBotao.width / 2;                 self.btnMeuBotao.top = self.height / 2 - self.btnMeuBotao.height / 2;         <strong>\&lt;/event&gt;</strong>                <strong>\&lt;button</strong> name="btnMeuBotao" text="Meu botão!"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem103.png" /><img alt="Image" src="../lib/NewItem104.png" /><img alt="Image" src="../lib/NewItem105.png" /></p>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: Não deixe de ler as <a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-3-definindo-funcoes-e-as-chamando-em-eventos">Exemplo 3&nbsp; - Definindo funções e as chamando em eventos</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;script&gt;</strong>\&lt;![CDATA[                 local function rotacionarUmPouco(controle)                         local angulo = controle.rotationAngle;                         angulo = angulo + 30;                                                while angulo &gt;= 360 do                                 angulo = angulo - 360;                         end;                                                controle.rotationAngle = angulo;                 end;            ]]&gt;         <strong>\&lt;/script&gt;</strong>          <strong>\&lt;button</strong> name="btnMeuBotao" left="20" top="30" text="Botão 1"<strong>&gt;</strong>                 <strong>\&lt;event</strong> name="onClick"<strong>&gt;</strong>                         rotacionarUmPouco(self.btnMeuBotao);                 <strong>\&lt;/event&gt;</strong>                        <strong>\&lt;/button&gt;</strong>                <strong>\&lt;button</strong> name="btnMeuBotao2" left="20" top="100" text="Botão 2"<strong>&gt;</strong>                 <strong>\&lt;event</strong> name="onClick"<strong>&gt;</strong>                         rotacionarUmPouco(self.btnMeuBotao2);                 <strong>\&lt;/event&gt;</strong>                        <strong>\&lt;/button&gt;</strong>       <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem108.png" /> ---&gt; <img alt="Image" src="../lib/NewItem107.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Neste exemplo foi usada a <a href="../Tagscript/">Tag script</a> para definir uma função e foi usado um bloco <a href="../DocumentosXML/#Lidando%20com%20caracteres%20reservados%20no%20XML">CDATA</a> para lidar com caracteres reservados do XML.</p>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: Não deixe de ler as <a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com">Experience the Power and Ease of Use of a Help Authoring Tool</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Tagedit/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Tagedit/" class="btn btn-sm btn-link">
+			Tag edit
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagflowLayout/" class="btn btn-sm btn-link">
+			Tag flowLayout
+		</a>
+		<a href="../TagflowLayout/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Tagevent.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca VHD - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca VHD", url: "#_top", children: [
+				]},
+				{title: "Biblioteca VHD", url: "#biblioteca-vhd_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca vhd", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoStream/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoStream/" class="btn btn-sm btn-link">
+			Objeto Stream
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Loglibrary/" class="btn btn-sm btn-link">
+			Log library
+		</a>
+		<a href="../Loglibrary/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-vhd">Biblioteca VHD</h1>
+<h1 id="biblioteca-vhd_1">Biblioteca VHD</h1>
+<p>A biblioteca vhd provê funções para manipular o <a href="../HDVirtual/">HD Virtual</a> do plug-in, como ler um arquivo, excluir, etc...</p>
+<p>Todas as funções estão contidas na table/variável "VHD" da unidade "vhd.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "vhd.lua"</em> require("vhd.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> VHD.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-vhd">Funções da biblioteca vhd</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.copyFile(srcFileName, dstFileName)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Copy the file in the virtual HD</p>
+<p>&nbsp;</p>
+<p>Arguments:</p>
+<ul>
+<li>&nbsp;</li>
+<li>srcFileName - String containing the path to the existing source file</li>
+<li>dstFileName - String containing the path of the new file</li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>The paths are expanded using “vhd.expandFileName” before copying.</li>
+<li>If the file “dstFileName” already exists, it will be replaced by the copied file.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.expandFileName(shortFileName)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Expande o nome curto de um arquivo a fim de ter sua localização em relação à raiz do HD virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>shortFileName – o caminho encurtado de um arquivo&nbsp; a ser expandido.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<p>&nbsp; &nbsp; Uma cadeia de caracteres, onde:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se a cadeia de caracteres passada pelo parâmetro shortFileName iniciar com o caractere “/”, a função simplesmente retorna o valor passado no parâmetro (pois o nome do arquivo já está expandido, isto é, já está em relação à raiz do HD virtual).</li>
+<li>Caso contrário, a função procura pelo arquivo dentro de cada um dos diretórios de pesquisa (SEARCH PATHs) que foram previamente registrados (ver descrição da função “<a href="./#addSearchPath">vhd.addSearchPath</a>”).&nbsp;<ul>
+<li>Caso encontre dentro de algum dos diretórios de pesquisa, a função retorna o caminho completo (expandido, com relação à raiz do HD virtual) do arquivo.&nbsp;</li>
+<li>Caso não encontre o arquivo, a função retorna o mesmo valor passado pelo parâmetro shortFileName.</li>
+</ul>
+</li>
+<li>Esta função leva em consideração os aliases registrados pela função <a href="./#VHD.registerAliases">VHD.registerAlias</a>, traduzindo o apelido e retornando o nome real do arquivo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.addSearchPath(directory)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Adiciona um diretório à lista de "diretórios de pesquisa" (SEARCH PATH) do HD Virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directory - cadeia de caracteres contendo o caminho <strong>expandido</strong> (isto é, em relação à raiz do HD Virtual) do diretório.</li>
+</ul>
+<p>&nbsp;</p>
+<p>A função "<a href="./#expandFileName">vhd.expandFileName</a>" utiliza estes diretórios de pesquisas na hora de expandir o nome curto de um arquivo.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.removeSearchPath(directory)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Remove um diretório da lista de "diretórios de pesquisa" (SEARCH PATH) que havia sido previamente registrado através a função "<a href="./#addSearchPath">vhd.addSearchPath</a>".</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directory - cadeia de caracteres contendo o caminho <strong>expandido</strong> (isto é, em relação à raiz do HD Virtual) do diretório.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.registerAlias(aliases)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Registra aliases/apelidos para arquivos no VHD.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>aliases - uma tabela lua contendo os aliases, onde cada par de chave-valor da tabela representa:<ul>
+<li>chave - uma cadeia de caracteres representando o aliases/apelido a ser criado</li>
+<li>valor - o nome do arquivo no VHD que o alias deve traduzir.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O alias funciona com a função <a href="./#expandFileName">VHD.expandFileName</a> e com a função <strong>require</strong> do Lua.</li>
+<li>O alias é case-sensitive, isto é, "myFile" é diferente de "MyFile".</li>
+<li>O alias não pode começar com o caracter "/". O nome traduzido pode começar com "/"</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> aliases = {}; aliases["mylua"] = "init.lua"; aliases["myFile2"] = "secondFile.lua";   VHD.registerAlias(aliases);&nbsp; require("myFile2");&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.fileExists(fileName)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Verifica se um arquivo existe no HD virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>fileName - cadeia de caracteres contendo o caminho&nbsp; a verificar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<p>&nbsp; &nbsp; Retorna <strong>true</strong> caso o arquivo exista ou <strong>false</strong> se não existir.</p>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<p>&nbsp; &nbsp; Esta função expande o nome do arquivo (através de "<a href="./#expandFileName">vhd.expandFileName</a>") antes de realizar a verificação.</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.directoryExists(path)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Verifica se um diretório existe no HD virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>path - cadeia de caracteres contendo o caminho&nbsp; a verificar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<p>&nbsp; &nbsp; Retorna <strong>true</strong> caso o diretório exista ou <strong>false</strong> se não existir.</p>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<p>&nbsp; &nbsp; Esta função expande o caminho (através de "<a href="./#expandFileName">vhd.expandFileName</a>") antes de realizar a verificação.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.openFile(fileName [, mode])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função abre um arquivo do HD virtual no modo especificado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>fileName - cadeia de caracteres contendo o nome do arquivo a abrir.</li>
+<li>(OPCIONAL) mode - cadeia de caracteres definindo o modo em que o arquivo será aberto.Pode ser um dos seguintes valores:<ul>
+<li>"r" - modo somente leitura (padrão se omitido). A função falhará se o arquivo não existir.</li>
+<li>"w" - modo escrita/leitura preservando o contendo do arquivo (se existir). Se o arquivo não existir, a função cria o arquivo.</li>
+<li>"a" - modo append. Equivalente ao modo "w", porém o objeto stream retornado é posicionado no fim do arquivo.</li>
+<li>"w+" - modo escrita/leitura, o conteúdo do arquivo é apagado se ele existir. Se o arquivo não existir, a função cria o arquivo.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Caso a função obtenha êxito, retorna um <a href="../ObjetoStream/">Objeto Stream</a> representando o conteúdo do arquivo. Qualquer alteração feita no objeto stream é refletida no arquivo.</li>
+<li>Caso a função falhe, retorna <strong>nil</strong> e a mensagem de erro.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função expande o nome do arquivo (através de "<a href="./#expandFileName">vhd.expandFileName</a>") antes de realizar a abertura.</li>
+<li>Para fechar o arquivo que foi aberto, você deve invocar o <a href="../ObjetoStream/#função%20stream:close">método close do objeto stream</a> retornado. Se o objeto stream for coletado pelo coletor de lixo, o arquivo também é fechado automaticamente.</li>
+<li>Exceto para o modo "a", o objeto stream retornado aponta para o inicio do arquivo.</li>
+<li>Apenas o modo "r" é aceito para abrir arquivos que originalmente vieram no plug-in. Não é possível alterar o conteúdo destes arquivos</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.forceDirectory(directoryPath)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função cria, se necessário, um ou mais diretórios especificado por directoryPath no HD virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directoryPath - cadeia de caracteres contendo o caminho do diretório a ser "forçado".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Caso o diretório já exista e não foi preciso fazer nada, a função retorna <strong>false</strong>.</li>
+<li>Caso o diretório não existia e a função conseguiu criá-lo, retorna <strong>true</strong>.</li>
+<li>Caso o diretório não exista mas a função também não consiga criá-lo, um erro é levantado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O valor de "directoryPath" deve ser um caminho absoluto no VHD (isto é, deve começar com o caracter "/")</li>
+<li>A criação de diretório ocorre de forma recursiva. Isto é, ao especificar "/diretorioNaoExistente1/diretorioA/diretorioB", a função irá criar "/diretorioNaoExistente1" primeiro, depois "diretorioA" dentro de "/diretorioNaoExistente1/", e, por fim, "diretorioB" dentro de "/diretorioNaoExistente1/diretorioA/".</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.deleteFile(fileName)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função remove um arquivo do HD virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>fileName - cadeia de caracteres contendo o caminho do arquivo a ser excluído.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função expande o nome do arquivo (através de "<a href="./#expandFileName">vhd.expandFileName</a>") antes de realizar a remoção.</li>
+<li>Esta função não pode ser usada para remover diretórios.</li>
+<li>Não é possível apagar um arquivo que originalmente veio no plug-in. Não é possível alterar o conteúdo destes arquivos</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.deleteDirectory(directoryPath)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função remove um diretório e todo seu conteúdo do HD virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directoryPath - cadeia de caracteres contendo o caminho do diretório que será excluído.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função expande o caminho do diretório (através de "<a href="./#expandFileName">vhd.expandFileName</a>") antes de realizar a remoção.</li>
+<li>Não é possível apagar um arquivo que originalmente veio no plug-in. Não é possível alterar o conteúdo destes arquivos.</li>
+<li>Esta função apaga o diretório e todo seu conteúdo recursivamente.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> VHD.enumerateContent(directoryPath)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função retorna quais arquivos e diretórios estão dentro de um diretório no HD Virtual.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directoryPath - cadeia de caracteres contendo o caminho do diretório que terá seu conteúdo enumerado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se "directoryPath" não conter um caminho válido de diretório, um erro será lançado.</li>
+<li>Senão, um array de strings será retornado, onde cada posição do arranjo contém o nome do diretório/arquivo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função expande o caminho de directoryPath (através de "<a href="./#expandFileName">vhd.expandFileName</a>") antes de realizar a enumeração..</li>
+<li>Esta função <strong>não</strong> enumera o conteúdo de forma recursiva. Isto é, se existirem sub-diretórios, seus conteúdos não serão enumerados neste retorno, apenas os itens que estão diretamente dentro de "directoryPath".</li>
+<li>O texto retornado no arranjo contém o nome do arquivo/diretório sem incluir "barras" ou outra forma de expressar o diretório que se encontra.<ul>
+<li>Exemplo: Se existirem dois arquivos (a.txt e b.txt) e um subdiretório ("/textos/histórias/") na pasta "/textos/", o retorno será:</li>
+<li>{'a.txt', 'b.txt', 'histórias'}</li>
+</ul>
+</li>
+<li>Para saber se um item do arranjo retornado é diretório ou é arquivo, utilize as funções <a href="./#fileExists">VHD.fileExists</a> e <a href="./#directoryExists">VHD.directoryExists</a></li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/stunning-user-interface/">Maximize Your Productivity with HelpNDoc's Efficient User Interface</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoStream/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoStream/" class="btn btn-sm btn-link">
+			Objeto Stream
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Loglibrary/" class="btn btn-sm btn-link">
+			Log library
+		</a>
+		<a href="../Loglibrary/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaVHD.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

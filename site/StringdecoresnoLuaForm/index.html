@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>String de cores no Lua Form - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "String de cores no Lua Form", url: "#_top", children: [
+				]},
+				{title: "String de cores", url: "#string-de-cores", children: [
+						
+				{title: "Formato hexadecimal", url: "#_top", children: [
+				]},
+				{title: "Formato literal", url: "#formato-literal", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-link">
+			Tratando eventos do Lua Form
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../LuaFormeNodeDatabase/" class="btn btn-sm btn-link">
+			Lua Form e NodeDatabase
+		</a>
+		<a href="../LuaFormeNodeDatabase/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="string-de-cores-no-lua-form">String de cores no Lua Form</h1>
+<h1 id="string-de-cores">String de cores</h1>
+<p>As cores usadas nas tags do Lua Form são definidas por um string, e podem ter 2 formatos:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Formato hexadecimal</li>
+<li>Formato literal</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="formato-hexadecimal">Formato hexadecimal</h2>
+<p>As cores no formato hexadecimal são uma mistura de RED, GREEN, BLUE e opcionalmente ALPHA no seguintes formatos:</p>
+<p>&nbsp;</p>
+<h3 id="formato-hexadecimal-1-dois-caracteres-por-canal-de-cor">Formato hexadecimal 1 —  dois caracteres por canal de cor</h3>
+<p>#RRGGBB ou 0xRRGGBB</p>
+<p>\
+onde:</p>
+<ul>
+<li>&nbsp;</li>
+<li>RR - código hexadecimal em 2 caracteres (valor entre 00 e FF) da porção vermelha</li>
+<li>GG - código hexadecimal em 2 caracteres (valor entre 00 e FF) da porção verde</li>
+<li>BB - código hexadecimal em 2 caracteres (valor entre 00 e FF) da porção azul</li>
+</ul>
+<h3 id="formato-hexadecimal-2-dois-caracteres-por-canal-de-cor-opacidade">Formato hexadecimal 2 — dois caracteres por canal de cor + opacidade</h3>
+<p>Também possível especificar a opacidade da cor (ALPHA), seguindo o padrão:</p>
+<p>&nbsp;</p>
+<p>#RRGGBBAA ou 0xRRGGBBAA</p>
+<p>&nbsp;</p>
+<p>onde:</p>
+<ul>
+<li>&nbsp;</li>
+<li>RR - código hexadecimal em 2 caracteres (valor entre 00 e FF) da porção vermelha</li>
+<li>GG - código hexadecimal em 2 caracteres (valor entre 00 e FF) da porção verde</li>
+<li>BB - código hexadecimal em 2 caracteres (valor entre 00 e FF) da porção azul</li>
+<li>AA - código hexadecimal em 2 caracteres (valor entre 00 e FF) do valor alpha/opacidade, onde 00 = 100% transparente e FF = 100% opaco.</li>
+</ul>
+<h3 id="formato-hexadecimal-3-um-caracter-por-canal-de-cor-tambem-conhecido-como-shorthand-hex-color">Formato hexadecimal 3 — um caracter por canal de cor (também conhecido como shorthand hex color)</h3>
+<p>#RGB ou 0xRGB</p>
+<p>\
+onde:</p>
+<ul>
+<li>&nbsp;</li>
+<li>R - código hexadecimal em 1 caracter (valor entre 0 e F) da porção vermelha</li>
+<li>G - código hexadecimal em 1 caracter (valor entre 0 e F) da porção verde</li>
+<li>B - código hexadecimal em 1 caracter (valor entre 0 e F) da porção azul</li>
+</ul>
+<h3 id="formato-hexadecimal-4-um-caracter-por-canal-de-cor-opacidade-tambem-conhecido-como-shorthand-hex-color">Formato hexadecimal 4 —  um caracter por canal de cor + Opacidade (também conhecido como shorthand hex color)</h3>
+<p>#RGBA ou 0xRGBA</p>
+<p>&nbsp;</p>
+<p>onde:</p>
+<ul>
+<li>&nbsp;</li>
+<li>R - código hexadecimal em 1 caracter (valor entre 0 e F) da porção vermelha</li>
+<li>G - código hexadecimal em 1 caracter (valor entre 0 e F) da porção verde</li>
+<li>B - código hexadecimal em 1 caracter (valor entre 0 e F) da porção azul</li>
+<li>A - código hexadecimal em 1 caracter (valor entre 0 e F) do valor alpha/opacidade, onde 0 = 100% transparente e F = 100% opaco.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplos:</p>
+<ul>
+<li>&nbsp;</li>
+<li>#FF0000 - cor vermelha (Formato 1 — dois caracteres por canal de cor)</li>
+<li>#F00 - cor vemelha (Formato 3 — um caracter por canal de cor)</li>
+<li>#00FF00 - cor verde (Formato 1 — dois caracteres por canal de cor)</li>
+<li>#0F0 - cor verde (Formato 3 — um caracter por canal de cor)</li>
+<li>#0000FF - cor azul (Formato 1 — dois caracteres por canal de cor)</li>
+<li>#00F - cor azul (Formato 3 — um caracter por canal de cor)</li>
+<li>#FF00007F - cor vermelha 50% transparente (Formato 2 — dois caracteres por canal de cor + opacidade)</li>
+<li>#F007 - cor vermelha 47% transparente (Formato 4 — um caracter por canal de cor + opacidade)</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="formato-literal">Formato literal</h2>
+<p>O SDK3 também provê algumas constantes que identificam facilmente algumas cores! São elas:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Constante</strong></th>
+<th><strong>Hexadecimal equivalente</strong></th>
+<th><strong>Cor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AliceBlue </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F0F8FF">#F0F8FF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>AntiqueWhite </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FAEBD7">#FAEBD7</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>Aqua </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00FFFF">#00FFFF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Aquamarine">Aquamarine</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=7FFFD4">#7FFFD4</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Azure">Azure</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F0FFFF">#F0FFFF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Beige">Beige</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F5F5DC">#F5F5DC</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Bisque">Bisque</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFE4C4">#FFE4C4</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Black">Black</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=000000">#000000</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=BlanchedAlmond">BlanchedAlmond</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFEBCD">#FFEBCD</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Blue">Blue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=0000FF">#0000FF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=BlueViolet">BlueViolet</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=8A2BE2">#8A2BE2</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Brown">Brown</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=A52A2A">#A52A2A</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=BurlyWood">BurlyWood</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DEB887">#DEB887</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=CadetBlue">CadetBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=5F9EA0">#5F9EA0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Chartreuse">Chartreuse</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=7FFF00">#7FFF00</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Chocolate">Chocolate</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=D2691E">#D2691E</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Coral">Coral</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF7F50">#FF7F50</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=CornflowerBlue">CornflowerBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=6495ED">#6495ED</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Cornsilk">Cornsilk</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFF8DC">#FFF8DC</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Crimson">Crimson</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DC143C">#DC143C</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Cyan">Cyan</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00FFFF">#00FFFF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkBlue">DarkBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00008B">#00008B</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkCyan">DarkCyan</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=008B8B">#008B8B</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkGoldenRod">DarkGoldenRod</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=B8860B">#B8860B</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkGray">DarkGray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=A9A9A9">#A9A9A9</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkGreen">DarkGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=006400">#006400</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkKhaki">DarkKhaki</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=BDB76B">#BDB76B</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkMagenta">DarkMagenta</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=8B008B">#8B008B</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkOliveGreen">DarkOliveGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=556B2F">#556B2F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkOrange">DarkOrange</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF8C00">#FF8C00</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkOrchid">DarkOrchid</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=9932CC">#9932CC</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkRed">DarkRed</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=8B0000">#8B0000</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkSalmon">DarkSalmon</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=E9967A">#E9967A</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkSeaGreen">DarkSeaGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=8FBC8F">#8FBC8F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkSlateBlue">DarkSlateBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=483D8B">#483D8B</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkSlateGray">DarkSlateGray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=2F4F4F">#2F4F4F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkTurquoise">DarkTurquoise</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00CED1">#00CED1</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DarkViolet">DarkViolet</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=9400D3">#9400D3</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DeepPink">DeepPink</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF1493">#FF1493</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DeepSkyBlue">DeepSkyBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00BFFF">#00BFFF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DimGray">DimGray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=696969">#696969</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=DodgerBlue">DodgerBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=1E90FF">#1E90FF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=FireBrick">FireBrick</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=B22222">#B22222</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=FloralWhite">FloralWhite</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFAF0">#FFFAF0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=ForestGreen">ForestGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=228B22">#228B22</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Fuchsia">Fuchsia</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF00FF">#FF00FF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Gainsboro">Gainsboro</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DCDCDC">#DCDCDC</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=GhostWhite">GhostWhite</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F8F8FF">#F8F8FF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Gold">Gold</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFD700">#FFD700</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=GoldenRod">GoldenRod</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DAA520">#DAA520</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Gray">Gray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=808080">#808080</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Green">Green</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=008000">#008000</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=GreenYellow">GreenYellow</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=ADFF2F">#ADFF2F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=HoneyDew">HoneyDew</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F0FFF0">#F0FFF0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=HotPink">HotPink</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF69B4">#FF69B4</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=IndianRed">IndianRed </a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=CD5C5C">#CD5C5C</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Indigo">Indigo </a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=4B0082">#4B0082</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Ivory">Ivory</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFFF0">#FFFFF0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Khaki">Khaki</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F0E68C">#F0E68C</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Lavender">Lavender</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=E6E6FA">#E6E6FA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LavenderBlush">LavenderBlush</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFF0F5">#FFF0F5</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LawnGreen">LawnGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=7CFC00">#7CFC00</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LemonChiffon">LemonChiffon</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFACD">#FFFACD</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightBlue">LightBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=ADD8E6">#ADD8E6</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightCoral">LightCoral</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F08080">#F08080</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightCyan">LightCyan</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=E0FFFF">#E0FFFF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightGoldenRodYellow">LightGoldenRodYellow</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FAFAD2">#FAFAD2</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightGray">LightGray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=D3D3D3">#D3D3D3</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightGreen">LightGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=90EE90">#90EE90</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightPink">LightPink</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFB6C1">#FFB6C1</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightSalmon">LightSalmon</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFA07A">#FFA07A</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightSeaGreen">LightSeaGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=20B2AA">#20B2AA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightSkyBlue">LightSkyBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=87CEFA">#87CEFA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightSlateGray">LightSlateGray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=778899">#778899</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightSteelBlue">LightSteelBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=B0C4DE">#B0C4DE</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LightYellow">LightYellow</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFFE0">#FFFFE0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Lime">Lime</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00FF00">#00FF00</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=LimeGreen">LimeGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=32CD32">#32CD32</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Linen">Linen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FAF0E6">#FAF0E6</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Magenta">Magenta</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF00FF">#FF00FF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Maroon">Maroon</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=800000">#800000</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumAquaMarine">MediumAquaMarine</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=66CDAA">#66CDAA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumBlue">MediumBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=0000CD">#0000CD</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumOrchid">MediumOrchid</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=BA55D3">#BA55D3</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumPurple">MediumPurple</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=9370DB">#9370DB</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumSeaGreen">MediumSeaGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=3CB371">#3CB371</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumSlateBlue">MediumSlateBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=7B68EE">#7B68EE</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumSpringGreen">MediumSpringGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00FA9A">#00FA9A</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumTurquoise">MediumTurquoise</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=48D1CC">#48D1CC</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MediumVioletRed">MediumVioletRed</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=C71585">#C71585</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MidnightBlue">MidnightBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=191970">#191970</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MintCream">MintCream</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F5FFFA">#F5FFFA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=MistyRose">MistyRose</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFE4E1">#FFE4E1</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Moccasin">Moccasin</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFE4B5">#FFE4B5</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=NavajoWhite">NavajoWhite</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFDEAD">#FFDEAD</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Navy">Navy</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=000080">#000080</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=OldLace">OldLace</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FDF5E6">#FDF5E6</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Olive">Olive</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=808000">#808000</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=OliveDrab">OliveDrab</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=6B8E23">#6B8E23</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Orange">Orange</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFA500">#FFA500</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=OrangeRed">OrangeRed</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF4500">#FF4500</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Orchid">Orchid</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DA70D6">#DA70D6</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PaleGoldenRod">PaleGoldenRod</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=EEE8AA">#EEE8AA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PaleGreen">PaleGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=98FB98">#98FB98</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PaleTurquoise">PaleTurquoise</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=AFEEEE">#AFEEEE</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PaleVioletRed">PaleVioletRed</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DB7093">#DB7093</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PapayaWhip">PapayaWhip</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFEFD5">#FFEFD5</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PeachPuff">PeachPuff</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFDAB9">#FFDAB9</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Peru">Peru</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=CD853F">#CD853F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Pink">Pink</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFC0CB">#FFC0CB</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Plum">Plum</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=DDA0DD">#DDA0DD</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=PowderBlue">PowderBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=B0E0E6">#B0E0E6</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Purple">Purple</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=800080">#800080</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=RebeccaPurple">RebeccaPurple</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=663399">#663399</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Red">Red</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF0000">#FF0000</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=RosyBrown">RosyBrown</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=BC8F8F">#BC8F8F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=RoyalBlue">RoyalBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=4169E1">#4169E1</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SaddleBrown">SaddleBrown</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=8B4513">#8B4513</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Salmon">Salmon</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FA8072">#FA8072</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SandyBrown">SandyBrown</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F4A460">#F4A460</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SeaGreen">SeaGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=2E8B57">#2E8B57</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SeaShell">SeaShell</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFF5EE">#FFF5EE</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Sienna">Sienna</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=A0522D">#A0522D</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Silver">Silver</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=C0C0C0">#C0C0C0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SkyBlue">SkyBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=87CEEB">#87CEEB</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SlateBlue">SlateBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=6A5ACD">#6A5ACD</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SlateGray">SlateGray</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=708090">#708090</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Snow">Snow</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFAFA">#FFFAFA</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SpringGreen">SpringGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=00FF7F">#00FF7F</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=SteelBlue">SteelBlue</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=4682B4">#4682B4</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Tan">Tan</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=D2B48C">#D2B48C</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Teal">Teal</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=008080">#008080</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Thistle">Thistle</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=D8BFD8">#D8BFD8</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Tomato">Tomato</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FF6347">#FF6347</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Turquoise">Turquoise</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=40E0D0">#40E0D0</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Violet">Violet</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=EE82EE">#EE82EE</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Wheat">Wheat</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F5DEB3">#F5DEB3</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=White">White</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFFFF">#FFFFFF</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=WhiteSmoke">WhiteSmoke</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=F5F5F5">#F5F5F5</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=Yellow">Yellow</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=FFFF00">#FFFF00</a></td>
+<td> </td>
+</tr>
+<tr>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?color=YellowGreen">YellowGreen</a> </td>
+<td><a href="http://www.w3schools.com/tags/ref_color_tryit.asp?hex=9ACD32">#9ACD32</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>None </td>
+<td>#00000000</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Transparent</td>
+<td>#00000000</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>#00000000</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Experience the power of a responsive website for your documentation</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-link">
+			Tratando eventos do Lua Form
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../LuaFormeNodeDatabase/" class="btn btn-sm btn-link">
+			Lua Form e NodeDatabase
+		</a>
+		<a href="../LuaFormeNodeDatabase/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/StringdecoresnoLuaForm.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

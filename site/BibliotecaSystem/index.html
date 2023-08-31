@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca System - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca System", url: "#_top", children: [
+				]},
+				{title: "Biblioteca System", url: "#biblioteca-system_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca System", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-link">
+			Estrutura SceneRect
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoStream/" class="btn btn-sm btn-link">
+			Objeto Stream
+		</a>
+		<a href="../ObjetoStream/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-system">Biblioteca System</h1>
+<h1 id="biblioteca-system_1">Biblioteca System</h1>
+<p>Biblioteca que contém funções para lidar com o dispositivo do usuário e outras funcionalidades básicas.</p>
+<p>Todas as funções estão contidas na unidade "system.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "system.lua"</em> require("system.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> System.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-system">Funções da biblioteca System</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.setClipboardText(text)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Altera o conteúdo do Clipboard/Área de Transferência do sistema operacional (ctrl+c).</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>text - Cadeia de caracteres contendo o novo conteúdo que será colocado no Clipboard do usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Caso consiga alterar o conteúdo do clipboard, retorna <strong>true</strong>, senão retorna <strong>false.</strong></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.getClipboardText()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o conteúdo do Clibpboard/Área de Transferência do sistema operacional (ctrl+c)</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres caso haja um texto no clipboard ou <strong>nil</strong>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.readClipboardAsDragNDrop(callback, [options])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Read the device clipboard as a drag-and-drop operation. Helpful to read multiple clipboard formats (such as files and images).</p>
+<p>&nbsp;</p>
+<p>Parameters:</p>
+<ul>
+<li>&nbsp;</li>
+<li>callback - a function that will be called to handle the drag-and-drop operation. The callback will receive the following parameters:<ul>
+<li>drop - The <a href="../ObjetoDrop/">Drop Object</a> that you must fill in the information so Firecast can match the drag to the drop.</li>
+<li>x - The number passed in "options.x" or 0</li>
+<li>y - The number passed in "options.y" or 0</li>
+<li>drag - The <a href="../ObjetoDrag/">Drag Object</a> representing the clipboard data. You must not change the properties of this object.</li>
+</ul>
+</li>
+<li>(Optional) options - a table that may contain the following attributes:<ul>
+<li>(Optional) x -The "x" position that the callback function will receive</li>
+<li>(Optional) y -The "y" position that the callback function will receive.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Returns:</p>
+<ul>
+<li>&nbsp;</li>
+<li><strong>true</strong> if the operation had a match or <strong>false</strong> instead.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>The callback function is called immediately. The drag object is valid only inside the callback execution.</li>
+<li>The drag and drop operation works exactly in the same way the <a href="../Caracteristicasdetodasastagsvisu/#onStartDrop">onStartDrop</a> event that all visual tags have.</li>
+<li>Please read <a href="../ArrastandoeSoltandoInformacoesDr/">Dragging and Dropping Information</a> to learn more about the drag-and-drop process.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.getScreenSize()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna as dimensões da tela do dispositivo do usuário.</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna dois números: largura e altura da tela em <a href="../PontoLogicovsPixel/">pontos lógicos</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> largura, altura = system.getScreenSize();</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.isMobile()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna se o plugin está rodando no Firecast Mobile.</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna <strong>true</strong> se o plugin está rodando no App do FireCastMobile ou <strong>false</strong> se está rodando no RRPG de computador</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.getTickCount()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna um número contendo há quantos milisegundos o dispositivo do usuário está ligado. Ótimo para calcular o tempo decorrido entre operações.</p>
+<p>&nbsp;</p>
+<h3 id="sdk3-api-version-functions">SDK3 API Version Functions</h3>
+<h5 id="version-history">Version history</h5>
+<table>
+<thead>
+<tr>
+<th><strong>Major</strong></th>
+<th><strong>Minor</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#56;7</td>
+<td>&#48;</td>
+<td>SDK 3.6 (Firecast 8+)</td>
+</tr>
+<tr>
+<td>&#56;7</td>
+<td>&#49;</td>
+<td>SDK 3.6b (Firecast 8.5+)</td>
+</tr>
+<tr>
+<td>&#56;7</td>
+<td>&#50;</td>
+<td>SDK 3.6c (Firecast 8.6+)</td>
+</tr>
+<tr>
+<td>&#56;7</td>
+<td>&#51;</td>
+<td>SDK 3.6d (Firecast 8.8+)</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Identical major versions possess compatibility with each other.&nbsp;</p>
+<p>For example, you can compile a plugin using SDK3.6b (87.1), and it will still run fine on an SDK 3.6 (87.0) running API because the two have the same major version.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.checkAPIVersion(major, [minor])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Checks if the current running SDK3 API version is greater or equal to a specific version.</p>
+<p>&nbsp;</p>
+<p>Parameters:</p>
+<ul>
+<li>&nbsp;</li>
+<li>major - The major version integer to check.</li>
+<li>(Optional) minor - The minor version integer to check. When omitted, 0 is used by default</li>
+</ul>
+<p>&nbsp;</p>
+<p>Returns:</p>
+<ul>
+<li>&nbsp;</li>
+<li><strong>true</strong> if the current running SDK3 API version is greater or equal to the specified version; <strong>false</strong> otherwise.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>You may want to check the <a href="./#SDK3_API_Version_History">SDK3 API version history</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.getAPIVersion()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Gets the current running SDK3 API version.</p>
+<p>&nbsp;</p>
+<p>Returns:</p>
+<ul>
+<li>&nbsp;</li>
+<li>An integer number in the same format returned by the function <a href="./#System_makeAPIVersion">System.makeAPIVersionNumber</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>You may want to check the <a href="./#SDK3_API_Version_History">SDK3 API version history</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> System.makeAPIVersionNumber(major, [minor])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Make an API version integer number that you can use to compare versions.</p>
+<p>&nbsp;</p>
+<p>Parameters:</p>
+<ul>
+<li>&nbsp;</li>
+<li>major - The major version integer</li>
+<li>(Optional) minor - The minor version integer. When omitted, 0 is used by default</li>
+</ul>
+<p>&nbsp;</p>
+<p>Returns:</p>
+<ul>
+<li>&nbsp;</li>
+<li>An integer number. It's a 32 bits where the upper 16 bits contain the major version, and the lower 16 bits hold the minor version.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>You may want to check the <a href="./#SDK3_API_Version_History">SDK3 API version history</a>.</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/advanced-project-analyzer/">HelpNDoc's Project Analyzer: Incredible documentation assistant</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../EstruturaSceneRect/" class="btn btn-sm btn-link">
+			Estrutura SceneRect
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoStream/" class="btn btn-sm btn-link">
+			Objeto Stream
+		</a>
+		<a href="../ObjetoStream/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaSystem.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

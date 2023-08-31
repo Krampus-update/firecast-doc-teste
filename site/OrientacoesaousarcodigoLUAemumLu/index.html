@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Orientações ao usar código LUA em um Lua Form - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Orienta\u00e7\u00f5es ao usar c\u00f3digo LUA em um Lua Form", url: "#_top", children: [
+				]},
+				{title: "Usando c\u00f3digo LUA em um Lua Form.", url: "#usando-codigo-lua-em-um-lua-form", children: [
+						
+				{title: "\u0026#49; - Inst\u00e2ncias", url: "#_top", children: [
+				]},
+				{title: "\u0026#50; - Acessando as tags/controles via programa\u00e7\u00e3o.", url: "#-acessando-as-tagscontroles-via-programacao", children: [
+				]},
+				{title: "\u0026#51; - Declarando fun\u00e7\u00f5es", url: "#-declarando-funcoes", children: [
+				]},
+				{title: "\u0026#52; - Acessando o Nodo do NodeDatabase associado \u00e0 inst\u00e2ncia do LuaForm", url: "#-acessando-o-nodo-do-nodedatabase-associado-a-instancia-do-luaform", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../PontoLogicovsPixel/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../PontoLogicovsPixel/" class="btn btn-sm btn-link">
+			Ponto Lógico vs Pixel
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-link">
+			Tratando eventos do Lua Form
+		</a>
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="orientacoes-ao-usar-codigo-lua-em-um-lua-form">Orientações ao usar código LUA em um Lua Form</h1>
+<h1 id="usando-codigo-lua-em-um-lua-form">Usando código LUA em um Lua Form.</h1>
+<p>&nbsp;</p>
+<p>Você pode usar códigos LUA (veja <a href="../AlinguagemdeprogramacaoLUA/">A linguagem de programação LUA</a>) em seus Lua Forms de 2 maneiras:</p>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Manipulando eventos das tags - Saiba mais como em <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a>.</li>
+<li>Usando a <a href="../Tagscript/">Tag script</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Mas para usar de forma adequada é importante você saber as características e comportamento do código LUA em um Lua Form.</p>
+<p>&nbsp;</p>
+<h2 id="-instancias">&#49; - Instâncias</h2>
+<p>&nbsp;</p>
+<p>Um Lua Form pode ser instanciado várias vezes (veja <a href="../LuaFormeInstancias/">Lua Form e Instâncias</a>), isto é, é perfeitamente possível existir mais de 1 "cópia" de um Lua Form rodando ao mesmo tempo. Seu código deve estar apto a lidar com esta situação!</p>
+<p>&nbsp;</p>
+<p>A variável "self" representa a instância do Lua Form em que o código está executado.</p>
+<h2 id="-acessando-as-tagscontroles-via-programacao">&#50; - Acessando as tags/controles via programação.</h2>
+<p>&nbsp;</p>
+<p>Cada instância do Lua Form possui sua própria "cópia viva" das tags e, se você quiser acessar uma tag/controle via programação, você precisará identificar de qual Lua Form é o controle que deseja ter acesso.</p>
+<p>&nbsp;</p>
+<p>Para identificar um controle do próprio Lua Form, você deve usar "self.". \
+Em 99% dos casos que precisar acessar as tags via programação, você provavelmente usará "self.".</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;label</strong> name="labMeuLabel" left="20" top="20" text="Meu Texto!" <strong>/&gt;</strong>          <strong>\&lt;button</strong> text="Clique" left="20" top="50"                 onClick="self.labMeuLabel.text = 'Cliquei no Botão'"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>Importante:</strong> Um erro ocorrerá se tentar acessar uma tag/controle sem usar "self." (ou outra forma de identificar o Lua Form).</p>
+<p>&nbsp;</p>
+<h2 id="-declarando-funcoes">&#51; - Declarando funções</h2>
+<p>&nbsp;</p>
+<p>Você pode usar a <a href="../Tagscript/">tag script</a> para declarar funções, mas você deve usar o modificador "local" nestas funções para que não haja confusão entre as diversas instâncias do Lua Form.</p>
+<p>Não usar o modificador "local" nas declarações de funções causa confusão entre as instâncias do form, já que se trataria de uma função global a todas as instâncias.</p>
+<p>&nbsp;</p>
+<p>Exemplo de declaração:</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;script&gt;</strong>                 local function exibirMensagem()                                 local texto = "";&nbsp;                         for i = 1, 5, 1 do                                 texto = texto .. "Linha " .. i .. "\n";                         end;                                                showMessage(texto);                 end;         <strong>\&lt;/script&gt;</strong>          <strong>\&lt;button</strong> name="btnMeuBotao" text="Meu Botão" onClick="exibirMensagem()"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Você também pode declarar funções ligadas à instância para evitar os mesmos problemas:</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;script&gt;</strong>                 function self.exibirMensagem()                         showMessage('Olá Mundo');                 end;         <strong>\&lt;/script&gt;</strong>          <strong>\&lt;button</strong> onClick="self.exibirMensagem();"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="-acessando-o-nodo-do-nodedatabase-associado-a-instancia-do-luaform">&#52; - Acessando o Nodo do NodeDatabase associado à instância do LuaForm</h2>
+<p>Cada instância de LuaForm pode estar associada a um <a href="../ObjetoNodo/">objeto nodo</a> de um NodeDatabase (ver <a href="../NodeDatabase/">NodeDatabase</a> e <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a>).&nbsp;</p>
+<p>A variável "sheet" contém este <a href="../ObjetoNodo/">objeto nodo</a> associado e você pode usá-lo via programação.</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;button</strong> onClick="sheet.campoDeForca = 8;"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-hlp-winhelp-help-file-to-a-chm-html-help-help-file/">Streamline your documentation process with HelpNDoc's WinHelp HLP to CHM conversion feature</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../PontoLogicovsPixel/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../PontoLogicovsPixel/" class="btn btn-sm btn-link">
+			Ponto Lógico vs Pixel
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-link">
+			Tratando eventos do Lua Form
+		</a>
+		<a href="../TratandoeventosdoLuaForm/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/OrientacoesaousarcodigoLUAemumLu.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag flowPart - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag flowPart", url: "#_top", children: [
+				]},
+				{title: "Tag flowPart", url: "#tag-flowpart_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagflowLineBreak/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagflowLineBreak/" class="btn btn-sm btn-link">
+			Tag flowLineBreak
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagform/" class="btn btn-sm btn-link">
+			Tag form
+		</a>
+		<a href="../Tagform/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-flowpart">Tag flowPart</h1>
+<h1 id="tag-flowpart_1">Tag flowPart</h1>
+<p>&nbsp;</p>
+<p>A tag/componente <strong>flowPart</strong> representa uma parte dinâmica de um layout dinâmico (Ver <a href="../TagflowLayout/">Tag flowLayout</a>). É um controle similar à uma tag <strong>layout,</strong> mas com a possibilidade de definir uma largura dinâmica, isto é, um layout que muda sua largura de acordo com a necessidade.</p>
+<p>&nbsp;</p>
+<p>Observação: Deve ser usado junto com a <a href="../TagflowLayout/">Tag flowLayout.</a></p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>flowPart</strong> possui <strong>todas</strong> as características da tag layout.&nbsp;</p>
+<p>Veja:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../Taglayout/">Tag layout</a></li>
+<li><a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a><strong>.</strong></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o <strong>flowPart</strong> possui também as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>minWidth</strong></td>
+<td>Float</td>
+<td>\&lt;o mesmo que width&gt;</td>
+<td>Define a largura mínima que esta parte dinâmica pode assumir.&nbsp; Quando não definido, o valor "width" será usado e, portanto, a parte não mudará sua largura de forma dinâmica.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>maxWidth</strong></td>
+<td>Float</td>
+<td>\&lt;o mesmo que width&gt;</td>
+<td>Define a largura máxima que esta parte dinâmica pode assumir.&nbsp; Quando não definido, o valor "width" será usado e, portanto, a parte não mudará sua largura de forma dinâmica.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>minScaledWidth</strong></td>
+<td>Float</td>
+<td>\&lt;o mesmo que minWidth&gt;</td>
+<td>Este valor deve ser menor ou igual à propriedade "minWidth".&nbsp; Quando definido, o layout dinâmico poderá utilizar, para este controle, uma largura menor que "minWidth", porém escalando o conteúdo de forma proporcional até uma largura mínima de "minScaledWidth"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>maxScaledWidth</strong></td>
+<td>Float</td>
+<td>\&lt;o mesmo que maxWidth&gt;</td>
+<td>Este valor deve ser maior ou igual à propriedade "maxWidth".&nbsp; Quando definido, o layout dinâmico poderá utilizar, para este controle, uma largura maior que "maxWidth", porém escalando o conteúdo de forma proporcional até uma largura máxima de "maxScaledWidth"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>avoidScale</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true e quando alguma das propriedades "minScaledWidth" e "maxScaledWidth" estiverem definidas, o layout dinâmico assumirá uma largura menor que "minWidth" ou maior que "maxWidth" <strong>apenas</strong> em último caso (Por exemplo: Quando um controle por si só não caber numa única linha).&nbsp;</td>
+</tr>
+<tr>
+<td><strong>vertAlign</strong></td>
+<td>Enumerado: "leading" "center" "trailing"</td>
+<td>"leading"</td>
+<td>Na linha do layout dinâmico que este controle foi alocado, qual será seu alinhamento vertical?&nbsp; "leading" - Este controle estará alinhado no topo de sua linha "center" - Este controle estará alinhado no centro de sua linha "trailing" - Este controle estará alinhado no rodapé de sua linha.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stepSizes</strong></td>
+<td>Arranjo de Float</td>
+<td>{}</td>
+<td>Por padrão, este controle poderá ter qualquer largura entre "minWidth" e "maxWidth" (uma faixa de números reais).&nbsp; Ao usar "stepSizes", este controle assumirá apenas alguma das larguras que estão no arranjo.&nbsp; Exemplos: {100, 200, 300} - O controle poderá assumir larguras 100, 200 ou 300.. Não poderá assumir, por exemplo, a largura 150. {200, 450} - o controle poderá assumir ou a largura de 200 ou de 450.&nbsp; Observação: Ao usar esta propriedade, o controle passa a desconsiderar as propriedades "minWidth" e "maxWidth" (porém minScaledWidth e maxScaledWidth continuam sendo respeitados)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>adjustHeightToLine</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true, este controle pode se redimensionar a fim de ocupar todo o espaço vertical da linha em que foi alocado.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<p>&nbsp;</p>
+<h3 id="exemplo-1-layout-dinamico-usando-flowpart-para-se-ajustar-a-varios-tamanhos-de-interfaces">Exemplo 1 - Layout Dinâmico usando flowPart para se ajustar a vários tamanhos de interfaces</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                 <strong>\&lt;style&gt;</strong>                 flowPart {                         margins: {left=5, right=5, top=5, bottom=5};                 }                               label {                         width: 75;                         horzTextAlign: trailing;                         margins: {right=5};                 }     &nbsp; &nbsp; <strong>\&lt;/style&gt;</strong>                    <strong>\&lt;flowLayout</strong> align="client" orientation="horizontal" horzAlign="justify"  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margins="{left=20, top=20, bottom=20, right=20}"<strong>&gt;</strong>&nbsp;                 <strong>\&lt;flowPart</strong> minWidth="130" maxWidth="200" height="25"<strong>&gt;</strong>                         <strong>\&lt;label</strong> align="left" text="Força: "<strong>/&gt;</strong>                         <strong>\&lt;edit</strong> align="client"<strong>/&gt;</strong>                 <strong>\&lt;/flowPart&gt;</strong>                                <strong>\&lt;flowPart</strong> minWidth="130" maxWidth="200" height="25"<strong>&gt;</strong>                         <strong>\&lt;label</strong> align="left" text="Destreza: "<strong>/&gt;</strong>                         <strong>\&lt;edit</strong> align="client"<strong>/&gt;</strong>                 <strong>\&lt;/flowPart&gt;</strong>                                            <strong>\&lt;flowPart</strong> minWidth="130" maxWidth="200" height="25"<strong>&gt;</strong>                         <strong>\&lt;label</strong> align="left" text="Constituição: "<strong>/&gt;</strong>                         <strong>\&lt;edit</strong> align="client"<strong>/&gt;</strong>                 <strong>\&lt;/flowPart&gt;</strong>                              <strong>\&lt;flowPart</strong> minWidth="130" maxWidth="200" height="25"<strong>&gt;</strong>                         <strong>\&lt;label</strong> align="left" text="Inteligência: "<strong>/&gt;</strong>                         <strong>\&lt;edit</strong> align="client"<strong>/&gt;</strong>                 <strong>\&lt;/flowPart&gt;</strong>                     <strong>\&lt;/flowLayout&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem94.png" />\
+\
+<img alt="Image" src="../lib/NewItem95.png" /></p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem96.png" /></p>
+<p>&nbsp;</p>
+<p>Neste exemplo foi utilizada a <a href="../Tagstyle/">Tag style</a> para aplicar algumas propriedades a vários controles de uma só vez. Cada tag flowPart usada pode assumir largura entre 130 e 200.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-word-docx-file-to-an-epub-or-kindle-ebook/">Transform Your Word Doc into a Professional-Quality eBook with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagflowLineBreak/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagflowLineBreak/" class="btn btn-sm btn-link">
+			Tag flowLineBreak
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagform/" class="btn btn-sm btn-link">
+			Tag form
+		</a>
+		<a href="../Tagform/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/TagflowPart.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

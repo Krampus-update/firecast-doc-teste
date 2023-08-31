@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Mensagens de Chat - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Mensagens de Chat", url: "#_top", children: [
+				]},
+				{title: "Mensagens-Eventos a respeito de Chat no RRPG", url: "#mensagens-eventos-a-respeito-de-chat-no-rrpg", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../MensagensdoGerenciadordePlugins/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../MensagensdoGerenciadordePlugins/" class="btn btn-sm btn-link">
+			Mensagens do Gerenciador de Plugins
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-link">
+			Mensagens de Estado das Mesas
+		</a>
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="mensagens-de-chat">Mensagens de Chat</h1>
+<h1 id="mensagens-eventos-a-respeito-de-chat-no-rrpg">Mensagens-Eventos a respeito de Chat no RRPG</h1>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>"ChatMessage"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Enviada quando uma mensagem de chat for recebida ou enviada.</p>
+<p>&nbsp;</p>
+<p>Parâmetros da Mensagem:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>chat - <a href="../ObjetoChat/">Objeto Chat</a> onde a mensagem foi recebida ou enviada.</li>
+<li>mine - Booleano, onde true significa que a mensagem foi enviada pelo usuário atual do rrpg e false significa uma mensagem enviada por outro usuário.</li>
+<li>type - Contém o tipo da mensagem e pode ser um dos seguintes valores:</li>
+<li>"standard" - Uma mensagem de texto normal</li>
+<li>"asNarrator"&nbsp; - Uma mensagem de texto como Narrador.</li>
+<li>"asNPC" - Uma mensagem de texto como NPC</li>
+<li>"action" - Uma mensagem de texto ação (/me)</li>
+<li>"laugh" - Uma risada do RRPG (/rir)</li>
+<li>"dice" - Uma rolagem de dados</li>
+<li>content - Cadeia de caracteres contendo o texto principal da mensagem. Se tipo for "dice", contém a mensagem adicional que acompanha a rolagem.</li>
+<li>(OPCIONAL) npc - Se o tipo da mensagem for "asNPC", contém o nome do NPC da mensagem.</li>
+<li>(OPCIONAL) roll - Se o tipo da mensagem for "dice", contém o <a href="../ObjetoRolagem/">Objeto Rolagem</a> com detalhes da rolagem feita.</li>
+<li>(OPCIONAL) room - Se a mensagem foi enviada em um chat ligado a uma mesa, contém o <a href="../ObjetoMesa/">Objeto Mesa</a> da mesma.</li>
+<li>(OPCIONAL) player - Se a mensagem foi enviada em um chat ligado a uma mesa, contém o <a href="../ObjetoJogador/">Objeto Jogador</a> de quem enviou a mensagem.</li>
+<li>(OPCIONAL) pvtPlayer - Se a mensagem foi enviada em uma janela PVT, contém o <a href="../ObjetoJogador/">Objeto Jogador</a> do PVT aberto.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>Se o usuário do RRPG for um usuário Silver, esta mensagem-evento não é enviada. Esta mensagem-evento só é enviada se o usuário for um assinante do RRPG.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>"HandleChatCommand"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Mensagem enviada quando o usuário digitar um comando no chat que não é conhecido pelo RRPG, dando a chance ao plug-in de tratá-lo.</p>
+<p>&nbsp;</p>
+<p>Por, exemplo, quando o usuário digitar no chat: "/atacar orbe de fogo", onde "atacar" é o comando e "orbe de fogo" é o parâmetro.</p>
+<p>&nbsp;</p>
+<p>Parâmetros da Mensagem:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>command - Cadeia de caracteres contendo o nome do comando que o usuário digitou.</li>
+<li>parameter - Cadeia de caracteres contendo o parâmetro do comando.</li>
+<li>chat - <a href="../ObjetoChat/">Objeto Chat</a> onde o comando foi digitado.</li>
+<li>(OPCIONAL) room - Se o comando for digitado em um chat ligado a uma mesa, contém o <a href="../ObjetoMesa/">Objeto Mesa</a> da mesma, senão contém <strong>nil</strong>.</li>
+<li>(OPCIONAL) player - Se o comando for digitado em uma janela PVT, contém o <a href="../ObjetoJogador/">Objeto Jogador</a> com quem o usuário está conversando, senão contém <strong>nil</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>"response = {handled = true}" para sinalizar ao RRPG que o comando foi devidamente tratado e que não precisa mais continuar sua busca por alguém que trate este comando.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>Se o usuário do RRPG for um usuário Silver, esta mensagem não é enviada. Esta mensagem-evento só é enviada se o usuário for um assinante do RRPG.</li>
+<li>Recomendamos que trate também a mensagem evento <a href="./#%22ListChatCommands%22">"ListChatCommands</a>"</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo: Tratando o comando /versao</p>
+<table>
+<thead>
+<tr>
+<th>rrpg.messaging.listen("HandleChatCommand",         <strong>function</strong> (message)                 <strong>if</strong> message.command == "versao" <strong>then</strong>                         <em>-- Tratar o comando /versão</em>                         message.chat:enviarMensagem("A Minha versão é 1.0");  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; message.chat:escrever("Este texto é só para o usuário");                                                 <em>-- Sinalizar ao RRPG que o comando foi tratado com sucesso</em>                         message.response = {handled = true};                 <strong>end</strong>;         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>"ListChatCommands"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Mensagem enviada quando o usuário digitar "/help" ou "/?" no chat, permitindo o plug-in informar ao usuário a existência de comandos suportados.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>chat - <a href="../ObjetoChat/">Objeto Chat</a> onde o help será exibido.</li>
+<li>(OPCIONAL) room - Se o help for ser exibido em um chat ligado a uma mesa, contém o <a href="../ObjetoMesa/">Objeto Mesa</a> da mesma, senão contém <strong>nil</strong>.</li>
+<li>(OPCIONAL) player - Se o help for ser exibido em uma janela PVT, contém o <a href="../ObjetoJogador/">Objeto Jogador</a> com quem o usuário está conversando, senão contém <strong>nil</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>response = Um arranjo de tabelas, onde cada tabela representa um comando e possui as seguintes propriedades:</li>
+<li>command - Uma cadeia de caracteres contendo o comando , exemplo: "/meuComando"</li>
+<li>description - Uma cadeia de caracteres contendo a descrição do comando, exemplo: "Faz isso, isso e aquilo"</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>Este evento ocorre apenas para informar ao usuário quais comandos o plug-in possui, tornando necessário também tratara mensagem-evento <a href="./#HandleChatCommand">"HandleChatCommand"</a> se quiser fazer o comando realmente funcionar.</li>
+<li>Se o usuário do RRPG for um usuário Silver, esta mensagem não é enviada. Esta mensagem-evento só é enviada se o usuário for um assinante do RRPG.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 1: Informando, ao RRPG, a existência do comando /versao</p>
+<table>
+<thead>
+<tr>
+<th>rrpg.messaging.listen("ListChatCommands",         <strong>function</strong>(message)                 message.response = {{command="/versao", description="Mostra a versão do plug-in"}};         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 2:&nbsp; Informando, ao RRPG, vários comandos:</p>
+<table>
+<thead>
+<tr>
+<th>rrpg.messaging.listen("ListChatCommands",         <strong>function</strong>(message)                 message.response = {{command="/comando1", description="Este comando faz uma coisa"},                                     {command="/comando2", description="Este comando faz duas coisas"},                                     {command="/comando3", description="Este comando faz tres coisas"}};         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>"HandleChatTextInput"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Evento enviado quando o usuário confirma o envio de um comando/mensagem para um chat, dando oportunidade para o plug-in alterar ou ajustar o texto de entrada antes que seja processado pelo RRPG.</p>
+<p>&nbsp;</p>
+<p>Parâmetros da Mensagem:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>chat - <a href="../ObjetoChat/">Objeto Chat</a> onde a mensagem será enviada.</li>
+<li>text - Cadeia de caracteres contendo o texto de entrada que o usuário digitou.</li>
+<li>isCommand - True se o usuário informou um texto para um comando do RRPG (aqueles que começam com o caracter "/").</li>
+<li>(OPCIONAL) room - Se a mensagem estiver prestes a ser enviada a um chat ligado a uma mesa, contém o <a href="../ObjetoMesa/">Objeto Mesa</a> da mesma.</li>
+<li>(OPCIONAL) pvtPlayer - Se a mensagem estiver prestes a ser enviada em uma janela PVT, contém o <a href="../ObjetoJogador/">Objeto Jogador</a> do PVT aberto.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>Se o plug-in quiser substituir o texto por outro, o programador deverá atribuir "message.response = {newText = \&lt;\&lt;novo texto que será utilizado&gt;&gt;}" para sinalizar ao RRPG que o texto de entrada deve ser substítuido pelo conteudo de newText.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Alerta:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>Tenha consciência do parametro "message.isCommand" desta mensagem! Se o usuário digitar um comando (por exemplo "/nick NovoNick"), nem toda substituíção de texto deve ser feita, ou deve ser feita de forma consciente para não atrapalhar a experiência do usuário com o programa!</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>O RRPG apenas envia esta mensagem-evento se uma das duas seguintes condições forem satisfeitas:</li>
+<li>O usuário logado é um assinante pago do RRPG.</li>
+<li>O usuário logado não é assinante pago do RRPG, a mensagem está prestes a ser enviada em uma mesa onde o criador é Gold Plus.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo: Um plug-in que substitui o texto "CA" por "Categoria de Armadura" nos textos digitados pelo usuário.</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>RRPG.listen('HandleChatTextInput',     <strong>function</strong>(message)           message.response =             {newText = string.gsub(message.text, "CA", "Categoria de Armadura") };     <strong>end</strong>);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/stunning-user-interface/">Experience the Power and Simplicity of HelpNDoc's User Interface</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../MensagensdoGerenciadordePlugins/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../MensagensdoGerenciadordePlugins/" class="btn btn-sm btn-link">
+			Mensagens do Gerenciador de Plugins
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-link">
+			Mensagens de Estado das Mesas
+		</a>
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/MensagensdeChat.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

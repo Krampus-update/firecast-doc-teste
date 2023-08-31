@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Características de todas as tags visuais - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Caracter\u00edsticas de todas as tags visuais", url: "#_top", children: [
+						
+				{title: "Caracter\u00edsticas de todas as tags visuais", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../DividindooarquivoLuaFormemdocume/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../DividindooarquivoLuaFormemdocume/" class="btn btn-sm btn-link">
+			Dividindo o arquivo Lua Form em documentos menores
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-link">
+			Características de todas as tags de textos
+		</a>
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="caracteristicas-de-todas-as-tags-visuais">Características de todas as tags visuais</h1>
+<h2 id="caracteristicas-de-todas-as-tags-visuais_1">Características de todas as tags visuais</h2>
+<p>O SDK3 utiliza o conceito de orientação a objetos nos componentes visuais e todos os componentes visuais são objetos do tipo “controle” (herança, em orientação a objetos).</p>
+<p>Isto significa que todos os componentes e tags visuais de arquivo LFM (edit, label, button, layout, etc..) possuem as características, propriedades e métodos descritos nesta seção.</p>
+<h3 id="propriedades-e-atributos-de-todas-as-tags-visuais">Propriedades e atributos de todas as tags visuais</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>visible</strong></td>
+<td>Boolean</td>
+<td>true</td>
+<td>Define se o controle está visível ou invisível. &nbsp; Um controle pode existir invisível e ser exibido quando alguma condição ou ocasião acontecer.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>enabled</strong></td>
+<td>Boolean</td>
+<td>true</td>
+<td>Define se o controle está ativo ou não. &nbsp; Um controle inativo é exibido na interface, mas não é possível interagir com ele, como se tivesse bloqueado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Define um nome para o controle.&nbsp; O nome deve ser único, isto é, dentro de um <strong>form</strong>, não é possível existir 2 controles com o mesmo nome. Se não for definido um nome para o controle no arquivo LFM, um nome único será gerado para ele em tempo de compilação. Nomear controles é especialmente útil quando se quer trabalhar com códigos LUA.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>align</strong></td>
+<td>Enumerado: “none” “top” “left” “bottom” “right”&nbsp; “client”</td>
+<td>“none”</td>
+<td>Define o alinhamento visual do controle na interface.&nbsp; Com esta propriedade é possível definir um comportamento padrão de posicionamento e tamanho para os controles.&nbsp; none – O controle não sofrerá nenhum tipo de posicionamento e redimensionamento automático.&nbsp; top – O controle será posicionado no topo de seu pai e a largura será calculada para preencher o espaço. Os valores de left, top e width são calculados automaticamente, mas é possível definir a altura (height).&nbsp; left – O controle será posicionado à esquerda de seu pai e a altura será calculada para preencher o espaço. Os valores de “left”, “top” e “height” são calculados automaticamente, mas é possível definir a largura (width).&nbsp; bottom -&nbsp; O controle será posicionado no rodapé de seu pai e a largura é calculada para preencher o espaço. Os valores de left, top e width são calculados automaticamente, mas é possível definir a altura (height).&nbsp; right – O controle será posicionado à direita de seu pai e a altura será calculada para preencher o espaço. Os valores de “left”, “top” e “height” são calculados automaticamente, mas é possível definir a largura (width).&nbsp; client – O controle será posicionado de forma que ocupe toda a área de seu pai. Os valores de left, top, width e height são automaticamente calculados.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>left</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define a posição X do controle. A posição é relativa a seu pai.&nbsp; Veja <a href="../PosicaoeTamanhodosControles/">Posição e Tamanho dos Controles.</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>top</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define a posição Y do controle. A posição é relativa a seu pai.&nbsp; Veja <a href="../PosicaoeTamanhodosControles/">Posição e Tamanho dos Controles.</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>width</strong></td>
+<td>Float</td>
+<td>Depende do controle</td>
+<td>Define a largura do controle.&nbsp; Veja <a href="../PosicaoeTamanhodosControles/">Posição e Tamanho dos Controles.</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>Float</td>
+<td>Depende do controle</td>
+<td>Define a altura do controle.&nbsp; Veja <a href="../PosicaoeTamanhodosControles/">Posição e Tamanho dos Controles.</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>margins</strong></td>
+<td>Bounds (Objeto Lua)</td>
+<td>{}</td>
+<td>Define o tamanho das margens do controle, isto é, o tamanho da “borda invisível” que existe ao redor do controle que o separa do outros.&nbsp; Especialmente útil quando se usa a propriedade “align”.&nbsp; O valor desta propriedade é uma tabela lua com os campos “left”, “right”, “top” e “bottom”, onde a omissão de algum campo representa o valor 0.0. Exemplos de valores: {}&nbsp; - left, right, top e bottom 0.0 {left = 5} - left 5, demais valores 0 {left = 5, top = 5} – left 5, top 5, right 0, bottom 0 {left = 5, right = 5, top = 5, bottom = 5} – todos os valores 5&nbsp;</td>
+</tr>
+<tr>
+<td><strong>padding</strong></td>
+<td>Bounds (Objeto Lua)</td>
+<td>{}</td>
+<td>Define o tamanho do preenchimento do controle, isto é, o tamanho da “borda invisível” que existe no interior do controle entre sua periferia e seu conteúdo.&nbsp; O valor desta propriedade é uma tabela lua com os campos “left”, “right”, “top” e “bottom”, onde a omissão de algum campo representa o valor 0.0.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>anchors</strong></td>
+<td>Conjunto de: left top right bottom</td>
+<td>“left top”</td>
+<td>Define como o controle é ancorado em seu pai.&nbsp; Quando o pai do controle é redimensionado, o controle mantém sua posição relativa baseado em sua âncora.&nbsp; Exemplos: “left” <strong>presente</strong>, ”right” <strong>ausente</strong>: O controle manterá sempre a mesma posição X. “left” <strong>ausente</strong>, “right” <strong>presente</strong>: A posição X será calculada automaticamente para manter sempre a mesma distância entre sua borda direita e a borda direita de seu pai. “left” e “right” <strong>presentes</strong>: O controle manterá tanto a distância entre (1) sua borda esquerda com a borda esquerda de seu pai; (2) como sua borda direita com a borda direita de se pai. Para isso, a largura do componente será alterada conforme o pai é redimensionado. “left” e “right” <strong>ausentes</strong>: O controle não está ancorado e ocorrerá um efeito similar ao de centralização.&nbsp; O comportamento das âncoras “top” e “bottom” é o mesmo das âncoras “left” e “right”, porém agora no eixo Y.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>hitTest</strong></td>
+<td>Boolean</td>
+<td>Depende do controle</td>
+<td>Define se o clique e movimento do mouse e o touch são capturados por este controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>cursor</strong></td>
+<td>Enumerado: "default" "arrow" "handPoint" "hourGlass" "IBeam" "size" "sizeNESW" "sizeNS" "sizeNWSE" "sizeWE" "upArrow" "drag" "noDrop" "hSplit" "vSplit" "multiDrag" "sqlWait" "no" "appStart" "help" "cross"</td>
+<td>"default"</td>
+<td>Define qual cursor de mouse deve ser apresentado quando o mouse estiver em em cima do controle. OBS: hitTest deve ser "true" para esta propriedade ter efeito.&nbsp; "default" - Cursor padrão, uma seta padrão. "arrow" - Uma seta padrão. "handPoint" - Uma mão com um dedo apontando para cima. Normalmente é usado para identificar um item selecionável/clicável "hourGlass" - Uma ampulheta para indicar um processo em andamento. "IBeam" - Cursor que sinaliza a possibilidade de entrar com texto no controle. "size" - Indicação de possibilidade de redimensionamento. "sizeNESW" - Indicação de possibilidade de redimensionamento no sentido Nordeste-Sudoeste "sizeNS" - Indicação de possibilidade de redimensionamento no sentido Norte-Sul "sizeNWSE" - Indicação de possibilidade de redimensionamento no sentido Noroeste-Sudeste "sizeWE" - Indicação de possibilidade de redimensionamento no sentido Leste-Oeste "upArrow" - Uma seta apontando para cima. "drag" - Um cursor indicando que itens estão sendo arrastados. "noDrop" - Indicação de que não é possível arrastar para este alvo. "hSplit" -&nbsp; Indicação de splitter horizontal "vSplit" - Indicação de splitter vertical. "multiDrag" - Indicação de que vários itens estão sendo arrastados. "sqlWait" - Ampulheta indicando um processo de banco de dados em andamento. "no" - Uma indicação de negação, de que não é possível fazer algo. "appStart" - Combinação de "default" e "hourGlass", normalmente usado para indicar que um aplicativo está sendo aberto. "help" - Uma seta com um ponto de interrogação. "cross" - Um cursor em formato de cruz, usado para indicar um posicionamento preciso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>hint</strong></td>
+<td>String</td>
+<td>""</td>
+<td>Define um texto de ajuda que é exibido quando o usuário deixar o mouse por um certo tempo em cima do controle. Esta propriedade só tem efeito se o atributo "hitTest" do controle for true.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>canFocus</strong></td>
+<td>Boolean</td>
+<td>Depende do controle</td>
+<td>Define se o controle pode receber o foco do teclado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>tabOrder</strong></td>
+<td>Integer</td>
+<td>\&lt;automático&gt;</td>
+<td>Define um número que representa a ordem de tabulação do controle, isto é, quando o usuário apertar TAB no teclado para pular para o próximo controle de edição.</td>
+</tr>
+<tr>
+<td><strong>opacity</strong></td>
+<td>Float</td>
+<td>&#49;.0</td>
+<td>Define a transparência do controle.&nbsp; É um número real que varia de 0.0 a 1.0, onde: 0.0 – totalmente transparente 0.25 0.5 – parcialmente transparente 0.75 1.0 – totalmente opaco.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>rotationAngle</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define o ângulo de rotação do controle.&nbsp; O ângulo é medido em graus.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>rotationCenterX</strong></td>
+<td>Float</td>
+<td>\&lt;centro X do controle&gt;</td>
+<td>Define o valor X da coordenada (X, Y) do pivô de rotação do controle. Usado em conjunto com “rotationAngle”&nbsp;</td>
+</tr>
+<tr>
+<td><strong>rotationCenterY</strong></td>
+<td>Float</td>
+<td>\&lt;centro Y do controle&gt;</td>
+<td>Define o valor Y da coordenada (X, Y) do pivô de rotação do controle. Usado em conjunto com “rotationAngle”&nbsp;</td>
+</tr>
+<tr>
+<td><strong>scaleX</strong></td>
+<td>Float</td>
+<td>&#49;.0</td>
+<td>Define o fator de escala que deve ser aplicado à largura do controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>scaleY</strong></td>
+<td>Float</td>
+<td>&#49;.0</td>
+<td>Define o fator de escala que deve ser aplicado à altura do controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>scale</strong></td>
+<td>Float</td>
+<td>&#49;.0</td>
+<td>Define o fator de escala que deve ser aplicado à largura e altura do controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>parent</strong></td>
+<td>Um objeto</td>
+<td>nil</td>
+<td>Define ou retorna o objeto parent deste controle. &nbsp; Não há necessidade de utilizar este atributo em tags de arquivos ".lfm", pois o parent de cada tag já é setada automaticamente conforme seu aninhamento. &nbsp; Veja também: <a href="../PosicaoeTamanhodosControles/">Posição e Tamanho dos Controles</a>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<h3 id="metodos-de-todas-as-tags-visuais">Métodos de todas as tags visuais</h3>
+<p>É possível invocar métodos dos controles usando código LUA.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>controle:destroy();</strong></td>
+<td>Destrói o controle, liberando a memória usada por ele. Após a chamada “destroy”, não é mais possível utilizar o controle.&nbsp; Normalmente você não precisa se preocupar em destruir os controles, pois isto é feito automaticamente. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:setFocus();</strong></td>
+<td>Coloca o foco do teclado neste controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:beginUpdate();</strong></td>
+<td>Coloca o controle num estado de “em alteração”. Neste estado, as alterações feitas nas propriedades não serão apresentadas na interface.&nbsp; É útil quando se pretende alterar várias propriedades ou várias vezes, pois o processo fica mais rápido, já que as mudanças não serão apresentadas na tela de imediato.&nbsp; Para cada chamada de “beginUpdate”, deve haver uma chamada de “endUpdate”.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:endUpdate();</strong></td>
+<td>Tira o controle do estado “em alteração”, voltando a seu comportamento normal.&nbsp; Para cada chamada de “beginUpdate”, deve haver uma chamada de “endUpdate”.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:needRepaint();</strong></td>
+<td>Sinaliza o SDK3 que o controle precisa ser redesenhado na tela. &nbsp; Normalmente você não precisa se preocupar em chamar este método!&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:getChildren();</strong></td>
+<td>Retorna um array (tabela lua com chaves de 1 a QUANTIDADE) contendo os controles que são filhos destes controles.&nbsp; Exemplo:&nbsp;</td>
+</tr>
+<tr>
+<td>---</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>controle:getParent();</strong></td>
+<td>Retorna o controle pai deste controle ou <strong>nil</strong> se não houver.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:setParent(parent);</strong></td>
+<td>Define o controle pai deste controle.&nbsp; Parâmetros: parent – O objeto controle que será pai deste controle ou <strong>nil.</strong>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:isChildFocused();</strong></td>
+<td>Retorna um boolean (true ou false) indicando se este controle ou algum dos controles filhos está com o foco do teclado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:isFocused();</strong></td>
+<td>Retorna um boolean (true ou false) indicando se este controle está com o foco do teclado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:isMouseOver();</strong></td>
+<td>Retorna um boolean (true ou false) indicando se o mouse está por cima do controle (não necessariamenteclicado).&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:isVisible();</strong></td>
+<td>Retorna um boolean (true ou false) indicando se o controle está visível.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:findControlByName(</strong> <strong>controlName);</strong></td>
+<td>Procura outro controle através do nome passado pelo parâmetro “controlName” em toda a hierarquia de controles onde este está.&nbsp; Retorna o controle ou <strong>nil</strong> caso não encontre.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>controle:getClassName();</strong></td>
+<td>Retorna o nome da classe/tipo da tag deste controle. Exemplos: "edit", "label", "layout", etc..&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos-de-todas-as-tags-visuais">Eventos de todas as tags visuais</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onClick</strong></td>
+<td>Este evento é invocado quando ocorre um click com o botão esquerdo do mouse no controle, ou quando ocorre um “tap touch” no controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDblClick</strong></td>
+<td>Este evento é invocado quando ocorre um clique duplo com o mouse no controle.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseDown</strong></td>
+<td>Este evento é invocado quando um botão do mouse é pressionado sobre o controle ou quando o dedo toca a tela (touchscreen).&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: button – indica qual botão do mouse foi pressionado, e pode conter um dos seguintes valores: “left”, “middle” ou “right”... Quando o dedo é pressionado (touchscreen), este valor é “left”. x – posição X (relativa a este controle) indicando onde o mouse foi pressionado. y – posição Y (relativa a este controle) indicando onde o mouse foi pressionado. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Observações: Este evento só é disparado se a propriedade hitTest do controle for "true"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseMove</strong></td>
+<td>Este evento é invocado quando o mouse se movimenta pelo controle ou quando o dedo (touchscreen) é arrastado.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: x – posição X (relativa a este controle) indicando para onde o mouse moveu. y – posição Y (relativa a este controle) indicando para onde o mouse moveu. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Observações: Este evento só é disparado se a propriedade hitTest do controle for "true"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseUp</strong></td>
+<td>Este evento é invocado quando um botão do mouse é liberado sobre o controle ou quando o dedo solta da tela (touchscreen).&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: button – indica qual botão do mouse foi liberado, e pode conter um dos seguintes valores: “left”, “middle” ou “right”... Quando o dedo é levantado (touchscreen), este valor é “left”. x – posição X (relativa a este controle) indicando onde o mouse foi liberado. y – posição Y (relativa a este controle) indicando onde o mouse foi liberado. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Observações: Este evento só é disparado se a propriedade hitTest do controle for "true"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseEnter</strong></td>
+<td>Este evento é invocado quando o mouse entra na área do controle.&nbsp; Observações: Este evento só é disparado se a propriedade hitTest do controle for "true"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseLeave</strong></td>
+<td>Este evento é invocado quando o mouse sai da área do controle.&nbsp; Observações: Este evento só é disparado se a propriedade hitTest do controle for "true"'&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onResize</strong></td>
+<td>Este evento é invocado quando o controle é redimensionado&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onEnter</strong></td>
+<td>Este evento é invocado quando o controle recebe o foco do teclado&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onExit</strong></td>
+<td>Este evento é invocado quando o controle perde o foco do teclado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onKeyDown</strong></td>
+<td>Este evento é invocado quando uma tecla (teclado) é pressionada.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos key - Cadeia de caracteres contendo a letra do teclado que foi pressionada keyCode – Código numérico da tecla que foi pressionada (algumas teclas, como F7, por exemplo, não representam uma letra, daí a necessidade do keyCode) shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Observações: Se você alterar o valor de key e/ou keyCode, a mudança é incorporada. Caso queira suprimir/ignorar a tecla que acabou de ser pressionada, atribua event.key = "" e event.keyCode = 0. Se a combinação de teclas pressionada puder ser um atalho, então event.key virá com valor "" (string vazio) e event.keyCode com valor diferente de 0. Se a combinação de teclas pressionada puder ser tratada como um caractere exibível, event.key vira com uma string contendo apenas este caracter e event.keyCode virá com valor igual a 0. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>onKeyUp</strong></td>
+<td>Este evento é invocado quando uma tecla (teclado) é liberada.&nbsp; Parâmetros: event - uma tabela Lua que contém as mesmas propriedades descritas no <a href="./#Evento%20OnKeyDown">evento onKeyDown</a> mas com informações sobre a tecla liberada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMenu</strong></td>
+<td>Este evento é invocado quando o usuário deseja exibir o Menu do controle. Pode ser que o usuário clicou com botão direito do mouse, pressionou a tecla menu ou segurou por um longo tempo o dedo na tela (LongTouch).&nbsp; Parâmetros: x - Número contendo onde, no eixo X da tela do usuário, o menu deve ser exibido. y - Número contendo onde, no eixo Y da tela do usuário, o menu deve ser exibido.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onStartDrag</strong></td>
+<td>Evento que é chamado quando o usuário deseja iniciar o processo de arrastar-e-soltar informações partindo&nbsp; deste controle e você deseja informar quais ações ou dados existem em um determinado ponto do controle.&nbsp; Parâmetros: drag - <a href="../ObjetoDrag/">Objeto Drag </a>o qual você deve preencher as informações para o RRPG acasalar o drag com o drop. x - Numero contendo a posição do eixo X de onde o drop está tentando ser feito. y - Numero contendo a posição do eixo y de onde o drop está tentando ser feito.&nbsp; Por favor, consulte <a href="../ArrastandoeSoltandoInformacoesDr/">Arrastando-e-Soltando Informações / Drag and Drop</a> para conhecer melhor sobre o processo drag and drop.&nbsp; Observações: hitTest deve ser "true" para este evento poder ser chamado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onStartDrop</strong></td>
+<td>Evento que é chamado quando alguém arrasta uma informação em cima do controle e você deseja informar quais ações ou dados existem em um determinado ponto do controle.&nbsp; Parâmetros: drop - <a href="../ObjetoDrop/">Objeto Drop</a> o qual você deve preencher as informações para o RRPG acasalar o drag com o drop. x - Numero contendo a posição do eixo X de onde o drop está tentando ser feito. y - Numero contendo a posição do eixo y de onde o drop está tentando ser feito. drag - <a href="../ObjetoDrag/">Objeto Drag</a> representando a informação que está sendo arrastada. Você não deve alterar as propriedades deste objeto.&nbsp; Por favor, consulte <a href="../ArrastandoeSoltandoInformacoesDr/">Arrastando-e-Soltando Informações / Drag and Drop</a> para conhecer melhor sobre o processo drag and drop.&nbsp; Observações: hitTest deve ser "true" para este evento poder ser chamado.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h4 id="veja-tambem">Veja também:</h4>
+<p><a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-hlp-winhelp-help-file-to-a-chm-html-help-help-file/">Don't be left in the past: convert your WinHelp HLP help files to CHM with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../DividindooarquivoLuaFormemdocume/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../DividindooarquivoLuaFormemdocume/" class="btn btn-sm btn-link">
+			Dividindo o arquivo Lua Form em documentos menores
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-link">
+			Características de todas as tags de textos
+		</a>
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Caracteristicasdetodasastagsvisu.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

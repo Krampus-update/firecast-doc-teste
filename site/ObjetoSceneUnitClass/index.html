@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto SceneUnitClass - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto SceneUnitClass", url: "#_top", children: [
+				]},
+				{title: "Objeto SceneUnitClass", url: "#objeto-sceneunitclass_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoPersonagem/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoPersonagem/" class="btn btn-sm btn-link">
+			Objeto Personagem
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoChat/" class="btn btn-sm btn-link">
+			Objeto Chat
+		</a>
+		<a href="../ObjetoChat/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-sceneunitclass">Objeto SceneUnitClass</h1>
+<h1 id="objeto-sceneunitclass_1">Objeto SceneUnitClass</h1>
+<p>Este objeto representa um item de scene 2 na biblioteca de uma mesa no RRPG Firecast.</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>Objeto SceneUnitClass</strong> possui todas as características de um Objeto BibliotecaItem. Veja:</p>
+<ul>
+<li><a href="../ObjetoBibliotecaItem/">Objeto BibliotecaItem</a></li>
+<li><a href="../ObjetoWrappedObject/">Objeto WrappedObject</a></li>
+</ul>
+<p><a href="../Caracteristicasdetodasastagsvisu/"></a></p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o Objeto SceneUnitClass também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tamanhoX</strong></td>
+<td>Double</td>
+<td>(Somente leitura) Contém quantos metros o item ocupa em sua largura no tabuleiro de combate.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>tamanhoY</strong></td>
+<td>Double&nbsp;</td>
+<td>(Somente leitura) Contém quantos metros o item ocupa em sua altura no tabuleiro de combate. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>camada</strong></td>
+<td>Enumerado: "tokens" "objects" "background"&nbsp;</td>
+<td>(Somente leitura) Contém em qual camada o item pertence por padrão no tabuleiro de combate.</td>
+</tr>
+<tr>
+<td><strong>descricao</strong></td>
+<td>String</td>
+<td>(Somente leitura) Contém um texto descritivo do item de scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>urlImg</strong></td>
+<td>String</td>
+<td>(Somente leitura) Contém a URL da imagem do item de scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>facing</strong></td>
+<td>Enumerado: "rotate" "drawArrow"</td>
+<td>(Somente leitura) Contém como o item deve se comportar quando for rotacionado no tabuleiro de combate.&nbsp; "rotate" - Rotacionar também a imagem do item.&nbsp; "drawArrow" - Não rotacionar a imagem e desenhar uma seta indicando a direção do item.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>snapToGrid</strong></td>
+<td>Boolean</td>
+<td>(Somente leitura) Contém true se o item deve se alinhar ao grid do tabuleiro de combate.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>direcaoImg</strong></td>
+<td>Double</td>
+<td>(Somente leitura) Contém, em graus, a direção do conteúdo da imagem... Isto é, "para onde a imagem está apontando"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>layoutCenterX</strong></td>
+<td>Double</td>
+<td>(Somente leitura) Contém onde o CENTRO do token está na imagem no eixo X.&nbsp; Exemplos de valores:&nbsp; 0.5 - O centro do token está no centro da imagem.&nbsp; 1.0 - O centro do token está no canto da direita da imagem.&nbsp; 0.0 - O centro do token está no canto esquerdo da imagem&nbsp;</td>
+</tr>
+<tr>
+<td><strong>layoutCenterY</strong></td>
+<td>Double</td>
+<td>(Somente leitura) Contém onde o CENTRO do token está na imagem no eixo Y.&nbsp; Exemplos de valores:&nbsp; 0.5 - O centro do token está no centro da imagem.&nbsp; 1.0 - O centro do token está no canto inferior da imagem.&nbsp; 0.0 - O centro do token está no canto superior da imagem&nbsp;</td>
+</tr>
+<tr>
+<td><strong>layoutTamX</strong></td>
+<td>Double</td>
+<td>(Somente leitura) Contém o tamanho da imagem em relação ao tamanho do token, no eixo X.&nbsp; Exemplos de valores:&nbsp; &nbsp; 1.0 - A largura da imagem é a mesma que a largura do token.&nbsp; 1.5 - A largura da imagem é 1.5x a largura do token&nbsp; 0.5 - A largura da imagem é 0.5x a largura do token.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>layoutTamY</strong></td>
+<td>Double</td>
+<td>(Somente leitura) Contém o tamanho da imagem em relação ao tamanho do token, no eixo Y.&nbsp; Exemplos de valores:&nbsp; &nbsp; 1.0 - A altura da imagem é a mesma que a altura do token.&nbsp; 1.5 - A altura da imagem é 1.5x a altura do token&nbsp; 0.5 - A altura da imagem é 0.5x a altura do token.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>sceneUnitClass:isType(typeName)</strong>&nbsp;</td>
+<td>Retorna true se passado "sceneUnitClass" como parâmetro.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-hlp-winhelp-help-file-to-a-chm-html-help-help-file/">Effortlessly upgrade your WinHelp HLP help files to CHM with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoPersonagem/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoPersonagem/" class="btn btn-sm btn-link">
+			Objeto Personagem
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoChat/" class="btn btn-sm btn-link">
+			Objeto Chat
+		</a>
+		<a href="../ObjetoChat/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoSceneUnitClass.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

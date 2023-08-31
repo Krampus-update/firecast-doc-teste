@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca para Macros em Lua - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca para Macros em Lua", url: "#_top", children: [
+				]},
+				{title: "Biblioteca para Macros em Lua", url: "#biblioteca-para-macros-em-lua_1", children: [
+						
+				{title: "Vari\u00e1veis", url: "#_top", children: [
+				]},
+				{title: "Fun\u00e7\u00f5es", url: "#funcoes", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Loglibrary/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Loglibrary/" class="btn btn-sm btn-link">
+			Log library
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-link">
+			A linguagem de programação LUA
+		</a>
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-para-macros-em-lua">Biblioteca para Macros em Lua</h1>
+<h1 id="biblioteca-para-macros-em-lua_1">Biblioteca para Macros em Lua</h1>
+<p>&nbsp;</p>
+<h2 id="variaveis">Variáveis</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> parametro ou <strong>variável</strong> parameter e&nbsp; <strong>variável</strong> arg[indice]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função)&nbsp; Possui os parâmetros passado para a macro, onde a variável "parametro" contém a cadeia de caracteres completa e a variável "arg" contém um arranjo, onde cada item representa um argumento separado por espaço.</p>
+<p>&nbsp;</p>
+<p>Se o usuário digitar "/minhaMacro Texto de Teste":</p>
+<ul>
+<li>&nbsp;</li>
+<li>A variável "parametro" conterá "Texto de Teste"</li>
+<li>A variável arg[1] conterá "Texto", arg[2] conterá "de", arg[3] conterá "Teste" e #arg contém a quantidade de argumentos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo: Fazer um teste de resistência parametrizado.</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> dificuldade = tonumber(parametro);  <strong>if</strong> dificuldade == nil <strong>then</strong>    escrever("Utilize: /macro \&lt;NÚMERO&gt;");    <strong>return</strong>; <strong>end</strong>;  <strong>local</strong> resultado = rolar("1d20 + 5", "Dificuldade " .. dificuldade);  <strong>if</strong> resultado &gt;= dificuldade <strong>then</strong>   enviar("Passou no teste!"); <strong>else</strong>   enviar("Não passou no teste"); <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> meuJogador ou <strong>variável</strong> myPlayer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função) <a href="../ObjetoJogador/">objeto Jogador</a> representando o usuário da macro naquela mesa.</p>
+<p>&nbsp;</p>
+<p>Exemplo 1: Escrever na tela o seu próprio login.</p>
+<table>
+<thead>
+<tr>
+<th>escrever(meuJogador.login);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> myCharacter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função) <a href="../ObjetoPersonagem/">Objeto Personagem</a> representando o personagem principal do usuário naquela mesa.</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se o jogador não possuir nenhum personagem, acessar esta variável irá causar um erro com uma mensagem informativa de que "o jogador não possui nenhum personagem" e a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo 1: Escrever na tela o nome do seu personagem.</p>
+<table>
+<thead>
+<tr>
+<th>write(myCharacter.nome)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> sheet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função) O <a href="../ObjetoNodo/">Objeto Nodo</a> raiz representando o NodeDatabase/Sheet do personagem principal do usuário logado.</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se o jogador não possuir nenhum personagem, acessar esta variável irá causar um erro com uma mensagem informativa de que "o jogador não possui nenhum personagem" e a macro pára de executar.</li>
+<li>A execução da macro pode ser pausada até que o NodeDatabase/Ficha seja carregada pela internet.</li>
+<li>O Objeto Nodo retornado é o mesmo daquela variável "sheet" usada para programar as fichas/lua forms.</li>
+<li>As alterações feitas no objeto nodo retornado são sincronizadas normalmente, confome as regras de permissões do Node Database.</li>
+<li>Se houver algum erro ao carregar o NodeDatabase, a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Escrever no chat a estrutura dos dados armazenados da ficha</em> write(utils.tableToStr(sheet, true));   <em>-- Se for a ficha D\&amp;D 5, a linha abaixo aumenta a CA em 1</em> sheet.CA = (tonumber(sheet.CA) <strong>or</strong> 0) + 1;   <em>-- Se for a ficha D\&amp;D 5, a linha abaixo esreve no chat Quantos PV o personagem tem</em> write(sheet.PV)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> mesa ou <strong>variável</strong> room</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função) <a href="../ObjetoMesa/">objeto Mesa</a> representando a mesa em que a macro está sendo executada.</p>
+<p>&nbsp;</p>
+<p>Exemplo 1: Escrever algumas informações da mesa na tela.</p>
+<table>
+<thead>
+<tr>
+<th>escrever(mesa.nome); escrever(mesa.sistema); escrever(mesa.msgStatus);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> jogadores ou <strong>variável</strong> players</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função) Arranjo de <a href="../ObjetoJogador/">objeto Jogador</a>, representando os usuários que estão na mesa no momento. \
+Forma de uso: jogadores[1] contém o primeiro jogador, jogadores[2] contém o segundo jogador, jogadores[3] contém o terceiro, jogadores[#jogadores] possui o último jogador.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 1: Escrever na tela o login de todos os jogadores da mesa.</p>
+<table>
+<thead>
+<tr>
+<th><strong>for</strong> i = 1, #jogadores, 1 <strong>do</strong>   escrever(jogadores[i].login); <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 2: Dar +voz para todos os espectadores da mesa.</p>
+<table>
+<thead>
+<tr>
+<th><strong>for</strong> i = 1, #jogadores, 1 <strong>do</strong>   <strong>if</strong> jogadores[i].isEspectador <strong>then</strong>     jogadores[i]:requestSetVoz(true);   <strong>end</strong>; <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>variável</strong> inRoom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>(Não é uma função) Booleano (true ou false) indicando se a macro está sendo executada em algum chat associado a alguma mesa.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes">Funções</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> escrever(texto[, quebrarLinha, permitirSmileys]) ou <strong>function</strong> write(texto[, quebrarLinha, permitirSmileys])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Escreve um texto na tela do chat. Este texto não é enviado para ninguém e aparecerá somente no chat do próprio usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>texto - Cadeia de caracteres contendo o texto que deseja escrever.</li>
+<li>&nbsp;</li>
+<li>(OPCIONAL) quebrarLinha - Booleano (true ou false) indicando se o RRPG deve adicionar uma quebra de linha no chat antes de escrever o texto. Se omitido, o valor padrão true é assumido.</li>
+<li>(OPCIONAL) permitirSmileys - Booleano (true ou false) indicando se o RRPG deve interpretar smileys/memes neste texto. Se omitido, o valor padrão true é assumido.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>escrever("Olá mundo!!!");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> enviar(mensagem) ou <strong>function</strong> send(mensagem)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma mensagem comum para o chat, como se o usuário a tivesse digitado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>mensagem - Cadeia de caracteres contendo o texto que deseja enviar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>enviar("Olá, tudo bem?!");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> agir(acao) ou <strong>function</strong> act(acao)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma mensagem como ação para o chat.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>acao - Cadeia de caracteres contendo a acao que deseja enviar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>agir("saca sua espada longa");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> narrar(narracao) ou <strong>function</strong> narrate(narracao)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma mensagem de narração para o chat.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>narracao - Cadeia de caracteres contendo a narração que deseja enviar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação: Apenas o mestre consegue enviar mensagens de narração.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>narrar("Após uma péssima noite de descanso, Gruumsh acorda com as mãos algemadas");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> enviarNPC(npc, mensagem) ou <strong>function</strong> sendNPC(npc, mensagem)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma mensagem para o chat como se um NPC estivesse falando</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>npc - Cadeia de caracteres contendo o nome do NPC.</li>
+<li>mensagem - Cadeia de caracteres contendo a mensagem que deseja enviar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação: Apenas o mestre consegue enviar mensagens como NPC.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>enviarNPC("Rei Darik", "Guardas, prendam estes infelizes!");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> rolar(rolagem[, mensagemAdicional]) ou <strong>function</strong> roll(rolagem[, mensagemAdicional])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Executa uma rolagem de dados no chat.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>rolagem - Cadeia de caracteres contendo a rolagem a ser feita. Exemplo: "1d20 + 5"</li>
+<li>&nbsp;</li>
+<li>(OPCIONAL) mensagemAdicional - Uma cadeia de caracteres opcional que acompanhará a rolagem na interface.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função retorna um número contendo o resultado e um <a href="../ObjetoRolagem/">objeto rolagem</a> com informações detalhadas do resultado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Importante:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função espera a rolagem ser feita na interface para continuar a execução da Macro. Se, por algum motivo, a rolagem não puder ser feita, a macro pára de executar. Uma possível situação de exemplo é quando a mesa está moderada e o usuário não possui o modo +voz para enviar mensagens.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 1:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> resultado = rolar("1d20 + 5");  <strong>if</strong> resultado &gt;= 15 <strong>then</strong>         enviar("Acertou!"); <strong>else</strong>         enviar("Errou!"); <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 2:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> resultado = rolar("1d20 + 5", "Rolagem de ataque");  <strong>if</strong> resultado &gt;= 15 <strong>then</strong>         rolar("1d8 + 5", "Rolagem de dano");  <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exemplo 3: Rolar 4d6 e selecionar os 3 maiores números da rolagem.</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> resultado, rolagem = rolar("4d6"); <strong>local</strong> dados = {};  <em>-- coletar os resultados individuais de cada dado</em> <strong>for</strong> i = 1, #rolagem.ops, 1 <strong>do</strong>         <strong>local</strong> op = rolagem.ops[i];                <strong>if</strong> op.tipo == "dado" <strong>then</strong>                 <strong>for</strong> j = 1, #op.resultados, 1 <strong>do</strong>                         dados[#dados + 1] = op.resultados[j];                 <strong>end</strong>;         <strong>end</strong>; <strong>end</strong>;  <em>-- Ordenar os resultados, menores primeiro</em> table.sort(dados);  <strong>local</strong> texto = "";  <em>-- Pegar os ultimos 3, isto é, os 3 maiores.. de traz para frente * </em><em>for</em><em> i = #dados, #dados - 2, -1 </em><em>do</em><em>                 texto = texto .. " " .. dados[i]; </em><em>end</em>*;  enviar("Os 3 maiores números foram:" .. texto);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> rolarLocal(rolagem) ou <strong>function</strong> rollLocal(rolagem)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Executa uma rolagem de dados local, isto é, uma rolagem que não será exibida em lugar nenhum.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>rolagem - Cadeia de caracteres contendo a rolagem a ser feita. Exemplo: "1d20 + 5"</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função retorna um número contendo o resultado e um <a href="../ObjetoRolagem/">objeto rolagem</a> com informações detalhadas do resultado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplos:</p>
+<p>&nbsp; &nbsp; O comportamento da função "rolarLocal" é igual a da função "rolar", portanto, consulte os exemplos de <a href="./#função%20rolar">"rolar"</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> esperar(milisegundos) ou <strong>function</strong> wait(milisegundos)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Realiza uma pausa cronometrada na execução da Macro.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>milisegundos - Um número em milisegundos representando o intervalo de tempo que a execução da Macro ficará pausada. 1000 = 1 segundo, 500 = 0,5 segundos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> load(luaCode)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Interpreta um código de macro escrita na linguagem LUA</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>luaCode - Cadeia de caracteres contendo um código na linguagem LUA (seguindo o mesmo padrão de uma macro).</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se luaCode possui um código Lua válido, retorna uma função que poderá ser invocada</li>
+<li>Se lucaCode <strong>não</strong> possui um código Lua válido, retorna dois valores: <strong>nil</strong> e uma mensagem de erro.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> func, errorMsg = load("write(1 + 5 + 9 + 10)");   <strong>if</strong> func ~= nil <strong>then</strong>   <em>-- O codigo foi carregado. Vamos invocá-lo agora</em>   func(); <strong>else</strong>   write("could not load lua code: " .. errorMsg); <strong>end</strong>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Log.e(tag, msg) <strong>function</strong> Log.w(tag, msg) <strong>function</strong> Log.i(tag, msg) <strong>function</strong> Log.d(tag, msg) <strong>function</strong> Log.v(tag, msg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Emmit log message to the Firecast's log file and to the Firecast's console window. Use the /console command to reveal the console</p>
+<p>&nbsp;</p>
+<p>Arguments:</p>
+<ul>
+<li>&nbsp;</li>
+<li>tag - Used to identify the source of a log message. It usually identifies the location or activity where the log call occurs.</li>
+<li>msg - The message you would like to be logged</li>
+</ul>
+<p>&nbsp;</p>
+<p>Log severity:</p>
+<table>
+<thead>
+<tr>
+<th>Log.e</th>
+<th><strong>Error message</strong> A situation that represents an unhandled error that may interrupt some operation&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Log.w</td>
+<td><strong>Warning message</strong> A situation that can be handled but may cause some unintended behavior&nbsp;</td>
+</tr>
+<tr>
+<td>Log.i</td>
+<td><strong>Informational/Notice message</strong> A normal but significant condition that may require special handling.&nbsp;</td>
+</tr>
+<tr>
+<td>Log.d</td>
+<td><strong>Debug message</strong> A developer debug message&nbsp;</td>
+</tr>
+<tr>
+<td>Log.v</td>
+<td><strong>Verbose message</strong> Algorithm steps message, very low priority messages.&nbsp; Remarks: Messages of this severity are not emitted in the Firecast’s log files In the Firecast’s console, you need to execute the command “filter add *” to be able to see these messages.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> showMessage(msg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma janela para o usuário contendo uma mensagem.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>msg - Cadeia de caracteres contendo a mensagem que deverá ser exibida para o usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário pressione OK na janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> alert(msg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma janela para o usuário contendo uma mensagem de alerta.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>msg - Cadeia de caracteres contendo a mensagem que deverá ser exibida para o usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário pressione OK na janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> toast(message)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Show a quick informative message to the user that does not require user interaction and hides automatically after a short time</p>
+<p>&nbsp;</p>
+<p>Parameters</p>
+<ul>
+<li>&nbsp;</li>
+<li>message - The message string to be shown</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> confirmOkCancel(question)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma janela para o usuário onde ele deve escolher responder ou "Ok" ou "Cancelar"</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>question - Cadeia de caracteres contendo a mensagem que deverá ser exibida para o usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li><strong>true</strong> se o usuário responder "Ok" ou <strong>false</strong> se o usuário responder "Cancelar"</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>if</strong> confirmOkCancel("Será adicionado 6 à rolagem") <strong>then</strong>   write("O usuario respondeu OK"); <strong>else</strong>   write("O usuario respondeu Cancelar"); <strong>end</strong>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> confirmYesNo(question)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma janela para o usuário onde ele deve escolher responder ou "Sim" ou "Não"</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>question - Cadeia de caracteres contendo a pergunta que deverá ser exibida para o usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li><strong>true</strong> se o usuário responder "Sim" ou <strong>false</strong> se o usuário responder "Não"</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>if</strong> confirmYesNo("Deseja continuar?") <strong>then</strong>   write("O usuario respondeu Sim"); <strong>else</strong>   write("O usuario respondeu Não"); <strong>end</strong>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> inputQuery(prompt[, initialValue, allowEmptyString])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma janela para o usuário onde ele deve digitar um valor.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Cadeia de caracteres orientando o usuário o que ele deve preencher.</li>
+<li>(OPCIONAL) initialValue - Cadeia de caracteres contendo uma sugestão de valor inicial para o usuário.</li>
+<li>(OPCIONAL) allowEmptyString - true se o usuário pode informar um texto em branco. O padrão é false.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se o usuário confirmar o valor, esta função retorna o valor escrito pelo usuário</li>
+<li>Se o usuário escolher cancelar na janela exibida, a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> bonus = inputQuery("Bônus de Ataque"); <strong>local</strong> defesa = inputQuery("Defesa", "10");   <strong>if</strong> roll("1d20 + " .. bonus) &gt;= tonumber(defesa) <strong>then</strong>   write("Acertou"); <strong>else</strong>   write("Errou"); <strong>end</strong>;&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> selectImageURL([defaultURL])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função exibe uma janela para o usuário escolher uma URL de uma imagem.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>(OPCIONAL) defaultURL - Texto contendo uma URL sugerida para o usuário</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna a URL de uma imagem escolhida pelo usuário</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> url = selectImageURL(); write("Imagem escolhida: " .. url);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> choose(prompt, options, [defaultOptionIndex, shortCircuit])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher uma opção dentre uma lista de opções.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>options - Um array/arranjo/lista de cadeias de caracteres/textos, contendo as opções que devem ser apresentadas ao usuário.</li>
+<li>(OPCIONAL) defaultOptionIndex - Um número contendo um índice informado qual dos itens de "options" deve ser apresentado como a escolha padrão. Se não informado, nenhuma opção será mostrada como padrão.</li>
+<li>(OPCIONAL) shortCircuit - Avaliação Curto-Circuito: Se for "true" e se houver apenas uma opção a ser mostrada ao usuario, a interface não é exibida e esta opçao é automaticamente selecionada. Se não informado, este parâmetro assume o valor false.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<p>&nbsp; &nbsp; Esta função retorna dois valores na seguinte ordem:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>index - Um número, o índice de "options" que foi escolhido pelo usuário</li>
+<li>text - O texto equivalente ao índice escolhido pelo usuário, conforme "options"</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+<li>Lembre-se que indices de arrays em lua começa do número 1 ao invés de 0</li>
+<li>&nbsp;</li>
+<li>Se "options" não for válido ou se for um arranjo com 0 itens, a macro pára de executar como se o usuário tivesse cancelado a janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> indice, texto = choose("O que deseja fazer?", {"Atacar", "Defender"}, 1);   escrever("O usuário escolheu o índice: " .. indice); escrever("O usuário escolheu: " .. texto); &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> chooseMultiple(prompt, options)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher <strong>uma ou mais</strong> opções dentre uma lista de opções.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>options - Um array/lista/arranjo de textos/cadeias de caracteres, contendo as opções que devem ser apresentadas ao usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<p>Esta função retorna dois valores na seguinte ordem:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>indexes - Um array/arranjo/lista de números, contendo os índices de "options" que foram escolhidos pelo usuário</li>
+<li>texts - Um array/arranjo/lista de textos equivalentes aos índices escolhidos pelo usuário, conforme "options"</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+<li>Lembre-se que indices de arrays em lua começa do número 1 ao invés de 0</li>
+<li>&nbsp;</li>
+<li>Se "options" não for válido ou se for um arranjo com 0 itens, a macro pára de executar como se o usuário tivesse cancelado a janela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> indices, textos = chooseMultiple("Bônus ativos", {"Cobertura", "Defesa Total", "Escondido"});   <strong>for</strong> i = 1, #indices, 1 <strong>do</strong>    escrever("O usuário escolheu o índice: " .. indices[i]);    escrever("O usuário escolheu: " .. textos[i]); <strong>end</strong>; &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> chooseCharacter(prompt[, filter, shortCircuit])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher um personagem da lista de personagens que estão na biblioteca da mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>(OPCIONAL) filter - Uma cadeia de caracteres informando quais persnagens devem ser apresentados na interface de seleção e pode ser um dos seguintes valores:<ul>
+<li>"all" - Todos os personagens da mesa deverão ser apresentados na janela (Opção padrão caso não seja informado filter)</li>
+<li>"pc" - Apenas os personagens de jogadores deverão ser apresentados na janela.</li>
+<li>"pcOnline" - Apenas os personagens de jogadores que estão online deverão ser apresentados na janela.</li>
+<li>"npc" - Apenas os personagens do mestre deverão ser apresentados.</li>
+<li>"mine" - Apenas os personagens do jogador que executar a macro deverão ser apresentados.</li>
+</ul>
+</li>
+<li>(OPCIONAL) shortCircuit - Avaliação Curto-Circuito: Se for "true" e se houver apenas um personagem a ser mostrado ao usuario, a interface não é exibida e este personagem é automaticamente selecionado. Se não informado, este parâmetro assume o valor false .</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoPersonagem/">Objeto Personagem </a>representando o personagem que o usuário escolheu.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+<li>Se o filtro especificado por "filter" não for capaz de apresentar nenhum personagem para escolha, um erro será exibido para o usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> personagem = chooseCharacter("Qual personagem deseja testar a força?", "pc"); escrever("Você selecionou: " .. personagem.nome); &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> chooseCharacterOfPlayer(prompt, player [, shortCircuit])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher um personagens da lista de personagens de um jogador na mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>player - Uma cadeia de caracteres contendo o login do usuário <strong>ou</strong> um <a href="../ObjetoJogador/">Objeto Jogador</a> representando de qual jogador os personagens deverão ser apresentados na tela.</li>
+<li>(OPCIONAL) shortCircuit - Avaliação Curto-Circuito: Se for "true" e se houver apenas um personagem a ser mostrado ao usuario, a interface não é exibida e este personagem é automaticamente selecionado. Se não informado, este parâmetro assume o valor false .</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoPersonagem/">Objeto Personagem </a>representando o personagem que o usuário escolheu.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+<li>Se o jogador não possuir nenhum personagem, um erro é lançado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> player = choosePlayer("Selecione um jogador");   <strong>local</strong> personagem = chooseCharacterOfPlayer("Selecione um personagem", player); escrever(personagem.nome);   <strong>local</strong> personagem2 = chooseCharacterOfPlayer("Selecione um personagem", "AlyssonRPG"); escrever(personagem2.nome);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> chooseCharacters(prompt[, filter])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher <strong>um ou mais</strong> personagens da lista de personagens que estão na biblioteca da mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>(OPCIONAL) filter - Uma cadeia de caracteres informando quais persnagens devem ser apresentados na interface de seleção e pode ser um dos seguintes valores:<ul>
+<li>"all" - Todos os personagens da mesa deverão ser apresentados na janela (Opção padrão caso não seja informado filter)</li>
+<li>"pc" - Apenas os personagens de jogadores deverão ser apresentados na janela.</li>
+<li>"pcOnline" - Apenas os personagens de jogadores que estão online deverão ser apresentados na janela.</li>
+<li>"npc" - Apenas os personagens do mestre deverão ser apresentados.</li>
+<li>"mine" - Apenas os personagens do jogador que executar a macro deverão ser apresentados.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um array/arranjo/lista de <a href="../ObjetoPersonagem/">Objeto Personagem </a>representando os personagens que o usuário escolheu.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+<li>Se o filtro especificado por "filter" não for capaz de apresentar nenhum personagem para escolha, um erro será exibido para o usuário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> personagens = chooseCharacters("Quais personagens deseja testar a força?", "pcOnline");   <strong>for</strong> i = 1, #personagens, 1 <strong>do</strong>   escrever("Você selecionou: " .. personagens[i].nome); <strong>end</strong>;&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> choosePlayer(prompt[, shortCircuit])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher um jogador da lista de jogadores que estão na mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>(OPCIONAL) shortCircuit - Avaliação Curto-Circuito: Se for "true" e se houver apenas um jogador a ser mostrado ao usuario, a interface não é exibida e este jogador é automaticamente selecionado. Se não informado, este parâmetro assume o valor false .</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoJogador/">Objeto Jogador</a> representando o jogador que o usuário escolheu.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> jogador = choosePlayer("De qual jogador voce quer obter informações?") escrever("Você selecionou: " .. jogador.login);   <strong>if</strong> jogador.isMestre <strong>then</strong>    escrever("O jogador é mestre na mesa"); <strong>end</strong>; &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> choosePlayers(prompt)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher <strong>um ou mais</strong> jogadores da lista de jogadores que estão na mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um array/lista de <a href="../ObjetoJogador/">Objeto Jogador</a> representando os jogadores que o usuário escolheu.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> jogadores = choosePlayers("Selecione quais jogadores devem rolar iniciativa");   <strong>for</strong> i = 1, #jogadores, 1 <strong>do</strong>    escrever("Rolar iniciativa de " .. jogadores[i].login); <strong>end</strong>;&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> getCharacterOfPlayer(player)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retorna o personagem principal de um jogador da mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>player - Uma cadeia de caracteres contendo o login do usuário <strong>ou</strong> um <a href="../ObjetoJogador/">Objeto Jogador</a> representando de qual jogador se deve obter o personagem principal.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoPersonagem/">Objeto Personagem </a>representando o personagem principal do jogador.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro é pausada até que o usuário responda a janela.</li>
+<li>Se o usuário cancelar a janela, a macro pára de executar.</li>
+<li>Se o jogador não possuir nenhum personagem, um erro é lançado.</li>
+<li>Se o jogador possuir dois ou mais personagens, o personagem principal dele será retornado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> player = choosePlayer("Escolha um jogador");   <strong>local</strong> personagemPrincipal = getCharacterOfPlayer(player); escrever(personagemPrincipal.nome);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> getCharacterSheet(character)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retorna o Node Database/sheet de um personagem.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>character - Um <a href="../ObjetoPersonagem/">Objeto Personagem </a>representando o personagem de qual se deve obter o NodeDatabase/sheet</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O <a href="../ObjetoNodo/">Objeto Nodo</a> raiz representando o NodeDatabase/Sheet do personagem</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução da macro pode ser pausada até que o NodeDatabase/Ficha seja carregada pela internet.</li>
+<li>O Objeto Nodo retornado é o mesmo daquela variável "sheet" usada para programar as fichas/lua forms.</li>
+<li>As alterações feitas no objeto nodo retornado são sincronizadas normalmente, confome as regras de permissões do Node Database.</li>
+<li>Se houver algum erro ao carregar o NodeDatabase, a macro pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> personagem = chooseCharacter("Escolha um personagem", "pc") <strong>local</strong> node = getCharacterSheet(personagem);   <em>-- Escrever no chat a estrutura dos dados armazenados da ficha</em> write(utils.tableToStr(node, true));   <em>-- Se for a ficha D\&amp;D 5, a linha abaixo aumenta a CA em 1</em> node.CA = (tonumber(node.CA) <strong>or</strong> 0) + 1;&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> getUserNDB(name[, options])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Open a per-user <a href="../NodeDatabase/">NodeDatabase</a> that is physically stored in the Firecast server.</p>
+<p>&nbsp;</p>
+<p>Arguments:</p>
+<ul>
+<li>&nbsp;</li>
+<li>name - A string identifying which remote user NodeDatabase should be opened</li>
+<li>(OPTIONAL) options - A Lua table describing additional settings that may contain:<ul>
+<li>create - a boolean. If <strong>true</strong>, the NodeDatabase can be created if it does not exist. Default: <strong>false</strong></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Return:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../ObjetoNodo/">Node Object</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>The content of NodeDatabases opened by this function is stored separately per-user. Each user will have their own copy of the NodeDatabase identified by the “name” argument</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> getUserRoomNDB(name[, options])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Open a per user <a href="../NodeDatabase/">NodeDatabase</a> in the current room that is physically stored in the Firecast server.</p>
+<p>&nbsp;</p>
+<p>Arguments:</p>
+<ul>
+<li>&nbsp;</li>
+<li>name - A string identifying which remote user NodeDatabase in the current room should be opened</li>
+<li>(OPTIONAL) options - A Lua table describing additional settings that may contain:<ul>
+<li>create - a boolean. If <strong>true</strong>, the NodeDatabase can be created if it does not exist. Default: <strong>false</strong></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Return:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../ObjetoNodo/">Node Object</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>The content of NodeDatabases opened by this function is stored separately per-user and per-room. Each user in the current room will have their own copy of the NodeDatabase identified by the “name”.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> getRoomNDB(name[, options])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Open a per room <a href="../NodeDatabase/">NodeDatabase</a> that is physically stored in the Firecast server.</p>
+<p>&nbsp;</p>
+<p>Arguments:</p>
+<ul>
+<li>&nbsp;</li>
+<li>name - A string identifying which remote NodeDatabase of the current room should be opened</li>
+<li>(OPTIONAL) options - A Lua table describing additional settings that may contain:<ul>
+<li>create - a boolean. If <strong>true</strong>, the NodeDatabase can be created if it does not exist. Default: <strong>false</strong></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Return:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../ObjetoNodo/">Node Object</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>The content of NodeDatabases opened by this function is stored separately per-room. All users of the current room will access the same content of the NodeDatabase identified by the “name”.</li>
+<li>By default, users with the +GM mode can read and modify the NodeDatabase of the room while other users can only read values.</li>
+<li>To open a NodeDatabase of the room, one of the following statements must be true:<ul>
+<li>The current user is a Gold subscriber; or</li>
+<li>The creator of the room is a Platinum subscriber.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> invoke(macroName [, parameter])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Esta função invoca outra macro e aguarda sua execução.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>macroName - Cadeia de caracteres identificando qual macro deve ser invocada.&nbsp;<ul>
+<li>Exemplo: Se deseja invocar a macro /obterBonusAtaque, o valor "obterBonusAtaque" deverá se passado aqui, sem a barra.</li>
+</ul>
+</li>
+<li>(OPCIONAL) parameter - Cadeia de caracteres contendo os parâmetros que devem ser passados para a macro quando ela for invocada.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se a macro invocada tiver sido executada sem erros, o retorno desta função é idêntico ao "return" da macro invocada (<strong>nil</strong> se ela não especificou valor de return).</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A execução desta macro é pausada até a outra macro seja executada.</li>
+<li>Se a macro invocada parar de executar (exemplo: Pois o usuário cancelou um inputQuery), esta macro também pára de executar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo (duas macros, uma invocando a outra):</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; <strong>Macro: ObterBonusAtaque</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> attack = inputQuery("Informe o Bônus de Ataque"); <strong>local</strong> damageBonus = inputQuery("Informe o Bônus de Dano");   <strong>return</strong> attack, tonumber(damageBonus);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>Macro que invoca outra macro</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> bonusAttack, damage = invoke("ObterBonusAtaque")&nbsp; write("Ataque informado: " .. bonusAttack) write("Dano informado: " .. damage);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Effortlessly Create Encrypted, Password-Protected PDFs</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Loglibrary/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Loglibrary/" class="btn btn-sm btn-link">
+			Log library
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-link">
+			A linguagem de programação LUA
+		</a>
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaparaMacrosemLua.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

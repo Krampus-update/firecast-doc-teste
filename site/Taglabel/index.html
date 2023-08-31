@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag label - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag label", url: "#_top", children: [
+				]},
+				{title: "Tag LABEL", url: "#tag-label_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos:", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Tagimport/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Tagimport/" class="btn btn-sm btn-link">
+			Tag import
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Taglayout/" class="btn btn-sm btn-link">
+			Tag layout
+		</a>
+		<a href="../Taglayout/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-label">Tag label</h1>
+<h1 id="tag-label_1">Tag LABEL</h1>
+<p>A tag/componente <strong>label</strong> representa um texto não editável na interface. Excelente para mostrar informações.</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>label</strong> possui todas as características de uma tag de texto. Veja:</p>
+<ul>
+<li><a href="../Caracteristicasdetodasastagsdete/">Características de todas as tags de textos</a></li>
+<li><a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, a tag <strong>label</strong> também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>autoSize</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Se for true, o label automaticamente ajusta seu tamanho (crescendo ou encolhendo) para melhor exibir o seu conteúdo.</td>
+</tr>
+<tr>
+<td><strong>field</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o label passa a apresentar o conteúdo do campo na interface.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>format</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Define uma formatação automática para o texto do label.&nbsp; Esta propriedade aceita formatações estilo printf da linguagem C ou Format da linguagem Pascal.&nbsp; Exemplos:</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%f</td>
+<td>Número float/"com vírgula"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%3.3f</td>
+<td>Número float apresentando 3 casas decimais</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%s</td>
+<td>Texto</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>%.2f kg</td>
+<td>Número com duas casas decimais seguidas do texto "kg"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Carga em %1.1f %%</td>
+<td>Apresenta um texto como: Carga em 25,3 %</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp; Para documentação completa, favor procurar a documentação da função Format do Delphi.&nbsp; Observações: Se a propriedade <a href="./#formatFloat">formatFloat</a> estiver preenchida, a propriedade <a href="./#format">format</a> é ignorada. Apenas 1 parâmetro é suportado em format.&nbsp;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>formatFloat</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Define uma formatação automática para números no label. Esta permite um controle maior do que a propriedade <a href="./#format">format.</a>&nbsp; Esta propriedade aceita formatações da função FormatFloat do Delphi.&nbsp; Exemplos:</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>,0.00</td>
+<td>Número com 2 casas decimais e separador de milhares</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&#48;.0#</td>
+<td>Número com 1 ou 2 casas decimais, dependendo do valor.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&#48;.### litros</td>
+<td>Número com 0 a 3 casas decimais, dependendo do valor e, no final, a palavra "litros"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&#48;.00### kg</td>
+<td>Número com 2 a 5 casas decimais, dependendo do valor e, no final, a palavra "kg"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total: ,0.00</td>
+<td>Palavra "Total: " seguida de número com 2 casas decimais e separador de milhares.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Receita de 0.00;Prejuízo de 0.00</td>
+<td>O caracter ; separa seções para valores positivos, negativos e zero.&nbsp; Se positivo ou maior que zero, usa a formatação "Receita de 0.00", se negativo, utiliza a formatacao "Prejuízo de 0.00"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+0.00;(0.00);vazio</td>
+<td>O caracter ; separa seções para valores positivos, negativos e zero.&nbsp; Se positivo: +0.00 Se negativo: (0.00) Se zero: vazio</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&nbsp; Para documentação completa, favor procurar a documentação da função FormatFloat do Delphi.&nbsp; Observações: Se a propriedade <a href="./#formatFloat">formatFloat</a> estiver preenchida, a propriedade <a href="./#format">format</a> é ignorada.&nbsp;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos:</h2>
+<h3 id="exemplo-1-ola-mundo">Exemplo 1 - Olá Mundo</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;label</strong> left="20" top="20" text="Olá Mundo"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem27.png" /></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-cores">Exemplo 2 - Cores</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;label</strong> left="20" top="20" text="Label de cor verde com quebra de linha" fontColor="lime" autoSize="true"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem28.png" /></p>
+<p>&nbsp;</p>
+<p>Veja também <a href="../StringdecoresnoLuaForm/">String de cores no Lua Form</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="exemplo-3-usando-field-para-integrar-com-o-nodedatabase">Exemplo 3 - Usando Field para integrar com o NodeDatabase</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;label</strong> left="20" top="20" field="campoForca" autoSize="true" wordWrap="false"<strong>/&gt;</strong>              <strong>\&lt;button</strong> left="20" top="40" width="150" text="Aumentar Força"  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onClick="sheet.campoForca = (sheet.campoForca or 0) + 1;"<strong>/&gt;</strong>       <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Neste exemplo, um botão que incrementa o valor do field "campoForca" enquanto o label, conectado ao mesmo campo, exibe seus valores.</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem29.png" /> &nbsp; -&gt;&nbsp; <img alt="Image" src="../lib/NewItem30.png" />&nbsp; -&gt; <img alt="Image" src="../lib/NewItem31.png" /></p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-ebooks-for-amazon-kindle">Write eBooks for the Kindle</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Tagimport/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Tagimport/" class="btn btn-sm btn-link">
+			Tag import
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Taglayout/" class="btn btn-sm btn-link">
+			Tag layout
+		</a>
+		<a href="../Taglayout/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Taglabel.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:43 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

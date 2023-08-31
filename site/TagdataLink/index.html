@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag dataLink - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag dataLink", url: "#_top", children: [
+				]},
+				{title: "Tag dataLink", url: "#tag-datalink_1", children: [
+						
+				{title: "Caracter\u00edsticas", url: "#_top", children: [
+				]},
+				{title: "Exemplos:", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagcheckBox/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagcheckBox/" class="btn btn-sm btn-link">
+			Tag checkBox
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-link">
+			Tag dataScopeBox
+		</a>
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-datalink">Tag dataLink</h1>
+<h1 id="tag-datalink_1">Tag dataLink</h1>
+<p>A tag <strong>dataLink</strong> representa um componente não visual (não é exibido na interface) que monitora mudanças em um NodeDatabase.</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../NodeDatabase/">NodeDatabase</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Define um nome para a componente.&nbsp; O nome deve ser único, isto é, dentro de um <strong>form</strong>, não é possível existir 2 controles com o mesmo nome. Se não for definido um nome para o controle no arquivo LFM, um nome único será gerado para ele em tempo de compilação. Nomear controles é especialmente útil quando se quer trabalhar com códigos LUA.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>field</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o dataLink passa a monitorar mudanças no campo informado.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fields</strong></td>
+<td>Arranjo de String</td>
+<td>{} // \&lt;arranjo vazio&gt;</td>
+<td>Idem à propriedade "field", porém permite monitorar mudanças em mais de um campo com um único dataLink.&nbsp; Observação: Não é possível utilizar as propriedades "fields" e "field" ao mesmo tempo, elas são mutualmente exclusivas.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>defaultValue</strong></td>
+<td>String</td>
+<td>\&lt;String Vazio&gt;</td>
+<td>Quando definido, se o campo identificado pelo atributo "field" estiver vazio, ele será inicializado com este valor informado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>defaultValues</strong></td>
+<td>Arranjo de String</td>
+<td>{} // \&lt;arranjo vazio&gt;</td>
+<td>Idem à propriedade "defaultValue", porém permite definir valores padrões para cada um dos campos informado na propriedade "fields"&nbsp; Observação: Não é possível utilizar as propriedades "defaultValue" e "defaultValues" ao mesmo tempo pois elas são mutualmente exclusivas.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onChange</strong></td>
+<td>Este evento é invocado quando ocorre uma mudança de valor no campo definido pela propriedade "field" ou quando ocorrer mudança de valor em algum dos campos definidos pela propriedade "fields"&nbsp; Parâmetros/Informações: field - string informando qual campo mudou oldValue - Antigo valor do campo newValue - Novo valor do campo&nbsp; Observações: Este evento pode ser invocado em qualquer uma destas ocasiões: Os dados do nodedatabase da ficha/form acabaram de ser carregados O usuário local alterou o valor de algum campo monitorado pelo dataLink Algum outro usuário remoto alterou algum dos campos monitrados pelo dataLink.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onPersistedChange</strong></td>
+<td>Este evento é invocado quando ocorre uma mudança de valor no campo definido pela propriedade "field" ou quando ocorrer mudança de valor em algum dos campos definidos pela propriedade "fields" no <strong>servidor</strong>.&nbsp; Parâmetros/Informações: field - string informando qual campo mudou oldValue - Antigo valor conhecido do campo no servidor. newValue - Novo valor do campo no servidor.&nbsp; Observações: Devido a existência de transações no NodeDatabase e também devido à característica assíncrona do NodeDatabase, o valor dos atributos do NodeDatabases podem, temporariamente, não refletir ao valor salvo no servidor e nem ao valor que os outros usuários remotos tem acesso. Este evento é chamado quando alguma alteração é confirmada no lado do Servidor, persistida e disponibilizada para todos os outros usuários remotos. O valor persistido pode ser obtido através da função <a href="../BibliotecaNDB/#ndb.getPersistedAttributeValue">NDB.getPersistedAttributeValue()</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onUserChange</strong></td>
+<td>Este evento é invocado quando ocorre uma mudança de valor no campo definido pela propriedade "field" ou quando ocorrer mudança de valor em algum dos campos definidos pela propriedade "fields" <strong>porque</strong> o <strong>usuário local</strong> alterou o conteúdo do do campo, seja editando ele visualmente ou através de código Lua.&nbsp; Parâmetros/Informações: field - string informando qual campo mudou oldValue - Antigo valor do campo newValue - Novo valor do campo.&nbsp; Observações: Lembre-se, este evento será disparado apenas quando o usuário local alterar o valor de algum dos campos monitorados pelo dataLink.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onChildAdded</strong></td>
+<td>Este evento é invocado quando um <a href="../ObjetoNodo/">objeto nodo</a> filho é criado dentro do field que está sendo monitorado (se o campo for um nodo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> filho que foi criado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onChildRemoved</strong></td>
+<td>Este evento é invocado quando um <a href="../ObjetoNodo/">objeto nodo</a> filho é removido de dentro do field que está sendo monitorado (se o campo for um nodo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> filho que foi removido.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Veja <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos:</h2>
+<h3 id="exemplo-1-calculando-um-modificador-de-atributo-de-dd">Exemplo 1 - Calculando um modificador de atributo de D\&amp;D</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;&nbsp; &nbsp; ** </strong>\&lt;form<strong> name="frmFichaTeste"</strong>&gt;<strong>                 <em>\&lt;!-- Layout da interface --&gt;</em>              </strong>\&lt;layout<strong> left="20" top="20" height="25" width="125"</strong>&gt;<strong>                     </strong>\&lt;label<strong> align="left" text="Força: " autoSize="true"</strong>/&gt;<strong>                 </strong>\&lt;edit<strong> align="client" horzTextAlign="center" field="atributoForca"</strong>/&gt;<strong>                               <em>\&lt;!-- Modificador --&gt;</em>                 </strong>\&lt;label<strong> align="right" width="30" field="modificadorForca" horzTextAlign="center"</strong>/&gt;<strong>         </strong>\&lt;/layout&gt;<strong>               <em>\&lt;!-- Cálculo de campos / uso de dataLink --&gt;</em>&nbsp;             </strong>\&lt;dataLink<strong> field="atributoForca"</strong>&gt;<strong>                 </strong>\&lt;event<strong> name="onChange"</strong>&gt;<strong>                         </strong>local<strong> valorForca = tonumber(sheet.atributoForca);                                               </strong>if<strong> (valorForca ~= nil) </strong>then<strong>                                 sheet.modificadorForca = math.floor(valorForca / 2) - 5;                                  </strong>if<strong> sheet.modificadorForca &gt; 0 </strong>then<strong>                                         sheet.modificadorForca = "+" .. sheet.modificadorForca;                                 </strong>end<strong>;                         </strong>else<strong>                                 sheet.modificadorForca = nil;                         </strong>end<strong>                 </strong>\&lt;/event&gt;<strong>         </strong>\&lt;/dataLink&gt;<strong> </strong>\&lt;/form&gt;**</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem85.png" />&nbsp; &nbsp; &nbsp; <img alt="Image" src="../lib/NewItem86.png" />&nbsp; &nbsp; &nbsp; <img alt="Image" src="../lib/NewItem88.png" /></p>
+<p>&nbsp;</p>
+<p>Neste exemplo, ligamos um edit ao campo "atributoForca" e um label ao campo "modificadorForca"... Usamos um dataLink para monitorar mudanças em "atributoForca" para calcularmos e salvamos o modificador no campo "modificadorForca" (para que o label possa exibir o valor).</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+</ul>
+<h3 id="exemplo-2-somando-dois-campos-na-interface">Exemplo 2 - Somando dois campos na interface</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <em>\&lt;!-- Layout da interface --&gt;</em>              <strong>\&lt;layout</strong> left="20" top="20" height="25" width="200"<strong>&gt;</strong>                     <strong>\&lt;edit</strong> field="parcela1" align="left" horzTextAlign="center" width="50"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="left" text="  +  " autoSize="true"<strong>/&gt;</strong>         &nbsp;                     <strong>\&lt;edit</strong> field="parcela2" align="left" horzTextAlign="center" width="50"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="left" text="  =  " autoSize="true"<strong>/&gt;</strong>                                             <em>\&lt;!-- Resultado --&gt;</em>                 <strong>\&lt;label</strong> align="client" field="resultadoSoma" horzTextAlign="center"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong>               <em>\&lt;!-- Cálculo de campos / uso de dataLink --&gt;</em>                <strong>\&lt;dataLink</strong> fields="{'parcela1', 'parcela2'}"<strong>&gt;</strong>                 <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>                                        sheet.resultadoSoma = (tonumber(sheet.parcela1) <strong>or</strong> 0) + &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (tonumber(sheet.parcela2) <strong>or</strong> 0);                 <strong>\&lt;/event&gt;</strong>         <strong>\&lt;/dataLink&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem89.png" /> &nbsp; <img alt="Image" src="../lib/NewItem91.png" /></p>
+<p>&nbsp;</p>
+<p>Neste exemplo, usamos o dataLink para monitorar dois campos ao mesmo tempo: "parcela1" e "parcela2"</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Revolutionize your documentation process with HelpNDoc's online capabilities</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagcheckBox/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagcheckBox/" class="btn btn-sm btn-link">
+			Tag checkBox
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-link">
+			Tag dataScopeBox
+		</a>
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/TagdataLink.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

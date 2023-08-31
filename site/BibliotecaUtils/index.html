@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Utils - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Utils", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Utils", url: "#biblioteca-utils_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca utils", url: "#_top", children: [
+				]},
+				{title: "\u0026nbsp;", url: "#_1", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-utils">Biblioteca Utils</h1>
+<h1 id="biblioteca-utils_1">Biblioteca Utils</h1>
+<p>A biblioteca gui provê funções relacionadas às interfaces Lua Form.</p>
+<p>Todas as funções estão contidas na unidade "utils.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "utils.lua"</em> require("utils.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Utils.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...); FUNCAO_DA_BIBLIOTECA2(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-utils">Funções da biblioteca utils</h2>
+<h2 id="_1">&nbsp;</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> clearInterval(intervalId) ou <strong>function</strong> Utils.clearInterval(intervalId)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cancela o temporizador que <a href="./#função%20setInterval">setInterval</a> havia previamente configurado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>intervalId - O identificador retornado pela função setInterval.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> clearTimeout(timeoutId) ou <strong>function</strong> Utils.clearTimeout(timeoutId)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cancela o temporizador que <a href="./#função%20setTimeout">setTimeout</a> havia previamente configurado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>timeoutId - O identificador retornado pela função setTimeout.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.compareStringPtBr(strLeft, strRight)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Realiza comparação entre duas cadeias de caracteres de forma case-insensitive e ignorando acentuações</p>
+<p>&nbsp;</p>
+<p>Retorna:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Número <strong>menor</strong> que 0 se strLeft for lexicograficamente <strong>menor</strong> que strRight</li>
+<li>&#48; se strLeft for lexicograficamente <strong>igual</strong> a strRight</li>
+<li>Número <strong>maior</strong> que 0 se strLeft for lexicograficamente <strong>maior</strong> que strRight</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> lowercase(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Converte e retorna um string em caixa baixa (lower case)</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>str - a cadeia de caracteres que deseja converter para caixa baixa.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>uma cadeia de caracteres</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> uppercase(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Converte e retorna um string em caixa alta (upper case)</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>str - a cadeia de caracteres que deseja converter para caixa alta.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>uma cadeia de caracteres</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.generateUniqueString()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Gera e retorna uma cadeia de caracteres globalmente única, isto é, um texto que nunca mais será gerado novamente por esta função</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres única, ótima para ser usada como identificador.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> isnumber(value) ou <strong>function</strong> isNumber(value)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna true se o parâmetro "value" for um número, senão retorna false.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> round(value)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Arredonda "value" para o numero inteiro mais próximo e o retorna.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> removerAcentos(str) ou <strong>function</strong> Utils.removerAcentos(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o texto passado em "str" sem sua acentuação.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.removerFmtChat(str[, removerSmileys])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna o texto passado em "str" sem os caracteres de formatação de cores/negrito/itálico que o RRPG aceita no chat.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>str - Cadeia de caracteres contendo o texto a ser processado</li>
+<li>(OPCIONAL) removerSmileys - Booleano indicando se deve remover os smileys/memes do texto também. Se omitido, o valor padrão é false.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Cadeia de caracteres sem as tags de formatação.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> setInterval(callbackFunction, interval [, parametersToCallbackFunction]) ou <strong>function</strong> Utils.setInterval(callbackFunction, interval [, parametersToCallbackFunction])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>setInterval chama uma função qualquer após em intervalos de tempo especificado em milisegundos.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>callbackFunction - A função que será chamada no intervalo definido.</li>
+<li>interval - O intervalo de tempo em milisegundos que callbackFunction será chamada.</li>
+<li>(OPCIONAL) parametersToCallbackFunction - Uma lista de parâmetros que serão repassados para a callbackFunction quando ela for chamada.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna um valor que poderá ser usado na função <a href="./#função%20clearInterval">clearInterval</a> para cancelar o setInterval.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função "callbackFunction" é executada inúmeras vezes até que algum dos seguintes eventos aconteça:<ul>
+<li>O plug-in seja descarregado.</li>
+<li>A função <a href="./#função%20clearInterval">clearInterval</a> seja executada passando em seu parâmetro o valor retornado por setInterval.</li>
+<li>A função informada em "callbackFunction" retorne explicitamente false.</li>
+</ul>
+</li>
+<li>&nbsp;Se você deseja executar "callbackFunction" apenas uma vez após um determinado tempo, use a função <a href="./#função%20setTimeout">setTimeout</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> setTimeout(callbackFunction, interval [, parametersToCallbackFunction]) ou <strong>function</strong> Utils.setTimeout(callbackFunction, interval [, parametersToCallbackFunction])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>setTimeout chama uma função qualquer após uma quantidade específica de milisegundos se passarem.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>callbackFunction - A função que será chamada.</li>
+<li>interval - O tempo de espera até que a função seja chamada, em milisegundos.</li>
+<li>(OPCIONAL) parametersToCallbackFunction - Uma lista de parâmetros que serão repassados para a callbackFunction quando ela for chamada.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Retorna um valor que poderá ser usado na função <a href="./#função%20clearTimeout">clearTimeout</a> para prevenir a função "callbackFunction" de ser chamada.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função "callbackFunction" é executada somente 1 vez. Se você precisar que ela seja chamada constantemente, use a função <a href="./#função%20setInterval">setInterval</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.sortPtBrArray(array)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado um array de strings (uma tabela lua indexada de 1 a n), ordena os valores lexicograficamente de forma case insensitive e ignorando acentuações.</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Não há retorno. O próprio array estará ordenado no fim desta função.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> totable(str) ou <strong>function</strong> strToTable(str) ou <strong>function</strong> Utils.strToTable(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Converte o texto passado em "str" para uma tabela lua. O texto deve seguir o mesmo padrão que você usa ao declarar uma tabela lua quando está programando.&nbsp;</p>
+<p>Exemplo: "{nome='joão', idade=10, filhos={}}"</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> tableToStr(table [, pretty]) ou <strong>function</strong> Utils.tableToStr(table [, pretty])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Converte uma tabela LUA para string.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>table - a tabela lua que deseja converter para texto</li>
+<li>(OPCIONAL) pretty - se true, converte para um texto legível... Se omitido ou se false, converte para um texto que ocupa o menor espaço o possível.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres que corresponde à tabela.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.binaryEncode(destArray, format, value [, startIndex])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Codifica um determinado valor em um formato binário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>destArray - Uma tabela lua que receberá os BYTES da codificação binária.</li>
+<li>format - Uma cadeia de caracteres identificando qual o formato binário deve ser utilizado. Veja <a href="./#Formatos%20Binários%20utils.binaryEncode">Formatos Binários</a> para saber quais são os formatos disponíveis.</li>
+<li>value - O valor que será codificado.</li>
+<li>(OPCIONAL) startIndex - Um número identificando em qual posição de "destArray" os bytes devem ser escritos. Se omitido, o valor 1 será utilizado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um número contendo quantos bytes foram inseridos em destArray.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Cada BYTE da representação binária é colocado em uma posição de "destArray". Se um determinado formato binário ocupar 4 bytes, após a chamada da função destArray[1] conterá o valor do primeiro byte, destArray[2] o valor do segundo byte, destArray[3] o valor do terceiro byte e destArray[4] o valor do quarto byte.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Formatos Binários:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Formato</strong></th>
+<th>Qtd. de Bytes</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>"u8"</strong></td>
+<td>&#49;</td>
+<td>Um número entre 0 e 255 codificado como Unsigned Integer de 8 Bits (também conhecido como Byte)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"s8"</strong></td>
+<td>&#49;</td>
+<td>Um número entre -128 a 127 codificado como Signed Integer de 8 Bits.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"u16"</strong></td>
+<td>&#50;</td>
+<td>Um número entre 0 e 65535 codificado como Unsigned Integer de 16 bits (Também conhecido como Word) no padrão LittleEndian.&nbsp; &nbsp;</td>
+</tr>
+<tr>
+<td><strong>"s16"</strong></td>
+<td>&#50;</td>
+<td>Um número entre -32768 e 32767 codificado como Signed Integer de 16 bits no padrão LittleEndian.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"u32"</strong></td>
+<td>&#52;</td>
+<td>Um número entre 0 e 4294967295 codificado como Unsigned Integer de 32 bits (Também conhecido como DoubleWord) no padrão LittleEndian.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"s32"</strong></td>
+<td>&#52;</td>
+<td>Um número entre -2147483648 e 2147483647 codificado como Signed Integer de 32 bits no padrão LittleEndian &nbsp;</td>
+</tr>
+<tr>
+<td><strong>"u64"</strong></td>
+<td>&#56;</td>
+<td>Um número entre 0 e (2\^64) - 1 codificado como Unsigned Integer de 64 bits (Também conhecido como QuadWord) no padrão LittleEndian&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"s64"</strong></td>
+<td>&#56;</td>
+<td>Um número entre -2\^63 a (2\^63) - 1 codificado como Signed Integer de 64 bits no padrão LittleEndian.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"float"</strong></td>
+<td>&#52;</td>
+<td>Um número de ponto flutuante de 4 bytes no padrão IEEE 754.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"double"</strong></td>
+<td>&#56;</td>
+<td>Um número de ponto flutuante de 8 bytes no padrão IEEE 754.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"ansi"</strong></td>
+<td>Varia</td>
+<td>Uma cadeia de caracteres codificada em ANSI sem o terminador nulo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"utf8"</strong></td>
+<td>Varia</td>
+<td>Uma cadeia de caracteres codificada em UTF-8 sem o terminador nulo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>"utf16"</strong></td>
+<td>Varia</td>
+<td>Uma cadeia de caracteres codificada em UTF-16 sem o terminador nulo.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.binaryDecode(sourceArray, format [, startIndex [, length]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Interpreta um valor que está codificado em um formato binário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>sourceArray - Uma tabela lua que contém os BYTES da codificação binária.</li>
+<li>format - Uma cadeia de caracteres identificando em qual formato binário o valor está codificado. Veja <a href="./#Formatos%20Binários%20utils.binaryEncode">Formatos Binários</a> para saber quais são.</li>
+<li>(OPCIONAL) startIndex - Um número identificando a partir de qual posição de "sourceArray" os bytes devem ser lidos para a decodificação. Se omitido, o valor 1 será utilizado.</li>
+<li>(OPCIONAL) length - Quantos bytes à partir de "startIndex" devem ser usados para a decodificação. Se omitido, o valor (#sourceArray - startIndex + 1) será utilizado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função retorna 2 valores:<ul>
+<li>O valor decodificado ou <strong>nil</strong> se não foi possível decodificar</li>
+<li>A quantidade de bytes usados para a decodificação do valor.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Cada BYTE da representação binária deve estar em uma posição de "sourceArray". Se um determinado formato binário ocupar 4 bytes, sourceArray[1] deve conter o valor do primeiro byte, sourceArray[2] o valor do segundo byte, sourceArray[3] o valor do terceiro byte e sourceArray[4] o valor do quarto byte.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.getBinarySize(format)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna quantos bytes um determinado formato binário ocupa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>format - Uma cadeia de caracteres identificando o formato binário que deseja consultar. Veja <a href="./#Formatos%20Binários%20utils.binaryEncode">Formatos Binários</a> para saber quais são.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um número identificando a quantidade de bytes um determinado formato binário ocupa. Se um formato binário ocupar uma quantidade variada de bytes, o valor -1 é retornado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.zlibCompress(sourceStream, destStream, [, level [, qtBytesInSource]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Lê dados de um <a href="../ObjetoStream/">objeto stream</a> fonte e, usando a biblioteca zLib, o compacta escrevendo o resultado em outro <a href="../ObjetoStream/">objeto stream</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>sourceStream - Um <a href="../ObjetoStream/">objeto stream</a> representando os dados a serem compactados.</li>
+<li>destStream - Um <a href="../ObjetoStream/">objeto stream</a> que receberá o conteúdo compactado.</li>
+<li>(OPCIONAL) level - Define o nível da compactação. Pode ser<ul>
+<li>"none" - Não haverá compactação no final das contas</li>
+<li>"fastest" - Compactação rápida</li>
+<li>"default" - Modo em que balanceia velocidade e taxa de compressão. Este é o modo padrão quando não for definido o nível.</li>
+<li>"max" - Modo com maior taxa de compressão.</li>
+</ul>
+</li>
+<li>(OPCIONAL) qtBytesInSource - Quantos bytes serão lidos de "sourceStream" à partir de sua posição atual para a compactação. Quando não definido, todo o restante do sourceStream será lido para a compactação.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um número identificando quantos bytes foram escritos em destStream</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.zlibDecompress(sourceStream, destStream)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Lê dados de um <a href="../ObjetoStream/">objeto stream</a> fonte e, usando o a biblioteca zLib, o descompacta escrevendo o resultado em outro <a href="../ObjetoStream/">objeto stream</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>sourceStream - Um <a href="../ObjetoStream/">objeto stream</a> contendo os dados a serem descompactados.</li>
+<li>destStream - Um <a href="../ObjetoStream/">objeto stream</a> que receberá o conteúdo descompactado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função descompacta um "bloco compactado" por completo. Não tem como antecipar quantos bytes serão lidos de "sourceStream" nem quantos bytes serão escritos em "destStream" utilizando esta função. No fim da chamada, destStream conterá todo o dado descompactado e a posição de "sourceStream" apontará para o primeiro byte subsequente do conteúdo que foi processado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um número identificando quantos bytes foram escritos em destStream</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.zlibCompressAsync(sourceStream, destStream, level, qtBytesInSource, onFinishCallback, onErrorCallback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Lê dados de um <a href="../ObjetoStream/">objeto stream</a> fonte e, usando a biblioteca zLib, o compacta escrevendo o resultado em outro <a href="../ObjetoStream/">objeto stream</a>.</p>
+<p>A compactação se dá de forma assíncrona, isto é, em "background". Ótimo para compactar streams grandes e não "congelar" o programa durante o processo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>sourceStream - Um <a href="../ObjetoStream/">objeto stream</a> representando os dados a serem compactados.</li>
+<li>destStream - Um <a href="../ObjetoStream/">objeto stream</a> que receberá o conteúdo compactado.</li>
+<li>level - Define o nível da compactação. Pode ser<ul>
+<li>"none" - Não haverá compactação no final das contas</li>
+<li>"fastest" - Compactação rápida</li>
+<li>"default" - Modo em que balanceia velocidade e taxa de compressão. Este é o modo padrão quando não for definido o nível.</li>
+<li>"max" - Modo com maior taxa de compressão.</li>
+</ul>
+</li>
+<li>qtBytesInSource - Quantos bytes serão lidos de "sourceStream" à partir de sua posição atual para a compactação.</li>
+<li>onFinishCallback - Uma função que será invocada quando a compactação finalizar.</li>
+<li>onErrorCallback&nbsp; - Uma função que será invocada quando a compactação retornar um erro. A mensagem de erro é passada no primeiro parâmetro desta função.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>IMPORTANTE: Durante a compactação assíncrona, seu código não deve fazer nenhuma operação em sourceStream e nem em destStream, senão o planeta explodirá e 2d6 erros estranhos surgirão.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.zlibDecompressAsync(sourceStream, destStream, onFinishCallback, onErrorCallback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Lê dados de um <a href="../ObjetoStream/">objeto stream</a> fonte e, usando o a biblioteca zLib, o descompacta escrevendo o resultado em outro <a href="../ObjetoStream/">objeto stream</a>.</p>
+<p>A descompactação se dá de forma assíncrona, isto é, em "background". Ótimo para descompactar streams grandes e não "congelar" o programa durante o processo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>sourceStream - Um <a href="../ObjetoStream/">objeto stream</a> contendo os dados a serem descompactados.</li>
+<li>destStream - Um <a href="../ObjetoStream/">objeto stream</a> que receberá o conteúdo descompactado.</li>
+<li>onFinishCallback - Uma função que será invocada quando a descompactação finalizar.</li>
+<li>onErrorCallback&nbsp; - Uma função que será invocada quando a descompactação retornar um erro. A mensagem de erro é passada no primeiro parâmetro desta função.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função descompacta um "bloco compactado" por completo. Não tem como antecipar quantos bytes serão lidos de "sourceStream" nem quantos bytes serão escritos em "destStream" utilizando esta função. No fim da chamada, destStream conterá todo o dado descompactado e a posição de "sourceStream" apontará para o primeiro byte subsequente do conteúdo que foi processado.</li>
+<li>IMPORTANTE: Durante a descompactação assíncrona, seu código não deve fazer nenhuma operação em sourceStream e nem em destStream, senão o planeta explodirá e 2d6 erros estranhos surgirão.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.newMemoryStream()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um <a href="../ObjetoStream/">objeto stream</a> que armazena os dados na memória RAM do dispositivo.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Os dados armazenados no Memory Stream não são salvos em nenhum lugar e são perdidos quando o código não mais estiver usando o Stream ou quando o RRPG fechar.</li>
+<li>Ótimo para fazer processamento de dados temporários.</li>
+<li>Enquanto estiver em uso, os dados ocupam memória RAM do dispositivo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoStream/">objeto stream</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Utils.newTempFileStream()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um <a href="../ObjetoStream/">objeto stream</a> que armazena os dados em um arquivo temporário no dispositivo do usuário.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um arquivo temporário é criado no dispositivo do usuário e é automaticamente apagado quando não for mais utilizado.</li>
+<li>Ótimo para fazer processamento de dados temporários.</li>
+<li>Enquanto estiver em uso, os dados ocupam espaço de armazenamento do dispositivo (HD, SSD, Memory Card, etc..).</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoStream/">objeto stream</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> tryFinally(tryCallback, finallyCallback) ou <strong>function</strong> Utils.tryFinally(tryCallback, finallyCallback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>LUA não possui um operador try-finally para tratamento de exceções. Esta função é uma alternativa para o comportamento try-finally que o LUA não provê nativamente.</p>
+<p>&nbsp;</p>
+<p>Executa a função "tryCallback", e:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se ocorrer algum erro na execução, a função "finallyCallback" é invocada e o erro é levantado logo após.</li>
+<li>Se não ocorrer erro na execução, a função "finallyCallback" é invocada e a execução continua normalmente.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>tryCallback - Uma função que será invocada.</li>
+<li>finallyCallback - Uma função que sempre será invocada após a execução de "tryCallback", mesmo havendo erros de execução.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> colorToRGBA(color) ou <strong>function</strong> Utils.colorToRGBA(color)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado uma cor no formato <a href="../StringdecoresnoLuaForm/">string de cor</a>, retorna os tons de Red, Green, Blue e Alpha da cor</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Color - um <a href="../StringdecoresnoLuaForm/">string de cor</a> contendo a cor que deseja decompor</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>&#52; números representando, respectivamente os tons de Red, Green, Blue e Alpha da cor. Os tons são números entre 0.0 e 1.0</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> RGBAToColor(r, g, b, a) ou <strong>function</strong> Utils.RGBAToColor(r, g, b, a)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado tons de cores Red, Green, Blue e Alpha, retorna um <a href="../StringdecoresnoLuaForm/">string de cor</a> que representa a cor.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>r - Tom de Red, número entre 0.0 e 1.0</li>
+<li>g - Tom de Green, número entre 0.0 e 1.0</li>
+<li>b - Tom de Blue, número entre 0.0 e 1.0</li>
+<li>a - Tom de Alpha, número entre 0.0 e 1.0. Se omitido, o valor é considerado 1.0</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../StringdecoresnoLuaForm/">string de cor</a></li>
+</ul>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/stunning-user-interface/">Revolutionize Your Documentation Output with HelpNDoc's Stunning User Interface</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaUtils.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Documentos XML - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Documentos XML", url: "#_top", children: [
+				]},
+				{title: "Documentos XML", url: "#documentos-xml_1", children: [
+						
+				{title: "Lidando com caracteres reservados do XML", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-link">
+			A linguagem de programação LUA
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../FAQPerguntasFrequentes/" class="btn btn-sm btn-link">
+			FAQ -  Perguntas Frequentes
+		</a>
+		<a href="../FAQPerguntasFrequentes/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="documentos-xml">Documentos XML</h1>
+<h1 id="documentos-xml_1">Documentos XML</h1>
+<p>XML são documentos usados para guardar e catalogar informações de forma intuitiva e flexível, e servem para diversas finalidades!</p>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: Os documentos XMLs possuem “um rosto” diferente para cada finalidade. Exemplo: Enquanto um XML de interface possui um conjunto de informações e marcações específicas, um XML de informações do plugin possui <strong>outro</strong> conjunto <strong>distinto</strong> de informações e marcações específicas. Haverá uma documentação própria para guiar seus passos em cada uma dessas finalidades!</p>
+<p>&nbsp;</p>
+<p>Links úteis:</p>
+<ul>
+<li>XML na wikipedia: <a href="http://pt.wikipedia.org/wiki/XML">http://pt.wikipedia.org/wiki/XML</a></li>
+<li>Introdução ao XML: <a href="http://www.macoratti.net/xml.htm">http://www.macoratti.net/xml.htm</a>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<p>Se você está tendo problemas com os documentos XML, eis aqui algumas dicas:</p>
+<ul>
+<li>Certifique que as marcações/tags abertas estão sendo fechadas corretamente. Nomes de marcações são case-sensitives e precisam ser exatamente iguais à marcação de abertura.</li>
+<li>Certifique que as marcações usadas são válidas para a finalidade desejada.</li>
+<li>Alguns caracteres são reservados para controle do XML. Se você precisar deles mesmo assim, é preciso fazer substituição por um código especial. Veja Lidando com caracteres reservados do XML.</li>
+<li>Em caso de erro relacionado à codificação do texto, cerifique-se que o documento possui um cabeçalho XML identificando corretamente a codificação do documento. O cabeçalho é a primeira linha do documento, onde:</li>
+<li>Se o documento estiver codificado em UTF-8, o cabeçalho deve ser:<ul>
+<li>\&lt;?xml version="1.0" encoding="UTF-8"?&gt;&nbsp;</li>
+</ul>
+</li>
+<li>Se você não sabe a codificação do documento, talvez o cabeçalho correto seja:<ul>
+<li>\&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&nbsp;</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="lidando-com-caracteres-reservados-do-xml">Lidando com caracteres reservados do XML</h2>
+<p>&nbsp;</p>
+<p>Alguns caracteres são reservados para controle do XML. Se você precisar deles mesmo assim, é preciso fazer substituição por um código especial:</p>
+<p>&nbsp;</p>
+<h3 id="tabela-de-caracteres-reservados">Tabela de caracteres reservados:</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Caractere reservado</th>
+<th style="text-align: center;">Substituição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">\&lt;</td>
+<td style="text-align: center;">\&lt;</td>
+</tr>
+<tr>
+<td style="text-align: center;">&gt;</td>
+<td style="text-align: center;">\&gt;</td>
+</tr>
+<tr>
+<td style="text-align: center;">\&amp;</td>
+<td style="text-align: center;">\&amp;</td>
+</tr>
+<tr>
+<td style="text-align: center;">‘</td>
+<td style="text-align: center;">\&apos;</td>
+</tr>
+<tr>
+<td style="text-align: center;">“</td>
+<td style="text-align: center;">\&quot;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="exemplos-de-substituicao">Exemplos de substituição:</h4>
+<ul>
+<li>\&lt;label text=”D\&amp;D”/&gt; &nbsp; \
+Substituição de "\&amp;" por "\&amp;" ... Contém "D\&amp;D"\
+&nbsp;</li>
+<li>\&lt;button text=”20 \&gt; 10”/&gt; \
+Substituição de "&gt;" por "\&amp;gt"; .... Contém "20 &gt; 10"</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="cdata">CDATA</h3>
+<p>Você também pode utilizar blocos CDATA para evitar fazer substituições, o que é útil em códigos LUA dentro de XML.&nbsp; \
+Saiba mais em <a href="http://en.wikipedia.org/wiki/CDATA">http://en.wikipedia.org/wiki/CDATA</a></p>
+<p>&nbsp;</p>
+<h4 id="exemplo-de-cdata">Exemplo de CDATA</h4>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;event</strong> name="onResize"<strong>&gt;</strong>         \&lt;![CDATA[                 local teste = "D\&amp;D";                                if (x \&lt; y) or (x &gt; z) then                         local teste = 'D\&amp;D 4.0';                 end;         ]]&gt; <strong>\&lt;/event&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Não é preciso fazer nenhuma substituição de caracteres reservados dentro de um bloco CDATA.</p>
+<p>&nbsp;</p>
+<p>Observação: Só é possível utilizar CDATA no corpo de um nodo do XML. Não é possível usar CDATA no valor de um atributo, por exemplo.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-help-files-for-the-qt-help-framework">Create help files for the Qt Help Framework</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../AlinguagemdeprogramacaoLUA/" class="btn btn-sm btn-link">
+			A linguagem de programação LUA
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../FAQPerguntasFrequentes/" class="btn btn-sm btn-link">
+			FAQ -  Perguntas Frequentes
+		</a>
+		<a href="../FAQPerguntasFrequentes/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/DocumentosXML.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

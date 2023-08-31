@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca GUI - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca GUI", url: "#_top", children: [
+				]},
+				{title: "Biblioteca GUI", url: "#biblioteca-gui_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca gui", url: "#_top", children: [
+				]},
+				{title: "\u0026nbsp;", url: "#_1", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-gui">Biblioteca GUI</h1>
+<h1 id="biblioteca-gui_1">Biblioteca GUI</h1>
+<p>A biblioteca gui provê funções relacionadas às interfaces Lua Form.</p>
+<p>Todas as funções estão contidas na table/variável "GUI" da unidade "gui.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "gui.lua"</em> require("gui.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> GUI.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-gui">Funções da biblioteca gui</h2>
+<h2 id="_1">&nbsp;</h2>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.findControlByName(controlName, referenceControl)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Procura outro controle através do nome passado pelo parâmetro “controlName” em toda a hierarquia de controles onde "referenceControl" está.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>controlName - uma cadeia de caracteres contendo o nome do controle que deseja procurar.</li>
+<li>referenceControl - um controle para servir de referência durante a busca. O controle será procurado em toda a hierarquia de controles de "referenceControl", isto é, primeiro nos controles que estão dentro dele e depois nos controles pais de "referenceControl".</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>o controle, se encontrado</li>
+<li><strong>nil</strong> caso não encontre.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newActivityIndicator()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagactivityIndicator/">objeto activityIndicator</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagactivityIndicator/">objeto activityIndicator</a></p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newButton()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagbutton/">objeto button.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagbutton/">objeto button.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newCheckBox()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagcheckBox/">objeto checkbox.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagcheckBox/">objeto checkbox.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newComboBox()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagcomboBox/">objeto comboBox</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagcomboBox/">objeto comboBox</a></p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newColorComboBox()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagcolorComboBox/">objeto colorComboBox</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagcolorComboBox/">objeto colorComboBox</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newDataLink()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagdataLink/">objeto dataLink</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagdataLink/">objeto dataLink</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newDataScopeBox()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagdataScopeBox/">objeto dataScopeBox</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagdataScopeBox/">objeto dataScopeBox</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newEdit()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagedit/">objeto edit</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagedit/">objeto edit</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newFlowLayout()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagflowLayout/">objeto flowLayout.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagflowLayout/">objeto flowLayout.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newFlowLineBreak()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagflowLineBreak/">objeto flowLineBreak.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagflowLineBreak/">objeto flowLineBreak.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newFlowPart()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagflowPart/">objeto flowPart.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagflowPart/">objeto flowPart.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newForm([formName])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagform/">objeto form</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>(OPCIONAL) formName - Se informado, contém uma cadeia de caracteres identificando o "name" de um dos Lua Forms do plug-in, fazendo com que a função busque em todos os arquivos ".lfm" a tag form ou tag popupForm que possuir o atributo name igual a este valor.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se "formName" <strong>não</strong> for informado: Retorna um novo <a href="../Tagform/">objeto form</a> que não possui nenhum outro componente/tag dentro dele.</li>
+<li>Se "formName" for informado:<ul>
+<li>Se a busca encontrar o LuaForm, retorna um objeto form representando a nova instância do Lua Form.</li>
+<li>Se a busca não encontrar o LuaForm, retorna <strong>nil</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newHorzLine()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TaghorzLine/">objeto horzLine</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TaghorzLine/">objeto horzLine</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newImage()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagimage/">objeto image</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagimage/">objeto image.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newImageCheckBox()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagimageCheckBox/">objeto imageCheckbox.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagimageCheckBox/">objeto imageCheckbox.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newLabel()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Taglabel/">objeto label.</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Taglabel/">objeto label.</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newLayout()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Taglayout/">objeto layout</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Taglayout/">objeto layout</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newPath()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagpath/">objeto path</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagpath/">objeto path</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newPopup()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagpopup/">objeto popup</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagpopup/">objeto popup</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newPopupForm([popupFormName])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagpopupForm/">objeto popupForm</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>(OPCIONAL) popupFormName - Se informado, contém uma cadeia de caracteres identificando o "name" de um dos Lua Forms do plug-in, fazendo com que a função busque em todos os arquivos ".lfm" a tag popupForm que possuir o atributo name igual a este valor.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se "popupFormName" <strong>não</strong> for informado: Retorna um novo <a href="../TagpopupForm/">objeto popupForm</a> que não possui nenhum outro componente/tag dentro dele.</li>
+<li>Se "popupFormName" for informado:<ul>
+<li>Se a busca encontrar o LuaForm e se for do tipo <a href="../TagpopupForm/">popupForm</a>, retorna um <a href="../TagpopupForm/">objeto popupForm</a> representando a nova instância do Lua Form.</li>
+<li>Se a busca não encontrar o LuaForm ou se encontrar mas tipo diferente de popupForm, retorna <strong>nil</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newRadioButton()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo objeto <a href="../TagradioButton/">radioButton</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um objeto <a href="../TagradioButton/">radioButton</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newRecordList()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagrecordList/">objeto recordList</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagrecordList/">objeto recordList</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newRectangle()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagrectangle/">objeto rectangle</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagrectangle/">objeto rectangle</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newScrollBox()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagscrollBox/">objeto scrollBox</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagscrollBox/">objeto scrollBox</a></p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newTab()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagtab/">objeto tab</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagtab/">objeto tab</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newTabControl()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagtabControl/">objeto tabControl</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagtabControl/">objeto tabControl</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newTextEditor()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagtextEditor/">objeto textEditor</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagtextEditor/">objeto textEditor</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newTimer()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../Tagtimer/">objeto timer</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../Tagtimer/">objeto timer</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newProgressBar()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../TagprogressBar/">objeto progressBar</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../TagprogressBar/">objeto progressBar</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.newInertialMovement()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um novo <a href="../ObjetoInertialMovement/">objeto InertialMovement</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Retorna um <a href="../ObjetoInertialMovement/">objeto InertialMovement</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.showPopup(form [, options])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma janela na interface do usuário na forma de um Popup</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>form - O formulário a ser exibido na interface. Pode ser um <a href="../Tagform/">objeto Lua Form já instanciado</a> ou um string contendo o nome do form a ser exibido.<ul>
+<li>Caso seja passado o nome do formulário em uma cadeia de caracteres, a função percorre todos os "lfm" do plug-in à procura da tag form que possuir name igual ao informado. Se encontrado, uma nova instância é criada para a exibição.</li>
+</ul>
+</li>
+<li>(OPCIONAL) options - Uma tabela/objeto LUA contendo as opções da exibição do popup. As opções são:<ul>
+<li>onClose - [function, padrão = nil] - Uma função lua que será invocada quando o popup for fechado.</li>
+<li>placement - [string enumerado] - Onde o popup será exibido.. Os possíveis valores são:</li>
+</ul>
+</li>
+<li>&nbsp;</li>
+<li>&nbsp;<ul>
+<li>&nbsp;</li>
+<li>"center" - no centro da tela</li>
+<li>"bottom" - na parte de baixo da tela</li>
+<li>"top" - na parte de cima da tela</li>
+<li>"left" - à esquerda na tela</li>
+<li>"right" - à direita na tela</li>
+<li>"topLeft" -&nbsp; no canto superior esquerdo da tela</li>
+<li>"topRight - no canto superior direito da tela</li>
+<li>"bottomLeft" - no canto inferior esquerdo da tela</li>
+<li>"bottomRight" - no canto inferior direito da tela</li>
+<li>"mouse" - onde o mouse está atualmente</li>
+<li>"mouseCenter" - centralizado onde o mouse está atualmente.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Se conseguir exibir o form como um popup na interface, retorna <strong>true</strong>; Senão retorna <strong>false</strong>.</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o popup fechar para retornar. Após esta chamada, o código LUA continuará sua execução normal enquanto o form é mostrado.</li>
+<li>Se o parâmetro <em>form</em> for uma <a href="../TagpopupForm/">tag popupForm</a>, os seguintes parâmetros em <em>options</em> são ignorados (e são usados os atributos correspondentes da tag no lugar):<ul>
+<li><em>options</em>.placement</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.closePopup(form)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Fecha uma janela popup que foi previamente aberta pela da função <a href="./#função%20showPopup">gui.showPopup</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>form - O formulário a ser fechado/tirado da interface. Pode ser um <a href="../Tagform/">objeto Lua Form já instanciado</a> ou um string contendo o nome do form que foi exibido.<ul>
+<li>Caso seja passado o nome do formulário em uma cadeia de caracteres, a função percorre todos os popups abertos e fecha àqueles que possuírem o nome informado.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Se conseguir fechar o form, retorna <strong>true</strong>; Senão retorna <strong>false</strong>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.openInBrowser(url)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Abre um determinado URL/página web no browser do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>url - cadeia de caracteres contendo a URL/caminho da página web que deve ser aberta. Exemplo "http://www.rrpg.com.br".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se o parâmetro "url" não começar com "http://" e nem com "https://", automaticamente "http://" será adicionado no inicio da URL antes da abertura da página.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> GUI.toast(message)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Show a quick informative message to the user that does not require user interaction and hides automatically after a short time</p>
+<p>&nbsp;</p>
+<p>Parameters</p>
+<ul>
+<li>&nbsp;</li>
+<li>message - The message string to be shown</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/stunning-user-interface/">Effortlessly Create Professional Documentation with HelpNDoc's Clean UI</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaGUI.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

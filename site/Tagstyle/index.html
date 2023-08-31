@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag style - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag style", url: "#_top", children: [
+				]},
+				{title: "Tag style", url: "#tag-style_1", children: [
+						
+				{title: "Caracter\u00edsticas", url: "#_top", children: [
+				]},
+				{title: "Sintaxe", url: "#sintaxe", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagscrollBox/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagscrollBox/" class="btn btn-sm btn-link">
+			Tag scrollBox
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagtab/" class="btn btn-sm btn-link">
+			Tag tab
+		</a>
+		<a href="../Tagtab/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-style">Tag style</h1>
+<h1 id="tag-style_1">Tag style</h1>
+<p>Esta tag especial serve para definir um estilo em cascata, muito semelhante ao CSS no HTML. Um estilo em cascata é um bloco de códigos especiais que aplica valores à propriedades de 1 ou mais controles de uma vez só, em cascata.</p>
+<p>É especialmente útil para evitar retrabalho e para separar o formato do conteúdo principal do Lua Form.</p>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: A sintaxe do estilo em cascata é muito semelhante ao do CSS, porém as propriedades disponíveis são diferentes..</p>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>A tag <strong>style</strong> não possui nenhum atributo/propriedade e seu corpo contém o código do estilo em cascata.</p>
+<p>&nbsp;</p>
+<h2 id="sintaxe">Sintaxe</h2>
+<p>A tag <strong>style</strong> possui uma sintaxe muito parecida com o CSS e seu conteúdo consiste de uma lista de regras. Cada regra ou conjunto de regras consiste de um ou mais seletores e um bloco de declaração. Uma declaração de bloco é composta por uma lista de declarações entre chaves. Cada declaração em si é uma propriedade, dois pontos (:), um valor, então um ponto e vírgula (;).</p>
+<p>&nbsp;</p>
+<p>Exemplo que resume as regras acima:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>seletor1 [, seletor2, ...] { &nbsp; propriedade1: valor;&nbsp; [propriedade2: valor2; &nbsp; ...] }</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="seletores">Seletores</h3>
+<p>Um seletor é uma regra genérica que define à quais tags/componentes o estilo será aplicado, e ele pode as seguintes aparências:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Seletor</strong></th>
+<th>Exemplo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.class</strong></td>
+<td>.TituloAtributo</td>
+<td>O estilo será aplicado a todas as tags que possuam atributo "class" equivalente a "TituloAtributo".&nbsp; Exemplo de tag que receberia o estilo em cascata: \&lt;label text="Olá Mundo" class="TituloAtributo"/&gt; &nbsp;</td>
+</tr>
+<tr>
+<td><strong>#nome</strong></td>
+<td>#edtNome</td>
+<td>O estilo será aplicado à tag cujo atributo "name" seja igual a "edtNome"&nbsp; Exemplo de tag que receberia o estilo em cascata: \&lt;edit name="edtNome" text="Campo de text"/&gt;&nbsp;</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>*</td>
+<td>O estilo será aplicado a todas as tags.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>tagName</strong></td>
+<td>label</td>
+<td>O estilo é aplicado a todas as tags "tagName", neste exemplo, todos os labels.&nbsp; Exemplo de tag que receberia este estilo em cascata: \&lt;label text="Olá mundo"/&gt;&nbsp;</td>
+</tr>
+<tr>
+<td><strong>tagName.class</strong></td>
+<td>layout.PainelAtributo</td>
+<td>O estilo é aplicado a todas as tags "layou" cujo atributo "class" seja "PainelAtributo"</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Além disso, através da combinação dos seletores acima, é possível definir um seletor composto que analisa onde a tag está. Exemplos:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Seletor</strong></th>
+<th>Exemplo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.class tagName</strong></td>
+<td>.PainelAtributo label</td>
+<td>O estilo será aplicado a todos as "label" que estão dentro de alguma tag que contenha o atributo "class" equivalente a "PainelAtributo"&nbsp; Exemplo:&nbsp; \&lt;layout class="PainelAtributo"&gt;&nbsp; &nbsp; \&lt;label text="Label de dentro"/&gt; \&lt;/layout&gt; &nbsp; \&lt;label text="Label de fora"/&gt;&nbsp; Neste caso, o label de dentro receberá o estilo, porém o label de fora não.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>tagName tagName</strong></td>
+<td>layout label</td>
+<td>O estilo será aplicada a todos "labels" que estão dentro de algum "layout" &nbsp;</td>
+</tr>
+<tr>
+<td><strong>.class .class</strong></td>
+<td>.PainelAtributo .TituloAtributo</td>
+<td>O estilo será aplicado a todas as tags que possuam atributo "class" igual a "TituloAtributo" que estão dentro de alguma tag que possuam "class" igual a "PainelAtributo";&nbsp;</td>
+</tr>
+<tr>
+<td><strong>tagName tagName tagName</strong></td>
+<td>layout layout label</td>
+<td>O estilo será aplicado a todos "labels" que estão dentro de um "layout" que por sua vez estão dentro de outro "layout".&nbsp;</td>
+</tr>
+<tr>
+<td><strong>etc....</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>É possível definir múltiplos seletores a um único bloco de estilo utilizando vírgula, exemplo:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>.TituloAtributo, .TituloPericia, .TituloEquipamento {         fontSize: 18;         <strong>width</strong>: 200; }</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>"fontSize: 18" e "width: 200" serão aplicados a todas as tags cuja propriedade "class" seja "TituloAtributo", "TituloPericia" e "TituloEquipamento".</p>
+<p>&nbsp;</p>
+<h3 id="propriedades">Propriedades</h3>
+<p>As propriedades disponíveis são aquelas que a tag disponibiliza. Confira a documentação da TAG.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Importante: O conjunto de propriedades é diferente daquelas que você pode usar em CSS do HTML.</p>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-aplicando-uma-cor-de-fonte-e-alinhamento-a-todos-labels-de-um-lua-form">Exemplo 1 - Aplicando uma cor de fonte e alinhamento à todos labels de um lua form.</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;style&gt;</strong>                 label {                         fontColor: lime;                         horzTextAlign: center;                         vertTextAlign: center;&nbsp;               }         <strong>\&lt;/style&gt;</strong>          <strong>\&lt;layout</strong> left="20" top="20" width="100" height="100"<strong>&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 1"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 4"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 5"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 6"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 7"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem109.png" /></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-aplicando-uma-cor-e-negrito-a-tags-de-uma-determinada-class">Exemplo 2 - Aplicando uma cor e negrito à tags de uma determinada class</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;style&gt;</strong>                 .Titulo {                         fontColor: lime;                         fontStyle: bold;                 }         <strong>\&lt;/style&gt;</strong>          <strong>\&lt;layout</strong> left="20" top="20" width="100" height="100"<strong>&gt;</strong>                 <strong>\&lt;label</strong> class="Titulo" align="top" text="Label 1"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 4"<strong>/&gt;</strong>                                 <strong>\&lt;label</strong> class="Titulo" align="top" text="Label 5"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 6"<strong>/&gt;</strong>                                 <strong>\&lt;label</strong> class="Titulo" align="top" text="Label 7"<strong>/&gt;</strong>                 <strong>\&lt;label</strong> align="top" text="Label 8"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem110.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="exemplo-3-avancado-uma-mini-ficha-usando-edits-labels-layouts-e-styles">Exemplo 3 - (Avançado) Uma mini ficha, usando edits, labels, layouts e styles.</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;style&gt;</strong>                 layout.LayoutCampo {                         width: 64;                         align: left;                         margins: {left=2, right=2};                 }                               layout.LayoutCampo edit {                         height:30;                         horzTextAlign: center;                         fontSize: 20;                         align: top;                 }                               layout.LayoutCampo label {                         align: top;                         horzTextAlign: center;                         vertTextAlign: leading;                         autoSize: true;                 }                       <strong>\&lt;/style&gt;</strong>                         <strong>\&lt;layout</strong> left="10" top="10" width="200" height="64"<strong>&gt;</strong>                   <strong>\&lt;layout</strong> class="LayoutCampo"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="combate.armadura"<strong>/&gt;</strong>                         <strong>\&lt;label</strong> text="Armadura"<strong>/&gt;</strong>                                <strong>\&lt;/layout&gt;</strong>                                 <strong>\&lt;layout</strong> class="LayoutCampo"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="saude.pontosDeVida"<strong>/&gt;</strong>                         <strong>\&lt;label</strong> text="Pontos de Vida"<strong>/&gt;</strong>                          <strong>\&lt;/layout&gt;</strong>                                               <strong>\&lt;layout</strong> class="LayoutCampo"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="equipamentos.carga"<strong>/&gt;</strong>                         <strong>\&lt;label</strong> text="Carga (kg)"<strong>/&gt;</strong>                              <strong>\&lt;/layout&gt;</strong>                               <strong>\&lt;/layout&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem49.png" /></p>
+<p>&nbsp;</p>
+<p>Neste exemplo, os atributos dos edits, labels e layouts foram definidos por Estilo em Cascata pela tag <strong>style</strong>.</p>
+<p>&nbsp;</p>
+<p>Foram definidos 3 blocos de estilos em cascata:</p>
+<ul>
+<li>Um com seletor "layout.LayoutCampo" (aplicado a todas as tags <strong>layout</strong> de class "<strong>LayoutCampo</strong>")</li>
+<li>Um com seletor "layout.LayoutCampo edit" (aplicado a todas as tags <strong>edit</strong> que estão dentro de uma tag <strong>layout</strong> de class "<strong>LayoutCampo</strong>")</li>
+<li>Um com seletor "layout.LayoutCampo label" (aplicado a todas as tags <strong>label</strong> que estão dentro de uma tag <strong>layout</strong> de class "<strong>LayoutCampo</strong>")</li>
+</ul>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/advanced-project-analyzer/">Ensure High-Quality Documentation with HelpNDoc's Hyperlink and Library Item Reports</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagscrollBox/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagscrollBox/" class="btn btn-sm btn-link">
+			Tag scrollBox
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagtab/" class="btn btn-sm btn-link">
+			Tag tab
+		</a>
+		<a href="../Tagtab/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Tagstyle.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:43 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

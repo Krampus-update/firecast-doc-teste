@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>5 - Frame com regiões - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "5 - Frame com regi\u00f5es", url: "#_top", children: [
+				]},
+				{title: "Frame com regi\u00f5es", url: "#frame-com-regioes", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-link">
+			4 - Frame retangular dinâmico, usando vários arquivos de imagens
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Promiseobject/" class="btn btn-sm btn-link">
+			Promise object
+		</a>
+		<a href="../Promiseobject/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="5-frame-com-regioes">5 - Frame com regiões</h1>
+<h1 id="frame-com-regioes">Frame com regiões</h1>
+<p>Deseja-se montar um frame com 2 <a href="../FrameseRegioes/">regiões</a> com a seguinte aparência:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><img alt="Image" src="../lib/pecaCobre_show.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>O exemplo utiliza um arquivo de imagem "pecaCobre.png" de tamanho 228x94</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Arquivo de definição de frame:</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;frame</strong> width="228" height="94" autoScaleY="true" autoScaleX="true"<strong>&gt;</strong>         <strong>\&lt;borders</strong> left="6" top="7" bottom="6" right="39" <strong>/&gt;</strong>         <strong>\&lt;draw&gt;</strong>                          <em>\&lt;!-- fundo --&gt;</em> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;image</strong> left="0" top="0" right="228" bottom="94" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; overflowX="stretch" overflowY="stretch" zOrder="-1"<strong>&gt;</strong>                         <strong>\&lt;anchors</strong> left="true" top="true" bottom="true" right="true"<strong>/&gt;</strong>                         <strong>\&lt;source</strong> url="pecaCobreBckBlack.png" left="0" right="228" top="0" bottom="94"<strong>/&gt;</strong>                 <strong>\&lt;/image&gt;</strong>                                                <strong>\&lt;/draw&gt;</strong>                <strong>\&lt;regions&gt;</strong>                 <strong>\&lt;region</strong> name="RegiaoSmallTitulo" left="15" top="30" right="45" bottom="64"<strong>&gt;</strong>                         <strong>\&lt;anchors</strong> left="true" top="true" bottom="true" right="true"<strong>/&gt;</strong>                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;/region&gt;</strong>                                <strong>\&lt;region</strong> name="RegiaoValor" left="85" top="7" right="187" bottom="89"<strong>&gt;</strong>                         <strong>\&lt;anchors</strong> left="true" top="true" bottom="true" right="true"<strong>/&gt;</strong>&nbsp;                 <strong>\&lt;/region&gt;</strong>               <strong>\&lt;/regions&gt;</strong>      <strong>\&lt;/frame&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Uso no Lua Form:</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;layout</strong> align="top" frameStyle="/frames/meuframe.xml"  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margins="{left=30, top=30, right=30, bottom=5}"<strong>&gt;</strong>                 <strong>\&lt;label</strong> horzTextAlign="center" text="PO" frameRegion="RegiaoSmallTitulo"<strong>/&gt;</strong>                               <strong>\&lt;label</strong> horzTextAlign="center" text="500" frameRegion="RegiaoValor"<strong>/&gt;</strong>          &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;/layout&gt;</strong>                <strong>\&lt;layout</strong> align="top" frameStyle="/frames/meuframe.xml"  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margins="{left=30, top=5, right=30, bottom=5}"<strong>&gt;</strong>                 <strong>\&lt;label</strong> horzTextAlign="center" text="PP" frameRegion="RegiaoSmallTitulo"<strong>/&gt;</strong>                               <strong>\&lt;label</strong> horzTextAlign="center" text="8" frameRegion="RegiaoValor"<strong>/&gt;</strong>    &nbsp;       <strong>\&lt;/layout&gt;</strong>       <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>\
+<img alt="Image" src="../lib/NewItem154.png" />\
+\
+Os labels foram automaticamente alinhados às regiões definidas no frame.</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-chm-help-files/">Elevate Your CHM Help Files with HelpNDoc's Advanced Customization Options</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-link">
+			4 - Frame retangular dinâmico, usando vários arquivos de imagens
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Promiseobject/" class="btn btn-sm btn-link">
+			Promise object
+		</a>
+		<a href="../Promiseobject/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/5Framecomregioes.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

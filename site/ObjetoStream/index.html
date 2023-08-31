@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto Stream - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto Stream", url: "#_top", children: [
+				]},
+				{title: "Objeto Stream", url: "#objeto-stream_1", children: [
+						
+				{title: "Formas de instanciar um objeto stream", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../BibliotecaSystem/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../BibliotecaSystem/" class="btn btn-sm btn-link">
+			Biblioteca System
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaVHD/" class="btn btn-sm btn-link">
+			Biblioteca VHD
+		</a>
+		<a href="../BibliotecaVHD/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-stream">Objeto Stream</h1>
+<h1 id="objeto-stream_1">Objeto Stream</h1>
+<p>Um objeto stream contém uma sequência de dados genéricos, possui um início e um fim e você estará sempre em algum lugar entre estes dois pontos.</p>
+<p>Usando stream, você pode ler e/ou escrever em vários tipos de armazenamentos, como um arquivo, uma memória dinâmica, etc..</p>
+<p>&nbsp;</p>
+<p>Um stream representa uma sequência de BYTES que podem ser acessadas de forma sequencial ou aleatória (isto é, você pode ler o inicio de um stream, pular para seu final para ler mais dados, voltar ao meio do stream, etc..)</p>
+<p>&nbsp;</p>
+<p>Exemplos de operações típicas em um stream:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Ler 1 byte. Da próxima vez que você ler, você obterá o byte posterior, e assim por diante.</li>
+<li>Ler vários bytes</li>
+<li>Mover a posição atual do cursor no stream para, da próxima vez que você ler, obter os bytes à partir desta nova posição.</li>
+<li>Escrever 1 byte.</li>
+<li>Escrever vários bytes.</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="formas-de-instanciar-um-objeto-stream">Formas de instanciar um objeto stream</h3>
+<p>Existem várias maneiras de obter um objeto stream. Algumas delas são:</p>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Criar um stream temporário que reside na memória RAM através da função <a href="../BibliotecaUtils/#utils.newMemoryStream">utils.newMemoryStream</a></li>
+<li>Criar um stream temporário que reside no HD do dispositivo através da função <a href="../BibliotecaUtils/#newTempFileStream">utils.newTempFileStream</a></li>
+<li>Abrir ou criar um arquivo no HD virtual usando a função <a href="../BibliotecaVHD/#vhd.openFile">vhd.openFile</a></li>
+<li>Baixar um conteúdo da internet através da função <a href="../BibliotecaInternet/#internet.download">internet.download</a></li>
+<li>Realizar uma requisição HTTP e obter a resposta através da propriedade <a href="../ObjetoHTTPRequest/#propriedade%20responseStream">responseStream do objeto HTTPRequest</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>size</strong></td>
+<td>Integer</td>
+<td>Contém o tamanho atual do stream em quantidade de bytes.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>position</strong></td>
+<td>Integer</td>
+<td>A posição do cursor do stream. onde o valor 0 representa o primeiro byte do stream.&nbsp; Todas as operações de leitura e escrita são feitas nesta posição.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>remainingBytes</strong></td>
+<td>Integer</td>
+<td>Quantos bytes ainda podem ser lidos no stream à partir da posição atual.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>md5</strong></td>
+<td>String</td>
+<td>Uma cadeia de caracteres contendo o Hash MD5 de todo o conteúdo do stream. O Hash é calculado na hora de obter o valor da propriedade.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>sha1</strong></td>
+<td>String</td>
+<td>Uma cadeia de caracteres contendo o Hash SHA1 de todo o conteúdo do stream. O Hash é calculado na hora de obter o valor da propriedade.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>stream:read(destArray, qtBytes)</strong></td>
+<td>Efetua a leitura de bytes à partir da <a href="./#stream.position">position</a> atual do stream. &nbsp; Parâmetros: destArray - Uma tabela lua que receberá os bytes lidos do stream. Os valores são armazenados em índices de 1 a N, onde N = quantidade de bytes lidos. qtBytes - Um número contendo a quantidade de bytes que devem ser lidos à partir desta posição.&nbsp; Retorno: Um número contendo quantos bytes realmente foram lidos do stream e preenchidos em destArray&nbsp; Importante: A position do stream é avançada automaticamente após a chamada desta função conforme a quantidade de bytes lidos. Nem sempre é possível ler a quantidade de bytes informada no parâmetro qtBytes. Você DEVE analisar o número retornado pela função a fim de saber quantos bytes realmente foram lidos.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:write(sourceArray [, qtBytes])</strong></td>
+<td>Efetua a escrita de bytes na <a href="./#stream.position">position</a> atual do stream.&nbsp; Parâmetros: sourceArray - Uma tabela lua que contém os bytes que devem ser escritos no stream. Os valores devem estar armazenados em índices de 1 a N, onde N = quantidade de bytes que serão escritos. (OPCIONAL) qtBytes - Quantos bytes do sourceArray devem ser escritos no stream. Se omitido, o length do array (#sourceArray) será usado.&nbsp; Retorno: Um número contendo quantos bytes realmente foram escritos no stream.&nbsp; Importante: A position do stream é avançada automaticamente após a chamada desta função conforme a quantidade de bytes escritos. Os valores em sourceArray devem ser números! Para cada valor em sourceArray, se for menor que 0, o byte 0 será gravado e se for maior que 255, o byte 255 será gravado. Se em algum dos índices de sourceArray não contiver um número válido, o byte 0 é escrito no stream.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:close()</strong></td>
+<td>Fecha o stream imediatamente e libera os recursos que foram previamente alocados. Após esta chamada, nenhuma operação do stream estará mais disponível.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:writeBinary(format, valor1 [, valor2 [, valor3 [, valorN...]]])</strong></td>
+<td>Escreve um valor codificado em binário na posição atual do stream.&nbsp; Parâmetros: format - Cadeia de caracteres identificando qual formatação binária deve ser usada. Veja <a href="../BibliotecaUtils/#Formatos%20Binários%20utils.binaryEncode">Formatos Binários</a> para saber quais são os possíveis formatos. valor1 - O valor a ser codificado e escrito (OPCIONAL) valor2, valor3, valorN, etc... - Outros valores que também devem ser codificados e escritos no stream.&nbsp; Retorno: Um número contendo quantos bytes foram escritos no stream.&nbsp; Importante: A position do stream é avançada automaticamente após a chamada desta função conforme a quantidade de bytes escritos.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:readBinary(format [, qt])</strong></td>
+<td>Efetua a leitura de valores codificados em binário na posição atual do stream.&nbsp; Parâmetros: format - Cadeia de caracteres identificando em qual formatação binária o valor está codificado. Veja <a href="../BibliotecaUtils/#Formatos%20Binários%20utils.binaryEncode">Formatos Binários</a> para saber quais são os possíveis formatos. (OPCIONAL) qt - Um número identificando QUANTOS valores codificados devem ser lidos. Se omitido, o valor 1 será utilizado.&nbsp; Retorno: Retorna os valores decodificados ou nil se não foi possível decodificar.&nbsp; Importante: A position do stream é avançada automaticamente após a chamada desta função conforme a quantidade de bytes lidos Se especificado os formatos "ansi', "utf8" ou "utf16", todo o restando do stream é lido como uma cadeia de caracteres e o parâmetro "qt" é ignorado como se o valor 1 tivesse sido passado para ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:readAsBase64([qtBytes])</strong></td>
+<td>Lê bytes do stream e retorna uma cadeia de caracteres representando os dados codificados em Base64.&nbsp; Parâmetros: (OPCIONAL) qtBytes - Um número definindo quantos bytes do stream devem ser lidos à partir da posição atual e codificados. Se omitido, o restante dos dados do stream será lido.&nbsp; Retorno: Uma cadeia de caracteres representando os dados codificados em Base64&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:writeBase64(str)</strong></td>
+<td>Decodifica dados previamente codificados em Base64 e os escreve na posição atual do stream.&nbsp; Parâmetros: str - Uma cadeia de caracteres contendo os dados codificados em Base64.&nbsp; Retorno: Um número contendo quantos bytes foram escritos no Stream.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>stream:copyFrom(stream, qtBytes)</strong></td>
+<td>Copia o conteúdo de um outro objeto stream dentro deste stream.&nbsp; Parâmetros: stream - um <a href="./">objeto stream</a> de onde os dados serão copiados. qtBytes - um número representando quantos bytes serão copiados à partir da posição atual do parâmetro "stream".&nbsp; Retorno: Um número contendo quantos bytes realmente foram copiados para este stream.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-">Exemplo 1 - .....</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-hlp-winhelp-help-file-to-a-chm-html-help-help-file/">Effortlessly upgrade your WinHelp HLP help files to CHM with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../BibliotecaSystem/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../BibliotecaSystem/" class="btn btn-sm btn-link">
+			Biblioteca System
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaVHD/" class="btn btn-sm btn-link">
+			Biblioteca VHD
+		</a>
+		<a href="../BibliotecaVHD/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoStream.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

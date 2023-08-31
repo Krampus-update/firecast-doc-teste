@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto SceneDawingOpPath - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto SceneDawingOpPath", url: "#_top", children: [
+				]},
+				{title: "Objeto SceneDrawingOpPath", url: "#objeto-scenedrawingoppath", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneDrawingOpBitmap/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneDrawingOpBitmap/" class="btn btn-sm btn-link">
+			Objeto SceneDrawingOpBitmap
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoSceneDrawingOpText/" class="btn btn-sm btn-link">
+			Objeto SceneDrawingOpText
+		</a>
+		<a href="../ObjetoSceneDrawingOpText/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-scenedawingoppath">Objeto SceneDawingOpPath</h1>
+<h1 id="objeto-scenedrawingoppath">Objeto SceneDrawingOpPath</h1>
+<p>O Objeto SceneDrawingOpPath representa uma operação gráfica de um caminho/forma/polígono em um <a href="../ObjetoSceneCanvas/">SceneCanvas</a> .</p>
+<h2 id="heranca">Herança</h2>
+<p>O o<strong>bjeto SceneDrawingOpPath</strong> herda de <a href="../ObjetoSceneDrawingOp/">SceneDrawingOp</a> e possui também <strong>TODAS</strong> todas as suas características.</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../ObjetoSceneDrawingOp/">Objeto SceneDrawingOp</a></li>
+<li><a href="../ObjetoSceneBaseObject/">Objecto SceneBaseObject</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o objeto SceneDrawingOpPath também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>objectType</strong></td>
+<td>String "opPath"</td>
+<td>(Somente Leitura) Contém um texto que identifica o tipo da operação gráfica - "opBitmap".&nbsp;</td>
+</tr>
+<tr>
+<td><strong>data, pathData ou path</strong></td>
+<td>String</td>
+<td>Define a forma vetorial do path. Este texto deve estar no mesmo padrão do path do SVG e do XAML.&nbsp; Consulte a <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">documentação deles na internet</a>!&nbsp; Outro link que pode ajudar:&nbsp; <a href="http://www.w3schools.com/svg/svg_path.asp">http://www.w3schools.com/svg/svg_path.asp</a>&nbsp; Observação Importante: Path será automaticamente redimensionado para ficar com a mesma dimensão definida para esta operação gráfica.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>color</strong></td>
+<td><a href="../StringdecoresnoLuaForm/">String de Cor</a></td>
+<td>Define a cor do conteúdo da forma.&nbsp; Veja <a href="../StringdecoresnoLuaForm/">String de cores</a> para obter a completa de cores e outras formas de uso. Define a cor do conteúdo da forma.&nbsp; Valor padrão: White&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeColor</strong></td>
+<td><a href="../StringdecoresnoLuaForm/">String de Cor</a></td>
+<td>Define a cor do contorno da forma.&nbsp; Veja <a href="../StringdecoresnoLuaForm/">String de cores</a> para obter a completa de cores e outras formas de uso. Define a cor do conteúdo da forma.&nbsp; Valor padrão: Black&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeSize</strong></td>
+<td>Double</td>
+<td>Define a largura do contorno da forma. O significado deste número depende do valor da propriedade "strokeSizeMetric"&nbsp; Valor padrão: 0.0;&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeSizeMetric</strong></td>
+<td>Enumerado: "screenMetric" "worldMetric" "canvasMetric" "cellMetric"</td>
+<td>Define em que medida a propriedade "strokeSize" está medida.&nbsp; "screenMetric" - (Padrão) strokeSize está representado em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; "worldMetric" - strokeSize está representado em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a>.&nbsp; "canvasMetric" - strokeSize está representado em métricas de canvas, onde, por exemplo, 0.5 = metade da largura/altura do token/desenho e 1.0 = largura/altura do token/desenho.&nbsp; "cellMetric" - strokeSize está representado em métricas de células. (Exemplo, 0.5 = meia célula do grid, 2 = duas células do grid)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeCap</strong></td>
+<td>Enumerado: "flat" "round"</td>
+<td>Define o estilo gráfico usado ao desenhar o fim das linhas.&nbsp; "flat" - linhas com pontas retangulares "round" - linhas com pontas arredondadas.&nbsp; Valor padrão: "flat"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeJoin</strong></td>
+<td>Enumerado: "miter" "round" "bevel"</td>
+<td>Define o estilo gráfico usado ao juntar segmentos de linha em uma forma.&nbsp; "miter" - As quinas/junções são "quadradas".&nbsp; "round" - As quinas/junções são arredondadas.&nbsp; "bevel" - As quintas/junções são ligadas de forma diagonal.&nbsp; Valor padrão: "miter"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeDash</strong></td>
+<td>Enumerado: "solid" "dash" "dot" "dashDot" "dashDotDot"</td>
+<td>Define o estilo gráfico da linha.&nbsp; "solid" - A linha é sólida&nbsp; "dash" - A linha é tracejada&nbsp; "dot" - A linha é feita de pontos.&nbsp; "dashDot" - A linha é alternada entre traços e pontos.&nbsp; "dashDotDot" - A linha é alternada entre traço, ponto e ponto.&nbsp; Valor padrão: "solid"&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-um-plug-in-que-adicionaremove-um-triangulo-amarelo-quando-o-usuario-clica-nos-itens-do-scene">Exemplo 1 - Um plug-in que adiciona/remove um triângulo amarelo quando o usuário clica nos itens do scene.</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                                    <em>-- Manipular o evento OnMouseDown do Viewport</em>                 scene.viewport.onMouseDown = <strong>function</strong>(event)             <em>-- Usuário clicou no Scene</em>             <em>-- Transformar as coordenadas de tela em métrica de mundo</em>             <strong>local</strong> worldX, worldY = scene.viewport:screenToWorld(event.x, event.y);                         <em>-- Localizar o item que o usuário clicou</em>             <strong>local</strong> item = scene.items:itemAtPoint(worldX, worldY);                         <strong>if</strong> item ~= nil <strong>then</strong>                 <em>-- Encontrou um item na posição clicada.             *                 </em><em>local</em><em> NOME_MINHA_MARCA = "MarcaExemplo";                                 </em>-- Localizar uma operação gráfica neste item com o nosso nome<em>                 </em><em>local</em><em> opGrafica = item.canvas:findByName(NOME_MINHA_MARCA);                                 </em><em>if</em><em> opGrafica == nil </em><em>then</em><em>                     </em>--[[ A operação gráfica da minha marca ainda não<em>                         </em>existe neste token/item. Vamos criar ]]<em>                                             opGrafica = item.canvas:addPath();                     opGrafica.name = NOME_MINHA_MARCA;                                                                             </em>-- Começar a desenhar no X equivalente a 80% da largura do item<em>                     </em>-- Começar a desenhar no Y equivalente a 25% da altura do item<em>                     opGrafica.x = 0.8;                     opGrafica.y = 0.25;                                                                 opGrafica.width = 0.5;  </em>-- Largura do Path: 50% da largura do item                 *                     opGrafica.height = 0.4;  <em>-- Altura do Path: 40% da altura do item</em>                                         opGrafica.z = 10;                                                                               <em>-- Cores e estilo do PATH</em>                     opGrafica.color = "yellow";                     opGrafica.strokeSize = 1;                                                                               <em>-- O path data (Um triângulo apontado para a direita)</em>                     opGrafica.data = "M 0 0 L 1 0.5 L 0 1 Z";                 <strong>else</strong>                     <em>-- Vamos apagar nossa operação gráfica previamente criada</em>                     opGrafica:delete();                 <strong>end</strong>;             <strong>end</strong>;                    <strong>end</strong>;                     <strong>end</strong>);&nbsp; &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem224.png" /> Item sem a marca</th>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem225.png" /> Item com a marca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-">Exemplo 2 -&nbsp;</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour">Easily create EBooks</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneDrawingOpBitmap/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneDrawingOpBitmap/" class="btn btn-sm btn-link">
+			Objeto SceneDrawingOpBitmap
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoSceneDrawingOpText/" class="btn btn-sm btn-link">
+			Objeto SceneDrawingOpText
+		</a>
+		<a href="../ObjetoSceneDrawingOpText/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoSceneDawingOpPath.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

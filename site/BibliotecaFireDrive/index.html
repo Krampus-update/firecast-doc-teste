@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca FireDrive - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca FireDrive", url: "#_top", children: [
+				]},
+				{title: "Biblioteca FireDrive", url: "#biblioteca-firedrive_1", children: [
+						
+				{title: "Estrutura FireDriveItem", url: "#_top", children: [
+				]},
+				{title: "Fun\u00e7\u00f5es da biblioteca FireDrive", url: "#funcoes-da-biblioteca-firedrive", children: [
+				]},
+				{title: "\u0026nbsp;", url: "#_1", children: [
+				]},
+				{title: "\u0026nbsp;", url: "#_2", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-link">
+			Biblioteca Dialogs
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoInertialMovement/" class="btn btn-sm btn-link">
+			Objeto InertialMovement
+		</a>
+		<a href="../ObjetoInertialMovement/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-firedrive">Biblioteca FireDrive</h1>
+<h1 id="biblioteca-firedrive_1">Biblioteca FireDrive</h1>
+<p>A biblioteca fireDrive provê funções para manipular e gerenciar o fireDrive do usuário. O FireDrive é um recurso do Firecast que permite armazenar arquivos na nuvem, compartilhar e utilizar arquivos compartilhados por outros usuários.</p>
+<p>&nbsp;</p>
+<p>Todas as funções estão contidas na table/variável "FireDrive" da unidade "fireDrive.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "fireDrive.lua"</em> require("fireDrive.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> FireDrive.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="estrutura-firedriveitem">Estrutura FireDriveItem</h2>
+<p>Algumas funções desta biblioteca retornam um ou mais FireDriveItem(s). Um FireDriveItem é tabela lua contém detalhes de um arquivo/diretório existente no FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>O FireDriveItem é uma tabela Lua que contém as seguintes propriedades/atributos:</p>
+<ul>
+<li>&nbsp;</li>
+<li>id - Número que identifica unicamente este item.</li>
+<li>name - Cadeia de caracteres contendo o nome do arquivo/diretório. Se o caminho do arquivo for "/diretorio/subpasta/arquivo.txt", esta propriedade conterá "arquivo.txt"</li>
+<li>isDir - Um booleano, onde <strong>true</strong> significa que o item é um diretório e <strong>false</strong> significa que o item é um arquivo.</li>
+<li>kind - Uma cadeia de caracteres que identifica o tipo deste item. Pode conter um dos seguintes valores:<ul>
+<li>"dir" - Um diretório</li>
+<li>"file" - Um arquivo simples</li>
+<li>"plugin" - Um arquivo de plug-in</li>
+</ul>
+</li>
+<li>parentId - Id único que identifica em qual diretório este item se encontra. Se o arquivo estiver na raiz do FireDrive (exemplo: "/arquivo.txt"), este atributo contém <strong>nil</strong>.</li>
+<li>size - Número identificando quantos bytes este arquivo ocupa no FireDrive do usuário.</li>
+<li>isShared - Booleano, onde <strong>true</strong> significa que este item está compartilhado com todos do Firecast, ou <strong>false</strong> significando que o item não está acessível para outros.</li>
+<li>isMine - Booleano, onde <strong>true</strong> significa que o usuário criou o item, e <strong>false</strong> significa que o item foi criado por outra pessoa e foi importado.</li>
+<li>sharedId - Número que identifica este item unicamente e globalmente no Firecast. É utilizado para compartilhar arquivos com outras pessoas do programa.</li>
+<li>keyWords - Cadeia de caracteres contendo as palavras chaves do item</li>
+<li>description - Cadeia de caracteres contendo a descrição do item</li>
+<li>url - Se for um arquivo, contém a URL para baixar seus dados.</li>
+<li>mimeType - Se for um arquivo, contém o MIME/Content-Type do arquivo. (Exemplos: "image/jpeg", "image/png", "text/plain", etc..);</li>
+<li>urlThumb64 - Se preenchido, contém A URL de uma imagem thumbnail do item. Este thumbnail cabe em quadrado de 64x64 de forma a manter o aspecto da imagem.</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-firedrive">Funções da biblioteca FireDrive</h2>
+<h2 id="_1">&nbsp;</h2>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.getFiles(directory[, callback[, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Obtém a lista de arquivos e diretórios que estão dentro de uma pasta no FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directory - Uma cadeia de caracteres contendo um caminho de uma pasta que existe no FireDrive do usuário. O conteúdo desta pasta será enumerada. Exemplos:<ul>
+<li>Se quiser enumerar o conteúdo da raiz do FireDrive, utilize "/"</li>
+<li>Se quiser enumerar o conteúdo da pasta "imagens", utilize "/imagens".</li>
+<li>Se quiser enumerar o conteúdo da subpasta "medievais" da pasta "imagens", utilize "/imagens/medievais"</li>
+</ul>
+</li>
+<li>(OPCIONAL) callback - uma função que será chamada quando a lista de arquivos/diretórios tiver sido obtida com sucesso. Esta função recebe em seu primeiro parâmetro um arranjo de <a href="./#Estrutura%20FireDriveItem">FireDriveItem</a></li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada quando a lista de arquivos/diretórios não puder ser obtida. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="_2">&nbsp;</h2>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.refresh([, callback[, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Durante a execução, o FireDrive mantém algumas informações em cache na memória, como a lista dos arquivos de cada pasta do FireDrive. Esta função força a atualização destas informações que estão guardas em cache na memória.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>(OPCIONAL) callback - uma função que será chamada quando a atualização tiver sido executada com sucesso.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada quando a atualização falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.getFileInfo(fileName[, callback[, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Obtém informações de um arquivo ou diretório existente no FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>fileName - Uma cadeia de caracteres contendo o caminho de um arquivo/diretório que existe no FireDrive do usuário. Serão retornadas as informações deste arquivo.</li>
+<li>(OPCIONAL) callback - uma função que será chamada quando as informações tiverem sido obtidas com sucesso. Esta função recebe em seu primeiro parâmetro um <a href="./#Estrutura%20FireDriveItem">FireDriveItem</a> com as informações do arquivo ou <strong>nil</strong> caso não exista.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.upload(destFileName, stream[, successCallback[, progressCallback[, failureCallback[, mimeType]]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Efetua o upload de um conteúdo/arquivo para o FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>destFileName - Uma cadeia de caracteres contendo o caminho de um arquivo no FireDrive do usuário onde os dados serão salvos.&nbsp;</li>
+<li>stream - Um <a href="../ObjetoStream/">objeto Stream</a> contendo os dados que serão enviados e salvos no servidor.</li>
+<li>(OPCIONAL) successCallback - uma função que será chamada quando o upload tiver sido feito com sucesso. Esta função recebe em seu primeiro parâmetro um <a href="./#Estrutura%20FireDriveItem">FireDriveItem</a> com as informações do arquivo no servidor.</li>
+<li>(OPCIONAL) progressCallback - uma função que será chamada de tempos em tempos informando o progresso do envio do arquivo. A função recebe 2 parâmetros: currentBytes e maxBytes, representando, respectivamente, quantos bytes já foram enviados e quantos bytes serão enviados no final das contas.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+<li>(OPCIONAL) mimeType - Uma cadeia de caracteres contendo o mimeType/contentType do dados. Exemplos: "image/jpeg", "image/png", "text/plain", etc... Se não informado, o fireDrive automaticamente definirá o mimeType com base na extensão do arquivo destino.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "successCallback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+<li>Se o arquivo já existir no FireDrive do usuário, esta função sobrescreve seu conteúdo e não reporta falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.quickUpload(suggestedFileName, mimeType, stream[, successCallback[, progressCallback[, failureCallback]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Efetua o upload de um conteúdo/arquivo para o FireDrive do Firecast de forma descomplicada que será armazenado <strong>temporariamente</strong>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>suggestedFileName - Uma cadeia de caracteres contendo uma <strong>sugestão</strong> de nome de arquivo para ser armazenado. \
+&nbsp; &nbsp; &nbsp; &nbsp; Pode ser <strong>nil</strong>: neste caso, o FireDrive criará um nome aleatório para o upload.</li>
+<li>mimeType - Uma cadeia de caracteres contendo o mimeType/contentType do dados. Exemplos: "image/jpeg", "image/png", "text/plain", etc... \
+&nbsp; &nbsp; &nbsp; &nbsp; Pode ser passado <strong>nil</strong> como parâmetro: Neste caso, o fireDrive automaticamente definirá o mimeType com base na extensão de "<em>suggestedFileName</em>".</li>
+<li>stream - Um <a href="../ObjetoStream/">objeto Stream</a> contendo os dados que serão enviados e salvos no servidor.</li>
+<li>(OPCIONAL) successCallback - uma função que será chamada quando o upload tiver sido feito com sucesso. Esta função recebe em seu primeiro parâmetro um <a href="./#Estrutura%20FireDriveItem">FireDriveItem</a> com as informações do arquivo no servidor.</li>
+<li>(OPCIONAL) progressCallback - uma função que será chamada de tempos em tempos informando o progresso do envio do arquivo. A função recebe 2 parâmetros: currentBytes e maxBytes, representando, respectivamente, quantos bytes já foram enviados e quantos bytes serão enviados no final das contas.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "successCallback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+<li>O upload é armazenado em um espaço temporário do Firecast. Ele não será visto na pasta FireDrive do usuário.</li>
+<li>Lembre-se: Este upload tem características temporárias. O Firecast poderá excluir o upload, sem aviso prévio, após algum tempo.</li>
+<li>Não é possível fazer o upload se ambos os parâmetros "<em>suggestedFileName</em>" e "<em>mimeType</em>" não forem informados corretamente. Ao menos um deles deve ser informado corretamente.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.createDirectory(directoryName, [, callback[, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria um diretório no FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>directoryName - Uma cadeia de caracteres contendo o caminho do diretório que será criado no FireDrive do usuário.&nbsp;</li>
+<li>(OPCIONAL) callback - uma função que será chamada quando o diretório tiver sido criado com sucesso. Esta função recebe em seu primeiro parâmetro um <a href="./#Estrutura%20FireDriveItem">FireDriveItem</a> com as informações do diretório no servidor.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+<li>Se o diretório já existir no FireDrive do usuário, ele é preservado no servidor sem alterações e a função "callback" é invocada sinalizando êxito.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.delete(destFileName, [, callback[, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exclui um arquivo ou diretório do FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>destFileName - Uma cadeia de caracteres contendo o caminho do arquivo ou diretório existente no FireDrive do usuário que será removido;</li>
+<li>(OPCIONAL) callback - uma função que será chamada quando a operação tiver sido realizada com sucesso.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+<li>Se for removido um diretório, todo seu conteúdo, pastas e sub-pastas serão excluídos juntos com esta operação.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.rename(existingFileName, newFileName [, callback[, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Renomeia/move um arquivo ou diretório do FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>existingFileName - Uma cadeia de caracteres contendo o caminho do arquivo ou diretório existente no FireDrive do usuário que será renomeado/movido;</li>
+<li>newFileName - Uma cadeia de caracteres contendo o novo caminho do arquivo/diretório. Este parâmetro deve conter o novo caminho completo do arquivo/diretório.</li>
+<li>(OPCIONAL) callback - uma função que será chamada quando a operação tiver sido realizada com sucesso.</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+<li>O valor "newFileName" deve conter o novo caminho completo do arquivo. É possível mover o arquivo através deste método, basta especificar uma outra pasta para o parâmetro "newFileName", exemplo: existingFileName="/pasta1/x.txt" e newFileName="/nova_pasta/x.txt".</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> FireDrive.getSpaceInfo(callback[, failureCallback]);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna as informações de espaço do FireDrive do usuário.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>callback - Uma função que será invocada quando as informações de espaço do FireDrive forem obtidas. A função recebe em seu primeiro parâmetro uma tabela Lua com as seguintes propriedades:<ul>
+<li>used - Quantidade de bytes usados no armazenamento do FireDrive do usuário</li>
+<li>total - Quantidade total de bytes que o usuário pode armazenar no FireDrive.</li>
+</ul>
+</li>
+<li>(OPCIONAL) failureCallback - uma função que será chamada se a operação falhar. Ela recebe em seu primeiro parâmetro o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona, isto é, ela retorna imediatamente e o código LUA continua sua execução normal enquanto a comunicação com o servidor é feita em segundo plano. Se quiser obter o resultado, você deve informar uma função "callback" que será chamada quando a operação em segundo plano for bem sucedida. Se quiser tratar erros, você deve informar uma função "failureCallback" que será chamada quando alguma falha ocorrer.</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-chm-help-files/">Revolutionize Your CHM Help File Output with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-link">
+			Biblioteca Dialogs
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoInertialMovement/" class="btn btn-sm btn-link">
+			Objeto InertialMovement
+		</a>
+		<a href="../ObjetoInertialMovement/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaFireDrive.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

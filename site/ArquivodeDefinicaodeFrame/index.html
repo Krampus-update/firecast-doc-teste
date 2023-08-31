@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Arquivo de Definição de Frame - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Arquivo de Defini\u00e7\u00e3o de Frame", url: "#_top", children: [
+				]},
+				{title: "Arquivo de Defini\u00e7\u00e3o de Frame", url: "#arquivo-de-definicao-de-frame_1", children: [
+				]},
+				{title: "Estrutura do documento XML de defini\u00e7\u00e3o de frame", url: "#estrutura-do-documento-xml-de-definicao-de-frame", children: [
+						
+				{title: "Tag frame", url: "#_top", children: [
+				]},
+				{title: "\u0026nbsp;", url: "#_1", children: [
+				]},
+				{title: "Tag borders", url: "#tag-borders", children: [
+				]},
+				{title: "Tag draw", url: "#tag-draw", children: [
+				]},
+				{title: "Tag postdraw", url: "#tag-postdraw", children: [
+				]},
+				{title: "Tag image", url: "#tag-image", children: [
+				]},
+				{title: "Tag source", url: "#tag-source", children: [
+				]},
+				{title: "Tag anchors", url: "#tag-anchors", children: [
+				]},
+				{title: "Tag regions", url: "#tag-regions", children: [
+				]},
+				{title: "Tag region", url: "#tag-region", children: [
+				]},
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Tagtimer/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Tagtimer/" class="btn btn-sm btn-link">
+			Tag timer
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../FrameseRegioes/" class="btn btn-sm btn-link">
+			Frames e Regiões
+		</a>
+		<a href="../FrameseRegioes/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="arquivo-de-definicao-de-frame">Arquivo de Definição de Frame</h1>
+<h1 id="arquivo-de-definicao-de-frame_1">Arquivo de Definição de Frame</h1>
+<p>Todo <a href="../Frames/">frame</a> é definido por um documento <a href="../DocumentosXML/">XML</a> que segue o padrão descrito neste tópico.</p>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: Não é possível utilizar as tags do Lua Form na definição de frames. O documento de definição de frames possui seu próprio conjunto de tags e atributos.</p>
+<p>&nbsp;</p>
+<h1 id="estrutura-do-documento-xml-de-definicao-de-frame">Estrutura do documento XML de definição de frame</h1>
+<p>Todo documento de XML de definição de frame deve ter a <a href="./#Tag%20frame">tag frame</a> como tag raiz.</p>
+<h2 id="tag-frame">Tag frame</h2>
+<p>&nbsp;</p>
+<p>Atributos:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>width</strong></td>
+<td>Float</td>
+<td>\&lt;Não há valor padrão e deve ser preenchido&gt;&nbsp;</td>
+<td>A largura em que o frame foi definido.&nbsp; Todo o restante do frame será interpretado usando esta largura como base.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>Float</td>
+<td>\&lt;Não há valor padrão e deve ser preenchido&gt;&nbsp;</td>
+<td>A altura em que o frame foi definido.&nbsp; Todo o restante do frame será interpretado usando esta altura como base.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>autoScaleX</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Indica como o frame deve se comportar ao ser apresentado em um tamanho diferente do que foi definido.&nbsp; true - O conteúdo do frame será esticado ou comprimido no eixo X para equivaler à nova largura.&nbsp; false - O conteúdo do frame será reposicionado no eixo X, respeitando o ancoramento de cada item do conteúdo do frame.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>autoScaleY</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Indica como o frame deve se comportar ao ser apresentado em um tamanho diferente do que foi definido.&nbsp; true - O conteúdo do frame será esticado ou comprimido no eixo Y para equivaler à nova altura.&nbsp; false - O conteúdo do frame será reposicionado no eixo Y, respeitando o ancoramento de cada item do conteúdo do frame.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Tags filhas:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tag filha</strong></th>
+<th>Quantidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>borders</strong></td>
+<td>&#48; ou 1. (opcional)</td>
+<td>Descreve o tamanho das bordas que o frame possui.&nbsp; Leia mais em <a href="./#Tag%20borders">Tag borders</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>draw</strong></td>
+<td>&#48; ou 1. (opcional)</td>
+<td>Define os itens que serão desenhados no frame.&nbsp; Leia mais em <a href="./#Tag%20draw">Tag draw</a>.&nbsp; Estes itens são desenhados embaixo dos controles Lua Form de onde o frame for aplicado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>postdraw</strong></td>
+<td>&#48; o ou 1. (opcional)</td>
+<td>Define os itens que serão desenhados após o conteúdo do frame ser desenhado.&nbsp; Leia mais em <a href="./#Tag%20postdraw">Tag postdraw</a>.&nbsp; Estes itens são desenhados em cima dos controles Lua Form de onde o frame for aplicado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>regions</strong></td>
+<td>&#48; ou 1. (opcional)</td>
+<td>Define as <a href="../FrameseRegioes/">regiões que este frame possui</a>. Usado para alinhar controles Lua Form no lugar correto do frame.&nbsp; Leia mais em <a href="./#Tag%20regions">Tag regions</a>.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">&nbsp;</h2>
+<h2 id="tag-borders">Tag borders</h2>
+<p>&nbsp;</p>
+<p>Atributos:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>left</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define o tamanho da borda esquerda do frame.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>top</strong></td>
+<td>Float</td>
+<td>&#48;.0&nbsp;</td>
+<td>Define o tamanho da borda superior do frame.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>right</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define o tamanho da borda da direita do frame.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>bottom</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define o tamanho da borda inferior do frame.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tag-draw">Tag draw</h2>
+<p>Esta tag contém todos os elementos que são desenhados no frame.</p>
+<p>\
+Atributos: Esta tag não possui atributos</p>
+<p>&nbsp;</p>
+<p>Tags filhas:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tag filha</strong></th>
+<th>Quantidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>image</strong></td>
+<td>&#48; ou várias vezes. (lista)</td>
+<td>Cada tag image representa uma imagem que será desenhada.&nbsp; Leia mais em <a href="./#Tag%20image">Tag image</a>.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tag-postdraw">Tag postdraw</h2>
+<p>Esta tag contém todos os elementos que são desenhados no frame.</p>
+<p>\
+Atributos: Esta tag não possui atributos</p>
+<p>&nbsp;</p>
+<p>Tags filhas:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tag filha</strong></th>
+<th>Quantidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>image</strong></td>
+<td>&#48; ou várias vezes. (lista)</td>
+<td>Cada tag image representa uma imagem que será desenhada acima do controles Lua Form.&nbsp; Leia mais em <a href="./#Tag%20image">Tag image</a>.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tag-image">Tag image</h2>
+<p>&nbsp;</p>
+<p>Atributos:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>left</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define onde, no eixo X, a imagem será desenhada.</td>
+</tr>
+<tr>
+<td><strong>top</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define onde, no eixo Y, a imagem será desenhada.</td>
+</tr>
+<tr>
+<td><strong>right</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define onde, no eixo X, a borda direita da imagem será desenhada.&nbsp; A largura da imagem será equivalente a ("right" - "left")&nbsp;</td>
+</tr>
+<tr>
+<td><strong>bottom</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;</td>
+<td>Define onde, no eixo Y, a borda inferior da imagem será desenhada.&nbsp; A altura da imagem será equivalente a ("bottom" - "top")&nbsp;</td>
+</tr>
+<tr>
+<td><strong>overflowX</strong></td>
+<td>Enumerado: "none" "tile" "stretch" "center"</td>
+<td>"tile"&nbsp;</td>
+<td>Define como a imagem será desenhada no eixo X quando a largura a desenhar for diferente da largura definida.&nbsp; "none": A imagem será desenhada apenas uma vez, a cortando se o tamanho diminuir.&nbsp; "tile": A imagem será desenhada várias vezes para que ocupe o novo tamanho.&nbsp; "stretch": A imagem será encolhida ou espichada para o novo tamanho.&nbsp; "center": A imagem será desenhada apenas uma vez no centro.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>overflowY</strong></td>
+<td>BoEnumerado: "none" "tile" "stretch" "center"&nbsp;</td>
+<td>"tile"</td>
+<td>Idem ao atributo "overflowX", porém agora analisando a altura e o eixo Y da imagem.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>zOrder</strong></td>
+<td>Float</td>
+<td>&#48;.0&nbsp;</td>
+<td>Define a ordem em que esta imagem será desenhada.&nbsp; A image que tiver o menor zOrder será desenhada embaixo das outras, enquanto a que tiver maior zOrder será desenhada acima.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Tags filhas:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tag filha</strong></th>
+<th>Quantidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>source</strong></td>
+<td>&#49; vez (preenchimento obrigatório)</td>
+<td>A tag source contém informações sobre qual imagem será desenhada.&nbsp; Leia mais em <a href="./#Tag%20source">tag source</a>.&nbsp; Observação: Enquanto a tag image possui informações relacionadas ao "onde a imagem será desenhada", a tag source possui informações de qual imagem será desenhada.&nbsp; &nbsp;</td>
+</tr>
+<tr>
+<td><strong>anchors</strong></td>
+<td>&#48; ou 1 (opcional).</td>
+<td>Define como a imagem será ancorada quando o frame for desenhado com um tamanho maior ou menor do que o definido.&nbsp; Leia mais em <a href="./#Tag%20anchors">tag anchors</a>&nbsp; A ausência desta tag implica no ancoramento "left e top". &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="tag-source">Tag source</h2>
+<p>&nbsp;</p>
+<p>Atributos:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>url</strong></td>
+<td>String</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Caminho do arquivo da imagem que será desenhada na tela.&nbsp; Contém um caminho relativo à pasta em que se encontra o arquivo ".xml" de definição deste frame.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>left</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Este atributo é usado para definir qual parte da imagem, informada pelo atributo "url", será desenhada na tela. &nbsp; É possível desenhar a imagem inteira, ou apenas um pedaço/retângulo dela (o que é bastante útil).&nbsp; Medido em pixels, informa a posição <strong>esquerda</strong> do pedaço/retângulo que será desenhado na tela.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>top</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Medido em pixels, informa a posição <strong>superior</strong> do pedaço/retângulo que será desenhado na tela.&nbsp; Veja a descrição do atributo "left".</td>
+</tr>
+<tr>
+<td><strong>right</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Medido em pixels, informa a posição <strong>da direita</strong> do pedaço/retângulo que será desenhado na tela.&nbsp; Veja a descrição do atributo "left".&nbsp;</td>
+</tr>
+<tr>
+<td><strong>bottom</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;</td>
+<td>Medido em pixels, informa a posição <strong>inferior</strong> do pedaço/retângulo que será desenhado na tela.&nbsp; Veja a descrição do atributo "left".&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Tags filhas:&nbsp;</p>
+<p>&nbsp; &nbsp; Não há tags filhas.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tag-anchors">Tag anchors</h2>
+<p>Define o ancoramento do componente. \
+Quando o frame for desenhado com um tamanho diferente do desenhado, o componente mantém sua posição relativa baseada em sua âncora.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Atributos:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>left</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true, define um âncora à esquerda.&nbsp; Leia as observações abaixo desta tabela.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>top</strong></td>
+<td>Boolean</td>
+<td>false&nbsp;</td>
+<td>Quando true, define um âncora acima.&nbsp; Leia as observações abaixo desta tabela.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>right</strong></td>
+<td>Boolean</td>
+<td>false&nbsp;</td>
+<td>Quando true, define um âncora à direita.&nbsp; Leia as observações abaixo desta tabela.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>bottom</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true, define um âncora abaixo.&nbsp; Leia as observações abaixo desta tabela.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Comportamento de âncora:</p>
+<ul>
+<li>&nbsp;</li>
+<li>“left” = true, ”right” = false: O componente manterá sempre a mesma posição left/X.</li>
+<li>“left” = false, “right” = true: A posição left será calculada automaticamente para manter sempre a mesma distância entre sua borda direita e a borda direita do pai/frame.</li>
+<li>“left” e “right” ambos = true: O controle manterá tanto a distância entre (1) sua borda esquerda com a borda esquerda do pai/frame; (2) como sua borda direita com a borda direita do pai/frame. Para isso, a largura do componente será alterada conforme o tamanho de visualização do frame.</li>
+<li>“left” e “right” ambos = false: O controle não está ancorado e ocorrerá um efeito similar ao de centralização.</li>
+</ul>
+<p>&nbsp;</p>
+<p>O comportamento das âncoras “top” e “bottom” é o mesmo das âncoras “left” e “right”, porém agora no eixo Y.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Tags filhas:&nbsp;</p>
+<p>&nbsp; &nbsp; Não há tags filhas.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tag-regions">Tag regions</h2>
+<p>Esta tag contém uma lista de tags region, que define regiões no frame que poderão ser usadas para alinhar tags/controles Lua Form posteriormente. Saiba mais em <a href="../FrameseRegioes/">Frames e Regiões</a>.</p>
+<p>\
+Atributos: Esta tag não possui atributos</p>
+<p>&nbsp;</p>
+<p>Tags filhas:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tag filha</strong></th>
+<th>Quantidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>region</strong></td>
+<td>&#48; ou várias vezes. (lista)</td>
+<td>Cada tag image representa uma região do frame&nbsp; Leia mais em <a href="./#Tag%20region">Tag region</a>.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tag-region">Tag region</h2>
+<p>&nbsp;</p>
+<p>Atributos:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define um nome para esta região para que possa ser usada posteriormente por um controle Lua Form. Saiba mais em <a href="../FrameseRegioes/">Frames e Regiões</a>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>left</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define, onde no eixo X, é a posição esquerda desta região no frame.</td>
+</tr>
+<tr>
+<td><strong>top</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define, onde no eixo Y, é a posição superior desta região no frame.</td>
+</tr>
+<tr>
+<td><strong>right</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;&nbsp;</td>
+<td>Define, onde no eixo X, é a posição da direita desta região no frame.&nbsp; A largura da região será equivalente a ("right" - "left")&nbsp;</td>
+</tr>
+<tr>
+<td><strong>bottom</strong></td>
+<td>Float</td>
+<td>\&lt;Não há, preenchimento obrigatório&gt;</td>
+<td>Define, onde no eixo Y, é a posição inferior desta região no frame.&nbsp; A altura da região será equivalente a ("bottom" - "top")&nbsp;</td>
+</tr>
+<tr>
+<td><strong>autoScaleX</strong></td>
+<td>Boolean</td>
+<td>false&nbsp;</td>
+<td>Indica como as sub-regiões desta região devem se comportar ao ser apresentadas em um tamanho de frame diferente do que foi definido.&nbsp; true - As sub-regiões serão esticadas ou comprimidas no eixo X para equivaler à nova largura.&nbsp; false - As sub-regiões serão reposicionadas no eixo X, respeitando seus ancoramentos.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>autoScaleY</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Indica como as sub-regiões desta região devem se comportar ao ser apresentadas em um tamanho de frame diferente do que foi definido.&nbsp; true - As sub-regiões serão esticadas ou comprimidas no eixo Y para equivaler à nova altura.&nbsp; false - As sub-regiões serão reposicionadas no eixo Y, respeitando seus ancoramentos&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Tags filhas:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Tag filha</strong></th>
+<th>Quantidade</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>anchors</strong></td>
+<td>&#48; ou 1 (opcional).</td>
+<td>Define como a região será ancorada quando o frame for desenhado com um tamanho maior ou menor do que o definido.&nbsp; Leia mais em <a href="./#Tag%20anchors">tag anchors</a>&nbsp; A ausência desta tag implica no ancoramento "left e top". &nbsp;</td>
+</tr>
+<tr>
+<td><strong>regions</strong></td>
+<td>&#48; ou 1 (opcional).</td>
+<td>Define as sub-regiões desta região. &nbsp; Leia mais em <a href="./#Tag%20regions">Tag regions</a>.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h1 id="exemplos">Exemplos</h1>
+<p>Veja os exemplos em <a href="../Exemplosdeframes/">Exemplos de frames.</a></p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-help-files-for-the-qt-help-framework">Create cross-platform Qt Help files</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Tagtimer/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Tagtimer/" class="btn btn-sm btn-link">
+			Tag timer
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../FrameseRegioes/" class="btn btn-sm btn-link">
+			Frames e Regiões
+		</a>
+		<a href="../FrameseRegioes/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ArquivodeDefinicaodeFrame.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

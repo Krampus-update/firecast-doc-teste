@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>3 - Frame com 2 partes fixas e 1 parte que se estica - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "3 - Frame com 2 partes fixas e 1 parte que se estica", url: "#_top", children: [
+				]},
+				{title: "Frame - Background com 2 partes fixas e uma parte que se estica", url: "#frame-background-com-2-partes-fixas-e-uma-parte-que-se-estica", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../2Backgroundqueserepeteparapreenc/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../2Backgroundqueserepeteparapreenc/" class="btn btn-sm btn-link">
+			2 - Background que se repete para preencher o tamanho
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-link">
+			4 - Frame retangular dinâmico, usando vários arquivos de imagens
+		</a>
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="3-frame-com-2-partes-fixas-e-1-parte-que-se-estica">3 - Frame com 2 partes fixas e 1 parte que se estica</h1>
+<h1 id="frame-background-com-2-partes-fixas-e-uma-parte-que-se-estica">Frame - Background com 2 partes fixas e uma parte que se estica</h1>
+<p>&nbsp;</p>
+<p>Dada a seguinte imagem (header0_smaller.png) de tamanho 468x100:</p>
+<p><img alt="Image" src="../lib/NewItem145.png" /></p>
+<p>&nbsp;</p>
+<p>Criamos um frame que se escala na vertical (autoScaleY = true) e que possui 3 partes:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A parte da esquerda, âncora à esquerda, desenha uma porção da imagem (um retângulo de 84x100)</li>
+<li>A parte da direita, âncora à direita, desenha uma outra porção da imagem (um retângulo 40x100)</li>
+<li>A parte central, âncora à esquerda e à direita, desenha uma outra porção da imagem (um retângulo 341x100) de forma esticada.</li>
+</ul>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;frame</strong> width="468" height="100" autoScaleY="true"<strong>&gt;</strong>         <strong>\&lt;borders</strong> left="12" top="24" bottom="24" right="20" <strong>/&gt;</strong>         <strong>\&lt;draw&gt;</strong>                          <em>\&lt;!-- Parte Esquerda (FIXA) --&gt;</em>                 <strong>\&lt;image</strong> left="0" top="0" right="84" bottom="100"zOrder="0"<strong>&gt;</strong>                         <strong>\&lt;anchors</strong> left="true" top="true" bottom="true"<strong>/&gt;</strong>                         <strong>\&lt;source</strong> url="header0_smaller.png" left="0" right="84" top="0" bottom="100"<strong>/&gt;</strong>                 <strong>\&lt;/image&gt;</strong>                         <em>\&lt;!-- Parte Direita (FIXA) --&gt;</em>                 <strong>\&lt;image</strong> left="425" top="0" right="468" bottom="100" zOrder="0"<strong>&gt;</strong>                         <strong>\&lt;anchors</strong> left="false" top="true" bottom="true" right="true"<strong>/&gt;</strong>                         <strong>\&lt;source</strong> url="header0_smaller.png" left="425" right="468" top="0" bottom="100"<strong>/&gt;</strong>                 <strong>\&lt;/image&gt;</strong>                                       <em>\&lt;!-- Parte Central (ESTICA) --&gt;</em> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;image</strong> left="84" top="0" right="425" bottom="100" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; overflowX="stretch" overflowY="stretch" zOrder="-1"<strong>&gt;</strong>                         <strong>\&lt;anchors</strong> left="true" top="true" bottom="true" right="true"<strong>/&gt;</strong>                         <strong>\&lt;source</strong> url="header0_smaller.png" left="84" right="425" top="0" bottom="100"<strong>/&gt;</strong>                 <strong>\&lt;/image&gt;</strong>                                                <strong>\&lt;/draw&gt;</strong> <strong>\&lt;/frame&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>\
+&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem146.png" /> <img alt="Image" src="../lib/NewItem147.png" />\
+&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem148.png" /></p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-chm-help-files/">Transform Your CHM Help File Creation Process with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../2Backgroundqueserepeteparapreenc/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../2Backgroundqueserepeteparapreenc/" class="btn btn-sm btn-link">
+			2 - Background que se repete para preencher o tamanho
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-link">
+			4 - Frame retangular dinâmico, usando vários arquivos de imagens
+		</a>
+		<a href="../4Frameretangulardinamicousandova/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/3Framecom2partesfixase1parteques.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

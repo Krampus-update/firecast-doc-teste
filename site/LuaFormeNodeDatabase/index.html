@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Lua Form e NodeDatabase - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Lua Form e NodeDatabase", url: "#_top", children: [
+				]},
+				{title: "Lua Form e NodeDatabase", url: "#lua-form-e-nodedatabase_1", children: [
+						
+				{title: "Tags que suportam NodeDatabase", url: "#_top", children: [
+				]},
+				{title: "Escopo de dados", url: "#escopo-de-dados", children: [
+				]},
+				{title: "Preenchendo o atributo \"field\"", url: "#preenchendo-o-atributo-field", children: [
+				]},
+				{title: "Vari\u00e1vel sheet", url: "#variavel-sheet", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-link">
+			String de cores no Lua Form
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../LuaFormeInstancias/" class="btn btn-sm btn-link">
+			Lua Form e Instâncias
+		</a>
+		<a href="../LuaFormeInstancias/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="lua-form-e-nodedatabase">Lua Form e NodeDatabase</h1>
+<h1 id="lua-form-e-nodedatabase_1">Lua Form e NodeDatabase</h1>
+<p>O Lua Form foi desenvolvido de forma a se conectar facilmente ao <a href="../NodeDatabase/">NodeDatabase</a> para criar interfaces que salvam dados.</p>
+<p>&nbsp;</p>
+<p>Para integrar um lua form ao Node Database é preciso duas coisas:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="./#Preenchendo%20o%20atributo%20field">Preencher o atributo "field"</a> das <a href="./#Tags%20que%20suportam%20NodeDatabase">tags que suportam NodeDatabase</a></li>
+<li>Definir um <a href="./#Escopo%20de%20dados">escopo de dados</a> do Lua Form, isto é, informar em qual nodo de qual NodeDatabase o LuaForm salvará os dados.<ul>
+<li>Observação importante: O SDK3 faz isto automaticamente para você se for um <a href="../ModelosdeFichas/">modelo de ficha,</a> se estiver usando a <a href="../TagrecordList/">tag recordList</a> ou se for uma <a href="../Criarumajanelaacoplaveldemesa/">janela acoplável</a>.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="tags-que-suportam-nodedatabase">Tags que suportam NodeDatabase</h2>
+<p>&nbsp;</p>
+<p>As tags/controles que se conectam ao NodeDatabase são:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../Taglabel/">label</a></li>
+<li><a href="../Tagedit/">edit</a></li>
+<li><a href="../TagcheckBox/">checkBox</a></li>
+<li><a href="../TagcomboBox/">comboBox</a></li>
+<li><a href="../TagcolorComboBox/">colorComboBox</a></li>
+<li><a href="../Tagimage/">image</a></li>
+<li><a href="../TagimageCheckBox/">imageCheckBox</a></li>
+<li><a href="../TagtextEditor/">textEditor</a></li>
+<li><a href="../TagrecordList/">recordList</a></li>
+<li><a href="../TagdataLink/">dataLink</a></li>
+<li><a href="../TagdataScopeBox/">dataScopeBox</a></li>
+<li><a href="../TagprogressBar/">progressBar</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="escopo-de-dados">Escopo de dados</h2>
+<p>Toda tag/controle que suporta NodeDatabase precisa de um escopo de dados, isto é, um <a href="../ObjetoNodo/">objeto nodo</a> de um nodedatabase onde os dados serão salvos.</p>
+<p>As tags <a href="../Tagform/">form,</a> <a href="../Tagpopup/">popup</a> e <a href="../TagdataScopeBox/">dataScopeBox</a> possuem o método "controle:setNodeObject" que permitem definir o escopo de dados e, após definido um <a href="../ObjetoNodo/">objeto nodo</a> como escopo, todas as tags que estão dentro passarão a salvar/carregar dados neste obeto nodo.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<p>Suponha a seguinte interface:</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;form</strong> name="minhaTagForm"<strong>&gt;</strong>         <strong>\&lt;edit</strong> field="campoNome"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Se o seguinte trecho de código Lua executar:</p>
+<table>
+<thead>
+<tr>
+<th>minhaTagForm:setNodeObject(NODO_A)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>o edit passará a ler e salvar dados em NODO_A.campoNome...\
+&nbsp;</p>
+<p>\
+Agora, se o seguinte trecho de código Lua executar:</p>
+<table>
+<thead>
+<tr>
+<th>minhaTagForm:setNodeObject(OUTRO_NODO)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>o edit agora passará a ler e salvar dados em OUTRO_NODO.campoNome...\
+\
+\
+E, por fim, se o seguinte trecho de código Lua executar:</p>
+<table>
+<thead>
+<tr>
+<th>minhaTagForm:setNodeObject(<strong>nil</strong>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>o edit agora ficará desabilitado, pois utilizamos o atributo "field" mas não há nodo escopo de dados associado.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Importante:</strong> O SDK3 define o escopo de dados automaticamente para os <a href="../ModelosdeFichas/">modelos de fichas</a>, ao usar a <a href="../TagrecordList/">tag recordList</a> e para as <a href="../Criarumajanelaacoplaveldemesa/">janelas acopláveis</a>:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Quando o usuário abre uma ficha no RRPG, o SDK3 carrega o NodeDatabase do personagem e define seu <a href="../ObjetoNodo/">objeto nodo</a> raiz como escopo de dados do form.</li>
+<li>No caso da tag recordList, o SDK3 automaticamente define o escopo de dados de cada painel de item.&nbsp;</li>
+<li>Quando o usuário ativa um janela acoplável, o SDK 3 carrega o NodeDatabase do form (se ele tiver a propriedade dataType preenchida) e define o <a href="../ObjetoNodo/">objeto nodo</a> raiz como escopo de dados do form.</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="preenchendo-o-atributo-field">Preenchendo o atributo "field"</h2>
+<p>&nbsp;</p>
+<p>Nas tags que suportam NodeDatabase, o atributo "field" contém o nome do campo de um <a href="../ObjetoNodo/">objeto nodo</a> a qual o controle deve se conectar.</p>
+<p>&nbsp;</p>
+<p><strong>Exemplo:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;edit</strong> field="nomeESobrenome"<strong>/&gt;</strong>         <strong>\&lt;edit</strong> field="caracteristicas"<strong>/&gt;</strong>                <strong>\&lt;label</strong> field="forca"<strong>/&gt;</strong>         <strong>\&lt;label</strong> field="destreza"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>No exemplo acima, quando a interface estiver rodando, o primeiro <a href="../Tagedit/">edit</a> irá se ligará ao campo "nomeESobrenome" do objeto nodo, isto é:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Exibirá na interface o conteúdo do campo "nomeESobrenome" do <a href="./#Escopo%20de%20dados">objeto nodo escopo</a>.</li>
+<li>Quando alguém alterar o valor do campo "nomeESobrenome" do <a href="./#Escopo%20de%20dados">objeto nodo escopo</a>, o edit captará a mudança e automaticamente mostrará o novo valor na interface.<ul>
+<li>Desde que estejam acessando o mesmo nodedatabase, este comportamento acontece mesmo se a pessoa que alterar o valor estiver em outro computador.</li>
+</ul>
+</li>
+<li>Se o usuário alterar o texto do edit, o novo valor será salvo no campo "nomeESobrenome" do <a href="./#Escopo%20de%20dados">objeto nodo escopo</a>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Idem para as demais tags que tem o atributo "field" definido.</p>
+<p>&nbsp;</p>
+<p><strong>Acessando/salvando dados que estão em um nodo filho.</strong></p>
+<p>É possível utilizar o caractere "." para informar que o campo na verdade está em um nodo filho do <a href="./#Escopo%20de%20dados">nodo escopo</a>.</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;edit</strong> field="atributos.modificadores.forca"<strong>/&gt;</strong>                <strong>\&lt;edit</strong> field="nodoFilho.nodoNeto.campo1"<strong>/&gt;</strong>               &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;edit</strong> field="nodoFilho.campo2"<strong>/&gt;</strong>     <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>No exemplo acima, o primeiro edit se ligará ao campo "forca" do nodo de nome "modificadores" que está dentro do nodo de nome "atributos" que, por sua vez, está dentro do <a href="./#Escopo%20de%20dados">nodo escopo</a>.</p>
+<p>Se o usuário alterar o conteúdo do edit e o não existir um nodo de nome "atributos" no nodo escopo, o SDK3 automaticamente criará este nodo antes de salvar os dados. Idem para o nodo "modificadores" dentro do nodo "atributos".</p>
+<p>&nbsp;</p>
+<h2 id="variavel-sheet">Variável sheet</h2>
+<p>Os códigos que estão dentro de um Lua Form tem acesso à uma variável chamada "sheet" que representa o <a href="./#Escopo%20de%20dados">objeto nodo escopo</a> do form.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>              <strong>\&lt;edit</strong> field="campoDeForca"<strong>/&gt;</strong>    &nbsp; &nbsp; &nbsp; <strong>\&lt;button</strong> onClick="sheet.campoDeForca = 8;"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>No exemplo acima, ao clicar no botão, a propriedade "campoDeForca" será alterado para "8" e a mudança será refletida no edit já que está ligado ao mesmo campo que sofreu alteração.</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></li>
+<li><a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></li>
+</ul>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-pequeno-cadastro-que-informa-se-a-pessoa-e-maior-de-idade">Exemplo 1 - Pequeno cadastro que informa se a pessoa é maior de idade</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;layout</strong> left="20" top="20" height="500" width="250"<strong>&gt;</strong>                 <strong>\&lt;layout</strong> align="top" height="32"<strong>&gt;</strong>                         <strong>\&lt;label</strong> align="left" text="Nome: " width="50" horzTextAlign="trailing"<strong>/&gt;</strong>                         <strong>\&lt;edit</strong> align="client" field="nome" margins="{left=5}"<strong>/&gt;</strong>                 <strong>\&lt;/layout&gt;</strong>                                <strong>\&lt;layout</strong> align="top" height="32"<strong>&gt;</strong>                         <strong>\&lt;label</strong> align="left" text="Idade: " width="50" horzTextAlign="trailing"<strong>/&gt;</strong>                         <strong>\&lt;edit</strong> align="client" field="idade" margins="{left=5}"<strong>/&gt;</strong>                 <strong>\&lt;/layout&gt;</strong>                                             <strong>\&lt;label</strong> name="labMaiorDeIdade" text="Preencha a idade" align="top" horzTextAlign="center"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong>                <strong>\&lt;dataLink</strong> field="idade"<strong>&gt;</strong>                 <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>                         local idade = tonumber(sheet.idade);                                                if idade ~= nil then                                 if idade &gt;= 18 then                                         self.labMaiorDeIdade.text = "Maior de idade";                                 else                                         self.labMaiorDeIdade.text = "Menor de idade";                                 end;                         else                                 self.labMaiorDeIdade.text = "Preencha a idade";                         end;                 <strong>\&lt;/event&gt;</strong>         <strong>\&lt;/dataLink&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem125.png" />&nbsp; &nbsp; <img alt="Image" src="../lib/NewItem127.png" />&nbsp; <img alt="Image" src="../lib/NewItem128.png" /></p>
+<p>&nbsp;</p>
+<p>Neste exemplo foram usados:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../Taglayout/">Tag layout</a></li>
+<li><a href="../Tagedit/">Tag edit</a></li>
+<li><a href="../Taglabel/">Tag label</a></li>
+<li><a href="../TagdataLink/">Tag dataLink</a></li>
+<li><a href="../Tagevent/">Tag event</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Don't Let Unauthorized Users View Your PDFs: Learn How to Set Passwords</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-link">
+			String de cores no Lua Form
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../LuaFormeInstancias/" class="btn btn-sm btn-link">
+			Lua Form e Instâncias
+		</a>
+		<a href="../LuaFormeInstancias/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/LuaFormeNodeDatabase.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

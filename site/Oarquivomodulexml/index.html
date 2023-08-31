@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>O arquivo "module.xml" - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "O arquivo \"module.xml\"", url: "#_top", children: [
+				]},
+				{title: "Structure", url: "#structure", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Disponibilizandoumplugin/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Disponibilizandoumplugin/" class="btn btn-sm btn-link">
+			Disponibilizando um plug-in
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../comandordkp/" class="btn btn-sm btn-link">
+			comando "rdk p"
+		</a>
+		<a href="../comandordkp/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="o-arquivo-modulexml">O arquivo "module.xml"</h1>
+<h1 id="structure">Structure</h1>
+<p>\
+Todo projeto de plugin deve conter um arquivo de nome “module.xml” em sua raiz que contém as informações sobre o mesmo. A estrutura das tags/marcações deste documento é:</p>
+<ul>
+<li><strong>module</strong></li>
+<li><strong>id</strong> – Uma identificação global e única do plug-in. É um texto que contém apenas caracteres alfanuméricos, underlines, pontos e deve conter ao menos 5 caracteres e um máximo de 40. Você deve inventar um valor único para este campo, e, uma vez definido, o ID não deve mudar. Exemplos: “br.com.rrpg.DnD5_SDK3”, “br.com.outrosite.storytellerX”.</li>
+<li><strong>version</strong> – Um texto que identifica a versão do seu plug-in. Não se esqueça de atualizar este campo quando for lançar uma nova versão do seu plug-in =). Exemplos: “1.0”, “1.1”, “1.2b”</li>
+<li><strong>info</strong> – Tag que reúne as informações do puglin traduzidas em uma determinada língua. Pode aparecer mais de uma vez, uma para cada tradução. Ela contém as seguintes tags filhas:<ul>
+<li><strong>name</strong> – O um texto curto que nomeia seu plug-in. Exemplos: “DnD 5”, “Plugin de Mighty Blade”, “Plugin X”, etc..</li>
+<li><strong>description</strong> – Um texto breve que descreve o que seu plug-in faz. Exemplos: “Adiciona suporte a fichas de DnD 5”.</li>
+<li><strong>author</strong> – Seu nome/nickname</li>
+<li><strong>site</strong> – Você possui um site? Coloq-ue aqui o endereço dele se tiver</li>
+<li><strong>contact</strong> – Como se faz contato com você? Adicione endereço de e-mail, facebook, twitter, etc..</li>
+</ul>
+</li>
+<li>&nbsp; &nbsp; <strong>settings</strong> – A tag to configure the behaviors of your plugin. Available settings are:<ul>
+<li><strong>automaticStringLocalization</strong> – When true, it allows the Firecast to automatically translate attributes of LFM files and strings passed to the API calls. It's a very cool feature to make your plugin multi-language but may produce inconsistent behaviors. Default: false. See <a href="../Criandoumnovoprojetodeplugin/">Criando um plug-in para vários idiomas</a>\
+\
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>\&lt;?xml version="1.0" encoding="UTF-8"?&gt; \&lt;<strong>module</strong> sdkVersion="<strong>3.6</strong>"&gt; &nbsp; &nbsp; \&lt;!--<strong><em>O id identifica seu módulo globalmente. Deve ser único, conter apenas caracteres alfanuméricos, underlines, pontos e deve conter ao menos 5 caracteres e um máximo de 40. Uma vez definido o ID, você não deve alterar ele ;)</em></strong> --&gt; &nbsp; &nbsp; \&lt;<strong>id</strong>&gt;<strong>br.com.rrpg.DnD5_SDK3</strong>\&lt;!--<strong>id</strong>--&gt;&nbsp; &nbsp; &nbsp; \&lt;!--<strong><em>version é a versão do seu módulo. Quando for lançar uma nova versão do seu módulo, altere aqui =)</em></strong> --&gt; &nbsp; &nbsp; \&lt;<strong>version</strong>&gt;<strong>1.0</strong>\&lt;!--<strong>version</strong>--&gt;&nbsp; &nbsp; &nbsp; \&lt;<strong>settings</strong>&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>automaticStringLocalization</strong>&gt;<strong>true</strong>\&lt;!--<strong>automaticStringLocalization</strong>--&gt; &nbsp; &nbsp; \&lt;!--<strong>settings</strong>--&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>info</strong> lang="<strong>pt-BR</strong>"&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;!--<strong><em>Informações do plugin na língua "pt-BR". Você pode ter várias tags "info", uma para cada tradução que quiser.</em></strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>name</strong>&gt;<strong>D\&amp;D 5e</strong>\&lt;!--<strong>name</strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>description</strong>&gt;<strong>Modelo de ficha de D\&amp;D 5ª edição</strong>\&lt;!--<strong>description</strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>author</strong>&gt;<strong>Firecast</strong>\&lt;!--<strong>author</strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>site</strong>&gt;<strong>https://firecast.app/</strong>\&lt;!--<strong>site</strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>contact</strong>&gt;<strong>https://www.facebook.com/AlyssonRPG</strong>\&lt;!--<strong>contact</strong>--&gt; &nbsp; &nbsp; \&lt;!--<strong>info</strong>--&gt;&nbsp; &nbsp; &nbsp; \&lt;<strong>info</strong> lang="<strong>en</strong>"&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;!--<strong><em>Informações do plugin na língua "en". Você pode ter várias tags "info", uma para cada tradução que quiser.</em></strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>name</strong>&gt;<strong>D\&amp;D 5th Edition</strong>\&lt;!--<strong>name</strong>--&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \&lt;<strong>description</strong>&gt;<strong>D\&amp;D 5th edition character sheet for firecast</strong>\&lt;!--<strong>description</strong>--&gt; &nbsp; &nbsp; \&lt;!--<strong>info</strong>--&gt;&nbsp; \&lt;!--<strong>module</strong>--&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>\</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/help-authoring-tool">Single source CHM, PDF, DOC and HTML Help creation</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Disponibilizandoumplugin/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Disponibilizandoumplugin/" class="btn btn-sm btn-link">
+			Disponibilizando um plug-in
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../comandordkp/" class="btn btn-sm btn-link">
+			comando "rdk p"
+		</a>
+		<a href="../comandordkp/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Oarquivomodulexml.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

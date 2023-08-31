@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Firecast.Messaging - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Firecast.Messaging", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Firecast.Messaging", url: "#biblioteca-firecastmessaging_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca Firecast.Messaging", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-firecastmessaging">Biblioteca Firecast.Messaging</h1>
+<h1 id="biblioteca-firecastmessaging_1">Biblioteca Firecast.Messaging</h1>
+<p>A biblioteca Firecast.Messaging contém funções que tratam as notificações que o Firecast dispara para todos os plug-ins através de mensagens.</p>
+<p>&nbsp;</p>
+<p>Em resumo, existem 2 tipos de eventos que o SDK 3 permite o programador "tratar":</p>
+<ul>
+<li>&nbsp;</li>
+<li>Eventos de tags/controles - São eventos específicos de cada controle.</li>
+<li>Mensagens do Firecast - São acontecimentos que são compartilhado com todos os plugins instalados, pois podem ser de interesse de todos. Exemplos: Quando a conexão do RRPG cai, quando o usuário entra em uma nova mesa, etc..</li>
+</ul>
+<p>&nbsp;</p>
+<p>Esta biblioteca auxilia na manipulação do segundo tipo de evento descrito acima.</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "firecast.lua"</em> require("firecast.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Firecast.Messaging.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-firecastmessaging">Funções da biblioteca Firecast.Messaging</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Messaging.newReceiver(messageName, callbackFunction [, filters])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um objeto que representa a "escuta" de mensagens eventos.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>messageName - uma cadeia de caracteres definindo qual mensagem-evento a escuta deve ouvir. Para saber quais mensagens você pode escutar, veja <a href="../ListadeMensagensEventosdoRRPG/">Lista de Mensagens Eventos do Firecast</a>.</li>
+<li>callbackFunction - uma função que será invocada sempre que a escuta captar uma mensagem. Quando invocada, a função recebe no primeiro parâmetro uma tabela/objeto lua contendo as propriedades da mensagem. Cada mensagem-evento possui sua própria lista de atributos e você deve, portanto, consultar <a href="../ListadeMensagensEventosdoRRPG/">Lista de Mensagens-Eventos do Firecast</a> para mais detalhes..</li>
+<li>(OPCIONAL) filters - Uma tabela/objeto Lua contendo filtros que a escuta deve verificar para decidir se deve invocar "callbackFunction" ou não. Exemplo:<ul>
+<li>Filters= {from="Login"}. A escuta só disparará "callbackFunction" se a mensagem possuir um atributo de nome "from" com conteúdo igual a "Login".</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um objeto representando a escuta instalada ou <strong>nil</strong> caso falhe</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Mantenha referência ao objeto retornado enquanto a escuta for necessária. Se o objeto for liberado da memória pelo coletor de lixo, a escuta será desinstalada automaticamente.</li>
+<li>A função não falha se você informar, no parâmetro "messageName", uma identificação de mensagem não esteja na lista <a href="../ListadeMensagensEventosdoRRPG/">Lista de Mensagens-Eventos do Firecast,</a> mas, provavelmente, a escuta nunca irá disparará a função "callbackFunction".</li>
+<li>É possível cancelar a escuta de 3 maneiras:<ul>
+<li>Invocar a função receiverObj:disable() do objeto retornado, conforme exemplo abaixo</li>
+<li>Retornar explicitamente <strong>false</strong> na "callbackFunction"</li>
+<li>Deixar o coletor de lixo do Lua coletar o objeto, eventualmente.</li>
+</ul>
+</li>
+<li>A diferença básica entre <a href="./#functionNewReceiver">Firecast.Messaging.newReceiver</a> e <a href="./#função%20listen">Firecast.Messaging.listen</a> é a forma de gerenciar o ciclo de vida da escuta.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>require("firecast.lua");   <strong>local</strong> receiverObj = Firecast.Messaging.newReceiver("SessionLost",                         <strong>function</strong> (msg)                                 <em>-- This function will be called when the Firecast connection is lost</em>                                 showMessage("The connect was lost!");                         <strong>end</strong>);   <em>-- To disable the receiver:</em> receiverObj:disable(); <em>-- disable right now</em> receiverObj = nil;  <em>-- let the garbage collector disable the receiver</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.listen(messageName, callbackFunction [, filters]) ou <strong>function</strong> Firecast.Messaging.listen(messageName, callbackFunction [, filters])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Instala uma "escuta" de mensagens eventos.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>messageName - uma cadeia de caracteres definindo qual mensagem-evento a escuta deve ouvir. Para saber quais mensagens você pode escutar, veja <a href="../ListadeMensagensEventosdoRRPG/">Lista de Mensagens Eventos do Firecast</a>.</li>
+<li>callbackFunction - uma função que será invocada sempre que a escuta captar uma mensagem. Quando invocada, a função recebe no primeiro parâmetro uma tabela/objeto lua contendo as propriedades da mensagem. Cada mensagem-evento possui sua própria lista de atributos e você deve, portanto, consultar <a href="../ListadeMensagensEventosdoRRPG/">Lista de Mensagens-Eventos do Firecast</a> para mais detalhes..</li>
+<li>(OPCIONAL) filters - Uma tabela/objeto Lua contendo filtros que a escuta deve verificar para decidir se deve invocar "callbackFunction" ou não. Exemplo:<ul>
+<li>Filters= {from="Login"}. A escuta só disparará "callbackFunction" se a mensagem possuir um atributo de nome "from" com conteúdo igual a "Login".</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um número identificando a escuta instalada ou <strong>nil</strong> caso falhe. Você pode utilizar este valor na função <a href="./#função%20unlisten">Firecast.Messaging.unlisten</a> para cancelar a escuta .</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não falha se você informar, no parâmetro "messageName", uma identificação de mensagem não esteja na lista <a href="../ListadeMensagensEventosdoRRPG/">Lista de Mensagens-Eventos do Firecast,</a> mas, provavelmente, a escuta nunca irá disparará a função "callbackFunction".</li>
+<li>É possível cancelar a escuta de 2 maneiras:<ul>
+<li>Invocar a função <a href="./#função%20unlisten">Firecast.Messaging.unlisten</a> passando o valor retornado por esta função (rrpg.messaging.listen) como parâmetro;</li>
+<li>Retornar explicitamente <strong>false</strong> na "callbackFunction"</li>
+</ul>
+</li>
+<li>A diferença básica entre <a href="./#functionNewReceiver">Firecast.Messaging.newReceiver</a> e <a href="./#função%20listen">Firecast.Messaging.listen</a> é a forma de gerenciar o ciclo de vida da escuta.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>require("firecast.lua");  Firecast.Messaging.listen("SessionLost",         <strong>function</strong> (detalhesDaMensagem)                 <em>-- Esta função será chamada quando a conexão do RRPG for perdida</em>                 showMessage("A conexão foi perdida!");         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.listenOnce(messageName, callbackFunction [, filters]) ou <strong>function</strong> Firecast.Messaging.listenOnce(messageName, callbackFunction [, filters])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Instala uma "escuta" de mensagens eventos. O funcionamento é idêntico à da função <a href="./#função%20listen">Firecast.Messaging.listen</a>, porém a escuta é automaticamente desinstalada após captar 1 mensagem.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.unlisten(listenerId) ou <strong>function</strong> Firecast.Messaging.unlisten(listenerId)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Desinstala uma "escuta" que foi previamente instalada pela função <a href="./#função%20listen">Firecast.Messaging.listen</a> ou pela função <a href="./#função%20listenOnce">Firecast.Messaging.listenOnce</a>.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>listenerId - Identificação da escuta a ser desinstalada. A identificação da escuta é retornada pela função que instala escutas (<a href="./#função%20listen">Firecast.Messaging.listen</a> ou <a href="./#função%20listenOnce">Firecast.Messaging.listenOnce</a>)</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.groupOnceListeners(listenerId1 [, listenerId2 [, listenerId3 [, listenerIdN...]]]) ou <strong>function</strong> Firecast.Messaging.groupOnceListeners(listenerId1 [, listenerId2 [, listenerId3 [, listenerIdN...]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Agrupa "escuta" de mensagens-eventos do tipo once (àquela que capta somente 1 mensagem). Quando OnceListeners são agrupados, a característica de se desinstalar automaticamente após receber a primeira mensagem é "expandida" para o grupo. Isto é, quando o Listener1 captar uma mensagem e se desinstalar, o Listener2, Listener3 e ListenerN são automaticamente desinstalados juntos.</p>
+<p>&nbsp;</p>
+<p>Esta função é especialmente útil em situações que possam resultar 2 ou mais mensagens-eventos distintas. Exemplo: O código requisitou a criação de 1 novo personagem em uma mesa... duas coisas podem acontecer: O servidor pode responder à requisição ou a conexão com o rrpg pode cair. Nesta situação, devemos instalar uma escuta "Quando o servidor responder", uma escuta "Quando a conexão cair" e agrupá-las. Note que se o servidor responder, não estaremos mais interessados se a conexão cair e vice-versa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>listenerId1, listenerId2, listenerId3, listenerId4, listenerId5, listenerIdN... As identificações de escuta que queira agrupar. Este valor é retornado pela função <a href="./#função%20listenOnce">Firecast.Messaging.listenOnce</a>.&nbsp;<ul>
+<li>Este é um parâmetro "vararg", isto é, você pode passar quantos valores quiser. Exemplo de chamadas válidas: Firecast.Messaging.groupOnceListeners(id1, id2) ou rrpg.messaging.groupOnceListeners(id1, id2, id3, id4, id5, id7, id8).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Make your documentation accessible on any device with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaFirecastMessaging.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto Rolagem - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto Rolagem", url: "#_top", children: [
+				]},
+				{title: "Objeto Rolagem", url: "#objeto-rolagem_1", children: [
+						
+				{title: "Caracter\u00edsticas", url: "#_top", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-link">
+			Objeto Jogador
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoBibliotecaItem/" class="btn btn-sm btn-link">
+			Objeto BibliotecaItem
+		</a>
+		<a href="../ObjetoBibliotecaItem/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-rolagem">Objeto Rolagem</h1>
+<h1 id="objeto-rolagem_1">Objeto Rolagem</h1>
+<p>Este objeto contém informações sobre uma rolagem de dados que ocorreu ou que poderá ocorrer.</p>
+<p>&nbsp;</p>
+<p>Você pode criar um objeto rolagem utilizando a função <a href="../BibliotecaFirecast/#rrpg.interpretarRolagem">rrpg.interpretarRolagem</a></p>
+<h2 id="caracteristicas">Características</h2>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tipo</strong></td>
+<td>Enumerado: "direta" "storyteller"</td>
+<td>Somente leitura, contém o tipo da rolagem.&nbsp; "direta" - Rolagem de dados padrão.&nbsp; "storyteller" - Rolagem de dados storyteller. Quantidade de dados cuja face seja maior ou igual a algum numero e que um resultado natural 1 anula um sucesso&nbsp;</td>
+</tr>
+<tr>
+<td><strong>possuiAlgumDado</strong></td>
+<td>Boolean</td>
+<td>Somente leitura, contém true se a rolagem possuir pelo menos um dado de qualquer face.&nbsp; Exemplo: Na rolagem "+5" a propriedade conteria false, enquanto na rolagem "d6 + 5" conteria true.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>asString</strong></td>
+<td>String</td>
+<td>Somente leitura, contém a rolagem como uma cadeia de caracteres.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>isRolado</strong></td>
+<td>Boolean</td>
+<td>Somente leitura, contém true se a rolagem já foi executada e possui o resultado, ou false se ainda não.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>resultado</strong></td>
+<td>Integer</td>
+<td>Somente leitura, contém o valor resultado da rolagem se ela já tiver sido feita. Se a rolagem ainda não tiver executada, contém 0.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>ops</strong></td>
+<td>Arranjo de Objetos <a href="./#Lista%20de%20Operações%20de%20Rolagens">OperacaoRolagem</a></td>
+<td>Contém a lista de operações "aritméticas" da rolagem.&nbsp; É um arranjo de tabelas/objetos, isto é, uma tabela lua indexada de 1 a N, onde cada posição possui uma tabela conforme a operação...&nbsp; Veja <a href="./#Lista%20de%20Operações%20de%20Rolagens">Lista de Operações de Rolagens</a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>rolagem:interpretarString(str)</strong></td>
+<td>Dado uma cadeia de caracteres representando uma rolagem de dados (Exemplos: "1d20 + 5", "1d20 + 1d10 - 5", etc..), atualiza as informações da rolagem de dados.&nbsp; Observação: Se "str" não contiver um texto de uma rolagem válida, o objeto rolagem é resetado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>rolagem:concatenar(outraRolagem)</strong></td>
+<td>Adiciona ao final desta rolagem de dados as operações "aritméticas" de outra rolagem, juntando-as.&nbsp; Parâmetros: outraRolagem - uma cadeia de caracteres ou um outro objeto rolagem que será concatenada.&nbsp; Retorno: Retorna o próprio objeto rolagem.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>rolagem:rolarLocalmente()</strong>&nbsp;</td>
+<td>Executa a rolagem localmente. Esta função realiza os sorteios e demais operações sem haver necessidade do usuário estar em uma mesa. &nbsp; Observações: Após a chamada desta função, o resultado pode ser acessado através das propriedades "resultado" e "ops". Este resultado não será exibido em lugar algum automaticamente e depende de você tratá-lo conforme desejar. Se você executar este método em uma rolagem que já foi rolada, o resultado anterior será sobrescrito com novos resultados.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="operacoes-de-rolagem-cada-item-do-arranjo-rolagemops">Operações de Rolagem (Cada item do arranjo <a href="./#Propriedade%20ops">Rolagem.ops</a>)</h3>
+<p>&nbsp;</p>
+<p>Cada operação de rolagem é uma tabela lua com as seguintes propriedades:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tipo</strong></td>
+<td>Enumerado: "dado" "imediato" "soma" "subtracao" "comparacao" "ordenacao" "desconhecido"</td>
+<td>Determina qual é a operação.&nbsp; "dado" - Um grupo de dados a serem rolados&nbsp; "imediato" - Um número constante especificado pelo usuário.&nbsp; "comparacao" - Uma comparação entre números/dados.&nbsp; "ordenacao" - Pedido para ordenar o resultado de forma decrescente.&nbsp; Os demais valores são autoexplicativos.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>quantidade</strong></td>
+<td>Integer</td>
+<td>Quando o tipo == "dado", determina quantos dados da face informada serão rolados.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>face</strong></td>
+<td>Integer ou String</td>
+<td>Quando tipo == "dado", contém qual é face dos dados..&nbsp; Exemplos: 4 6 8 10 "F"&nbsp; (dado fudge)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>resultados</strong></td>
+<td>Arranjo de Integer</td>
+<td>Quando tipo == "dado" e se a rolagem já tiver sido feita, contém um arranjo de números representando o resultado individual de cada dado na operação.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>comparacao</strong></td>
+<td>String</td>
+<td>Quando tipo == "comparacao", contém qual é o comparador.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>valor</strong></td>
+<td>Integer</td>
+<td>Quando tipo == "imediato" contém o valor do número constante literal informado. &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-uma-ficha-que-rola-dados-na-mesa">Exemplo 1 - Uma ficha que rola dados na mesa</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;button&gt;</strong>                 <strong>\&lt;event</strong> name="onClick"<strong>&gt;</strong>                         <strong>local</strong> rolagem = rrpg.interpretarRolagem(sheet.ataqueDoPersonagem);                          <strong>if</strong> <strong>not</strong> rolagem.possuiAlgumDado <strong>then</strong>                                 <em>-- se o usuario não tiver preenchido qual dado rolar,</em>                                 <em>-- vamos adicionar um 1d20 + na "fórmula da rolagem"</em>                                 rolagem = rrpg.interpretarRolagem("1d20"):concatenar(rolagem);                         <strong>end</strong>;                          <strong>local</strong> mesaDoPersonagem = rrpg.getMesaDe(sheet);                         mesaDoPersonagem.chat:rolarDados(rolagem, "Ataque do personagem");                 <strong>\&lt;/event&gt;</strong>         <strong>\&lt;/button&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; \
+<strong>Exemplo 2 - Rolar localmente e exibir uma mensagem personalizada.</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> msg = "";  <em>-- Interpretar uma rolagem, digamos: 4d6 + 2d4 + d20 + 5</em> <strong>local</strong> rolagem = rrpg.interpretarRolagem("4d6 + 2d4 + d20 + 5");  <em>-- Executar a rolagem localmente</em> rolagem:rolarLocalmente(); <em>-- Loop para navegar em cada uma das operações da rolagem</em> <strong>for</strong> i = 1, #rolagem.ops, 1 <strong>do</strong>           <strong>local</strong> operacao = rolagem.ops[i];               <em>-- Vamos verificar que tipo de operação é esta.</em>               <strong>if</strong> operacao.tipo == "dado" <strong>then</strong>                         <em>-- Adicionar à mensagem informações sobre este conjunto de dados.</em>                 msg = msg .. operacao.quantidade .. "d" .. operacao.face .. ": <strong>\n</strong>  ";               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <em>-- Loop percorrendo cada um dos resultados individuais deste conjunto de dados.</em>                 <strong>for</strong> j = 1, #operacao.resultados, 1 <strong>do</strong>                         msg = msg .. "  " .. operacao.resultados[j];                 <strong>end</strong>;                                msg = msg .. "<strong>\n</strong>";         <strong>elseif</strong> operacao.tipo == "imediato" <strong>then</strong>                 msg = msg .. "Valor imediato: " .. operacao.valor .. "<strong>\n</strong>";         <strong>end</strong>; <strong>end</strong>;  <em>-- Concatenar à mensagem o resultado final da rolagem</em> msg = msg .. "------------------- <strong>\n</strong>Resultado Final: " .. rolagem.resultado;  <em>-- Exibir a mensagem que montamos.</em> showMessage(msg);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem193.png" />&nbsp; &nbsp; <img alt="Image" src="../lib/NewItem194.png" />&nbsp; <img alt="Image" src="../lib/NewItem195.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Exemplo 3 - Uma ficha fazendo um teste (de resistência, por exemplo) e postando o resultado na mesa.</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFTeste"<strong>&gt;</strong>         <strong>\&lt;script&gt;</strong>                 <strong>local</strong> <strong>function</strong> realizarTesteDeResistencia()                                     <em>-- obter a mesa do personagem</em>                         <strong>local</strong> mesaDoPersonagem = rrpg.getMesaDe(sheet);                                                 <em>-- se o usuário não preencheu modificador, vamos usar o valor 0</em>                         sheet.modificador = sheet.modificador <strong>or</strong> 0;                 &nbsp;                               mesaDoPersonagem.chat:rolarDados("1d20 + " .. sheet.modificador, "Teste de Resistência",                                 <strong>function</strong> (rolado)                                         <em>-- A dificuldade do teste é 15</em>                                                                         <strong>if</strong> rolado.resultado &gt;= 15 <strong>then</strong>                                                 mesaDoPersonagem.chat:enviarMensagem("SUCESSO =) você tirou " .. rolado.resultado);                                         <strong>else</strong>                                                 mesaDoPersonagem.chat:enviarMensagem("FALHA =/ você tirou " .. rolado.resultado);                                         <strong>end</strong>;                                        &nbsp;                                 <strong>end</strong>);                           <strong>end</strong>;                        <strong>\&lt;/script&gt;</strong>          <strong>\&lt;button</strong> onClick="realizarTesteDeResistencia()"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/markdown-import-export-using-helpndoc-help-authoring-tool/">Powerful and User-Friendly Help Authoring Tool for Markdown Documents</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-link">
+			Objeto Jogador
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoBibliotecaItem/" class="btn btn-sm btn-link">
+			Objeto BibliotecaItem
+		</a>
+		<a href="../ObjetoBibliotecaItem/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoRolagem.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag edit - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag edit", url: "#_top", children: [
+				]},
+				{title: "Tag EDIT", url: "#tag-edit_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos:", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-link">
+			Tag dataScopeBox
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagevent/" class="btn btn-sm btn-link">
+			Tag event
+		</a>
+		<a href="../Tagevent/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-edit">Tag edit</h1>
+<h1 id="tag-edit_1">Tag EDIT</h1>
+<p>A tag/componente <strong>edit</strong> representa uma caixa de texto na interface. Um ótimo controle para permitir a entrada de dados!</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>edit</strong> possui todas as características de uma tag de texto. Veja:</p>
+<ul>
+<li><a href="../Caracteristicasdetodasastagsdete/">Características de todas as tags de textos</a></li>
+<li><a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a></li>
+</ul>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, a tag <strong>EDIT</strong> também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>textPrompt</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Um texto que é exibido quando o edit está vazio. Normalmente é usado para orientar o usuário qual informação ele deve preencher.&nbsp; Exemplo: "Preencha com seu nome"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>transparent</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando True, as bordas e o fundo do edit não serão exibidas, mostrando apenas o texto conteúdo e o cursor de digitação.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>isPasswordEdit</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true, o edit conterá uma senha e os caracteres do texto serão exibidos como um caractere coringa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>readOnly</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true, o edit não permite o usuário alterar seu conteúdo (somente leitura).&nbsp;</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>Enumerado: "text" "number" "float"</td>
+<td>"text"</td>
+<td>Define que tipo de dados o usuário pode digitar neste edit.&nbsp; "text" - Não há restrições e o usuário pode digitar qualquer coisa.&nbsp; "number" - O usuário pode digitar um valor numérico inteiro. Veja também as propriedades <a href="./#propriedade%20min">min</a> e <a href="./#Propriedade%20max">max</a> do edit. A propriedade "keyboardType" é automaticamente alterada para "numberPad" se ela estiver como "default" ou "alphabet".&nbsp; "float" - O usuário pode digitar um valor numérico de ponto flutuante (números reais, "com vírgula")&nbsp;</td>
+</tr>
+<tr>
+<td><strong>min</strong></td>
+<td>Double</td>
+<td>-2147483648</td>
+<td>Quando o atributo "type" for igual a "number" ou "float", define qual o menor valor numérico que este Edit deve aceitar.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>max</strong></td>
+<td>Double</td>
+<td>&#50;147483647</td>
+<td>Quando o atributo "type" for igual a "number" ou "float", define qual o maior valor numérico que este Edit deve aceitar.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>decimalPlaces</strong></td>
+<td>Integer</td>
+<td>&#50;</td>
+<td>Quando o atributo "type" for igual a "float", define quantas casas decimais pode ter o número digitado pelo usuário.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>keyboardType</strong></td>
+<td>Enumerado: "default" "numbersAndPunctuation" "numberPad" "phonePad" "alphabet" "url" "email"</td>
+<td>"default"</td>
+<td>Quando um teclado virtual for exibido (como aquele nos smartphones e tablets), qual é o layout preferencial de teclado para este conteúdo?&nbsp; "default" e "alphabet": Um teclado alfanumérico padrão.&nbsp; "numbersAndPunctuation": Um teclado para entrada de números de símbolos de pontuação.&nbsp; "numberPad": Um teclado com apenas números.&nbsp; "phonePad": Um teclado para entrada de número telefônico.&nbsp; "url": Um teclado para preencher uma URL da internet.&nbsp; "email": Um teclado para preencher endereços de e-mail.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>enterKeyType</strong></td>
+<td>Enumerado: "default" "done" "go" "next" "search" "send"&nbsp;</td>
+<td>"default"</td>
+<td>Quando um teclado virtual for exibido (como aqueles nos smartphones e tablets), este atributo define o ícone que aparece na tecla enter.&nbsp; "default" - sem tratamento especial.&nbsp; Observação importante: Esta propriedade <strong>apenas</strong> muda a aparência do botão ENTER. Caso queira dar uma funcionalidade ao enter, trate o evento <a href="../Caracteristicasdetodasastagsvisu/#Evento%20OnKeyDown">onKeyDown</a> verificando se event.keyCode == 13&nbsp;</td>
+</tr>
+<tr>
+<td><strong>field</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o edit passa a apresentar e salvar o conteúdo no campo informado.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>frameRegion</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Considerando que o componente/tag pai possui um frame (ver <a href="../Frames/">Frames</a>), ao definir o valor desta propriedade, a posição e tamanho deste controle é automaticamente calculada para se encaixar na Região do Frame de mesmo nome.&nbsp; Veja <a href="../FrameseRegioes/">Frames e Regiões</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>asNumber</strong></td>
+<td>Double</td>
+<td>&#48;.0</td>
+<td>Contém o texto do edit como um número de ponto flutuante (número real). Se o texto do edit não for um número real válido, a propriedade contém 0.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onChange</strong></td>
+<td>Este evento é invocado quando o conteúdo do edit é alterado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onUserChange</strong></td>
+<td>Este evento é disparado quando o valor do campo do objeto Nodo associado (ver atributo "field") for alterado porque o usuário alterou o conteúdo do edit.&nbsp; Importante: Este evento é disparado APENAS se o atributo "field" estiver preenchido corretamente e se a alteração de valor ocorrer neste edit mediante ação do usuário.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Veja <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></p>
+<h2 id="exemplos">Exemplos:</h2>
+<h3 id="exemplo-1-edit-simples">Exemplo 1 - Edit simples</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;edit</strong> left="10" top="10"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem46.png" /></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-edit-transparente">Exemplo 2 - Edit transparente</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;edit</strong> left="10" top="10" transparent="true"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem47.png" /></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-3-edit-que-le-e-salva-dados-no-nodedatabase">Exemplo 3 - Edit que lê e salva dados no NodeDatabase</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;edit</strong> left="10" top="10" field="Destreza" width="250"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem48.png" /></p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+<li><a href="../NodeDatabase/">NodeDatabase</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="exemplo-4-avancado-uma-mini-ficha-usando-edits-labels-layouts-e-styles-para-evitar-retrabalho">Exemplo 4 - (Avançado) Uma mini ficha, usando edits, labels, layouts e styles para evitar retrabalho.</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;style&gt;</strong>                 layout.LayoutCampo {                         width: 64;                         align: left;                         margins: {left=2, right=2};                 }                               layout.LayoutCampo edit {                         height:30;                         horzTextAlign: center;                         fontSize: 20;                         align: top;                 }                               layout.LayoutCampo label {                         align: top;                         horzTextAlign: center;                         vertTextAlign: leading;                         autoSize: true;                 }                       <strong>\&lt;/style&gt;</strong>                         <strong>\&lt;layout</strong> left="10" top="10" width="200" height="64"<strong>&gt;</strong>                   <strong>\&lt;layout</strong> class="LayoutCampo"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="combate.armadura"<strong>/&gt;</strong>                         <strong>\&lt;label</strong> text="Armadura"<strong>/&gt;</strong>                                <strong>\&lt;/layout&gt;</strong>                                 <strong>\&lt;layout</strong> class="LayoutCampo"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="saude.pontosDeVida"<strong>/&gt;</strong>                         <strong>\&lt;label</strong> text="Pontos de Vida"<strong>/&gt;</strong>                          <strong>\&lt;/layout&gt;</strong>                                               <strong>\&lt;layout</strong> class="LayoutCampo"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="equipamentos.carga"<strong>/&gt;</strong>                         <strong>\&lt;label</strong> text="Carga (kg)"<strong>/&gt;</strong>                              <strong>\&lt;/layout&gt;</strong>                               <strong>\&lt;/layout&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem49.png" /></p>
+<p>&nbsp;</p>
+<p>Neste exemplo, os atributos dos edits, labels e layouts foram definidos por Estilo em Cascata pela tag <strong>style</strong>.</p>
+<p>&nbsp;</p>
+<p>Foram definidos 3 blocos de estilos em cascata:</p>
+<ul>
+<li>Um com seletor "layout.LayoutCampo" (aplicado a todas as tags <strong>layout</strong> de class "<strong>LayoutCampo</strong>")</li>
+<li>Um com seletor "layout.LayoutCampo edit" (aplicado a todas as tags <strong>edit</strong> que estão dentro de uma tag <strong>layout</strong> de class "<strong>LayoutCampo</strong>")</li>
+<li>Um com seletor "layout.LayoutCampo label" (aplicado a todas as tags <strong>label</strong> que estão dentro de uma tag <strong>layout</strong> de class "<strong>LayoutCampo</strong>")</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<p><a href="../Tagstyle/">Tag STYLE</a></p>
+<p><a href="../Taglabel/">Tag LABEL</a></p>
+<p><a href="../Taglayout/">Tag LAYOUT</a></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-5-avancado-o-mesmo-do-exemplo-4-porem-feito-com-tags-templates">Exemplo 5 - (Avançado) O mesmo do exemplo 4, porém feito com tags TEMPLATES</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                <strong>\&lt;template</strong> name="LayoutUmCampo"<strong>&gt;</strong>                 <strong>\&lt;layout</strong> width="64" align="left" margins="{left=2, right=2}"<strong>&gt;</strong>                         <strong>\&lt;edit</strong> field="$(campo)" height="30" horzTextAlign="center" fontSize="20" align="top"<strong>/&gt;</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;label</strong> text="$(titulo)" align="top" horzTextAlign="center" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; vertTextAlign="leading" autoSize="true"<strong>/&gt;</strong> &nbsp;               <strong>\&lt;/layout&gt;</strong>         <strong>\&lt;/template&gt;</strong>&nbsp;         <strong>\&lt;layout</strong> left="10" top="10" width="200" height="64"<strong>&gt;</strong>                   <strong>\&lt;LayoutUmCampo</strong> campo="combate.armadura" titulo="Armadura"<strong>/&gt;</strong>                 <strong>\&lt;LayoutUmCampo</strong> campo="saude.pontosDeVida" titulo="Pontos de Vida"<strong>/&gt;</strong>                 <strong>\&lt;LayoutUmCampo</strong> campo="equipamentos.carga" titulo="Carga (kg)"<strong>/&gt;</strong>                                 <strong>\&lt;/layout&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem49.png" /></p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<p><a href="../Tagtemplate/">Tag TEMPLATE</a></p>
+<p><a href="../Taglabel/">Tag LABEL</a></p>
+<p><a href="../Taglayout/">Tag LAYOUT</a></p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/advanced-project-analyzer/">Make Documentation Review a Breeze with HelpNDoc's Advanced Project Analyzer</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagdataScopeBox/" class="btn btn-sm btn-link">
+			Tag dataScopeBox
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Tagevent/" class="btn btn-sm btn-link">
+			Tag event
+		</a>
+		<a href="../Tagevent/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Tagedit.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Promise object - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Promise object", url: "#_top", children: [
+				]},
+				{title: "Promise object", url: "#promise-object_1", children: [
+						
+				{title: "Characteristics", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../5Framecomregioes/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../5Framecomregioes/" class="btn btn-sm btn-link">
+			5 - Frame com regiões
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-link">
+			Biblioteca Dialogs
+		</a>
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="promise-object">Promise object</h1>
+<h1 id="promise-object_1">Promise object</h1>
+<p>This object represents the eventual outcome of an asynchronous operation and its return data.</p>
+<p>&nbsp;</p>
+<p>A promise can be in one of the following state:</p>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Pending - The asynchronous operation is still in progress</li>
+<li>Success - The asynchronous operation concluded with success</li>
+<li>Failed - The asynchronous operation concluded with error or failure</li>
+</ul>
+<p>&nbsp;</p>
+<p>Once a Promise has been resolved to either “Success” or “Failed”, its state is sealed along with its associated data or error message</p>
+<h2 id="characteristics">Characteristics</h2>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="methods">Methods</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>promise:thenDo(successCallback)</strong>&nbsp;</td>
+<td>Set a continuation callback function that will be called when the Promise resolves to success.&nbsp; Arguments: successCallback - A function that will be called when the Promise resolves to success. The first argument of the callback function will receive the associated success data.&nbsp; Remarks: If the Promise is already in a success state, the successCallback will be called as soon as possible&nbsp; Return: A new <a href="./">Promise object</a> that will be resolved asynchronously with the execution of the successCallback.&nbsp; Example:&nbsp; local promise = Firecast.asyncOpenUserNDB("name");   promise:thenDo(     function(node)         <em>-- This function will be called when the Promise is resolved</em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <em>-- successfully. The first argument, "node", contains the</em> &nbsp; &nbsp; &nbsp; &nbsp; <em>-- Promise success data, which in this case is an opened</em> &nbsp; &nbsp; &nbsp; &nbsp; <em>-- nodeDatabse</em>     end); &nbsp;</td>
+</tr>
+<tr>
+<td><strong>promise:thenDo(successCallback, failureCallback)</strong></td>
+<td>Set continuation callback functions that will be called when the Promise resolves to success or failure.&nbsp; Arguments: successCallback - A function that will be called if the Promise resolves to success. The first argument of the callback function will receive the associated success data failureCallback - A function that will be called if the Promise resolves to failure. The first argument of the callback function will receive the error message.&nbsp; Remarks: This will monitor the Promise for both success and failure states at the same time If the Promise is already in a success state, the successCallback will be called as soon as possible.&nbsp; If the Promise is already in a failure state, the failureCallback will be called as soon as possible If the “successCallback” is called, “failureCallback” will never be called and vice versa.&nbsp; Return: A new <a href="./">Promise object</a> that will be resolved asynchronously with the execution of either the successCallback or failureCallback&nbsp; Example:&nbsp; local promise = Firecast.asyncOpenUserNDB("name");   promise:thenDo(     function(node)         <em>-- This function will be called when/if the *         </em>-- Promise is resolved successfully. The first argument, *         <em>-- "node", contains the Promise success data, *         </em>-- which in this case is an opened nodeDatabase<em>     end,    &nbsp;     function(errorMsg)         </em>-- This function will be called when/if the *         <em>-- Promise is resolved to failure. The first argument, *         </em>-- "errorMsg", contains the associated error message,<em>         </em>-- which in this case is the message explaining why<em>         </em>-- it was not possible to open the nodeDatabase*     end); &nbsp;</td>
+</tr>
+<tr>
+<td><strong>promise:onError(failureCallback)</strong></td>
+<td>Set a continuation callback function that will be called when the Promise resolves to failure.&nbsp; Arguments: failureCallback - A function that will be called if the Promise resolves to failure. The first argument of the callback function will receive the error message.&nbsp; Remarks: If the Promise is already in a failure state, the failureCallback will be called as soon as possible&nbsp; Return: A new <a href="./">Promise object</a> that will be resolved asynchronously with the execution of failureCallback&nbsp; Example:&nbsp; local promise = Firecast.asyncOpenUserNDB("name");   promise:onError(     function(errorMsg)         <em>-- This function will be called when/if the *         </em>-- Promise is resolved to failure. The first argument, *         <em>-- "errorMsg", contains the associated error message,</em>         <em>-- which in this case is the message explaining why</em>         <em>-- it was not possible to open the nodeDatabase</em>     end); &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-help-files-for-the-qt-help-framework">Qt Help documentation made easy</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../5Framecomregioes/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../5Framecomregioes/" class="btn btn-sm btn-link">
+			5 - Frame com regiões
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-link">
+			Biblioteca Dialogs
+		</a>
+		<a href="../BibliotecaDialogs/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Promiseobject.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

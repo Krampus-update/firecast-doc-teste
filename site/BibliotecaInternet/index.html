@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Internet - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Internet", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Internet", url: "#biblioteca-internet_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca internet", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-internet">Biblioteca Internet</h1>
+<h1 id="biblioteca-internet_1">Biblioteca Internet</h1>
+<p>Biblioteca que contém funções relacionadas à internet/intranet, como: downloads, requisições HTTP, etc..</p>
+<p>Todas as funções estão contidas na unidade "internet.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "internet.lua"</em> require("internet.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Internet.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-internet">Funções da biblioteca internet</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Internet.download(url [, finishCallback [, errorCallback [, progressCallback [, cacheMode]]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Realiza o download de um arquivo da internet.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>url&nbsp; - Cadeia de caracteres contendo a URL do arquivo (Exemplo: http://www.site.com.br/pasta/arquivo.png).&nbsp;<ul>
+<li>URL de arquivos que estão na internet devem começar com "http://" ou "https://"</li>
+<li>Endereços de arquivos que estão localizados no <a href="../HDVirtual/">HD virtual do plug-in</a> também são aceitos.\
+&nbsp;</li>
+</ul>
+</li>
+<li>(OPCIONAL) finishCallback - Uma função que será invocada quando o download estiver terminado. Esta função recebe os seguintes 2 parâmetros:&nbsp;<ul>
+<li>stream - Um <a href="../ObjetoStream/">objeto Stream</a> possuindo o conteúdo do arquivo baixado. Importante: O Firecast libera o conteúdo da stream após a chamada da função finishCallback.</li>
+<li>contentType - Uma cadeia de caracteres identificando o MimeType/tipo do conteúdo.. Exemplos: "application/octet-stream", "image/png", "text/html", etc..\
+&nbsp;</li>
+</ul>
+</li>
+<li>(OPCIONAL) errorCallback - Uma função que será invocada se ocorrer algum erro no download. A Mensagem de erro é passada no primeiro parâmetro desta função.\
+&nbsp;</li>
+<li>(OPCIONAL) progressCallback - Uma função que será invocada várias vezes para informar o progresso do download. Esta função recebe 2 parâmetros:<ul>
+<li>downloadedBytes - Quantos bytes já foram baixados.</li>
+<li>totalBytes - Quantos bytes o arquivo possui no total.\
+&nbsp;</li>
+</ul>
+</li>
+<li>(OPCIONAL) cacheMode - Pode ser passado um dos seguintes valores e significados:<ul>
+<li>"alwaysUseCache" - Se o arquivo já existir no cache, o Firecast irá retornar o conteúdo sem mesmo se comunicar com a internet. Este é o modo <strong>padrão</strong>.</li>
+<li>"checkForModification" - Se o arquivo já existir no cache, o Firecast irá verificar no servidor remoto se houve alterações no conteúdo antes de decidir usar o cache local ou baixar o conteúdo.</li>
+<li>"alwaysDownload" - O Firecast não usará o cache local e sempre baixará o conteúdo do servidor remoto.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função retorna um identificador de download. Este valor pode ser utilizado para invocar o método <a href="./#internet.stopDownload">Internet.stopDownload</a> caso queira abortar o download.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o download terminar e continua a execução do código enquanto o download é feito em paralelo.</li>
+<li>Para ter acesso ao conteúdo baixado, utilize o parâmetro finishCallback.</li>
+<li>Invocar esta função faz com que a URL seja enfileirada no gerenciador de downloads do Firecast, e, portanto, o download pode passar por uma espera antes de realmente começar.</li>
+<li>Retornar explicitamente "false" na função progressCallback faz com que o download seja abortado.</li>
+<li>Este método utiliza um sistema de cache de arquivos para evitar usar a internet com arquivos que já foram recentemente baixados.</li>
+<li>Se o arquivo estiver pronto no sistema de cache de arquivos, a função "finishCallback" poderá ser invocada imediatamente, antes mesmo da função "Internet.download" retornar.</li>
+<li>Este método, quando possível, faz "resume", isto é, ele consegue fazer download à partir de um ponto que havia parado recentemente.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 1:</p>
+<table>
+<thead>
+<tr>
+<th>Internet.download("http://www.rrpg.com.br/arquivo.png",         <strong>function</strong>(stream, contentType)                 <em>-- esta função será chamada quando o download terminar</em>                 <em>-- o conteúdo do arquivo baixado está em stream.</em>         <strong>end</strong>,                <strong>function</strong> (errorMsg)                 <em>-- esta função será chamada quando ocorrer algum erro no download.</em>                 <em>-- errorMsg possui a msg de erro</em>         <strong>end</strong>,                <strong>function</strong> (downloaded, total)                 <em>-- esta função será chamada constantemente.</em>                 <em>-- dividir "downloaded" por "total" lhe dará uma porcentagem do download.</em>         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo 2 - checkForModification&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>Internet.download("http://www.rrpg.com.br/arquivo.png",         <strong>function</strong>(stream, contentType)                 <em>-- esta função será chamada quando o download terminar</em>                 <em>-- o conteúdo do arquivo baixado está em stream.</em>         <strong>end</strong>,                <strong>function</strong> (errorMsg)                 <em>-- esta função será chamada quando ocorrer algum erro no download.</em>                 <em>-- errorMsg possui a msg de erro</em>         <strong>end</strong>,                <strong>function</strong> (downloaded, total)                 <em>-- esta função será chamada constantemente.</em>                 <em>-- dividir "downloaded" por "total" lhe dará uma porcentagem do download.</em>         <strong>end,</strong> "checkForModification");</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Internet.stopDownload(downloadId)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Aborta um download que foi iniciado pela função <a href="./#internet.download">Internet.download</a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>downloadId - a identificação do download a ser abortado. Este valor é retornado pela função Internet.download</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Internet.newHTTPRequest([method [, url]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna um <a href="../ObjetoHTTPRequest/">objeto HTTPRequest</a>, usado para troca de dados com um servidor através de protocolo HTTP ou HTTPS.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>(OPCIONAL) method - Uma cadeia de caracteres identificando o método/verbo HTTP utilizado nesta requisição. Os valores aceitos são:<ul>
+<li>"GET" (valor padrão, se o parâmetro for omitido)</li>
+<li>"POST"</li>
+<li>"PUT"</li>
+<li>"PATCH"</li>
+<li>"TRACE"</li>
+<li>"HEAD"</li>
+<li>"OPTIONS"</li>
+<li>"DELETE"</li>
+</ul>
+</li>
+<li>(OPCIONAL) url - A URL da requisição HTTP. Este valor pode ser alterado posteriormente no <a href="../ObjetoHTTPRequest/">objeto HTTPRequest.</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoHTTPRequest/">objeto HTTPRequest</a> representando a requisição.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>As requisições HTTP são permitidas apenas se o usuário do Firecast for um membro Gold.</li>
+<li>Esta função apenas cria o objeto HTTPRequest e não a envia. Você deve utilizar o método "send" do objeto para, de fato, enviar a requisição.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Internet.httpEncode(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Codifica um texto para que possa ser usado como URL em requisições HTTP.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>str - A cadeia de caracteres que deseja codificar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres contendo o texto codificado.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Internet.httpDecode(str)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Decodifica os caracteres/códigos de URL contidas no texto passado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>str - A cadeia de caracteres que deseja decodificar.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Uma cadeia de caracteres contendo o texto decodificado.</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-word-docx-file-to-an-epub-or-kindle-ebook/">Effortlessly Convert Your Word Doc to an eBook: A Step-by-Step Guide</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaInternet.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto SceneToken - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto SceneToken", url: "#_top", children: [
+				]},
+				{title: "Objeto SceneToken", url: "#objeto-scenetoken_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneUserDrawing/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneUserDrawing/" class="btn btn-sm btn-link">
+			Objeto SceneUserDrawing
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoSceneViewport/" class="btn btn-sm btn-link">
+			Objeto SceneViewport
+		</a>
+		<a href="../ObjetoSceneViewport/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-scenetoken">Objeto SceneToken</h1>
+<h1 id="objeto-scenetoken_1">Objeto SceneToken</h1>
+<p>O Objeto SceneToken representa um único item gráfico no Scene do tipo token, isto é, personagens, objetos e outros símbolos gráficos.</p>
+<h2 id="heranca">Herança</h2>
+<p>O o<strong>bjeto SceneToken</strong> herda de <a href="../ObjetoSceneGraphicItem/">SceneGraphicItem</a> e possui também <strong>TODAS</strong> todas as suas características.</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../ObjetoSceneGraphicItem/">Objeto SceneGraphicItem</a></li>
+<li><a href="../ObjetoSceneBaseObject/">Objecto SceneBaseObject</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o objeto SceneToken também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>objectType</strong></td>
+<td>String "token"</td>
+<td>(Somente Leitura) Contém um texto que identifica o tipo do objeto gráfico - "token".&nbsp;</td>
+</tr>
+<tr>
+<td><strong>image</strong></td>
+<td><a href="../ObjetoSceneDrawingOpBitmap/">Objeto SceneDrawingOpBitmap</a></td>
+<td>(Somente Leitura) Contém um <a href="../ObjetoSceneDrawingOpBitmap/">Objeto SceneDrawingOpBitmap</a> com os detalhes da imagem principal do token.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>String</td>
+<td>Define o nome do token. Este nome é exibido visualmente no Scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>facingMode</strong></td>
+<td>Enumerado: "rotate" "drawArrow"&nbsp;</td>
+<td>Define como o Scene deve indicar visualmente para que lado o token está virado.&nbsp; "rotate": Rotacionar a imagem para a direção.&nbsp; "drawArrow": Não rotacionar a imagem e desenhar uma seta para a direção.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>friendOrFoe</strong></td>
+<td>Enumerado: "unknown" "friend" "neutral" "foe"</td>
+<td>Define se este token é hostil ou amigável ao grupo do RRPG.&nbsp; "unknown" - Desconhecido, o mestre não definiu ou é um objeto.&nbsp; "friend" - Este token representa alguém/algo amigável aos personagens do grupo.&nbsp; "neutral" - Este token representa alguém/algo neutro ao grupo.&nbsp; "foe" - Este token representa alguém/algo hostil aos personagens do grupo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>ownerUserID</strong></td>
+<td>String&nbsp;</td>
+<td>Contém o login do usuário do RRPG que é dono deste token e pode movimentá-lo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>ownerCharacter</strong></td>
+<td>Inteiro</td>
+<td>Contém o ID interno do personagem deste token.&nbsp; Este valor é equivalente ao valor da propriedade "<a href="../ObjetoBibliotecaItem/#prop%20codigoInterno">codigoIntero</a>" do objeto "<a href="../ObjetoBibliotecaItem/#prop%20codigoInterno">BibliotecaItem</a>"&nbsp; 0 = Não foi definido o personagem.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>visionIntenseLightRange</strong></td>
+<td>Double</td>
+<td>Define, <a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>, o alcance da visão do token sob luz intensa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>visionWeakLightRange</strong></td>
+<td>Double</td>
+<td>Define, <a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>, o alcance da visão do token sob luz fraca (exemplo: Luz do luar, uma vela fraca, etc..)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>visionDarknessRange</strong></td>
+<td>Double</td>
+<td>Define, <a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>, o alcance da visão do token na escuridão total.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>visionHaveVision</strong></td>
+<td>Boolean</td>
+<td>Define se o token possui visão/enxerga coisas no tabuleiro.&nbsp; Padrão: False&nbsp;</td>
+</tr>
+<tr>
+<td><strong>visionAngle</strong></td>
+<td>Double</td>
+<td>Define, em graus, o ângulo de visão do token.&nbsp; Padrão: 360&nbsp;</td>
+</tr>
+<tr>
+<td><strong>lightIntenseRange</strong></td>
+<td>Double</td>
+<td>Define, <a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>, o alcance da luz intensa emitida por este token. &nbsp; Se for igual a 0, este token não emite luz intensa.&nbsp; Padrão: 0&nbsp;</td>
+</tr>
+<tr>
+<td><strong>lightWeakRange</strong></td>
+<td>Double</td>
+<td>Define, <a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>, o alcance da luz fraca emitida por este token. &nbsp; Se for igual a 0, este token não emite luz fraca.&nbsp; Padrão: 0&nbsp;</td>
+</tr>
+<tr>
+<td><strong>lightAngle</strong></td>
+<td>Double</td>
+<td>Define, em graus, o ângulo da luz emitida por este token.&nbsp; Padrão: 360&nbsp;</td>
+</tr>
+<tr>
+<td><strong>barValue1</strong> <strong>barValue2</strong> <strong>barValue3</strong>&nbsp;</td>
+<td>String</td>
+<td>Define o valor atual de uma das barrinhas do token.</td>
+</tr>
+<tr>
+<td><strong>barMax1</strong> <strong>barMax2</strong> <strong>barMax3</strong>&nbsp;</td>
+<td>String</td>
+<td>Define o valor máximo de uma das barrinhas do token.</td>
+</tr>
+<tr>
+<td><strong>barColor1</strong> <strong>barColor2</strong> <strong>barColor3</strong>&nbsp;</td>
+<td><a href="../StringdecoresnoLuaForm/">String de Cor</a></td>
+<td>Define a cor de uma das barrinhas do token.</td>
+</tr>
+<tr>
+<td><strong>isMine</strong></td>
+<td>Boolean</td>
+<td>(Somente Leitura) Contém true se o token for controlado pelo usuário atual do RRPG.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>token:clearMemoryAreas();</strong></td>
+<td>No FogOfWar, limpa a memória do Token das áreas que ele já viu em algum momento do passado.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-">Exemplo 1 -&nbsp;</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-">Exemplo 2 -&nbsp;</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Elevate your documentation to new heights with HelpNDoc's built-in SEO</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneUserDrawing/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneUserDrawing/" class="btn btn-sm btn-link">
+			Objeto SceneUserDrawing
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoSceneViewport/" class="btn btn-sm btn-link">
+			Objeto SceneViewport
+		</a>
+		<a href="../ObjetoSceneViewport/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoSceneToken.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

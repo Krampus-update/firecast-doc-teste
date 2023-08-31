@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Fazer uma ficha enviar rolagens para a mesa - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Fazer uma ficha enviar rolagens para a mesa", url: "#_top", children: [
+				]},
+				{title: "Fazer uma ficha enviar rolagens para a mesa", url: "#fazer-uma-ficha-enviar-rolagens-para-a-mesa_1", children: [
+						
+				{title: "O que o c\u00f3digo acima faz?", url: "#_top", children: [
+				]},
+				{title: "Mudan\u00e7as que voc\u00ea pode querer fazer no c\u00f3digo acima", url: "#mudancas-que-voce-pode-querer-fazer-no-codigo-acima", children: [
+				]},
+				{title: "Veja tamb\u00e9m:", url: "#veja-tambem", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Criarumalistadinamicanaficha/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Criarumalistadinamicanaficha/" class="btn btn-sm btn-link">
+			Criar uma lista dinâmica na ficha
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-link">
+			Criar uma lista dinâmica + painel de detalhes
+		</a>
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="fazer-uma-ficha-enviar-rolagens-para-a-mesa">Fazer uma ficha enviar rolagens para a mesa</h1>
+<h1 id="fazer-uma-ficha-enviar-rolagens-para-a-mesa_1">Fazer uma ficha enviar rolagens para a mesa</h1>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol>
+<li>Adicione uma <a href="../Tagbutton/">tag button</a> ao <a href="../InterfacesVisuaisLuaForms/">Lua Form</a></li>
+<li><a href="../TratandoeventosdoLuaForm/">Manipule o evento</a> "onClick" da tag button</li>
+<li>Utilize o código abaixo:</li>
+</ol>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>       <strong>\&lt;button&gt;</strong>                 <strong>\&lt;event</strong> name="onClick"<strong>&gt;</strong>                         <strong>local</strong> rolagem = rrpg.interpretarRolagem(sheet.ataqueDoPersonagem);                          <strong>if</strong> <strong>not</strong> rolagem.possuiAlgumDado <strong>then</strong>                                 <em>-- se o usuario não tiver preenchido qual dado rolar,</em>                                 <em>-- vamos adicionar um 1d20 + na "fórmula da rolagem"</em>                                 rolagem = rrpg.interpretarRolagem("1d20"):concatenar(rolagem);                         <strong>end</strong>;                          <strong>local</strong> mesaDoPersonagem = rrpg.getMesaDe(sheet); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>if</strong> mesaDoPersonagem ~= nil <strong>then</strong>                        &nbsp; &nbsp; &nbsp; &nbsp; mesaDoPersonagem.chat:rolarDados(rolagem, "Ataque do personagem"); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>end</strong>;                 <strong>\&lt;/event&gt;</strong>         <strong>\&lt;/button&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol>
+<li>Altere o código conforme a necessidade</li>
+</ol>
+<p>&nbsp;</p>
+<h2 id="o-que-o-codigo-acima-faz">O que o código acima faz?</h2>
+<p>&nbsp;</p>
+<ol>
+<li>Utiliza a função <a href="../BibliotecaFirecast/#rrpg.interpretarRolagem">interpretarRolagem</a> da biblioteca "<a href="../BibliotecaFirecast/">rrpg"</a> para interpretar o campo "ataqueDoPersonagem" como uma <a href="../ObjetoRolagem/">rolagem de dados</a>.</li>
+<li>Verifica se a rolagem utiliza algum dado (d4, d6, d8, etc..)... Se não possuir dado na rolagem (Exemplos: "+5", ou "-2"), faz:</li>
+<li>Interpreta uma nova rolagem "1d20" e a concatena/junta ao inicio (Para ficar, por exemplo, "1d20 + 5" ou "1d20 - 2").</li>
+<li>Usando a ficha atual (sheet), tenta localizar o <a href="../ObjetoMesa/">objeto mesa</a> à qual a ficha pertence. É usado a <a href="../BibliotecaFirecast/#função%20getMesaDe">função getMesaDe</a> da <a href="../BibliotecaFirecast/">biblioteca rrpg</a> para isso.</li>
+<li>Se conseguiu localizar o objeto mesa à qual a ficha atual pertence:</li>
+<li>invoca o <a href="../ObjetoChat/#função%20rolarDados">método rolarDados</a> do <a href="../ObjetoMesa/#propriedade%20chat">chat da mesa</a>, passando a rolagem que queremos e um texto adicional "Ataque do personagem".</li>
+</ol>
+<p>&nbsp;</p>
+<h2 id="mudancas-que-voce-pode-querer-fazer-no-codigo-acima">Mudanças que você pode querer fazer no código acima</h2>
+<ul>
+<li>&nbsp;</li>
+<li>O código acima usa o texto da rolagem contido no campo chamado "ataqueDoPersonagem". Talvez a rolagem de sua ficha esteja em outro campo.</li>
+<li>Quando a rolagem não usar nenhum dado (d4, d6, d8, etc..) o código adiciona "1d20" ao inicio dela. Talvez o sistema da sua ficha não utiliza 1d20 nesta rolagem!</li>
+<li>Que tal alterar o texto "Ataque do personagem"?</li>
+<li>Talvez você queira que somente o mestre e o jogador dono da ficha possam rolar dados desta ficha.<ul>
+<li>Você pode utilizar a <a href="../BibliotecaFirecast/#função%20getPersonagemDe">função getPersonagemDe</a> da <a href="../BibliotecaFirecast/">biblioteca rrpg</a> e verificar se sua <a href="../ObjetoBibliotecaItem/#propriedade%20dono">propriedade dono</a> é igual à <a href="../ObjetoMesa/#propriedade%20meuJogador">propriedade meuJogador</a> da variável <a href="../ObjetoMesa/">mesaDoPersonagem</a>. Se for igual, é porque a ficha pertence ao usuário.</li>
+<li>Você pode utilizar a <a href="../ObjetoJogador/#propriedade%20isMestre">propriedade isMestre</a> do <a href="../ObjetoMesa/#propriedade%20meuJogador">objeto meuJogador</a> para verificar se o usuário é mestre da mesa.</li>
+<li>O código que faz esta verificação seria parecido com:&nbsp;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>local personagem = rrpg.getPersonagemDe(sheet); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (personagem ~= nil) then &nbsp; &nbsp; local mesa = personagem.mesa; &nbsp; &nbsp; if ((personagem.dono == mesa.meuJogador) or (mesa.meuJogador.isMestre)) then&nbsp; &nbsp; &nbsp; &nbsp; -- permitir enviar a rolagem&nbsp; &nbsp; &nbsp; &nbsp; end; end; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="veja-tambem">Veja também:</h2>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+<li><a href="../BibliotecaFirecast/">Biblioteca rrpg</a></li>
+<li><a href="../ObjetoMesa/">Objeto Mesa</a></li>
+<li><a href="../ObjetoRolagem/">Objeto Rolagem</a></li>
+<li><a href="../ObjetoChat/">Objeto Chat</a></li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-hlp-winhelp-help-file-to-a-chm-html-help-help-file/">Leave the tedious WinHelp HLP to CHM conversion process behind with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Criarumalistadinamicanaficha/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Criarumalistadinamicanaficha/" class="btn btn-sm btn-link">
+			Criar uma lista dinâmica na ficha
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-link">
+			Criar uma lista dinâmica + painel de detalhes
+		</a>
+		<a href="../Criarumalistadinamicapaineldedet/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Fazerumafichaenviarrolagensparaa.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

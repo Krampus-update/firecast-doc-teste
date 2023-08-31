@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto NodeObserver - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto NodeObserver", url: "#_top", children: [
+				]},
+				{title: "Objeto NodeObserver", url: "#objeto-nodeobserver_1", children: [
+						
+				{title: "Como instanciar um NodeObserver", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoNodo/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoNodo/" class="btn btn-sm btn-link">
+			Objeto Nodo
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoNodeTransaction/" class="btn btn-sm btn-link">
+			Objeto NodeTransaction
+		</a>
+		<a href="../ObjetoNodeTransaction/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-nodeobserver">Objeto NodeObserver</h1>
+<h1 id="objeto-nodeobserver_1">Objeto NodeObserver</h1>
+<p>Este objeto representa um NodeObserver, um mecanismo capaz de monitorar e notificar mudanças que ocorrerem em um determinado <a href="../ObjetoNodo/">Nodo</a> do <a href="../NodeDatabase/">NodeDatabase</a>.</p>
+<p>&nbsp;</p>
+<h2 id="como-instanciar-um-nodeobserver">Como instanciar um NodeObserver</h2>
+<p>É possível instanciar um NodeObserver através do método <a href="../BibliotecaNDB/#ndb.newObserver">NDB.newObserver</a></p>
+<p><a href="../Caracteristicasdetodasastagsvisu/"></a></p>
+<h2 id="caracteristicas">Características</h2>
+<p>O objeto NodeObserver possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>enabled</strong></td>
+<td>Boolean</td>
+<td>Determina se o NodeObserve está ativo e se pode disparar eventos notificando mudanças. Valor padrão: true&nbsp;</td>
+</tr>
+<tr>
+<td><strong>node</strong></td>
+<td><a href="../ObjetoNodo/">objeto Nodo</a></td>
+<td>Somente leitura, contém o <a href="../ObjetoNodo/">objeto Nodo</a> que está sendo monitorado pelo NodeObserver&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onChildAdded</strong>&nbsp;</td>
+<td>Este evento é invocado quando um <a href="../ObjetoNodo/">objeto nodo</a> filho é criado no nodo que está sendo monitorado.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> filho que foi criado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onChildRemoved</strong></td>
+<td>Este evento é invocado quando um <a href="../ObjetoNodo/">objeto nodo</a> filho é deletado do nodo que está sendo monitorado.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> filho que foi removido.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeepChildAdded</strong></td>
+<td>Este evento é invocado quando um <a href="../ObjetoNodo/">objeto nodo</a> filho é criado no nodo que está sendo monitorado ou em algum de seus filhos (monitoramento recursivo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> filho que foi criado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeepChildRemoved</strong></td>
+<td>Este evento é invocado quando um <a href="../ObjetoNodo/">objeto nodo</a> filho é deletado do nodo que está sendo monitorado ou de algum de seus filhos (monitoramento recursivo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> filho que foi removido.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onChanged</strong></td>
+<td>Este evento é invocado quando o valor de algum atributo do nodo que está sendo monitorado é alterado.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> onde ocorreu a mudança do do valor. attribute - Cadeia de caracteres contendo o nome do atributo que mudou. oldValue - Antigo valor do atributo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeepChanged</strong></td>
+<td>Este evento é invocado quando o valor de algum atributo do nodo ou nodo filho do nodo que está sendo monitorado é alterado (monitoramento recursivo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> onde ocorreu a mudança do do valor. attribute - Cadeia de caracteres contendo o nome do atributo que mudou. oldValue - Antigo valor do atributo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onPersistedChanged</strong></td>
+<td>Este evento é invocado quando ocorre uma mudança de valor no <strong>servidor</strong> de algum atributo do nodo que está sendo monitrado.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> onde ocorreu a mudança do do valor no servidor. attribute - Cadeia de caracteres contendo o nome do atributo que mudou. oldValue - Antigo valor de servidor do atributo.&nbsp; Observações: Devido a existência de transações no NodeDatabase e também devido à característica assíncrona do NodeDatabase, o valor dos atributos do NodeDatabases podem, temporariamente, não refletir ao valor salvo no servidor e nem ao valor que os outros usuários remotos tem acesso. Este evento é chamado quando alguma alteração é confirmada no lado do Servidor, persistida e disponibilizada para todos os outros usuários remotos. O valor persistido pode ser obtido através da função <a href="../BibliotecaNDB/#ndb.getPersistedAttributeValue">NDB.getPersistedAttributeValue()</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeepPersistedChanged</strong></td>
+<td>Este evento é invocado quando ocorre uma mudança de valor no <strong>servidor</strong> de algum atributo do nodoou nodo filho que está sendo monitrado (monitoramento recursivo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> onde ocorreu a mudança do do valor no servidor. attribute - Cadeia de caracteres contendo o nome do atributo que mudou. oldValue - Antigo valor de servidor do atributo.&nbsp; Observações: Devido a existência de transações no NodeDatabase e também devido à característica assíncrona do NodeDatabase, o valor dos atributos do NodeDatabases podem, temporariamente, não refletir ao valor salvo no servidor e nem ao valor que os outros usuários remotos tem acesso. Este evento é chamado quando alguma alteração é confirmada no lado do Servidor, persistida e disponibilizada para todos os outros usuários remotos. O valor persistido pode ser obtido através da função <a href="../BibliotecaNDB/#ndb.getPersistedAttributeValue">NDB.getPersistedAttributeValue()</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onUserChanged</strong></td>
+<td>Este evento é invocado quando o valor de algum atributo do nodo que está sendo monitorado é alterado <strong>porque</strong> o <strong>usuário local</strong> alterou o conteúdo do do campo, seja editando ele visualmente ou através de código Lua.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> onde ocorreu a mudança do do valor. attribute - Cadeia de caracteres contendo o nome do atributo que mudou. oldValue - Antigo valor do atributo.&nbsp; Observações: Lembre-se, este evento será disparado apenas quando o usuário local alterar o valor de algum dos campos do nodo monitorado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeepUserChanged</strong></td>
+<td>Este evento é invocado quando o valor de algum atributo do nodo ou nodo filho que está sendo monitorado é alterado <strong>porque</strong> o <strong>usuário local</strong> alterou o conteúdo do do campo, seja editando ele visualmente ou através de código Lua (monitoramento recursivo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> onde ocorreu a mudança do do valor. attribute - Cadeia de caracteres contendo o nome do atributo que mudou. oldValue - Antigo valor do atributo.&nbsp; Observações: Lembre-se, este evento será disparado apenas quando o usuário local alterar o valor de algum dos campos do nodo ou nodo filho monitorado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeleted</strong></td>
+<td>Este evento é invocado quando o <a href="../ObjetoNodo/">objeto nodo</a> que está sendo monitorado é apagado.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> que foi removido.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onPermissionListChanged</strong></td>
+<td>Este evento é invocado quando definições de permissões de acesso são inseridas ou removidas do <a href="../ObjetoNodo/">objeto nodo </a>que está sendo monitorado.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> que sofreu alteração na lista de definições de permissões.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onDeepPermissionListChanged</strong></td>
+<td>Este evento é invocado quando definições de permissões de acesso são inseridas ou removidas do <a href="../ObjetoNodo/">objeto nodo </a>que está sendo monitorado ou em algum de seus nodos filhos (monitoramento recursivo).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> que sofreu alteração na lista de definições de permissões.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onFinalPermissionsCouldBeChanged</strong></td>
+<td>Este evento é invocado quando as permissões finais de acesso a este nodo podem ter sofrido alterações porque uma permissão em um nodo pai foi removida/inserida e, por consequência, pode ter sido herdada pelo nodo que está sendo monitorado, ou as permissões finais podem ter sofrido alterações porque o usuário mudou de grupo de permissões (Exemplo: O usuário atual virou +mestre).&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> que pode ter sofrido alteração nas permissões finais.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onStateChanged</strong></td>
+<td>Este evento é invocado quando o estado de carregamento do node (ver <a href="../BibliotecaNDB/#ndb.getState">ndb.getState</a>) muda.&nbsp; Parâmetros: node - O <a href="../ObjetoNodo/">objeto nodo</a> que sofreu mudança no estado de carregamento.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observacoes">Observações:</h3>
+<ul>
+<li>&nbsp;</li>
+<li>Se um NodeObserver não for mais acessível pelo código e for destruído pela coleta de lixos do Lua, os eventos não serão mais disparados.</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-monitorando-um-node-sheet">Exemplo 1 - Monitorando um Node "sheet"</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>self.observer = ndb.newObserver(sheet);        self.observer.onChildAdded =         <strong>function</strong>(node)                 <em>--  Esta função será chamada quando um novo Nodo Filho for criado em sheet</em>         <strong>end</strong>;           self.observer.onChildRemoved =         <strong>function</strong>(node)                 <em>--  Esta função será chamada quando um nodo Filho for removido de sheet</em>         <strong>end</strong>;                   self.observer.onChanged =         <strong>function</strong>(node, attribute, oldValue)                 <em>-- Esta função será chamada quando algum atributo de sheet mudar de valor</em>                 <em>-- attribute possui o nome do atributo que sofreu alteração</em>         <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Effortlessly Create Encrypted, Password-Protected PDFs</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoNodo/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoNodo/" class="btn btn-sm btn-link">
+			Objeto Nodo
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoNodeTransaction/" class="btn btn-sm btn-link">
+			Objeto NodeTransaction
+		</a>
+		<a href="../ObjetoNodeTransaction/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoNodeObserver.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

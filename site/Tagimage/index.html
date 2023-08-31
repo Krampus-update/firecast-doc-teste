@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag image - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag image", url: "#_top", children: [
+				]},
+				{title: "Tag IMAGE", url: "#tag-image_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TaghorzLine/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TaghorzLine/" class="btn btn-sm btn-link">
+			Tag horzLine
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagimageCheckBox/" class="btn btn-sm btn-link">
+			Tag imageCheckBox
+		</a>
+		<a href="../TagimageCheckBox/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-image">Tag image</h1>
+<h1 id="tag-image_1">Tag IMAGE</h1>
+<p>&nbsp; &nbsp; A tag/componente <strong>image</strong> representa uma imagem na interface visual.</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>image</strong> possui <strong>todas</strong> as características de um controle qualquer. Veja <a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a><strong>.</strong></p>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o <strong>image</strong> também possui as seguintes características:</p>
+<p>&nbsp;</p>
+<h3 id="propriedades-e-atributos">Propriedades e Atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>animate</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Define se deve executar a animação de imagens que são animadas (exemplo: GIF, GIFV) quando suportadas.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>url, src ou imageURL</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Define a URL/caminho de onde se encontra a imagem!&nbsp; Este valor: Pode ser um endereço de internet (exemplo: “<a href="http://xxxx.com.br/a.png">http://xxxx.com.br/a.png</a>”)&nbsp; Pode ser o caminho de um arquivo contido no pacote do plugin. Pode ser um arquivo que se encontra no <a href="../HDVirtual/">HD Virtual</a> do plugin instalado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>style ou showStyle</strong></td>
+<td>Enumerado: “proportional” “autoFit” “originalSize” “stretch”</td>
+<td>“proportional”&nbsp;</td>
+<td>Define como a imagem será apresentada na interface:&nbsp; “proportional”: A imagem será redimensionada, proporcionalmente, para o tamanho do controle, não necessariamente ocupando todo o espaço disponível.&nbsp; “autoFit”: A imagem será exibida de forma que SEMPRE ocupe TODO o espaço do controle da forma mais adequada, isto é, aumentando/diminuindo a imagem, centralizando-a e cortando excessos.&nbsp; “originalSize”: A imagem será apresentada no tamanho original, sem redimensionamento.&nbsp; “stretch”: A imagem será redimensionada de forma que ocupe todo o espaço disponível no controle, podendo achatar ou alongar a imagem.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>center</strong></td>
+<td>Boolean</td>
+<td>true</td>
+<td>Quando true, a imagem será exibida de forma centralizada no controle.&nbsp; Esta propriedade é válida apenas quando a propriedade “showStyle” for “proportional” ou “originalSize”&nbsp;</td>
+</tr>
+<tr>
+<td><strong>optimizeQuality ou ** </strong>optimize**</td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando true, o SDK salvará uma cópia da imagem já redimensionada de acordo com a propriedade “style”.&nbsp; Utilize este atributo <strong>apenas</strong> em controles <strong>image</strong> que não sofrem constante mudança de tamanho.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>showProgress</strong></td>
+<td>Boolean</td>
+<td>true</td>
+<td>Quando true, o controle exibe uma barra de carregamento para informar que a imagem está sendo baixada.&nbsp; Quando false, a imagem definida pela propriedade “URLWhileLoading” é exibida enquanto o download é feito.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>URLWhileLoading</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Define a URL/caminho da imagem que é exibida APENAS enquanto a imagem principal (definida na propriedade “url”) é carregada.&nbsp; Este valor: Pode ser um endereço de internet (exemplo: “<a href="http://xxxx.com.br/a.png">http://xxxx.com.br/a.png</a>”)&nbsp; Pode ser o caminho de um arquivo contido no projeto do plugin Pode ser um arquivo que se encontra no HD Virtual do plugin instalado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>field</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, a imagem passa a apresentar a imagem de URL contida no campo do NodeDatabase informado.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>editable</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>Quando True, a tag permite o usuário alterar a URL da imagem.&nbsp; Se o atributo "field" estiver preenchido, a URL escolhida pelo usuário é salva no campo do NodeDatabase.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>naturalAnimated</strong></td>
+<td>Boolean</td>
+<td>false</td>
+<td>(Somente Leitura) Quando a imagem tiver sido carregada, contém a informação se ela suporta animação.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>naturalWidth</strong></td>
+<td>Double</td>
+<td>&#48;</td>
+<td>(Somente Leitura) Quando a imagem tiver sido carregada, contém a largura original da imagem em pixels.&nbsp; &nbsp;</td>
+</tr>
+<tr>
+<td><strong>naturalHeight</strong></td>
+<td>Double</td>
+<td>&#48;</td>
+<td>(Somente Leitura) Quando a imagem tiver sido carregada, contém a altura original da imagem em pixels. &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onLoad</strong></td>
+<td>Este evento é invocado quando a imagem tiver sido carregada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onPictureLoadedChange</strong></td>
+<td>Este evento é invocado quando a imagem que será exibida mudou.&nbsp; Este evento é chamado quando a imagem é carregada 100% ou quando uma imagem é descarregada.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Veja <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></p>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<p>&nbsp;</p>
+<h3 id="exemplo-1-imagem-dentro-do-projeto-de-plug-in">Exemplo 1 - Imagem dentro do projeto de plug-in</h3>
+<p>Neste exemplo, existe uma pasta chamada "imagens" dentro da pasta projeto do plug-in, e dentro desta pasta existe a imagem "fenix.png".</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;image</strong> left="20" top="20" width="200" height="200" src="/imagens/fenix.png"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem32.png" /></p>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-imagem-baixada-por-url-e-diversos-styles">Exemplo 2 - Imagem baixada por URL e diversos styles</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>          <strong>\&lt;image</strong> left="20" top="20" width="400" height="200" style="autoFit"                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; src="http://fc03.deviantart.net/fs70/i/2011/234/5/4/dragon_aspects_by_rattlesnakedefender-d47ii5y.jpg"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem35.png" /> style="proportional"</th>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem34.png" /> style="autoFit"&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Image" src="../lib/NewItem36.png" /> style="originalSize"</td>
+<td style="text-align: center;"><img alt="Image" src="../lib/NewItem37.png" /> style="stretch"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com">Free EPub and documentation generator</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TaghorzLine/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TaghorzLine/" class="btn btn-sm btn-link">
+			Tag horzLine
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagimageCheckBox/" class="btn btn-sm btn-link">
+			Tag imageCheckBox
+		</a>
+		<a href="../TagimageCheckBox/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Tagimage.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

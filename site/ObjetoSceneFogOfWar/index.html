@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto SceneFogOfWar - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto SceneFogOfWar", url: "#_top", children: [
+				]},
+				{title: "Objeto SceneFogOfWar", url: "#objeto-scenefogofwar_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneEffectArea/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneEffectArea/" class="btn btn-sm btn-link">
+			Objeto SceneEffectArea
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoSceneGraphicItem/" class="btn btn-sm btn-link">
+			Objeto SceneGraphicItem
+		</a>
+		<a href="../ObjetoSceneGraphicItem/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-scenefogofwar">Objeto SceneFogOfWar</h1>
+<h1 id="objeto-scenefogofwar_1">Objeto SceneFogOfWar</h1>
+<p>O Objeto SceneFogOfWar é responsável por lidar a névoa de guerra do scene.</p>
+<h2 id="heranca">Herança</h2>
+<p>O o<strong>bjeto SceneFogOfWar</strong> herda de <a href="../ObjetoSceneBaseObject/">SceneBaseObject</a> e possui também <strong>TODAS</strong> todas as suas características.</p>
+<p>&nbsp;</p>
+<p>Veja também:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../ObjetoSceneBaseObject/">Objecto SceneBaseObject</a></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o objeto SceneDrawingOpText também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>objectType</strong></td>
+<td>String "fogOfWar"</td>
+<td>(Somente Leitura) Contém um texto que identifica o tipo do objeto - "fogOfWar"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>enabled</strong></td>
+<td>Boolean</td>
+<td>Define se o Fog of War está ativo no tabuleiro.&nbsp; Apenas o mestre pode alterar esta propriedade.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>ambientLight</strong></td>
+<td>Enumerado: "intense" "weak" "none"</td>
+<td>Define qual é a iluminação ambiente do scene e pode ser:&nbsp; "intense" (Padrão) - Todo o tabuleiro recebe uma iluminação de ambiente Intensa. Exemplo: Ambiente à luz do sol.&nbsp; "weak" - Todo o tabuleiro recebe uma iluminação de ambiente fraca. Exemplo: Luz do luar.&nbsp; "none" - O tabuleiro não recebe nenhum tipo de iluminação do ambiente.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>sharingMode</strong></td>
+<td>Enumerado: "individual" "group"</td>
+<td>Define como ocorre o compartilhamento de visão entre os membros do grupo.&nbsp; "individual" (Padrão) - Cada membro do grupo enxerga apenas o que seus personagens enxergam.&nbsp; "group" - Cada membro do grupo enxerga o que todo o grupo enxerga.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fogOfWar:setArea(polygon, areaType)</strong></td>
+<td>Configura uma área do tabuleiro para se comportar como um determinado tipo de área de Fog of War.&nbsp; Parâmetros: polygon - Um array de tabelas que contém propriedades x e y (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>), e cada cada item do array representando um vértice do polígono. Este é o polígono que será configurado. areaType - O tipo que esta área se comportará como. Pode ser um dos seguintes valores: "explorable" - Uma área à explorar "alwaysVisible" - Uma área sempre visível aos jogadores "alwaysHidden" - Uma área sempre escondida dos jogadores "semiVisible" - Uma área parcialmente visível aos jogadores&nbsp; Observações: Apenas o mestre pode configurar áreas do tabuleiro&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fogOfWar:resetAreas();</strong></td>
+<td>Reseta todas as áreas definidas no tabuleiro. Isto é, todo o tabuleiro passará a ser uma área do tipo "explorable".&nbsp; Observações: Apenas o mestre pode configurar áreas do tabuleiro&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fogOfWar:addOpaqueArea(polygon)</strong></td>
+<td>Adiciona uma área opaca/parede ao tabuleiro.&nbsp; Parâmetros: polygon - Um array de tabelas que contém propriedades x e y (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>), e cada cada item do array representando um vértice do polígono. Este é o polígono que será configurado.&nbsp; Observações: Apenas o mestre pode configurar áreas opacas do tabuleiro.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fogOfWar:removeOpaqueArea(polygon)</strong></td>
+<td>Remove uma área opaca/parede ao tabuleiro.&nbsp; Parâmetros: polygon - Um array de tabelas que contém propriedades x e y (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>), e cada cada item do array representando um vértice do polígono. Este é o polígono que será removido das áreas opacas.&nbsp; Observações: Apenas o mestre pode configurar áreas opacas do tabuleiro.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fogOfWar:resetOpaqueAreas();</strong></td>
+<td>Remove todas as áreas opacas do tabuleiro.&nbsp; Observações: Apenas o mestre pode configurar áreas opacas do tabuleiro.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fogOfWar:testCircleMovementCollisionVsOpaqueAreas(centerX, centerY, r, offsetX, offsetY)</strong></td>
+<td>Verifica se um determinado círculo movendo colide com alguma área opaca/parede do tabuleiro.&nbsp; Parâmetros: centerX - Centro do círculo no eixo X (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) antes de realizar o movimento centerX - Centro do círculo no eixo Y (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) antes de realizar o movimento. r - Raio do círculo (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) offsetX - Define o sentido e comprimento do movimento do círculo no eixo X (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) ... Exemplo: 1.0 significa que o círculo andou 1.0 métrica mundo para a direita. offsetX - dirX - Define o sentido e comprimento do movimento do círculo no eixo Y (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) ... Exemplo: 1.0 significa que o círculo andou 1.0 métrica mundo para baixo.&nbsp; Retorno: Esta função retorna 3 valores na seguinte ordem: true se o ocorre uma colisão durante o movimento ou false Centro do círculo no eixo X (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) onde ocorreu a colisão. Centro do círculo no eixo Y (<a href="../MetricadoMundovsMetricadaTela/">em métrica de mundo</a>) onde ocorreu a colisão.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Keep Your PDFs Safe from Unauthorized Access with These Security Measures</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoSceneEffectArea/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoSceneEffectArea/" class="btn btn-sm btn-link">
+			Objeto SceneEffectArea
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoSceneGraphicItem/" class="btn btn-sm btn-link">
+			Objeto SceneGraphicItem
+		</a>
+		<a href="../ObjetoSceneGraphicItem/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoSceneFogOfWar.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:42 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

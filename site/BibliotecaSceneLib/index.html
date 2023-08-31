@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca SceneLib - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca SceneLib", url: "#_top", children: [
+				]},
+				{title: "Biblioteca SceneLib", url: "#biblioteca-scenelib_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca SceneLib", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-scenelib">Biblioteca SceneLib</h1>
+<h1 id="biblioteca-scenelib_1">Biblioteca SceneLib</h1>
+<p>Biblioteca que contém funções relacionadas ao Scene 3/Tabuleiro de combate do RRPG</p>
+<p>Todas as funções estão contidas na unidade "scene.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "scene.lua"</em> require("scene.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> SceneLib.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-scenelib">Funções da biblioteca SceneLib</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> SceneLib.getLoadedScenes()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna um array de Scenes que estão rodando no RRPG no momento.</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Array (tabela lua indexada de 1 a #tabela) de <a href="../ObjetoScene/">objeto Scene</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> SceneLib.registerPlugin(attachCallback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Registra um plug-in de scene no RRPG.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>attachCallback - Uma função que será invocada para cada Scene rodando ou que vier a ser carregado. Esta função recebe dois parâmetros na seguinte ordem: scene (<a href="../ObjetoScene/">um objeto Scene</a>) e attachment (um <a href="../ObjetoScenePluginAttachment/">objeto ScenePluginAttachment</a>) representando, respectivamente, o scene o qual o plug-in deve instalar e um objeto que identifica esta ligação entre o plug-in e o scene.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um identificador do plug-in registrado que poderá ser utilizado posteriormente como parâmetro para a função <a href="./#unregisterPlugin()">SceneLib.unregisterPlugin</a> para desregistrá-lo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um pacote .rpk (plugin SDK 3) pode instalar mais de um Plug-in de Scene.</li>
+<li>Um plug-in de scene pode existir mesmo quando não há nenhum Scene rodando no RRPG, não tem problema.</li>
+<li>Um plug-in de scene pode se anexar a mais de 1 scene ao mesmo tempo! A função "attachCallback" será chamada uma vez para cada Scene existente e uma instância do <a href="../ObjetoScenePluginAttachment/">objeto ScenePluginAttachment</a> será criada para representar cada uma desta ligação "plugin x scene".</li>
+<li>Assim como um plug-in pode se anexar a vários scenes, um scene pode estar anexado a vários plug-ins. É uma relação N:N (leia-se: N para N).</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo de um plug-in simples que apenas exibe uma mensagem quando se anexa a um Scene:</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua"); require("dialogs.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                    showMessage("Plugin anexado a um tabuleiro de tamanho " ..                     scene.worldWidth .. scene.worldMetricName .. " x " ..                     scene.worldHeight .. scene.worldMetricName ..                     " de cor de fundo ".. scene.bkgColor);     <strong>end</strong>);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> SceneLib.unregisterPlugin(pluginID)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Desregistra um plug-in de scene do RRPG que fora previamente instalado pela função <a href="./#registerPlugin()">SceneLib.registerPlugin </a></p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>pluginID - O identificador do plugin que deseja desinstalar. Este valor é retornado pela função <a href="./#registerPlugin()">SceneLib.registerPlugin</a> .</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Normalmente não é preciso se preocupar em desregistrar plug-ins de scene pois o RRPG já faz este trabalho automaticamente quando o .rpk é descarregado da memória.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> SceneLib.Math.newRotationMatrix(angle, pivoX, pivoY)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Cria e retorna uma Matriz de rotação 2D</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>angle - O ângulo da rotação em graus</li>
+<li>pivoX - A posição X do pivô da rotação</li>
+<li>pivoY - A posição Y do pivô da rotação</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A Matriz de rotação. (Um tipo de dados interno)</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> SceneLib.Math.transformPoint(x, y, matrix)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Transforma a posição de um ponto ao multiplicá-lo por uma matriz.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>x - A posição X do ponto</li>
+<li>y - A posição Y do ponto</li>
+<li>matrix - Uma matriz de transformação.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>x - A nova posição X</li>
+<li>y - A nova posição Y</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> SceneLib.Math.rotatePoint(x, y, angle, pivoX, pivoY)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Rotaciona um ponto.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>x - A posição X do ponto</li>
+<li>y - A posição Y do ponto</li>
+<li>angle - O ângulo da rotação em graus</li>
+<li>pivoX - A posição X do pivô da rotação</li>
+<li>pivoY - A posição Y do pivô da rotação</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>x - A nova posição X</li>
+<li>y - A nova posição Y</li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-hlp-winhelp-help-file-to-a-chm-html-help-help-file/">Modernize your help files with HelpNDoc's WinHelp HLP to CHM conversion tool</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaSceneLib.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Dialogs - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Dialogs", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Dialogs", url: "#biblioteca-dialogs_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca Dialogs", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Promiseobject/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Promiseobject/" class="btn btn-sm btn-link">
+			Promise object
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaFireDrive/" class="btn btn-sm btn-link">
+			Biblioteca FireDrive
+		</a>
+		<a href="../BibliotecaFireDrive/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-dialogs">Biblioteca Dialogs</h1>
+<h1 id="biblioteca-dialogs_1">Biblioteca Dialogs</h1>
+<p>A biblioteca dialogs provê funções para exibir mensagens e interagir com o usuário através de diálogos.</p>
+<p>Todas as funções estão contidas na table/variável "Dialogs" da unidade "dialogs.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "dialogs.lua"</em> require("dialogs.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Dialogs.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-dialogs">Funções da biblioteca Dialogs</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.showMessage(msg [, callback]) ou <strong>function</strong> showMessage(msg [, callback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma mensagem de informação para o usuário&nbsp; (um simples diálogo com o botão "OK").</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>msg – Uma cadeia de caracteres contendo a mensagem que deverá ser exibida na interface.</li>
+<li>(OPCIONAL) callback - uma função que será chamada após o usuário clicar em OK.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Não retorna nenhum valor.</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o usuário responder o diálogo para continuar, Isto é, o diálogo é apresentado na interface e o código LUA continua a sua execução normal enquanto isso.</li>
+<li>Se quiser executar algo após o usuário confirmar o diálogo, informe o parâmetro "callback"</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.alert(msg [, callback]) ou <strong>function</strong> alert(msg [, callback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma mensagem de alerta para o usuário&nbsp; (um simples diálogo com ícone de alerta e botão "OK").</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>msg – Uma cadeia de caracteres contendo a mensagem que deverá ser exibida na interface.</li>
+<li>(OPCIONAL) callback - uma função que será chamada após o usuário clicar em OK.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Não retorna nenhum valor.</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o usuário responder o diálogo para continuar, Isto é, o diálogo é apresentado na interface e o código LUA continua a sua execução normal enquanto isso.</li>
+<li>Se quiser executar algo após o usuário confirmar o diálogo, informe o parâmetro "callback"</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.confirmOkCancel(question [, callback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma informação na interface com os botões OK e CANCEL, permitindo o usuário optar por continuar ou por cancelar alguma ação.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>question – Uma cadeia de caracteres contendo a mensagem que deverá ser exibida na interface.</li>
+<li>(OPCIONAL) callback - uma função que será chamada após o usuário se decidir. Esta função receberá no primeiro parâmetro o valor <strong>true</strong> se o usuário tiver optado por "OK" ou <strong>false</strong> caso contrário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Não retorna nenhum valor.</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o usuário responder o diálogo para continuar, Isto é, o diálogo é apresentado na interface e o código LUA continua a sua execução normal enquanto isso.</li>
+<li>Se quiser saber qual foi a escolha do usuário, utilize o parâmetro "callback".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.confirmOkCancel("Continuar irá acontecer X coisa",         <strong>function</strong> (confirmado)                 <strong>if</strong> confirmado <strong>then</strong>                         <em>-- usuario escolheu OK</em>                 <strong>else</strong>                         <em>-- usuário escolheu CANCEL</em>                 <strong>end</strong>;         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.confirmYesNo(question [, callback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe uma informação na interface com os botões YES e NO, permitindo o usuário responder "sim" ou "não" a alguma pergunta.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>question – Uma cadeia de caracteres contendo a pergunta que deverá ser exibida na interface.</li>
+<li>(OPCIONAL) callback - uma função que será chamada após o usuário se decidir. Esta função receberá no primeiro parâmetro o valor <strong>true</strong> se o usuário tiver optado por "SIM" ou <strong>false</strong> caso contrário.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Não retorna nenhum valor.</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o usuário responder o diálogo para continuar, Isto é, o diálogo é apresentado na interface e o código LUA continua a sua execução normal enquanto isso.</li>
+<li>Se quiser saber qual foi a escolha do usuário, utilize o parâmetro "callback".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.confirmYesNo("Deseja realmente apagar este item?",         <strong>function</strong> (confirmado)                 <strong>if</strong> confirmado <strong>then</strong>                         <em>-- usuario escolheu SIM</em>                 <strong>else</strong>                         <em>-- usuário escolheu NAO</em>                 <strong>end</strong>;         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.showMessageDlg(message, dialogType, dialogButtons [, callback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo customizado pelo programador na interface.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>message – Uma cadeia de caracteres contendo a mensagem que será exibida na interface</li>
+<li>dialogType - O tipo de diálogo. Pode ser um dos seguintes valores:<ul>
+<li>dialogs.DT_INFORMATION&nbsp; - uma informação</li>
+<li>dialogs.DT_ERROR - um erro</li>
+<li>dialogs.DT_WARNING - um alerta</li>
+<li>dialogs.DT_CONFIRMATION - uma confirmação</li>
+</ul>
+</li>
+<li>dialogButtons - Quais botões serão exibidos na interface. É um arranjo/tabela lua contendo a combinação dos seguintes valores:<ul>
+<li>dialogs.DB_YES</li>
+<li>dialogs.DB_NO</li>
+<li>dialogs.DB_OK</li>
+<li>dialogs.DB_CANCEL</li>
+<li>dialogs.DB_ABORT</li>
+<li>dialogs.DB_RETRY</li>
+<li>dialogs.DB_IGNORE</li>
+<li>dialogs.DB_CLOSE</li>
+</ul>
+</li>
+<li>(OPCIONAL) callback - uma função que será chamada após o usuário se decidir. Esta função receberá no primeiro parâmetro qual botão foi pressionado. (Este valor é um daqueles informados no parâmetro dialogButtons).</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Não retorna nenhum valor.</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o usuário responder o diálogo para continuar, Isto é, o diálogo é apresentado na interface e o código LUA continua a sua execução normal enquanto isso.</li>
+<li>Se quiser saber qual foi a escolha do usuário, utilize o parâmetro "callback".</li>
+<li>Nem toda combinação de botões são válidas. As combinações de botões válidas são:<ul>
+<li>{dialogs.DB_OK}</li>
+<li>{dialogs.DB_OK, dialogs.DB_CANCEL}</li>
+<li>{dialogs.DB_YES, dialogs.DB_NO}</li>
+<li>{dialogs.DB_YES, dialogs.DB_NO, dialogs.DB_CANCEL}</li>
+<li>{dialogs.DB_ABORT, dialogs.DB_IGNORE, dialogs.DB_RETRY}</li>
+<li>{dialogs.DB_ABORT, dialogs.DB_IGNORE}</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.showMessageDlg("O que fazer?", dialogs.DT_WARNING,                        {dialogs.DB_ABORT, dialogs.DB_IGNORE, dialogs.DB_RETRY},    &nbsp;                                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <strong>function</strong> (escolha)                        &nbsp; &nbsp; <strong>if</strong> escolha == dialogs.DB_ABORT <strong>then</strong>                            &nbsp; &nbsp; <em>-- usuario escolheu ABORT</em>                            <strong>elseif</strong> escolha == dialogs.DB_IGNORE <strong>then</strong>                                <em>-- usuário escolheu IGNORE</em>                            <strong>elseif</strong> escolha == dialogs.DB_RETRY <strong>then</strong>                               <em>-- usuário escolheu RETRY                                                     *                            </em><em>end</em><em>;                         </em><em>end</em>*);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.inputQuery(caption, prompt[, initialValue [, confirmCallback [, cancelCallback, [, allowEmptyString]]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário preencha alguma informação.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>caption – Cadeia de caracteres contendo o título do diálogo</li>
+<li>prompt - Cadeia de caracteres que contém uma orientação para que o usuário saiba o que deve digitar. Exemplo: "Informe seu nome".</li>
+<li>(OPCIONAL) initialValue - Cadeia de caracteres contendo o valor que já virá preenchido no diálogo.</li>
+<li>(OPCIONAL) confirmCallback - Uma função que será invocada após o usuário confirmar o preenchimento. O valor que foi informado pelo usuário é passado no primeiro parâmetro desta função.</li>
+<li>(OPCIONAL) cancelCallback - Uma função que será invocada se o usuário cancelar o diálogo.</li>
+<li>(OPCIONAL) allowEmptyString - Um booleano indicando se o usuário pode informar uma cadeia de caracteres vazia. Se omitido, este parâmetro é interpretado como <strong>false</strong>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno: \
+&nbsp; &nbsp; Não retorna nenhum valor.</p>
+<p>&nbsp;</p>
+<p>Observações:&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função não espera o usuário responder o diálogo para continuar, Isto é, o diálogo é apresentado na interface e o código LUA continua a sua execução normal enquanto isso.</li>
+<li>Se quiser saber qual foi a informação preenchida pelo usuário, utilize os parâmetros "confirmCallback" e/ou "cancelCallback".</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.inputQuery("Cadastro", "Informe Seu Nome", "",         <strong>function</strong> (valorPreenchido)                 showMessage("O usuario preencheu: " .. valorPreenchido);         <strong>end</strong>,                <strong>function</strong>()                 showMessage("O usuário cancelou");         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.openFile(prompt[, accept [, multiple [, callback [, cancelCallback]]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário escolha um ou mais arquivos do seu computador/dispositivo para abrir.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre qual arquivo ele deve selecionar. Exemplo: "Escolha uma imagem".</li>
+<li>(OPCIONAL) accept - Uma cadeia de caracteres usada para filtrar quais arquivos o usuário pode selecionar. Você pode passar aqui:<ul>
+<li>".\&lt;EXTENSÃO&gt;" para filtrar arquivos de uma determinada extensão. Exemplo: ".txt", ".mp3", ".png", etc..</li>
+<li>"\&lt;MIME_TYPE&gt;" para filtrar arquivos pelo Media/Mime Type. Exemplos: "image/png", "application/xml", "text/plain", etc..</li>
+<li>"image/*" para filtrar todos os formatos de imagens suportados pelo RRPG.</li>
+<li>"*.*" ou nil - Para aceitar qualquer tipo de arquivo.</li>
+<li>Uma lista das opções anteriores separadas por vírgula. Exemplos:</li>
+<li>".png, .txt, .bmp" - para aceitar arquivos de extensões PNG, TXT e BMP</li>
+<li>".html, text/plain, image/*" - para aceitar arquivos HTML, arquivos de media type text/plain e também qualquer imagem.</li>
+</ul>
+</li>
+<li>(OPCIONAL) multiple - true para permitir o usuário selecionar mais de um arquivo ao mesmo tempo ou false para permitir selecionar apenas um arquivo. Se omitido este valor, o padrão é "false".</li>
+<li>(OPCIONAL) callback - Uma função que será invocada quando o usuário confirmar a seleção do(s) arquivo(s). Esta função recebe em seu primeiro parâmetro um array de tabelas luas que contém cada uma:<ul>
+<li>name - Uma propriedade contendo o nome curto do arquivo selecionado. Exemplos: "Arquivo.txt", "Minha imagem de férias.png", etc..</li>
+<li>stream - Um <a href="../ObjetoStream/">objeto stream</a> somente leitura contendo os dados do arquivo selecionado.</li>
+</ul>
+</li>
+<li>(OPCIONAL) cancelCallback - Uma função que será invocada quando o usuário cancelar a seleção de arquivos.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta é a única maneira que o plug-in tem de obter acesso a arquivos do dispositivo do usuário.</li>
+<li>Se o parâmetro "multiple" for false, a função "callback" sempre receberá um array contendo 1 tabela lua descrevendo o arquivo selecionado. Se o parâmetro "multiple" for true, o número de tabelas neste array varia conforme a quantidade de arquivos selecionados.</li>
+<li>No FirecastMobile: Esta função só consegue abrir imagens da galeria do celular/tablet do usuário. Se o conteúdo do parâmetro "accept" não aceitar imagens, o evento "cancelCallback" será chamado imediatamente depois.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplos:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Selecionando múltiplos arquivos de extensão .txt e .html:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Dialogs.openFile("Selecione os arquivos", ".txt, .html", true,         <strong>function</strong>(arquivos)                 <strong>for</strong> i = 1, #arquivos, 1 <strong>do</strong>                         <strong>local</strong> arq = arquivos[i];                         <em>-- arq.name possui o nome do arquivo</em>                         <em>-- arq.stream possui o objeto stream do conteúdo</em>                 <strong>end</strong>;         <strong>end</strong>);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Selecionando 1 arquivo de imagem:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Dialogs.openFile("Selecione o arquivo de imagem", "image/*", false,         <strong>function</strong>(arquivos)                 <strong>local</strong> arq = arquivos[1];                 <em>-- arq.name possui o nome do arquivo</em>                 <em>-- arq.stream possui o objeto stream do conteúdo              *         </em><em>end</em>*);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.saveFile(prompt, stream, [suggestedFileName [, mimeType [, callback [, cancelCallback]]]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa salvar um arquivo em seu dispositivo.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre qual arquivo ele vai salvar. Exemplo: "Salvar imagem do personagem".</li>
+<li>stream - Um Um <a href="../ObjetoStream/">objeto stream</a> contendo o que será salvo no dispositivo do usuário.</li>
+<li>(OPCIONAL) suggestedFileName - Uma cadeia de caracteres contendo uma <strong>sugestão</strong> de nome de arquivo para o usuário. Exemplo: "novoArquivo.txt"</li>
+<li>(OPCIONAL) mimeType - Uma cadeia de caracteres usada para definir o tipo de conteúdo que "stream" possúi.<ul>
+<li>Exemplos:&nbsp;</li>
+<li>"text/plain"</li>
+<li>"image/png"</li>
+<li>"image/jpeg"</li>
+<li>"application/octet-stream"</li>
+</ul>
+</li>
+<li>(OPCIONAL) callback - Uma função que será invocada quando o usuário confirmar a gravação do arquivo</li>
+<li>(OPCIONAL) cancelCallback - Uma função que será invocada quando o usuário cancelar a gravação do arquivo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Alerta:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Após chamar saveFile, não altere e nem feche o objeto "stream" antes que "callback" ou "cancelCallback" seja invocado. O SDK mantém uma referência ao stream até que o usuário decida gravar o arquivo e não é seguro alterá-lo neste meio tempo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta é a única maneira de salvar um arquivo no dispositivo do usuário.</li>
+<li>Recomenda-se informar os parâmetros "mimeType" e "suggestedFileName" quando possível para que o SDK possa interagir com o usuário da melhor forma possível.<ul>
+<li>Se você <strong>não</strong> informar mimeType, o SDK automaticamente o sugere conforme a extensão de suggestedFileName.</li>
+<li>Se você <strong>não</strong> informar suggestedFileName, o SDK automaticamente sugere a extensão do arquivo conforme mimeType.</li>
+</ul>
+</li>
+<li>No Android:<ul>
+<li>Esta função apresenta aquela clássifca interface de "compartilhar" do sistema operacional.</li>
+<li>A função "callback" é invocada imediatamente, não sendo possível saber se o usuário compartilhou ou não o conteúdo de stream.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.selectImageURL(defaultURL, [, callback [, cancelCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher uma URL de uma imagem.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>defaultURL - Uma cadeia de caracteres contendo uma URL que será sugerida para o usuário. Pode ser <strong>nil</strong> ou vazia.</li>
+<li>(OPCIONAL) callback - Uma função que será invocada quando o usuário confirmar a seleção de uma imagem. O primeiro parâmetro desta função contém a URL escolhida pelo usuário.</li>
+<li>(OPCIONAL) cancelCallback - Uma função que será invocada quando o usuário cancelar a seleção de imagem.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função abre a tradicional interface de escolha de imagens do RRPG.</li>
+<li>Esta função é assíncrona. Ou seja, o código continua sua execução enquanto o usuário escolhe a imagem. A única maneira de obter a URL escolhida pelo usuário é através do parâmetro "callback".</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.selectImageURL("http://www.google.com/imagem_sugerida.png",     <strong>function</strong>(url)         showMessage("Imagem selecionada: " .. url);     <strong>end</strong>,         <strong>function</strong>()         showMessage("O usuário cancelou a janela");     <strong>end</strong>);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.choose(prompt, options, callback [, defaultOptionIndex, shortCircuit])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher uma opção dentre uma lista de opções.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>options - Um array/arranjo de cadeias de caracteres, contendo as opções que devem ser apresentadas ao usuário.</li>
+<li>callback - Uma função que será invocada quando o usuário fizer a escolha ou quando ele cancelar a escolha.<ul>
+<li>A função recebe três parâmetros na seguinte ordem:</li>
+<li>selected - Um valor booleano (true ou false) indicando se o usuário selecionou alguma opção ou se cancelou o diálogo</li>
+<li>selectedIndex - Se o usuário selecionou alguma opção, este parâmetro recebe um número representando o índice do array "options" que representa qual opção o usuário escolheu. Lembre-se que em Lua o índice de arrays começa do número 1 ao invés de 0. Se o usuário cancelou o diálogo, este parâmetro conterá <strong>nil</strong>.</li>
+<li>selectedText - Se o usuário selecionou alguma opção, este parâmetro recebe o texto da opção escolhida conforme o parâmetro "options". Se o usuário cancelou o dialogo, este parâmetro conterá <strong>nil</strong>.</li>
+</ul>
+</li>
+<li>(OPCIONAL) defaultOptionIndex - Um número contendo um índice informado qual dos itens de "options" deve ser apresentado como a escolha padrão. Se não informado, nenhuma opção será mostrada como padrão.</li>
+<li>(OPCIONAL) shortCircuit - Avaliação Curto-Circuito: Se for "true" e se houver apenas uma opção a ser mostrada ao usuario, a interface não é exibida e esta opçao é automaticamente selecionada. Se não informado, este parâmetro assume o valor false.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona. Ou seja, o código continua sua execução enquanto o usuário escolhe. A única maneira de obter a resposta escolhida pelo usuário é através do parâmetro "callback".</li>
+<li>Se "options" não for válido ou se for um arranjo com 0 itens, a função callback será imediatamente chamada como se o usuário tivesse cancelado a escolha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.choose("Selecione uma das opções", {"Opção 1", "Opção 2", "Opção 3"},                <strong>function</strong>(selected, selectedIndex, selectedText)                   <strong>if</strong> selected <strong>then</strong>                     showMessage("O usuário selecionou índice " .. tostring(selectedIndex) .. ": " .. selectedText);                   <strong>else</strong>                     showMessage("O usuário cancelou");                   <strong>end</strong>;                <strong>end</strong>)&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Dialogs.chooseMultiple(prompt, options, callback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Exibe um diálogo para que o usuário possa escolher <strong>uma ou mais</strong> opções dentre uma lista de opções.</p>
+<p>&nbsp;</p>
+<p>Parâmetros</p>
+<ul>
+<li>&nbsp;</li>
+<li>prompt - Uma cadeia de caracteres contendo uma orientação ao usuário sobre o que ele deve selecionar.</li>
+<li>options - Um array/arranjo de cadeias de caracteres, contendo as opções que devem ser apresentadas ao usuário.</li>
+<li>callback - Uma função que será invocada quando o usuário fizer a escolha ou quando ele cancelar a escolha.<ul>
+<li>A função recebe três parâmetros na seguinte ordem:</li>
+<li>selected - Um valor booleano (true ou false) indicando se o usuário selecionou ao menos uma opção ou se cancelou o diálogo</li>
+<li>selectedIndexes - Se o usuário selecionou alguma opção, este parâmetro recebe um array de números representando os índices do array "options" que representa quais opções o usuário escolheu. Lembre-se que em Lua o índice de arrays começa do número 1 ao invés de 0. Se o usuário cancelou o diálogo, este parâmetro conterá <strong>nil</strong>.</li>
+<li>selectedText - Se o usuário selecionou alguma opção, este parâmetro recebe um array de textos das opções escolhida conforme o parâmetro "options". Se o usuário cancelou o dialogo, este parâmetro conterá <strong>nil</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Esta função é assíncrona. Ou seja, o código continua sua execução enquanto o usuário escolhe. A única maneira de obter a resposta escolhida pelo usuário é através do parâmetro "callback".</li>
+<li>Se "options" não for válido ou se for um arranjo com 0 itens, a função callback será imediatamente chamada como se o usuário tivesse cancelado a escolha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th>Dialogs.chooseMultiple("Selecione uma ou mais opções", {"Opção 1", "Opção 2", "Opção 3"},                <strong>function</strong>(selected, selectedIndexes, selectedTexts)                   <strong>if</strong> selected <strong>then</strong>                     showMessage("O usuário selecionou os índices " ..                                 tableToStr(selectedIndexes) .. ": " ..                                 tableToStr(selectedTexts));                   <strong>else</strong>                     showMessage("O usuário cancelou");                   <strong>end</strong>;                <strong>end</strong>)&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Effortlessly create a professional-quality documentation website with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Promiseobject/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Promiseobject/" class="btn btn-sm btn-link">
+			Promise object
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaFireDrive/" class="btn btn-sm btn-link">
+			Biblioteca FireDrive
+		</a>
+		<a href="../BibliotecaFireDrive/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaDialogs.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

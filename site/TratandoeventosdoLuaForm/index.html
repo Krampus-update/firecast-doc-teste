@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tratando eventos do Lua Form - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tratando eventos do Lua Form", url: "#_top", children: [
+				]},
+				{title: "Eventos do Lua Form", url: "#eventos-do-lua-form", children: [
+				]},
+				{title: "Manipulando eventos", url: "#manipulando-eventos", children: [
+						
+				{title: "Modo 1 - Associando uma \u00fanica linha de c\u00f3digo ao evento.", url: "#_top", children: [
+				]},
+				{title: "Modo 2 - Usando a tag event para manipular eventos.", url: "#modo-2-usando-a-tag-event-para-manipular-eventos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../OrientacoesaousarcodigoLUAemumLu/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../OrientacoesaousarcodigoLUAemumLu/" class="btn btn-sm btn-link">
+			Orientações ao usar código LUA em um Lua Form
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-link">
+			String de cores no Lua Form
+		</a>
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tratando-eventos-do-lua-form">Tratando eventos do Lua Form</h1>
+<h1 id="eventos-do-lua-form">Eventos do Lua Form</h1>
+<p>&nbsp;</p>
+<p>Um evento é um acontecimento específico de alguma tag. É possível definir códigos LUA (veja <a href="../AlinguagemdeprogramacaoLUA/">A linguagem de programação LUA</a>) que serão executados toda vez que determinado evento ocorrer em uma tag!</p>
+<p>&nbsp;</p>
+<p>A maioria das tags/controles do Lua Form disparam eventos, mas cada uma possui seu próprio conjunto de eventos. Você deve consultar a documentação!</p>
+<p>&nbsp;</p>
+<h1 id="manipulando-eventos">Manipulando eventos</h1>
+<p>Existem duas maneiras de manipular eventos do Lua Form:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Associando uma única linha de código ao evento;</li>
+<li>Usando a <a href="../Tagevent/">tag event</a> para associar várias linhas de códigos ao evento.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Importante</strong>: Não deixe de ler as <a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em um Lua Form</a></p>
+<p>&nbsp;</p>
+<h2 id="modo-1-associando-uma-unica-linha-de-codigo-ao-evento">Modo 1 - Associando uma única linha de código ao evento.</h2>
+<p>Esta é a forma mais simples de manipular eventos, porém não é possível associar um código de mais de 1 linha aos eventos por este modo.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Dado um evento de nome NOME_EVENTO de uma tag de nome NOME_TAG, você pode associar um código Lua assim:</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;NOME_TAG</strong> NOME_EVENTO="\&lt;CODIGO_LUA_DE_UMA_LINHA&gt;"/&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="modo-1-exemplo-1-onclick-de-button">Modo 1, Exemplo 1 - OnClick de button</h3>
+<p>&nbsp;</p>
+<p>A<a href="../Tagbutton/"> tag button</a> possui o evento "onClick".&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste""&gt;                  <strong>\&lt;button</strong> text="Meu Botão" onClick="showMessage('Cliquei no botão');"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem121.png" /></p>
+<p>&nbsp;</p>
+<h3 id="modo-1-exemplo-2-onmouseenter-e-onmouseleave-de-button">Modo 1, Exemplo 2 - OnMouseEnter e OnMouseLeave de button</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;button</strong> name="btnMeuBotao" text="Meu Botão" left="20" top="20" width="200"                         onMouseEnter="self.btnMeuBotao.text = 'Mouse dentro do botão'"                         onMouseLeave="self.btnMeuBotao.text = 'Meu Botão'"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem122.png" />&nbsp; ----&gt; <img alt="Image" src="../lib/NewItem123.png" /> ----&gt; <img alt="Image" src="../lib/NewItem122.png" /></p>
+<p>&nbsp;</p>
+<h3 id="modo-1-exemplo-3-definindo-funcao-e-a-chamando-no-evento-onclick-de-button">Modo 1, Exemplo 3 - Definindo função e a chamando no evento OnClick de button</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFichaTeste"<strong>&gt;</strong>                  <strong>\&lt;script&gt;</strong>                 local function exibirMensagem()                                 local texto = "";&nbsp;                         for i = 1, 5, 1 do                                 texto = texto .. "Linha " .. i .. "\n";                         end;                                                showMessage(texto);                 end;         <strong>\&lt;/script&gt;</strong>          <strong>\&lt;button</strong> name="btnMeuBotao" text="Meu Botão" onClick="exibirMensagem()"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem124.png" /></p>
+<p>&nbsp;</p>
+<p>Foi usada a <a href="../Tagscript/">Tag script</a> neste exemplo.&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="modo-2-usando-a-tag-event-para-manipular-eventos">Modo 2 - Usando a tag event para manipular eventos.</h2>
+<p>Saiba como usar a tag event e exemplos em: <a href="../Tagevent/">Tag event.</a></p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/create-help-files-for-the-qt-help-framework">Create help files for the Qt Help Framework</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../OrientacoesaousarcodigoLUAemumLu/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../OrientacoesaousarcodigoLUAemumLu/" class="btn btn-sm btn-link">
+			Orientações ao usar código LUA em um Lua Form
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-link">
+			String de cores no Lua Form
+		</a>
+		<a href="../StringdecoresnoLuaForm/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/TratandoeventosdoLuaForm.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:43 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

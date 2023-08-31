@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Firecast - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Firecast", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Firecast", url: "#biblioteca-firecast_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca Firecast", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+			
+
+			<h1 id="biblioteca-firecast">Biblioteca Firecast</h1>
+<h1 id="biblioteca-firecast_1">Biblioteca Firecast</h1>
+<p>A biblioteca firecast contém funções relacionadas às mesas, personagens, envio de mensagens, rolagem de dados, etc..</p>
+<p>Todas as funções estão contidas na table/variável "Firecast" da unidade "firecast.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "firecast.lua"</em> require("firecast.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Firecast.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-firecast">Funções da biblioteca Firecast</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.asyncOpenUserNDB(name[, options])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Asynchronously open a per-user <a href="../NodeDatabase/">NodeDatabase</a> that is physically stored in the Firecast server.</p>
+<p>&nbsp;</p>
+<p>Arguments:</p>
+<ul>
+<li>&nbsp;</li>
+<li>name - A string identifying which remote user NodeDatabase should be opened</li>
+<li>(OPTIONAL) options - A Lua table describing additional settings that may contain:<ul>
+<li>create - a boolean. If <strong>true</strong>, the NodeDatabase can be created if it does not exist. Default: <strong>false</strong></li>
+<li>skipLoad - a boolean. If <strong>true</strong>, the returned Promise will be resolved before the load process is finished. If <strong>true</strong>, you will receive a “Loading node” instead of a “Loaded node”. Default: <strong>false</strong></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Return:</p>
+<ul>
+<li>&nbsp;</li>
+<li>a <a href="../Promiseobject/">Promise</a> of a <a href="../ObjetoNodo/">Node Object</a>. As default behavior, the Promise will be resolved after all data is downloaded and available to be used.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Remarks:</p>
+<ul>
+<li>&nbsp;</li>
+<li>The content of NodeDatabases opened by this function is stored separately per-user. Each user will have their own copy of the NodeDatabase identified by the “name” argument</li>
+</ul>
+<p>&nbsp;</p>
+<p>Example:</p>
+<p>&nbsp;</p>
+<ol>
+<li>local promise = Firecast.asyncOpenUserNDB("exampleNodeDatabase", {create=true});</li>
+<li></li>
+<li>promise:thenDo(</li>
+<li>function(node)</li>
+<li>*-- This function will be called when/if the *</li>
+<li>*-- load completes. The first argument, *</li>
+<li><em>-- "node", contains the root node of the opened nodedatabase</em></li>
+<li>end,</li>
+<li>&nbsp;</li>
+<li>function(errorMsg)</li>
+<li>*-- This function will be called when/if the *</li>
+<li>*-- load fails. The first argument, *</li>
+<li><em>-- "errorMsg", contains the message explaining why</em></li>
+<li><em>-- it was not possible to open the nodeDatabase</em></li>
+<li>end);</li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.getMesas()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna a lista de <a href="../ObjetoMesa/">objetos mesas</a> representando as mesas em que o usuário está no momento.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um arranjo de <a href="../ObjetoMesa/">objeto mesa</a>, isto é, uma tabela lua indexada de 1 a N.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Exemplo - Exibindo uma mensagem contendo o nome e o sistema de todas as mesas em que o usuário está:\
+&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> mesas = Firecast.getMesas(); <strong>local</strong> msg = "";  <strong>for</strong> i = 1, #mesas, 1 <strong>do</strong>         <strong>local</strong> objMesa = mesas[i];               msg = msg .. objMesa.nome .. " (" .. objMesa.sistema .. ")<strong>\n</strong>"; <strong>end</strong>;  showMessage(msg);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.findMesa(codigoInterno)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado o código interno de uma mesa, localiza o <a href="../ObjetoMesa/">objeto mesa</a> de código interno correspondente.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoMesa/">objeto mesa</a> ou <strong>nil</strong> caso não encontre.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.interpretarRolagem(stringDaRolagem)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado uma cadeia de caracteres representando uma rolagem de dados (Exemplos: "1d20 + 5", "1d20 + 1d10 - 5", etc..), retorna um <a href="../ObjetoRolagem/">objeto rolagem</a> que contém as informações sobre a mesma.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>stringDaRolagem - cadeia de caracteres que deseja interpretar como um objeto rolagem.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoRolagem/">Objeto Rolagem</a> contendo a interpretação.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observação:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se stringDaRolagem não possuir uma cadeia de caracteres válida, o novo objeto rolagem ainda será retornado, porém vazio.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.getRoomOf(object)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado um objeto qualquer, a função tenta determinar à qual <a href="../ObjetoMesa/">objeto mesa</a> ele está ligado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>object - O objeto que deseja tentar determinar à qual objeto mesa ele pertence ou está ligado.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoMesa/">Objeto Mesa</a>, caso a função consiga determinar</li>
+<li><strong>nil</strong>, caso a função não consiga determinar</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Os objetos que costumam ser passados como parâmetro à esta função, são:<ul>
+<li><a href="../ObjetoNodo/">objeto Nodo</a>. Se o NodeDatabase for de um personagem ou estiver ligado à uma mesa, a função retorna o objeto mesa.</li>
+<li><a href="../ObjetoBibliotecaItem/">objeto BibliotecaItem</a>. A função retorna à qual mesa o item da biblioteca pertence.</li>
+<li><a href="../ObjetoPersonagem/">objeto Personagem</a>.</li>
+<li><a href="../ObjetoJogador/">objeto Jogador.</a></li>
+<li><a href="../ObjetoChat/">objeto Chat</a></li>
+<li><a href="../Tagform/">objeto form</a> de formType Table's Dock</li>
+<li><a href="../ObjetoScene/">objeto Scene</a></li>
+<li>Outros objetos que possam estar ligados à alguma mesa.</li>
+</ul>
+</li>
+<li>Também é possível passar um valor numérico para esta função. Se for passado um valor numérico, esta função se comporta como a função <a href="./#função%20rrpg.findMesa">rrpg.findMesa.</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.getBibliotecaItemDe(objeto)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado um objeto qualquer, a função tenta determinar à qual <a href="../ObjetoBibliotecaItem/">objeto BibliotecaItem</a> ele está ligado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>objeto - O objeto que deseja tentar determinar à qual objeto BibliotecaItem ele pertence ou está ligado.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoBibliotecaItem/">Objeto BibliotecaItem</a> caso a função consiga determinar</li>
+<li><strong>nil</strong>, caso a função não consiga determinar</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Os objetos que costumam ser passados como parâmetro à esta função, são:<ul>
+<li><a href="../ObjetoNodo/">objeto Nodo</a>. Se o NodeDatabase for de um item na biblioteca, a função retorna o objeto biblioteca item.</li>
+<li>Outros objetos que possam estar ligados à biblioteca da mesa.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.getPersonagemDe(object)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dado um objeto qualquer, a função tenta determinar à qual <a href="../ObjetoPersonagem/">objeto Personagem</a> ele está ligado.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>object - O objeto que deseja tentar determinar à qual objeto Personagem ele pertence ou está ligado.</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um <a href="../ObjetoPersonagem/">Objeto Personagem</a> caso a função consiga determinar</li>
+<li><strong>nil</strong>, caso a função não consiga determinar</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Os objetos que costumam ser passados como parâmetro à esta função, são:<ul>
+<li><a href="../ObjetoNodo/">objeto Nodo</a>. Se o NodeDatabase for de um personagem, a função retorna o objeto personagem.</li>
+<li>Outros objetos que possam estar ligados aos personagens da mesa.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.getCurrentUser()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna uma tabela contendo informações do usuário logado atualmente no Firecast.</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um tabela LUA contendo as seguintes propriedades/atributos:<ul>
+<li>isLogged - Boleano (true ou false) indicando se possui um usuário logado no momento.</li>
+<li>login - Se o usuário tiver logado, contém uma cadeia de caracteres contendo seu login/username.</li>
+<li>isGold - Booleano (true ou false) indicando se o usuário é assinante Firecast Gold</li>
+<li>isGoldPlus - Booleano (true ou false) indicando se o usuário é assinante Firecast Platinum / RRPG Gold Plus</li>
+<li>isRuby - Booleano (true ou false) indicando se o usuário é assinante Firecast Ruby</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.registerChatToolButton(params)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Registra um botão-ferramenta que será apresentado nos chats do Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>params - Uma tabela Lua contendo as seguintes propriedades do botão:<ul>
+<li>"hint" - Um string que será apresentado ao usuário quando ele arrastar o mouse em cima do botão.</li>
+<li>"icon" - Um string contendo o endereço da imagem que será apresentada como ícone do botão.</li>
+<li>"callback" - Uma função que será chamada quando o usuário clicar no botão. Seu primeiro parâmetro recebe um <a href="../ObjetoChat/">objeto Chat</a> representado em qual chat o usuário clicou no botão.</li>
+<li>(OPCIONAL) "priority" - Se quiser sugerir a ordem dos botões, informe um número em priority. Botões com prioridade maior aparecem antes dos com prioridade menor.</li>
+<li>(OPCIONAL) "group" - Um string. Se quiser vários botões ficarem juntos, você pode especificar o mesmo valor em group para eles.</li>
+<li>(OPCIONAL) "groupPriority" - Se quiser sugerir a ordem do grupo de botões, informe um número nesta propriedade. Grupos de botões com maior prioridade aparecem antes dos grupos com menor prioridade.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um identificador do botão criado. Este valor pode ser usado na função <a href="./#unregisterChatToolButton">Firecast.unregisterChatToolButton</a> se quiser remover o botão.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O ícone informado poderá sofrer tratamento visual para se encaixar no tema do Firecast. Use ícones com transparência e cuja "sombra" seja capaz de remeter seu significado.</li>
+<li>O botão só será apresentado se:<ul>
+<li>O usuário for assinante Gold.</li>
+<li>Ou o usuário não for pagante e estiver em mesa cujo dono seja assinante Gold+/Platina.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Exemplo:</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> params = {}; params.hint = "This button do @@localized.text.id"; params.icon = "/icons/myIcon.png"; params.priority = 10; params.group = "myButtonGroup";   params.callback =     <strong>function</strong>(chat)         <em>-- the param "chat" contains good information to handle =)</em>         showMessage("User clicked the button");     <strong>end</strong>;     Firecast.registerChatToolButton(params);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.unregisterChatToolButton(toolButtonId)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Desregistra um botão-ferramenta de chat previamente instalado pela função <a href="./#registerCharToolButton">Firecast.registerChatToolButton</a>.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>toolButtonId - O identificador retornado pela função <a href="./#registerCharToolButton">Firecast.registerChatToolButton</a>.&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour">Easily create EBooks</a></em></p>
+
+			<br>
+			
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaFirecast.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:39 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

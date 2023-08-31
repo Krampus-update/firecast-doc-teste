@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Criar campos calculados em fichas - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Criar campos calculados em fichas", url: "#_top", children: [
+				]},
+				{title: "Criar campos calculados em Fichas / Lua Forms.", url: "#criar-campos-calculados-em-fichas-lua-forms", children: [
+				]},
+				{title: "Tutorial 1 - Campo calculado simples", url: "#tutorial-1-campo-calculado-simples", children: [
+						
+				{title: "Passo 1 - Associar o label a um campo do NodeDatabase/Ficha", url: "#_top", children: [
+				]},
+				{title: "Passo 2 - Criar uma tag dataLink", url: "#passo-2-criar-uma-tag-datalink", children: [
+				]},
+				{title: "Passo 3 - Criar uma tag event para tratar o evento \"onChange\" do dataLink que criamos.", url: "#passo-3-criar-uma-tag-event-para-tratar-o-evento-onchange-do-datalink-que-criamos", children: [
+				]},
+				{title: "Passo 4 - Escrever o c\u00f3digo LUA do c\u00e1lculo", url: "#passo-4-escrever-o-codigo-lua-do-calculo", children: [
+				]},
+				{title: "Passo 5 - Aprimorar o c\u00f3digo do c\u00e1lculo", url: "#passo-5-aprimorar-o-codigo-do-calculo", children: [
+				]},
+				{title: "C\u00f3digo final do tutorial", url: "#codigo-final-do-tutorial", children: [
+				]},
+				]},
+				{title: "Tutorial 2 - Criar um campo calculado que depende do valor de outros 3 campos", url: "#tutorial-2-criar-um-campo-calculado-que-depende-do-valor-de-outros-3-campos", children: [
+						
+				{title: "Passo 1 - Criar uma tag dataLink que se conectar\u00e1, ao mesmo tempo, aos 3 campos necess\u00e1rios para o c\u00e1lculo:", url: "#_top", children: [
+				]},
+				{title: "Passo 2 - Criar uma tag event para tratar o evento \"onChange\" do dataLink que criamos.", url: "#passo-2-criar-uma-tag-event-para-tratar-o-evento-onchange-do-datalink-que-criamos", children: [
+				]},
+				{title: "Passo 3 - Escrever o c\u00f3digo LUA do c\u00e1lculo", url: "#passo-3-escrever-o-codigo-lua-do-calculo", children: [
+				]},
+				]},
+				{title: "Veja tamb\u00e9m:", url: "#veja-tambem", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../CriarummodelodefichaapartirdeumP/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../CriarummodelodefichaapartirdeumP/" class="btn btn-sm btn-link">
+			Criar um modelo de ficha à partir de um PDF
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Criarabasparaaficha/" class="btn btn-sm btn-link">
+			Criar abas para a ficha
+		</a>
+		<a href="../Criarabasparaaficha/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="criar-campos-calculados-em-fichas">Criar campos calculados em fichas</h1>
+<h1 id="criar-campos-calculados-em-fichas-lua-forms">Criar campos calculados em Fichas / Lua Forms.</h1>
+<p>&nbsp;</p>
+<p>Os campos calculados são feitos usando a <a href="../TagdataLink/">tag dataLink</a> para definir cálculos que devem ser executados quando houver mudança nos valores de alguns campos da ficha (NodeDatabase).</p>
+<p>&nbsp;</p>
+<h1 id="tutorial-1-campo-calculado-simples">Tutorial 1 - Campo calculado simples</h1>
+<p>Neste tutorial, iremos fazer com que o label da interface abaixo sempre mostre o valor do cálculo "((campo forca) / 2 - 5) arredondado para baixo".</p>
+<p>Importante: Note que o edit já está ligado ao campo "forca" da ficha/NodeDatabase</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFTeste"<strong>&gt;</strong>          <strong>\&lt;layout</strong> left="20" top="20" height="25" width="200"<strong>&gt;</strong>                     <em>\&lt;!-- Atributo --&gt;</em>                       <strong>\&lt;label</strong> align="left" text="Força: " autoSize="true"<strong>/&gt;</strong>                 <strong>\&lt;edit</strong> align="client" horzTextAlign="center" field="forca"<strong>/&gt;</strong>            &nbsp;   &nbsp;             <em>\&lt;!-- Modificador --&gt;</em> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>\&lt;label</strong> align="right" text="valor" width="70" horzTextAlign="center"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong>       <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem179.png" /></p>
+<p>&nbsp;</p>
+<h3 id="passo-1-associar-o-label-a-um-campo-do-nodedatabaseficha">Passo 1 - Associar o label a um campo do NodeDatabase/Ficha</h3>
+<p>&nbsp;</p>
+<p>Vamos ligar o label a um campo chamado "modificadorDeForca":</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;label</strong> field="modificadorDeForca" align="right" text="valor" width="70" horzTextAlign="center"<strong>/&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="passo-2-criar-uma-tag-datalink">Passo 2 - Criar uma tag dataLink</h3>
+<p>&nbsp;</p>
+<p>Vamos criar uma <a href="../TagdataLink/">tag dataLink</a> e ligá-la ao campo "forca" para que possamos associar um código LUA que será executado sempre que o campo "forca" for alterado.</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> field="forca"<strong>&gt;</strong> <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="passo-3-criar-uma-tag-event-para-tratar-o-evento-onchange-do-datalink-que-criamos">Passo 3 - Criar uma tag event para tratar o evento "onChange" do dataLink que criamos.</h3>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> field="forca"<strong>&gt;</strong>         <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>&nbsp;         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Veja também: <a href="../TratandoeventosdoLuaForm/">Tratando eventos do Lua Form</a></p>
+<p>&nbsp;</p>
+<h3 id="passo-4-escrever-o-codigo-lua-do-calculo">Passo 4 - Escrever o código LUA do cálculo</h3>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> field="forca"<strong>&gt;</strong>         <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>                 sheet.modificadorDeForca = math.floor(((sheet.forca or 10) / 2) - 5);         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Aqui realmente colocamos o código do cálculo. O que este código faz: &nbsp; &nbsp;</p>
+<ul>
+<li>&nbsp;</li>
+<li>Toda vez que o valor do campo "forca" mudar, atribui ao campo "modificadorDeForca" (àquele que o label foi conectado) o resultado de:<ul>
+<li>o valor do campo "forca" (ou 10, caso ainda não tenha sido preenchido) dividido por 2, subtraído em 5 e arredondado para baixo (math.floor).</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem180.png" /></p>
+<h3 id="passo-5-aprimorar-o-codigo-do-calculo">Passo 5 - Aprimorar o código do cálculo</h3>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> field="forca"<strong>&gt;</strong>         <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>                 local mod = math.floor(((sheet.forca or 10) / 2) - 5);                                if (mod &gt;= 0) then                         mod = "+" .. mod;                 end;                                sheet.modificadorDeForca = mod;         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Colocamos uma condição (um "if") para adicionar o caracter "+" na frente do resultado se for positivo ou zero.</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem181.png" /></p>
+<p>&nbsp;</p>
+<h3 id="codigo-final-do-tutorial">Código final do tutorial</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFTeste"<strong>&gt;</strong>                <em>\&lt;!-- Aqui começa o layout da ficha --&gt;</em>         <strong>\&lt;layout</strong> left="20" top="20" height="25" width="200"<strong>&gt;</strong>                     <em>\&lt;!-- Atributo --&gt;</em>                       <strong>\&lt;label</strong> align="left" text="Força: " autoSize="true"<strong>/&gt;</strong>                 <strong>\&lt;edit</strong> align="client" horzTextAlign="center" field="forca"<strong>/&gt;</strong>                           <em>\&lt;!-- Modificador --&gt;</em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <strong>\&lt;label</strong> field="modificadorDeForca" align="right" text="valor" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width="70" horzTextAlign="center"<strong>/&gt;</strong>         <strong>\&lt;/layout&gt;</strong>                                     <em>\&lt;!-- Começa aqui os cálculos automáticos da ficha --&gt;</em>                <strong>\&lt;dataLink</strong> field="forca"<strong>&gt;</strong>                 <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>                         local mod = math.floor(((sheet.forca or 10) / 2) - 5);&nbsp;                                               if (mod &gt;= 0) then                                 mod = "+" .. mod;                         end;                                                sheet.modificadorDeForca = mod;                 <strong>\&lt;/event&gt;</strong>         <strong>\&lt;/dataLink&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 id="tutorial-2-criar-um-campo-calculado-que-depende-do-valor-de-outros-3-campos">Tutorial 2 - Criar um campo calculado que depende do valor de outros 3 campos</h1>
+<p>Neste tutorial, vamos completar o tutorial 1 acima para adicionar um campo calculado chamado "Bônus de Ataque Corpo-A-Corpo", que será igual à soma dos seguintes campos:</p>
+<ul>
+<li>&nbsp;</li>
+<li>"Bônus Base de Ataque" (campo editável)</li>
+<li>"Bônus de Proficiência da Arma" (campo editável)</li>
+<li>Modificador de força (campo calculado).</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem182.png" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Considere que:</p>
+<ul>
+<li>&nbsp;</li>
+<li>O texto (label) apontado pela seta branca está ligado ao field "modificadorDeForca"</li>
+<li>A caixa de texto (edit) apontada pela seta vermelha está ligada ao field "bonusBaseAtaque"</li>
+<li>A caixa de texto apontada pela seta verde está ligada ao field "bonusProficiencia"</li>
+<li>O texto apontado pela seta azul está ligado ao field "ataque"</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="passo-1-criar-uma-tag-datalink-que-se-conectara-ao-mesmo-tempo-aos-3-campos-necessarios-para-o-calculo">Passo 1 - Criar uma tag dataLink que se conectará, ao mesmo tempo, aos 3 campos necessários para o cálculo:</h3>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> fields="{'modificadorDeForca', 'bonusBaseAtaque', 'bonusProficiencia'}"<strong>&gt;</strong>      <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>ATENÇÂO</strong>: Para ligar um dataLink à mais de 1 campo ao mesmo tempo, você deve usar o atributo "fields" do DataLink ao invés de "field" (Um está no plural, enquanto outro está no singular).</p>
+<p>&nbsp;</p>
+<h3 id="passo-2-criar-uma-tag-event-para-tratar-o-evento-onchange-do-datalink-que-criamos">Passo 2 - Criar uma tag event para tratar o evento "onChange" do dataLink que criamos.</h3>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> fields="{'modificadorDeForca', 'bonusBaseAtaque', 'bonusProficiencia'}"<strong>&gt;</strong>             <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong>&nbsp;         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Este evento será chamado sempre que qualquer um dos campos informados em "fields" sofrer alteração.</p>
+<p>&nbsp;</p>
+<h3 id="passo-3-escrever-o-codigo-lua-do-calculo">Passo 3 - Escrever o código LUA do cálculo</h3>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;dataLink</strong> fields="{'modificadorDeForca', 'bonusBaseAtaque', 'bonusProficiencia'}"<strong>&gt;</strong>             <strong>\&lt;event</strong> name="onChange"<strong>&gt;</strong> &nbsp; &nbsp; &nbsp; &nbsp; sheet.ataque = (tonumber(sheet.modificadorDeForca) or 0) + &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (tonumber(sheet.bonusBaseAtaque) or 0) +&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (tonumber(sheet.bonusProficiencia) or 0);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if sheet.ataque &gt;= 0 then &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sheet.ataque = "+" .. sheet.ataque; &nbsp; &nbsp; &nbsp; &nbsp; end;         <strong>\&lt;/event&gt;</strong> <strong>\&lt;/dataLink&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Sempre que o valor de algum dos campos ligados mudar ("modificadorDeForca", "bonusBaseAtaque" ou "bonusProficiencia"):</p>
+<ul>
+<li>&nbsp;</li>
+<li>o campo "ataque" receberá a soma de:<ul>
+<li>Valor do campo "modificadorForca" interpretado como número (o valor campo pode não ser um número válido, exemplo: "ABC") ou 0 caso não consiga interpretar como número.</li>
+<li>Valor do campo "bonusBaseAtaque" interpretado como numero ou 0 caso não consiga interpretar como número.</li>
+<li>Valor do campo "bonusProficiencia" interpretado como número ou 0 caso não consiga interpretar como número.</li>
+</ul>
+</li>
+<li>Se o valor do campo "ataque" for maior ou igual a zero:<ul>
+<li>Adiciona o caracter "+" na frente do valor.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem183.png" /></p>
+<p>&nbsp;</p>
+<h1 id="veja-tambem">Veja também:</h1>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../InterfacesVisuaisLuaForms/">Interfaces Visuais (Lua Forms)</a></li>
+<li><a href="../TagdataLink/">Tag dataLink</a></li>
+<li><a href="../OrientacoesaousarcodigoLUAemumLu/">Orientações ao usar código LUA em Lua Form</a></li>
+<li><a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a></li>
+<li><a href="../Tutoriais/">Outros Tutoriais</a></li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/help-authoring-tool">Free help authoring tool</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../CriarummodelodefichaapartirdeumP/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../CriarummodelodefichaapartirdeumP/" class="btn btn-sm btn-link">
+			Criar um modelo de ficha à partir de um PDF
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../Criarabasparaaficha/" class="btn btn-sm btn-link">
+			Criar abas para a ficha
+		</a>
+		<a href="../Criarabasparaaficha/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Criarcamposcalculadosemfichas.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

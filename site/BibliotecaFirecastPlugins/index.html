@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Firecast.Plugins - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Firecast.Plugins", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Firecast.Plugins", url: "#biblioteca-firecastplugins_1", children: [
+				]},
+				{title: "Fun\u00e7\u00f5es de Gerenciamento de Plugins", url: "#funcoes-de-gerenciamento-de-plugins", children: [
+				]},
+				{title: "Intercomunica\u00e7\u00e3o de plug-ins.", url: "#intercomunicacao-de-plug-ins", children: [
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-link">
+			Mensagens de Estado das Mesas
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaFirecastRequests/" class="btn btn-sm btn-link">
+			Biblioteca Firecast.Requests
+		</a>
+		<a href="../BibliotecaFirecastRequests/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-firecastplugins">Biblioteca Firecast.Plugins</h1>
+<h1 id="biblioteca-firecastplugins_1">Biblioteca Firecast.Plugins</h1>
+<p>A biblioteca Firecast.Plugins contém funções relacionadas aos plug-ins instalados no Firecast.</p>
+<p>Todas as funções estão contidas na table/variável "Firecast.Plugins" da unidade "plugins.lua".</p>
+<p>&nbsp;</p>
+<p>Exemplo de uso:</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "plugins.lua"</em> require("plugins.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Firecast.Plugins.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 id="funcoes-de-gerenciamento-de-plugins">Funções de Gerenciamento de Plugins</h1>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.getInstalledDataTypes()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna a lista de DataTypes instalados no Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um array (uma tabela Lua indexada de 1 a N) de objetos, onde cada objeto representa um DataType instalado e possuem, cada um, os seguintes atributos:<ul>
+<li>moduleId - Cadeia de caracteres identificando qual plug-in instalou o dataType.</li>
+<li>dataType - Cadeia de caracteres identificando o dataType</li>
+<li>formType - Cadeia de caracteres identificando o formType. Veja <a href="../Tagform/#propriedade%20formType">atributo formType da tag form</a> para saber quais são os possíveis valores deste atributo.</li>
+<li>title - Cadeia de caracteres que identifica o dataType de forma intuitiva para o usuário.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.getInstalledPlugins()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna a lista de plug-ins SDK 3 instalados no Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um array (uma tabela Lua indexada de 1 a N) de objetos, onde cada objeto representa um Plug-in instalado e possuem, cada um, os seguintes atributos:<ul>
+<li>moduleId - Cadeia de caracteres com a identificação única do plug-in.</li>
+<li>name - Cadeia de caracteres contendo o nome do plug-in.</li>
+<li>version - Cadeia de caracteres contendo a versão do plug-in.</li>
+<li>description - Cadeia de caracteres contendo a descrição do plug-in.</li>
+<li>author - Cadeia de caracteres contendo informações sobre o autor do plug-in.</li>
+<li>site - Cadeia de caracteres contendo informações do website relacionado ao plug-in.</li>
+<li>contact - Cadeia de caracteres contendo informações sober como entra em contato com o autor do plug-in.</li>
+<li>fileName - Cadeia de caracteres contendo o nome do arquivo ".rpk" relacionado a este plug-in. Este atributo contém apenas o nome curto do arquivo e não descreve sua localização no HD. Exemplos: "DnD.rpk", "Vampiros.rpk", etc..</li>
+<li>compilationTimestamp - A data e hora (UTC) em que o plugin foi compilado. Este atributo é representado por um número inteiro, contendo quantos <strong>segundos</strong> se passaram desde UNIX Epoch (01 de janeiro de 1970)</li>
+<li>compilationTimestampStr - A data e hora (UTC) em que o plugin foi compilado. Este atributo é representado em uma cadeia de caracteres de tamanho fixo no formato "ddmmyyyyhhnnss" (onde "nn" são os minutos)</li>
+<li>compilationDigest - Uma cadeia de caracteres contento o hash SHA-1 do conteúdo do plugin. Um plugin pode ser compilado mais de uma vez, e, por isso, compilationTimestamp pode variar sem que o conteúdo do plugin mude. É seguro afirmar que se compilationDigest não mudar, então o conteúdo do plugin não mudou. Este campo está presente em plugins compilados com o SDK 3.5+.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.getInstalledTablesDock()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna a lista de "Table's Dock"/janelas acopláveis instalados no Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<p>&nbsp; &nbsp; Não há parâmetros</p>
+<p>&nbsp;&nbsp; &nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um array (uma tabela Lua indexada de 1 a N) de objetos, onde cada objeto representa um Table's Dock que o usuário pode utilizar em suas mesas, cada um, os seguintes atributos:<ul>
+<li>moduleId - Cadeia de caracteres identificando qual plug-in instalou o TablesDock.</li>
+<li>name - Cadeia de caracteres contendo o nome do formulário</li>
+<li>dataType - Cadeia de caracteres identificando o dataType do formulário TablesDock</li>
+<li>title - Cadeia de caracteres que identifica o Table's Dock de forma intuitiva para o usuário.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.getRPKDetails(stream)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Retorna algumas informações sobre um stream contendo um plug-in SDK3 (arquivo de extensão .rpk).</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>stream - Um <a href="../ObjetoStream/">objeto Stream</a> que possui o conteúdo do arquivo ".rpk"</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se o parâmetro "stream" contiver um arquivo .rpk válido, a função retorna uma tabela lua com os seguintes atributos:<ul>
+<li>moduleId - Cadeia de caracteres contendo o identificador único do plug-in</li>
+<li>name - Cadeia de caracteres contendo o nome do plug-in</li>
+<li>version - Cadeia de caracteres contendo a versão do plug-in</li>
+<li>description - Cadeia de caracteres contendo a descrição do plug-in.</li>
+<li>author - Cadeia de caracteres contendo a identificação do autor do plug-in.</li>
+<li>site - Cadeia de caracteres contendo informações sobre o website do plug-in.</li>
+<li>contact - Cadeia de caracteres contendo informações sobre como contatar o autor do plug-in.</li>
+<li>minApiVersion - Número contendo qual a versão de API do SDK3 mínima para este plug-in rodar.</li>
+<li>sdkVersion - Cadeia de caracteres contendo qual a versão do SDK3 o plug-in foi compilado.</li>
+<li>compilationTimestamp - A data e hora (UTC) em que o plugin foi compilado. Este atributo é representado por um número inteiro, contendo quantos <strong>segundos</strong> se passaram desde UNIX Epoch (01 de janeiro de 1970)</li>
+<li>compilationTimestampStr - A data e hora (UTC) em que o plugin foi compilado. Este atributo é representado em uma cadeia de caracteres de tamanho fixo no formato "ddmmyyyyhhnnss" (onde "nn" são os minutos)</li>
+<li>compilationDigest - Uma cadeia de caracteres contento o hash SHA-1 do conteúdo do plugin. Um plugin pode ser compilado mais de uma vez, e, por isso, compilationTimestamp pode variar sem que o conteúdo do plugin mude. É seguro afirmar que se compilationDigest não mudar, então o conteúdo do plugin não mudou. Este campo está presente em plugins compilados com o SDK 3.5+.</li>
+</ul>
+</li>
+<li>Se o parâmetro "stream" <strong>não</strong> contiver um arquivo rpk válido, a função retorna <strong>nil</strong>.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função começa a ler o stream à partir da posição 0.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.installPlugin(stream [, ignoreIfOlder])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Instala um plug-in SDK3 no Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>stream - Um <a href="../ObjetoStream/">objeto Stream</a> que possui o conteúdo do arquivo ".rpk" que deseja instalar.</li>
+<li>(OPCIONAL) ignoreIfOlder - Booleano indicando se a função deve ignorar a instalação caso exista uma versão mais nova já instalada deste plug-in. Se omitido, o parâmetro possui valor false.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se a instalação for bem sucedida, a função retorna "true". Se a instalação não for bem sucedida, retorna "false" e uma cadeia de caracteres contendo o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>A função começa a ler o stream à partir da posição 0.</li>
+<li>Por motivo de segurança, apenas plug-ins autorizados conseguem gerenciar os plug-ins do Firecast.</li>
+<li>Se o plug-in já estiver instalado: o plug-in é descarregado, a atualização é instalada, e a nova versão é carregada novamente.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.uninstallPlugin(moduleId)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Desinstala um plug-in SDK3 que está atualmente instalado no Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>moduleId - Cadeia de caracteres identificando qual plug-in deseja desinstalar. Cada plug-in possui um moduleId, que é uma identificação única do mesmo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Se a instalação for bem sucedida, a função retorna "true". Se a instalação não for bem sucedida, retorna "false" e uma cadeia de caracteres contendo o motivo da falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Por motivo de segurança, apenas plug-ins autorizados conseguem gerenciar os plug-ins do Firecast.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1 id="intercomunicacao-de-plug-ins">Intercomunicação de plug-ins.</h1>
+<p>Os plug-ins do Firecast podem comunicar entre si afim de realizar pedidos, coordenar ações, informar algum ocorrido, etc..</p>
+<p>&nbsp;</p>
+<p>Todas as mensagens de plugins são compostas por:</p>
+<ul>
+<li>&nbsp;</li>
+<li>identificação do plug-in destinatário.</li>
+<li>nome da mensagem.</li>
+<li>conteúdo da mensagem.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;Antes de receber mensagens, o plug-in deve registrar uma "escuta" através da função <a href="./#rrpg.plugins.listenPM">Firecast.Plugins.listenPM</a> informando o nome da mensagem que ouvirá e uma função que será chamada para tratá-la.. Durante o tratamento da mensagem recebida, o plug-in receptor pode enviar uma resposta para o plug-in emissor.</p>
+<p>&nbsp;</p>
+<p>Para enviar uma mensagem a outro plug-in, este deve utilizar a função <a href="./#rrpg.plugins.sendPM">Firecast.Plugins.sendPM</a> informando a identificação do plug-in destinatário, o nome da mensagem, conteúdo, uma função callback de sucesso e uma função callback de falha.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.sendPM(moduleId, pmName, data [, callback, failureCallback])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma mensagem a outro plug-in instalado no Firecast.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>moduleId - Uma cadeia de caracteres contendo a identificação única do módulo/plugin que receberá a mensagem. Este é o mesmo valor encontrado no <a href="../Oarquivomodulexml/">arquivo module.xml </a>de cada plug-in. Também é possível obter este valor através da função <a href="./#rrpg.plugins.getInstalledPlugins">Firecast.Plugins.getInstalledPlugins.</a></li>
+<li>pmName - Uma cadeia de caracteres contendo o nome da mensagem.&nbsp;</li>
+<li>data - O corpo da mensagem, uma tabela lua que será transmitida ao plug-in destinatário.</li>
+<li>(OPCIONAL) callback - Uma função que será invocada quando o plug-in destinatário responder a esta mensagem. O primeiro parâmetro da função recebe os dados enviados pelo plug-in destinatário.</li>
+<li>(OPCIONAL) failureCallback - Uma função que será invocada quando ocorrer algum erro no envio e/ou processamento da mensagem. O primeiro parâmetro da função recebe os dados sobre a falha.</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Para saber se o envio foi bem sucedido, utilize o parâmetro "callback".</li>
+<li>Para saber se o envio <strong>não</strong> foi bem sucedido, utilize o parâmetro "failureCallback". A função failureCallback é invocada se o plugin destinatário não estiver instalado no Firecsat, se o plug-in destinatário não souber tratar mensagens de nome "pmName" ou se o ocorrer alguma falha de execução no plug-in que recebeu a mensagem.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.listenPM(pmName, callback)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Instala uma escuta de mensagens de plugins.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>pmName - Uma cadeia de caracteres contendo o nome da mensagem que esta escuta trata.</li>
+<li>callback - Uma função que será disparada quando a escuta capturar uma mensagem de nome igual a "pmName" e recebe, no primeiro parâmetro, o corpo da mensagem. Esta informação é uma tabela LUA contendo os mesmos dados que foram enviados pela função <a href="./#rrpg.plugins.sendPM">Firecast.Plugins.sendPM</a> acrescida da propriedade "moduleId" (a identificação de qual plug-in enviou a mensagem).</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Um plug-in só pode ter uma escuta para cada "pmName". Não é possível instalar 2 escutas para a mensagem "TESTE", por exemplo.</li>
+<li>Para enviar uma resposta a quem enviou a mensagem, a função "callback" deve:<ul>
+<li>Se já tiver a resposta pronta, usar "return VALOR"; ... Este valor será transmitido para a função callback do plug-in emissor.</li>
+<li>Se ainda não tiver a resposta pronta, deve, dentro da função "callback", invocar o método <a href="./#rrpg.plugins.setLatePMReply">Firecast.Plugins.setLatePMReply()</a> e, posteriormente, utilizar as funções <a href="./#rrpg.plugins.replyPM">Firecast.Plugins.replyPM</a> ou <a href="./#rrpg.plugins.replyPMFailure">Firecast.Plugins.replyPMFailure</a> para enviar a resposta ao plug-in emissor.</li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.setLatePMReply(message)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Ao receber uma mensagem, a escuta, instalada previamente pela função <a href="./#rrpg.plugins.listenPM">Firecast.Plugins.listenPM,</a> pode invocar este método para sinalizar que ainda não tem a resposta para a mensagem e que a enviará posteriormente.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>message - A mensagem cuja resposta deseja postergar. Esta informação é a mesma que foi recebida no primeiro parâmetro da função callback da escuta (ver <a href="./#rrpg.plugins.listenPM">Firecast.Plugins.listenPM</a>).</li>
+</ul>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Você deve, em algum momento, invocar <a href="./#rrpg.plugins.replyPM">Firecast.Plugins.replyPM</a> ou <a href="./#rrpg.plugins.replyPMFailure">Firecast.Plugins.replyPMFailure</a> para enviar uma resposta ao plug-in remetente. Utilizar setLatePMReply e não invocar <a href="./#rrpg.plugins.replyPM">Firecast.Plugins.replyPM</a> e nem <a href="./#rrpg.plugins.replyPMFailure">Firecast.Plugins.replyPMFailure</a> faz com que o Firecast não libere os recursos envolvidos na comunicação, tornando seu plug-in um "devorador de memória RAM" ao longo do tempo.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.replyPM(message, data)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma resposta ao remetente da mensagem inter-plugin.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>message - A mensagem que deseja responder. Esta informação é a mesma que foi recebida no primeiro parâmetro da função callback da escuta (ver <a href="./#rrpg.plugins.listenPM">Firecast.Plugins.listenPM</a>).</li>
+<li>data - O conteúdo da resposta. Pode ser um número, uma cadeia de caracteres, um booleano ou uma tabela lua. Esta informação será repassada no primeiro parâmetro da função "callback" de quem enviou a mensagem (ver <a href="./#rrpg.plugins.sendPM">Firecast.Plugins.sendPM</a>)</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Plugins.replyPMFailure(message, data)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Envia uma resposta de FALHA ao remetente da mensagem inter-plugin.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>message - A mensagem que deseja responder. Esta informação é a mesma que foi recebida no primeiro parâmetro da função callback da escuta (ver <a href="./#rrpg.plugins.listenPM">Firecast.Plugins.listenPM</a>).</li>
+<li>data - O conteúdo da resposta. Pode ser um número, uma cadeia de caracteres, um booleano ou uma tabela lua. Esta informação será repassada no primeiro parâmetro da função "failureCallback" de quem enviou a mensagem (ver <a href="./#rrpg.plugins.sendPM">Firecast.Plugins.sendPM</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-generate-an-encrypted-password-protected-pdf-document/">Keep Your PDFs Safe from Unauthorized Access with These Security Measures</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../MensagensdeEstadodasMesas/" class="btn btn-sm btn-link">
+			Mensagens de Estado das Mesas
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../BibliotecaFirecastRequests/" class="btn btn-sm btn-link">
+			Biblioteca Firecast.Requests
+		</a>
+		<a href="../BibliotecaFirecastRequests/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaFirecastPlugins.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

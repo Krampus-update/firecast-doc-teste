@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Características de tags shapes - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Caracter\u00edsticas de tags shapes", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas de tags do tipo shape/forma", url: "#caracteristicas-de-tags-do-tipo-shapeforma", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-link">
+			Características de todas as tags de textos
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagactivityIndicator/" class="btn btn-sm btn-link">
+			Tag activityIndicator
+		</a>
+		<a href="../TagactivityIndicator/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="caracteristicas-de-tags-shapes">Características de tags shapes</h1>
+<h1 id="caracteristicas-de-tags-do-tipo-shapeforma">Características de tags do tipo shape/forma</h1>
+<p>O SDK3 utiliza o conceito de orientação a objetos nos componentes visuais e alguns controles são controles shape (Exemplos: <strong>rectangle</strong>, <strong>horzLine</strong>, <strong>etc..</strong>).</p>
+<h2 id="heranca">Herança</h2>
+<p>As tags shapes possuem <strong>todas</strong> as características de um controle qualquer. Veja <a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a><strong>.</strong></p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, todas as tags shapes também possuem as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e Atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>String contendo uma cor</td>
+<td>"silver"</td>
+<td>Define a cor do conteúdo da forma.&nbsp; Veja <a href="../StringdecoresnoLuaForm/">String de cores no Lua Form</a> para obter a completa de cores e outras formas de uso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeColor</strong></td>
+<td>String contendo uma cor</td>
+<td>"black"</td>
+<td>Define a cor das linhas da borda.&nbsp; Veja <a href="../StringdecoresnoLuaForm/">String de cores no Lua Form</a> para obter a completa de cores e outras formas de uso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeSize</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define a espessura das linhas da borda.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeCap</strong></td>
+<td>Enumerado: "flat" "round"</td>
+<td>"flat"</td>
+<td>Define o estilo gráfico usado ao desenhar o fim das linhas.&nbsp; "flat" - linhas com pontas retangulares "round" - linhas com pontas arredondadas.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeJoin</strong></td>
+<td>Enumerado: "miter" "round" "bevel"</td>
+<td>"miter"</td>
+<td>Define o estilo gráfico usado ao juntar segmentos de linha em uma forma.&nbsp; "miter" - As quinas/junções são "quadradas".&nbsp; "round" - As quinas/junções são arredondadas.&nbsp; "bevel" - As quintas/junções são ligadas de forma diagonal.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>strokeDash</strong></td>
+<td>Enumerado: "solid" "dash" "dot" "dashDot" "dashDotDot"</td>
+<td>"solid"</td>
+<td>Define o estilo gráfico da linha.&nbsp; "solid" - A linha é sólida&nbsp; "dash" - A linha é tracejada&nbsp; "dot" - A linha é feita de pontos.&nbsp; "dashDot" - A linha é alternada entre traços e pontos.&nbsp; "dashDotDot" - A linha é alternada entre traço, ponto e ponto.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Transform your help documentation into a stunning website</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../Caracteristicasdetodasastagsdete/" class="btn btn-sm btn-link">
+			Características de todas as tags de textos
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagactivityIndicator/" class="btn btn-sm btn-link">
+			Tag activityIndicator
+		</a>
+		<a href="../TagactivityIndicator/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/Caracteristicasdetagsshapes.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Tag progressBar - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Tag progressBar", url: "#_top", children: [
+				]},
+				{title: "Tag progressBar", url: "#tag-progressbar_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagpopupForm/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagpopupForm/" class="btn btn-sm btn-link">
+			Tag popupForm
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagradioButton/" class="btn btn-sm btn-link">
+			Tag radioButton
+		</a>
+		<a href="../TagradioButton/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="tag-progressbar">Tag progressBar</h1>
+<h1 id="tag-progressbar_1">Tag progressBar</h1>
+<p>&nbsp;</p>
+<p>A tag/componente <strong>progressBar</strong> representa uma barra de progresso/estado, ótimo para dar noção ao usuário do progresso de algo em um formato visual.</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>progressBar</strong> possui <strong>todas</strong> as características das tags visuais.&nbsp;</p>
+<p>Veja:</p>
+<ul>
+<li>&nbsp;</li>
+<li><a href="../Caracteristicasdetodasastagsvisu/">Características de todas as tags visuais</a><strong>.</strong></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o <strong>progressBar</strong> possui também as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Valor Padrão</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>color</strong></td>
+<td>Cor</td>
+<td>"green"</td>
+<td>Define a cor da barra de progresso.&nbsp; Veja <a href="../StringdecoresnoLuaForm/">String de cores no Lua Form</a> para obter a completa de cores e outras formas de uso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>position ** </strong>ou ** <strong>value</strong>&nbsp;</td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define a posição atual da barra de progresso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>min</strong></td>
+<td>Float</td>
+<td>&#48;.0</td>
+<td>Define o valor mínimo da posição da barra de progresso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>max</strong></td>
+<td>Float</td>
+<td>&#49;00.0</td>
+<td>Define o valor máximo da posição da barra de progresso.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>field</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o progressBar passa a ler seu "position/value" a partir deste campo.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fieldMin</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o progressBar passa a ler seu "min" a partir deste campo.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>fieldMax</strong></td>
+<td>String</td>
+<td>\&lt;string vazio&gt;</td>
+<td>Caminho de um campo no NodeDatabase.&nbsp; Quando associado, o progressBar passa a ler seu "max" a partir deste campo.&nbsp; Veja também: <a href="../LuaFormeNodeDatabase/">Lua Form e NodeDatabase</a> <a href="../NodeDatabase/">NodeDatabase</a>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>mouseGlow</strong></td>
+<td>Boolean</td>
+<td>true</td>
+<td>Define se a barra deve brilhar quando o usuário passar o mouse em cima.&nbsp; OBS: Este atributo só tem efeito se o valor do atributo hitTest for "true"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>colorMode</strong></td>
+<td>Enumerado: "default" "hl"</td>
+<td>"default"</td>
+<td>Define como o progressBar desenhará sua cor na interface.&nbsp; "default" - Modo padrão, efeito degradê sobre a cor escolhida.&nbsp; "hl" - Half Lightness/meia iluminosidade. Aplica efeito degradê em cima do tom da cor escolhida com ilumonisade em 50%. As barrinhas de HP/MP/ETC do RRPG utilizam este modo de coloração. Por fixar a iluminosidade em 50%, cores com diferentes brilhos serão apresentadas da mesma forma (Exemplo: azul claro e azul escuro)&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-exemplos-de-progressbars-de-varias-cores">Exemplo 1 - Exemplos de ProgressBars de várias cores</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>\&lt;?xml</strong> version="1.0" encoding="UTF-8"<strong>?&gt;</strong> <strong>\&lt;form</strong> name="frmFTeste"<strong>&gt;</strong>          <strong>\&lt;progressBar</strong> width="150" color="green" top="25" left="20" value="50" max="100"<strong>/&gt;</strong> <strong>\&lt;/form&gt;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>color="green"</th>
+<th><img alt="Image" src="../lib/NewItem204.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color="red"</td>
+<td><img alt="Image" src="../lib/NewItem205.png" /></td>
+</tr>
+<tr>
+<td>color="black"</td>
+<td><img alt="Image" src="../lib/NewItem206.png" /></td>
+</tr>
+<tr>
+<td>color="darkorchid"</td>
+<td><img alt="Image" src="../lib/NewItem207.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/step-by-step-guides/how-to-convert-a-word-docx-file-to-an-epub-or-kindle-ebook/">Converting Word Documents to eBooks: A Step-by-Step Guide with HelpNDoc</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../TagpopupForm/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../TagpopupForm/" class="btn btn-sm btn-link">
+			Tag popupForm
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../TagradioButton/" class="btn btn-sm btn-link">
+			Tag radioButton
+		</a>
+		<a href="../TagradioButton/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/TagprogressBar.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:43 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

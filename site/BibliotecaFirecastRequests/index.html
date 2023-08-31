@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Biblioteca Firecast.Requests - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Biblioteca Firecast.Requests", url: "#_top", children: [
+				]},
+				{title: "Biblioteca Firecast.Requests", url: "#biblioteca-firecastrequests_1", children: [
+						
+				{title: "Fun\u00e7\u00f5es da biblioteca Firecast.Requests", url: "#_top", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../BibliotecaFirecastPlugins/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../BibliotecaFirecastPlugins/" class="btn btn-sm btn-link">
+			Biblioteca Firecast.Plugins
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../VisaogeraldaSceneLib/" class="btn btn-sm btn-link">
+			Visão geral da SceneLib
+		</a>
+		<a href="../VisaogeraldaSceneLib/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="biblioteca-firecastrequests">Biblioteca Firecast.Requests</h1>
+<h1 id="biblioteca-firecastrequests_1">Biblioteca Firecast.Requests</h1>
+<p>A biblioteca rrpg.requests contém funções que solicitam determinadas ações ao RRPG, como, por exemplo, criar itens na biblioteca da mesa, obter informações de perfil de um usuário, etc..</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><em>-- Primeiro, é necessário usar a unidade "rrpgRequests.lua"</em> require("rrpgRequests.lua");    <em>-- Agora é possível acessar as funções da biblioteca</em> Firecast.Requests.FUNCAO_DA_BIBLIOTECA(Parametro1, Parametro2, ...);</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="funcoes-da-biblioteca-firecastrequests">Funções da biblioteca Firecast.Requests</h2>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>function</strong> Firecast.Requests.criarPersonagem(itemPai, nome, dataType, visivelATodos, dono &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [, successCallback [, failureCallback]])</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Requisita a criação de um novo personagem na mesa.</p>
+<p>&nbsp;</p>
+<p>Parâmetros:</p>
+<ul>
+<li>&nbsp;</li>
+<li>itemPai - Um <a href="../ObjetoBibliotecaItem/">objeto BibliotecaItem</a> identificando onde o personagem deverá ser criado.</li>
+<li>nome - Uma cadeia de caracteres identificando o nome do novo personagem.</li>
+<li>dataType - Uma cadeia de caracteres identificando o dataType do personagem. dataType é uma identificação única de um template de ficha.</li>
+<li>visivelATodos - true se o personagem deve ser visível a todos ou false se for ser visível apenas ao mestre e ao dono da ficha.</li>
+<li>dono - Um <a href="../ObjetoJogador/">objeto Jogador</a> identificando quem será o dono do personagem, ou <strong>nil</strong> se for um NPC.</li>
+<li>(OPCIONAL) successCallback - Uma função que será chamada quando a criação do personagem for bem sucedida.</li>
+<li>(OPCIONAL) failureCallback - Uma função que será chamada quando a criação do personagem <strong>não</strong> for bem sucedida. Uma cadeia de caracteres contendo o motivo da falha é passada como primeiro parâmetro da função.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Retorno:</p>
+<p>&nbsp; &nbsp; A função não retorna nada. Para saber se a criação do personagem foi bem sucedida, utilize os parâmetros "successCallback' e "failureCallback".</p>
+<p>&nbsp;</p>
+<p>Observações:</p>
+<ul>
+<li>&nbsp;</li>
+<li>Por motivo de segurança, apenas plug-ins autorizados podem alterar a estrutura da biblioteca das mesas.</li>
+<li>A criação de personagens é um processo assíncrono. Sendo assim, a função não aguarda uma resposta de sucesso/falha e as funções successCallback e failureCallback serão invocadas mais tarde com o resultado.</li>
+<li>Não é possível criar um personagem cujo dataType não está instalado no RRPG do usuário. Para obter uma lista de dataTypes que o usuário possui instalado, utilize a função <a href="../BibliotecaFirecastPlugins/#função%20getInstaledDataTypes">Firecast.Plugins.getInstaledDataTypes</a></li>
+</ul>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour/produce-html-websites/">Streamline your documentation process with HelpNDoc's HTML5 template</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../BibliotecaFirecastPlugins/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../BibliotecaFirecastPlugins/" class="btn btn-sm btn-link">
+			Biblioteca Firecast.Plugins
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../VisaogeraldaSceneLib/" class="btn btn-sm btn-link">
+			Visão geral da SceneLib
+		</a>
+		<a href="../VisaogeraldaSceneLib/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/BibliotecaFirecastRequests.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:40 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>

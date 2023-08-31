@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<title>Objeto Mesa - Firecast Documentation</title>
+		<link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/font-awesome-5.12.2-all.min.css" rel="stylesheet">
+		<link href="../css/base.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/highlight-github.css">
+		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../js/highlight.pack.js"></script>
+		
+		<script>
+			var base_url = '..';
+			var home_url = '../home';
+			var is_outer_page = false;
+			
+			var pageToc = [
+				{title: "Objeto Mesa", url: "#_top", children: [
+				]},
+				{title: "Objeto Mesa", url: "#objeto-mesa_1", children: [
+						
+				{title: "Heran\u00e7a", url: "#_top", children: [
+				]},
+				{title: "Caracter\u00edsticas", url: "#caracteristicas", children: [
+				]},
+				{title: "Exemplos", url: "#exemplos", children: [
+				]},
+				]},
+			];
+
+		</script>
+		<script src="../js/base.js"></script> 
+	</head>
+
+	<body class="inner-page">
+		
+
+		<div class="container-fluid wm-page-content">
+			<a name="_top" aria-hidden="true"></a>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoNodeUndoData/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoNodeUndoData/" class="btn btn-sm btn-link">
+			Objeto NodeUndoData
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-link">
+			Objeto Jogador
+		</a>
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			
+
+			<h1 id="objeto-mesa">Objeto Mesa</h1>
+<h1 id="objeto-mesa_1">Objeto Mesa</h1>
+<p>Este objeto representa uma mesa aberta no Firecast.</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança</h2>
+<p>O <strong>Objeto Mesa</strong> possui todas as características de um WrappedObject. Veja:</p>
+<ul>
+<li><a href="../ObjetoWrappedObject/">Objeto WrappedObject</a></li>
+</ul>
+<p><a href="../Caracteristicasdetodasastagsvisu/"></a></p>
+<h2 id="caracteristicas">Características</h2>
+<p>Além das características herdadas, o Objeto Mesa também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>codigoInterno</strong></td>
+<td>Integer</td>
+<td>Somente leitura, contém o código interno da mesa que é usado para identificá-la unicamente em todo o RRPG Firecast.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>nome</strong></td>
+<td>String</td>
+<td>Somente leitura, contém o nome da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>msgStatus</strong></td>
+<td>String</td>
+<td>Somente leitura, contém a mensagem de status da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>site</strong></td>
+<td>String</td>
+<td>Somente leitura, contém o endereço do site da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>logotipo</strong></td>
+<td>String</td>
+<td>Somente leitura, contém a URL da imagem logotipo da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>sistema</strong></td>
+<td>String</td>
+<td>Somente leitura, contém o sistema de RPG da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>msgBoasVindas</strong></td>
+<td>String</td>
+<td>Somente leitura, contém o texto da mensagem de boas vindas da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>isRestrito18Anos</strong></td>
+<td>Boolean</td>
+<td>Somente leitura, contém true se a mesa estiver marcada como não recomendada para menores de 18 anos.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>haVagas</strong></td>
+<td>Boolean</td>
+<td>Somente leitura, contém true se a mesa estiver marcada como há vagas.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>isModerada</strong></td>
+<td>Boolean</td>
+<td>Somente leitura, contém true se a mesa estiver marcada como Moderada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>podeTablesDock</strong></td>
+<td>Boolean</td>
+<td>Somente leitura, contém true se a mesa pode exibir Table's Dock do usuário. É true quando o criador da mesa é Gold Plus ou quando o usuário local é assinante Gold.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>jogadores</strong></td>
+<td>Arranjo de <a href="../ObjetoJogador/">Objeto Jogador</a></td>
+<td>Somente leitura, contém um arranjo de <a href="../ObjetoJogador/">Objeto Jogador</a> representando todos os usuários que estão conectados na mesa no momento.&nbsp; Um arranjo é uma tabela lua indexada de 1 a N, onde N é o comprimento da tabela (operador # no lua)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>meuJogador</strong></td>
+<td><a href="../ObjetoJogador/">Objeto Jogador</a></td>
+<td>Somente leitura, contém o <a href="../ObjetoJogador/">Objeto Jogador</a> do usuário que está usando o RRPG.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>biblioteca</strong></td>
+<td><a href="../ObjetoBibliotecaItem/">Objeto BibliotecaItem</a></td>
+<td>Somente leitura, contém o <a href="../ObjetoBibliotecaItem/">objeto BibliotecaItem</a> raiz da biblioteca da mesa.&nbsp; A raiz da biblioteca é aquela pasta que tem no topo da mesma, de nome "Biblioteca".&nbsp;</td>
+</tr>
+<tr>
+<td><strong>chat</strong></td>
+<td><a href="../ObjetoChat/">Objeto Chat</a></td>
+<td>Somente leitura, contém o <a href="../ObjetoChat/">Objeto Chat</a> da interface de bate papo principal da mesa.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>activeChat</strong></td>
+<td><a href="../ObjetoChat/">Objeto Chat</a></td>
+<td>Somente leitura, contém o <a href="../ObjetoChat/">Objeto Chat</a> da mesa que está atualmente ativo/focado na interface.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mesa:isType(typeName)</strong></td>
+<td>Retorna true se passado "mesa" como parâmetro.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>mesa:findBibliotecaItem(codigoInterno)</strong></td>
+<td>Dado um número código interno, localiza o objeto BibliotecaItem que possui "codigoInterno" igual ao valor passado no parâmetro "codigoInterno".&nbsp; Retorna um <a href="../ObjetoBibliotecaItem/">objeto BibliotecaItem</a> ou <strong>nil</strong> caso não encontre.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>mesa:findJogador(loginOuCodigoInterno)</strong></td>
+<td>Dado um login de usuário ou seu código interno, localiza o objeto Jogador correspondente representando o jogador atualmente na mesa.&nbsp; Retorna um <a href="../ObjetoJogador/">objeto Jogador</a> ou nil caso não encontre.&nbsp; Observação: A função retorna <strong>nil</strong> se o usuário não estiver na mesa no momento, mesmo quando o parâmetro passado for um login ou um código interno válido.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>mesa:requestSetModerada(moderada)</strong></td>
+<td>Requisita a ativação/desativação da mesa moderada.&nbsp; Parâmetros: moderada - Booleano, onde true significa "Ativar a mesa moderada" e false "Desativar a mesa moderada".&nbsp; Observações: A alteração do comportamento "mesa moderada" só ocorre após o servidor RRPG aprovar a mudança.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>mesa:abrirNDBDeMesa(nome, callback[, opcoes])</strong></td>
+<td>Abre um <a href="../NodeDatabase/">NodeDatabase</a> da mesa que está fisicamente armazenado no servidor do Firecast.&nbsp; Parâmetros: nome - Cadeia de caracteres que identifica qual NodeDatabase remoto da mesa deve ser aberto. callback - Uma função que será invocada quando o NodeDatabase for carregado ou quando ocorrer um erro no carregamento. Quando o carregamento for bem sucedido, a função callback será chamada contendo o <a href="../ObjetoNodo/">Objeto Nodo</a> raiz do NodeDatabase no primeiro parâmetro. Quando ocorrer algum erro no carregamento, a função callback será chamada contendo <strong>nil</strong> no primeiro parâmetro. (OPCIONAL) opcoes - Uma tabela lua contendo as seguintes opções extras de carregamento do nodedatabase: (OPCIONAL) criar - Um booleano que define o que fazer quando o NodeDatabase não existir no servidor. true = criar o nodeDatabase quando não existir, false = falhar (invocar a função callback com valor nil) quando o nodeDatabase não existir. Padrão se não informado: false. (OPCIONAL) callbackDeCarga - Uma função que será invocada quando os dados do NodeDatabase começarem a ser carregados pela internet. Se você abrir duas vezes o mesmo NodeDatabase de mesa, a segunda vez não ocorrerá uma carga de dados pela internet pois o NDB já está carregado.&nbsp; Observações: Esta função é assíncrona, isto é, o código LUA continua sua execução normal enquanto o NDB é carregado em segundo plano. É preciso informar o parâmetro "callback" para obter o NodeDatabase carregado. Cada mesa possui seu próprio conjunto de NodeDatabases que existem independentemente das outras mesas. Alterações feitas no NodeDatabase aberto por esta função são automaticamente sincronizadas com os outros usuários que também abriram o mesmo NodeDatabase. Se o usuário sair da mesa, o NodeDatabase terá sua conexão cortada e não mais sincronizará as alterações. Por padrão, os usuários com o modo +mestre podem ler e alterar o NodeDatabase de mesa enquanto os demais usuários podem apenas ler valores. Para abrir um NodeDatabase de mesa, uma das seguintes afirmativas deve ser verdadeira: O usuário atual é assinante Gold; ou O criador da mesa é assinante Platinum.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>mesa:asyncOpenUserRoomNDB(name[, options])</strong></td>
+<td>Asynchronously open a per user <a href="../NodeDatabase/">NodeDatabase</a> in this room that is physically stored in the Firecast server.&nbsp; Arguments: name - A string identifying which remote user NodeDatabase in this room should be opened (OPTIONAL) options - A Lua table describing additional settings that may contain: create - a boolean. If <strong>true</strong>, the NodeDatabase can be created if it does not exist. Default: <strong>false</strong> skipLoad - a boolean. If <strong>true</strong>, the returned Promise will be resolved before the load process is finished. If <strong>true</strong>, you will receive a “Loading node” instead of a “Loaded node”. Default: <strong>false</strong>&nbsp; Return: a <a href="../Promiseobject/">Promise</a> of a <a href="../ObjetoNodo/">Node Object</a>. As default behavior, the Promise will be resolved after all data is downloaded and available to be used.&nbsp; Remarks: The content of NodeDatabases opened by this function is stored separately per-user and per-room. Each user in the room will have their own copy of the NodeDatabase identified by the “name”.&nbsp; Example:&nbsp; local promise =&nbsp; &nbsp; room:asyncOpenUserRoomNDB("exampleNodeDatabase", {create=true});   promise:thenDo(     function(node)         <em>-- This function will be called when/if the *         </em>-- load completes. The first argument, *         <em>-- "node", contains the root node of the</em> &nbsp; &nbsp; &nbsp; &nbsp; <em>-- opened nodedatabase</em>     end,    &nbsp;     function(errorMsg)         <em>-- This function will be called when/if the *         </em>-- load fails. The first argument, *         <em>-- "errorMsg", contains the message explaining * &nbsp; &nbsp; &nbsp; &nbsp; </em>-- why it was not possible to open the<em> &nbsp; &nbsp; &nbsp; &nbsp; </em>-- nodeDatabase*     end); &nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos</h2>
+<h3 id="exemplo-1-exibindo-uma-mensagem-com-o-nome-e-sistema-de-todas-as-mesas-que-o-usuario-esta-dentro">Exemplo 1 - Exibindo uma mensagem com o nome e sistema de todas as mesas que o usuário está dentro.</h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>local</strong> mesas = rrpg.getMesas(); <strong>local</strong> msg = "";  <strong>for</strong> i = 1, #mesas, 1 <strong>do</strong>         <strong>local</strong> objMesa = mesas[i];               msg = msg .. objMesa.nome .. " (" .. objMesa.sistema .. ")<strong>\n</strong>"; <strong>end</strong>;  <strong>if</strong> msg ~= "" <strong>then</strong>         showMessage(msg); <strong>else</strong>         showMessage("O usuário não está em nenhuma mesa"); <strong>end</strong>;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>\
+&nbsp;</p>
+<p><img alt="Image" src="../lib/NewItem157.png" /></p>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpndoc.com/feature-tour">Easily create Qt Help files</a></em></p>
+
+			<br>
+			
+
+
+
+
+
+
+<div class="row pt-2 pb-4">
+	<div class="col-sm text-center text-sm-left">
+		<a href="../ObjetoNodeUndoData/" class="btn btn-sm btn-outline-dark">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+			Previous
+		</a>
+		<a href="../ObjetoNodeUndoData/" class="btn btn-sm btn-link">
+			Objeto NodeUndoData
+		</a>
+	</div>
+	
+
+	
+	<div class="col-sm text-center text-sm-right">
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-link">
+			Objeto Jogador
+		</a>
+		<a href="../ObjetoJogador/" class="btn btn-sm btn-outline-dark">
+			Next
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+</div>
+
+			<br>
+		</div>
+
+		<footer class="container-fluid wm-page-content text-center small">
+			<p>
+			<a href="https://github.com/Krampus-update/firecast-doc-test/edit/master/docs/ObjetoMesa.md" target="_blank"><i class="fab fa-github"></i>
+Edit on GitHub</a>
+			</p>
+			<details>
+				<summary>
+					Documentation built with <a href="http://www.mkdocs.org/" target="_blank">MkDocs</a> using  <a href="https://github.com/Siphalor/mkdocs-custommill" target="_blank">CustomMill</a>.
+				</summary>
+				<h6 class="mt-2">Additional Licenses</h6>
+				<ul><li>
+						CustomMill is based on the <a href="https://github.com/gristlabs/mkdocs-windmill" target="_blank">Windmill</a> theme by Grist Labs, licensed under the <a href="https://github.com/gristlabs/mkdocs-windmill/blob/master/LICENSE" target="_blank">MIT License</a>
+					</li>
+					<li>
+						CustomMill includes <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> version 5.1.3. This is available under the <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT License</a>.
+					</li>
+					<li>
+						Syntax highlighting is implemented via <a href="https://highlightjs.org" target="_blank">highlight.js</a> licensed under the BSD 3-Clause License and the included github styling made by Vasily Polovnyov.
+					</li>
+					<li>
+						Icons on this site are from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a> which is licensed under the <a href="https://fontawesome.com/license/free" target="_blank">Font Awesome Free License</a>.
+					</li></ul>
+				<p>Built at 2023-08-31 02:21:41 UTC</p>
+			</details>
+		</footer>
+
+		
+	</body>
+</html>
