@@ -4,6 +4,8 @@ repo_url: https://github.com/Krampus-update/firecast-doc-teste
 theme:
     name: material
     language: pt-BR
+    logo: img/favicon.ico
+    favicon: img/favicon.ico
     features:
         - content.code.copy
         - content.code.select
