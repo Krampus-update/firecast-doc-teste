@@ -9,6 +9,7 @@ theme:
     features:
         - navigation.instant
         - navigation.instant.prefetch
+        - navigation.tracking
         - content.code.copy
         - content.code.select
         - content.code.annotate
