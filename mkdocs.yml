@@ -38,6 +38,7 @@ theme:
                     name: Switch to light mode
 
 extra:
+      generator: false
       social:
             - icon: fontawesome/brands/discord
               link: https://discord.gg/YmsuYrhgyZ
