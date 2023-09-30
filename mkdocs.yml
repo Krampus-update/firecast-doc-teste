@@ -23,6 +23,8 @@ theme:
             - content.code.annotate
             - content.tabs.link
             - navigation.footer
+            - navigation.tabs
+            - navigation.tabs.sticky
       palette:
             - scheme: default
               primary: custom
