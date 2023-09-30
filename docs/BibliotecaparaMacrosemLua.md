@@ -152,10 +152,7 @@ Forma de uso: jogadores[1] contém o primeiro jogador, jogadores[2] contém o se
 Booleano (1) indicando se a macro está sendo executada em algum chat associado a alguma mesa.
 { .annotate }
 
-1. 
-| true | false |
-|---|---|
-|1|0|
+1. true | false 
 
 ---
 
