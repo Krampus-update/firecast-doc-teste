@@ -1,31 +1,25 @@
+---
+title: Introdução
+---
 # Introdução
-
 **Firecast SDK 3**
-
-&nbsp;
 
 O Firecast SDK 3 é um kit de desenvolvimento que permite a criação de plug-ins baseados na linguagem de programação LUA 5.3 para o Firecast.
 
-&nbsp;
+## Sobre plug-ins
 
-# Sobre plug-ins
+Um plug-in é um pacote que contém **scripts LUA** e outros arquivos auxiliares (1) que definem sua lógica e comportamento, possuem extensão de arquivo ‘.rpk’ e devem ser instalados no Firecast antes de serem executados. 
+{ .annotate }
 
-Um plug-in é um pacote que contém **scripts LUA** e outros arquivos auxiliares (como imagens, informações, interfaces, etc..) que definem sua lógica e comportamento, possuem extensão de arquivo ‘.rpk’ e devem ser instalados no Firecast antes de serem executados.
-
-&nbsp;
-
-# O que eu preciso ter e o que eu preciso saber para fazer um plug-in?
+1. Como imagens, informações, interfaces, etc..
+## O que eu preciso ter e o que eu preciso saber para fazer um plug-in?
 
 Antes de tudo, entusiasmo\! Se você está entusiasmado, parabéns, você já tem pelo menos 50% do que é preciso para fazer um plug-in =).
 
-&nbsp;
-
 Ferramentas que você precisa ter:
 
-* Firecast SDK 3 instalado em seu computador ([https://firecast.app/para-programadores/](<https://firecast.app/para-programadores/>)).&nbsp;
-* Um editor de texto bacana. Recomendamos o Notepad++ ([http://notepad-plus-plus.org/](<http://notepad-plus-plus.org/>)).
-
-&nbsp;
+* [Firecast SDK 3](https://firecast.app/para-programadores/) instalado em seu computador.
+* Um editor de texto bacana. Recomendamos o ([Notepad++](http://notepad-plus-plus.org/)).
 
 Conhecimentos que você precisa ter:
 
@@ -33,29 +27,19 @@ Conhecimentos que você precisa ter:
 * Um pouco sobre a linguagem de programação LUA.
 * Um pouco sobre o prompt de comando do sistema operacional.
 
-&nbsp;
-
-**Observações Importantes:**&nbsp;
+## Observações Importantes:
 
 * Não se assuste\! Você **não** precisa saber **tudo** sobre XML e nem **tudo** sobre LUA para começar. Você pode ir aprendendo aos poucos, enquanto cria seu plug-in =).
-* Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia [Primeiros passos](<Primeirospassos.md>) e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso\!
+* Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia [Primeiros passos](Primeirospassos.md) e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso\!
 
-&nbsp;
+## Por onde começo?
 
-# Por onde começo?
-
-Leia os [Primeiros passos](<Primeirospassos.md>)
-
-&nbsp;
+Leia os [Primeiros passos](Primeirospassos.md)
 
 ## Veja também:
 
-* &nbsp;
-  * [A linguagem de programação LUA](<AlinguagemdeprogramacaoLUA.md>)
-  * [Documentos XML](<DocumentosXML.md>)
-- &nbsp;
-  - [FAQ -&nbsp; Perguntas Frequentes](<FAQPerguntasFrequentes.md>)
-  - [Histórico de Versões](<HistoricodeVersoes.md>)
 
-***
-_Created with the Personal Edition of HelpNDoc: [Transform Your Help Documentation Process with a Help Authoring Tool](<https://www.helpndoc.com>)_
+  * [A linguagem de programação LUA](AlinguagemdeprogramacaoLUA.md)
+  * [Documentos XML](DocumentosXML.md)
+  - [FAQ Perguntas Frequentes](FAQPerguntasFrequentes.md)
+  - [Histórico de Versões](HistoricodeVersoes.md)
