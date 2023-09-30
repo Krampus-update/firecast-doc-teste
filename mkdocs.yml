@@ -1,5 +1,8 @@
 site_name: Firecast Documentation
 repo_url: https://github.com/Krampus-update/firecast-doc-teste
+extra_css:
+  - stylesheets/extra.css
+
 
 theme:
       name: material
@@ -28,7 +31,7 @@ theme:
                     icon: material/brightness-7
                     name: Switch to dark mode
             - scheme: slate
-              primary: grey
+              primary: custom
               accent: red
               toggle:
                     icon: material/brightness-4
