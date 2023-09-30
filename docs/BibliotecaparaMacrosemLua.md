@@ -15,7 +15,7 @@ Possui os parâmetros passado para a macro, onde a variável "parametro" contém
 
     |parametro|arg[1]|arg[2]|arg[3]|
     |---|---|---|---|
-    |"Texto de Teste"|Texto|de|Teste|
+    |"Texto de Teste"|"Texto"|"de"|"Teste"|
 
     === "parametro"
 
