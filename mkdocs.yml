@@ -1,8 +1,7 @@
 site_name: Firecast Documentation
 repo_url: https://github.com/Krampus-update/firecast-doc-teste
 extra_css:
-  - stylesheets/extra.css
-
+      - stylesheets/extra.css
 
 theme:
       name: material
@@ -10,15 +9,14 @@ theme:
       logo: img/favicon.ico
       favicon: img/favicon.ico
       features:
+            - navigation.sections
             - navigation.instant
             - navigation.instant.prefetch
-            - navigation.tabs
             - navigation.path
             - toc.follow
             - toc.integrate
             - navigation.top
             - navigation.sections
-            - navigation.tabs.sticky
             - navigation.tracking
             - content.code.copy
             - content.code.select
