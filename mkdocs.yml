@@ -15,7 +15,6 @@ theme:
             - navigation.path
             - toc.follow
             - header.autohide
-            - toc.integrate
             - navigation.top
             - navigation.sections
             - navigation.tracking
