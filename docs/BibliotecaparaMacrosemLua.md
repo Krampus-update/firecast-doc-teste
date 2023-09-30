@@ -51,7 +51,7 @@ Possui os parâmetros passado para a macro, onde a variável "parametro" contém
 ---
 
 ### meuJogador / myPlayer
-`variável meuJogador/ variável myPlayer`
+`variável meuJogador ou variável myPlayer`
 
 (Não é uma função) 
 [objeto Jogador](ObjetoJogador.md) representando o usuário da macro naquela mesa.
@@ -105,7 +105,7 @@ O [Objeto Nodo](<ObjetoNodo.md>) raiz representando o NodeDatabase/Sheet do pers
 ---
 
 ### mesa / room
-`variável mesa/ variável room`
+`variável mesa ou variável room`
 
 (Não é uma função)
 [Objeto Mesa](ObjetoMesa.md) representando a mesa em que a macro está sendo executada.
@@ -120,7 +120,7 @@ O [Objeto Nodo](<ObjetoNodo.md>) raiz representando o NodeDatabase/Sheet do pers
 ---
 
 ### jogadores / players
-`variável jogadores/ variável players`
+`variável jogadores ou variável players`
 
 (Não é uma função)
 Arranjo de [Objeto Jogador](ObjetoJogador.md), representando os usuários que estão na mesa no momento.
