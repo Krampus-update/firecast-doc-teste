@@ -11,6 +11,9 @@ theme:
             - navigation.instant.prefetch
             - navigation.tabs
             - navigation.path
+            - toc.follow
+            - toc.integrate
+            - navigation.top
             - navigation.sections
             - navigation.tabs.sticky
             - navigation.tracking
