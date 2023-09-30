@@ -23,6 +23,7 @@ theme:
             - content.code.select
             - content.code.annotate
             - content.tabs.link
+            - navigation.footer
       palette:
             - scheme: default
               primary: custom
@@ -36,6 +37,9 @@ theme:
                     name: Switch to light mode
 
 extra:
+      social:
+            - icon: fontawesome/brands/discord
+              link: https://discord.gg/YmsuYrhgyZ
       status:
             <identifier>: <description>
 
