@@ -2,13 +2,23 @@ site_name: Firecast Documentation
 repo_url: https://github.com/Krampus-update/firecast-doc-teste
 
 theme:
-  name: material
-  language: pt-BR
-  features:
+    name: material
+    language: pt-BR
+    primary: red   
+    features:
     - content.code.copy
     - content.code.select
     - content.code.annotate
     - content.tabs.link
+    palette:
+    - scheme: default
+        toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    - scheme: slate
+        toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 extra:
   status:
