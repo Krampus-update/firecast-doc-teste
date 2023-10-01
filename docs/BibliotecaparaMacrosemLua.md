@@ -15,7 +15,7 @@ Possui os parâmetros passado para a macro, onde a variável "parametro" contém
 
     |parametro|arg[1]|arg[2]|arg[3]|
     |---|---|---|---|
-    |"Texto de Teste"|Texto|de|Teste|
+    |"Texto de Teste"|"Texto"|"de"|"Teste"|
 
     === "parametro"
 
@@ -51,7 +51,7 @@ Possui os parâmetros passado para a macro, onde a variável "parametro" contém
 ---
 
 ### meuJogador / myPlayer
-`variável meuJogador/ variável myPlayer`
+`variável meuJogador ou variável myPlayer`
 
 (Não é uma função) 
 [objeto Jogador](ObjetoJogador.md) representando o usuário da macro naquela mesa.
@@ -105,7 +105,7 @@ O [Objeto Nodo](<ObjetoNodo.md>) raiz representando o NodeDatabase/Sheet do pers
 ---
 
 ### mesa / room
-`variável mesa/ variável room`
+`variável mesa ou variável room`
 
 (Não é uma função)
 [Objeto Mesa](ObjetoMesa.md) representando a mesa em que a macro está sendo executada.
@@ -120,7 +120,7 @@ O [Objeto Nodo](<ObjetoNodo.md>) raiz representando o NodeDatabase/Sheet do pers
 ---
 
 ### jogadores / players
-`variável jogadores/ variável players`
+`variável jogadores ou variável players`
 
 (Não é uma função)
 Arranjo de [Objeto Jogador](ObjetoJogador.md), representando os usuários que estão na mesa no momento.
@@ -152,10 +152,7 @@ Forma de uso: jogadores[1] contém o primeiro jogador, jogadores[2] contém o se
 Booleano (1) indicando se a macro está sendo executada em algum chat associado a alguma mesa.
 { .annotate }
 
-1. 
-| true | false |
-|---|---|
-|1|0|
+1. true | false 
 
 ---
 
