@@ -6,12 +6,9 @@ extra_css:
 theme:
       name: material
       language: pt-BR
-      logo: img/favicon.ico
       favicon: img/favicon.ico
       features:
-            - navigation.sections
             - navigation.instant
-            - navigation.instant.prefetch
             - navigation.path
             - toc.follow
             - header.autohide
@@ -38,12 +35,17 @@ theme:
                     name: Switch to light mode
 
 extra:
-      generator: false
-      social:
-            - icon: fontawesome/brands/discord
-              link: https://discord.gg/YmsuYrhgyZ
-      status:
-            <identifier>: <description>
+        generator: false
+        alternate:
+        - name: English
+          link: /en/ 
+          lang: en
+        - name: Portugues Brasileiro
+          link: /pt/
+          lang: pt-BR
+        social:
+        - icon: fontawesome/brands/discord
+          link: https://discord.gg/YmsuYrhgyZ
 
 markdown_extensions:
       - admonition
