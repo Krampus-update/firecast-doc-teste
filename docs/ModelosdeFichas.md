@@ -1,34 +1,23 @@
-# Modelos de Fichas
+---
+title: Modelos de Fichas
+---
 
 # Modelos de Fichas
 
 Cada modelo de ficha do SDK3 é um documento Lua Form (extensão ‘.lfm’) e toda vez que o usuário abre um personagem, o RRPG Firecast localiza o Lua Form adequado, cria uma nova instância e a exibe na tela.
 
-&nbsp;
-
 Veja:
-
-* &nbsp;
-  * &nbsp;
     * [Interfaces Visuais (Lua Forms)](<InterfacesVisuaisLuaForms.md>)
     * [Lua Form e Instâncias](<LuaFormeInstancias.md>)
 
 ## Criando um novo modelo de ficha
-
-&nbsp; &nbsp; Para criar um novo modelo de ficha:
+Para criar um novo modelo de ficha:
 
 1. Crie um arquivo texto vazio de extensão ‘.lfm” dentro da pasta do projeto do plug-in.
-1. Abra o arquivo em um editor de texto, copie e cole o seguinte documento:
-
-&nbsp;
+2. Abra o arquivo em um editor de texto, copie e cole o seguinte documento:
 
 | **\<?xml** version="1.0" encoding="UTF-8"**?\>**&nbsp; **\<form** formType="sheetTemplate" dataType="DATA\_TYPE\_AQUI"  &nbsp; &nbsp; &nbsp; title="TITULO\_AQUI" name="NOME\_AQUI"**\>**&nbsp; **\</form\>** |
 | --- |
-
-
-&nbsp;
-
-&nbsp;
 
 1. Preencha os campos “dataType”, “title” e “name”:
    1. *dataType* – Um texto que identifica qual é o tipo de conteúdo do seu modelo de ficha. Você **deve inventar** um Data Type único que possua ao menos cinco caracteres alfanuméricos, "\_" ou "." e que não comece com dígitos. Use a criatividade\! Exemplos: “br.com.rrpg.DnD5\_S3”, “br.com.rrpg.VampiroAMascara”, “br.com.meusite.MeuModeloDeFicha”, “meuplugin.FichaX”, etc..\
