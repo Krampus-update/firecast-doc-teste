@@ -8,8 +8,7 @@ O Firecast SDK 3 é um kit de desenvolvimento que permite a criação de plug-in
 
 ## Sobre plug-ins
 
-Um plug-in é um pacote que contém **scripts LUA** e outros arquivos auxiliares (1) que definem sua lógica e comportamento, possuem extensão de arquivo ‘.rpk’ e devem ser instalados no Firecast antes de serem executados. 
-{ .annotate }
+Um plug-in é um pacote que contém **scripts LUA** e outros arquivos auxiliares (1) que definem sua lógica e comportamento, possuem extensão de arquivo ‘.rpk’ e devem ser instalados no Firecast antes de serem executados. { .annotate }
 
 1. Como imagens, informações, interfaces, etc..
 ## O que eu preciso ter e o que eu preciso saber para fazer um plug-in?
