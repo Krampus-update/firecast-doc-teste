@@ -27,7 +27,7 @@ Conhecimentos que você precisa ter:
 * Um pouco sobre a linguagem de programação LUA.
 * Um pouco sobre o prompt de comando do sistema operacional.
 
-## Observações Importantes:
+## Observações Importantes
 
 * Não se assuste\! Você **não** precisa saber **tudo** sobre XML e nem **tudo** sobre LUA para começar. Você pode ir aprendendo aos poucos, enquanto cria seu plug-in =).
 * Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia [Primeiros passos](Primeirospassos.md) e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso\!
@@ -36,7 +36,7 @@ Conhecimentos que você precisa ter:
 
 Leia os [Primeiros passos](Primeirospassos.md)
 
-## Veja também:
+## Veja também
 
 
   * [A linguagem de programação LUA](AlinguagemdeprogramacaoLUA.md)
