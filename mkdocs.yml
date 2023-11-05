@@ -1,5 +1,7 @@
-site_name: Firecast Documentation
+site_name: Documentação SDK 3.6 - Firecast
+
 repo_url: https://github.com/Krampus-update/firecast-doc-teste
+repo_name: Krampus-update/firecast-doc-teste
 
 theme:
       name: material
