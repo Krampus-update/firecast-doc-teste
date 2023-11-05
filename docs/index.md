@@ -13,15 +13,14 @@ Um plug-in é um pacote que contém **scripts LUA** e outros arquivos auxiliares
 
 1.  Como imagens, informações, interfaces, etc..
 
-
 ## O que eu preciso ter e o que eu preciso saber para fazer um plug-in?
 
-Antes de tudo, entusiasmo\! Se você está entusiasmado, parabéns, você já tem pelo menos 50% do que é preciso para fazer um plug-in :smile:.
+Antes de tudo, entusiasmo! Se você está entusiasmado, parabéns, você já tem pelo menos 50% do que é preciso para fazer um plug-in :smile:.
 
 Ferramentas que você precisa ter:
 
 * [Firecast SDK 3](https://firecast.app/para-programadores/) instalado em seu computador.
-* Um editor de texto bacana. Recomendamos o ([Notepad++](http://notepad-plus-plus.org/)).
+* Um editor de texto bacana. Recomendamos o [Notepad++](http://notepad-plus-plus.org/).
 
 Conhecimentos que você precisa ter:
 
@@ -31,8 +30,8 @@ Conhecimentos que você precisa ter:
 
 ## Observações Importantes
 
-* Não se assuste\! Você **não** precisa saber **tudo** sobre XML e nem **tudo** sobre LUA para começar. Você pode ir aprendendo aos poucos, enquanto cria seu plug-in :smile:.
-* Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia [Primeiros passos](Primeirospassos.md) e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso\!
+* Não se assuste! Você **não** precisa saber **tudo** sobre XML e nem **tudo** sobre LUA para começar. Você pode ir aprendendo aos poucos, enquanto cria seu plug-in :smile:.
+* Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia [Primeiros passos](Primeirospassos.md) e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso!
 
 ## Por onde começo?
 
