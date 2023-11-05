@@ -10,8 +10,8 @@
       "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
     ],
     "github-actions.workflows.pinned.workflows": [
-      ".github/workflows/main.yml",
-      "dynamic/pages/pages-build-deployment"
+      "dynamic/pages/pages-build-deployment",
+      ".github/workflows/main.yml"
     ]
   }
   

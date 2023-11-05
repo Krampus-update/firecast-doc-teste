@@ -21,5 +21,5 @@ Agora que você já instalou um bom editor de texto, você já pode criar seu pl
 
 5. [Distribua seu plug-in](Disponibilizandoumplugin.md).
 
-## Veja também:
+## Veja também
 * [FAQ - Perguntas Frequentes](FAQPerguntasFrequentes.md)
