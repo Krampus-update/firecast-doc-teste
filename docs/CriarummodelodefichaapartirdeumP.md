@@ -61,11 +61,11 @@ Uma página como esta se abrirá no navegador de internet (Sempre utilize um bro
 
 1. Se quiser, edite os arquivos ".lfm" gerados em um editor de texto para complementar a ficha gerada!
 
-### Observações:
+### Observações
 
 * Os cálculos e scripts existentes no PDF não são convertidos automaticamente. Você deve recriá-los manualmente, se quiser. Leia o tutorial [Criar campos calculados em fichas](Criarcamposcalculadosemfichas.md).
 
-### Veja também:
+### Veja também
 
   * [Testando o projeto de plug-in](Testandooprojetodeplugin.md)
   * Veja outros [tutoriais](Tutoriais.md) para completar seu plug-in.
