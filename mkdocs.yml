@@ -34,13 +34,6 @@ theme:
 
 extra:
         generator: false
-        alternate:
-        - name: English
-          link: /en/ 
-          lang: en
-        - name: Portugues Brasileiro
-          link: /pt/
-          lang: pt-BR
         social:
         - icon: fontawesome/brands/discord
           link: https://discord.gg/YmsuYrhgyZ
