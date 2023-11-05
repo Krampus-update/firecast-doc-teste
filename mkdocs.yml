@@ -82,7 +82,7 @@ markdown_extensions:
 
 nav:
       - "Introdução": "index.md"
-      - "Primeiros passos": "Primeirospassos.md"
+      - "Primeiros Passos": "Primeirospassos.md"
       - "Histórico de Versões": "HistoricodeVersoes.md"
       - "Tutoriais":
               - "Criar um modelo de ficha à partir de um PDF": "CriarummodelodefichaapartirdeumP.md"
