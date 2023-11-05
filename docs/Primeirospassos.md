@@ -10,7 +10,6 @@ Agora que você já instalou um bom editor de texto, você já pode criar seu pl
 2. Crie um novo projeto de plug-in. Saiba como em [Criando um novo projeto de plug-in](Criandoumnovoprojetodeplugin.md).
 
 3. Adicione funcionalidades ao seu projeto de plug-in:
-
    * Deseja fazer um modelo de ficha? Veja [Modelos de Fichas](ModelosdeFichas.md).
    * Deseja converter um PDF para um modelo de ficha? Veja o tutorial: [Criar um modelo de ficha à partir de um PDF](CriarummodelodefichaapartirdeumP.md)
    * Veja também [Tutoriais](Tutoriais.md) para ter mais ideias :smile:.
