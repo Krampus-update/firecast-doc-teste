@@ -46,8 +46,6 @@ extra:
           link: https://discord.gg/YmsuYrhgyZ
 
 markdown_extensions:
-
-  # Python Markdown
   - abbr
   - admonition
   - attr_list
@@ -56,8 +54,6 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-
-  # Python Markdown Extensions
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
