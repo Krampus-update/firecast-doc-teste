@@ -31,16 +31,18 @@ Conhecimentos que você precisa ter:
 ## Observações Importantes
 
 * Não se assuste! Você **não** precisa saber **tudo** sobre XML e nem **tudo** sobre LUA para começar. Você pode ir aprendendo aos poucos, enquanto cria seu plug-in :smile:.
-* Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia [Primeiros passos](Primeirospassos.md) e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso!
+* Você **não** precisa ler este documento todo antes de “botar a mão na massa”. Leia **Primeiros Passos**[^1] e utilize o restante como um local de referência, orientações e tira dúvidas quando preciso!
 
 ## Por onde começo?
 
-Leia os [Primeiros passos](Primeirospassos.md)
+Leia os **Primeiros Passos**[^1].
 
 ## Veja também
 
 
   * [A linguagem de programação LUA](AlinguagemdeprogramacaoLUA.md)
   * [Documentos XML](DocumentosXML.md)
-  - [FAQ Perguntas Frequentes](FAQPerguntasFrequentes.md)
-  - [Histórico de Versões](HistoricodeVersoes.md)
+  * [FAQ Perguntas Frequentes](FAQPerguntasFrequentes.md)
+  * [Histórico de Versões](HistoricodeVersoes.md)
+
+  [^1]: [Primeiros Passos](Primeirospassos.md)
