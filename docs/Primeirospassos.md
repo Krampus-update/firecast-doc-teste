@@ -7,7 +7,7 @@ Agora que você já instalou um bom editor de texto, você já pode criar seu pl
 
 1. Certifique-se se você já baixou e instalou o Firecast SDK 3, pois, sem ele, este passo-a-passo não funcionará. Você pode baixá-lo em [https://firecast.app/para-programadores/](https://firecast.app/para-programadores).
 
-2. Crie um novo projeto de plug-in. Saiba como em [Criando um novo projeto de plug-in](Criandoumnovoprojetodeplugin.md).
+2. Crie um novo projeto de plug-in. Saiba como em [Criando um novo projeto de plug-in](Criandoprojetodeplugin.md).
 
 3. Adicione funcionalidades ao seu projeto de plug-in:
 

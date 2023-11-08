@@ -74,7 +74,6 @@ markdown_extensions:
 nav:
       - "Introdução": "index.md"
       - "Primeiros Passos": "Primeirospassos.md"
-      - "Histórico de Versões": "HistoricodeVersoes.md"
       - "Tutoriais":
               - "Criar um modelo de ficha à partir de um PDF": "CriarummodelodefichaapartirdeumP.md"
               - "Criar campos calculados em fichas": "Criarcamposcalculadosemfichas.md"
@@ -88,7 +87,7 @@ nav:
               - "Criando um plug-in para vários idiomas": "Criandoumpluginparavariosidiomas.md"
       - "Referências":
               - "Projetos de Plug-in":
-                      - "Criando um novo projeto de plug-in": "Criandoumnovoprojetodeplugin.md"
+                      - "Criando projeto de plug-in": "Criandoprojetodeplugin.md"
                       - "Testando o projeto de plug-in": "Testandooprojetodeplugin.md"
                       - "Disponibilizando um plug-in": "Disponibilizandoumplugin.md"
               - "Arquivos em um projeto de plug-in":
@@ -255,3 +254,4 @@ nav:
                 - Referencias.md
                 - TagssuportadaspeloLuaForm.md
                 - Tutoriais.md
+      - "Histórico de Versões": "HistoricodeVersoes.md"
