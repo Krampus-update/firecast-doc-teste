@@ -1,0 +1,6305 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ObjetoSceneToken/">
+      
+      
+        <link rel="next" href="../EstruturaSceneRect/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Objeto SceneViewport - Documentação SDK 3.6 - Firecast</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objeto-sceneviewport" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Documentação SDK 3.6 - Firecast" class="md-header__button md-logo" aria-label="Documentação SDK 3.6 - Firecast" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação SDK 3.6 - Firecast
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Objeto SceneViewport
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Krampus-update/firecast-doc-teste" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Krampus-update/firecast-doc-teste
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introdução
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Primeirospassos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Primeiros Passos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CriarummodelodefichaapartirdeumP/" class="md-tabs__link">
+          
+  
+  
+  Tutoriais
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Criandoprojetodeplugin/" class="md-tabs__link">
+          
+  
+  
+  Referências
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../BibliotecaparaMacrosemLua/" class="md-tabs__link">
+          
+  
+  
+  Macros
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../AlinguagemdeprogramacaoLUA/" class="md-tabs__link">
+          
+  
+  
+  Apêndice
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../HistoricodeVersoes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Histórico de Versões
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentação SDK 3.6 - Firecast" class="md-nav__button md-logo" aria-label="Documentação SDK 3.6 - Firecast" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação SDK 3.6 - Firecast
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Krampus-update/firecast-doc-teste" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Krampus-update/firecast-doc-teste
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Primeirospassos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeiros Passos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutoriais
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutoriais
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CriarummodelodefichaapartirdeumP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar um modelo de ficha à partir de um PDF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criarcamposcalculadosemfichas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar campos calculados em fichas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criarabasparaaficha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar abas para a ficha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permitirousuarioescolherumaimage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permitir o usuário escolher uma imagem dentro da ficha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criarumalistadinamicanaficha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar uma lista dinâmica na ficha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fazerumafichaenviarrolagensparaa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fazer uma ficha enviar rolagens para a mesa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criarumalistadinamicapaineldedet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar uma lista dinâmica + painel de detalhes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criarumbotaoqueescondeitensdeuma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar um botão que esconde itens de uma lista dinâmica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criarumajanelaacoplaveldemesa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criar uma janela acoplável de mesa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criandoumpluginparavariosidiomas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criando um plug-in para vários idiomas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referências
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referências
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projetos de Plug-in
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projetos de Plug-in
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criandoprojetodeplugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Criando projeto de plug-in
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Testandooprojetodeplugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testando o projeto de plug-in
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disponibilizandoumplugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disponibilizando um plug-in
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivos em um projeto de plug-in
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquivos em um projeto de plug-in
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Oarquivomodulexml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    O arquivo "module.xml"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ferramentas do SDK 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ferramentas do SDK 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ferramenta rdk
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ferramenta rdk
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandordkp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    comando "rdk p"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandordkc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    comando "rdk c"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandordki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    comando "rdk i"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandordkpdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    comando "rdk pdf"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandordklfm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    comando "rdk lfm"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SandboxesdePlugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sandboxes de Plug-ins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ModelosdeFichas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelos de Fichas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HDVirtual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HD Virtual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NodeDatabase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NodeDatabase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArrastandoeSoltandoInformacoesDr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrastando e Soltando Informações / Drag And Drop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces Visuais (Lua Forms)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interfaces Visuais (Lua Forms)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_1" id="__nav_4_9_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guias
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guias
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PosicaoeTamanhodosControles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Posição e Tamanho dos Controles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PontoLogicovsPixel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ponto Lógico vs Pixel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OrientacoesaousarcodigoLUAemumLu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orientações ao usar código LUA em um Lua Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TratandoeventosdoLuaForm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tratando eventos do Lua Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StringdecoresnoLuaForm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String de cores no Lua Form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LuaFormeNodeDatabase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lua Form e NodeDatabase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LuaFormeInstancias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lua Form e Instâncias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EstilosemCascata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estilos em Cascata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DividindooarquivoLuaFormemdocume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dividindo o arquivo Lua Form em documentos menores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_2" id="__nav_4_9_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags suportadas pelo Lua Form
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tags suportadas pelo Lua Form
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caracteristicasdetodasastagsvisu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Características de todas as tags visuais
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caracteristicasdetodasastagsdete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Características de todas as tags de textos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caracteristicasdetagsshapes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Características de tags shapes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagactivityIndicator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag activityIndicator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagbutton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag button
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagcolorComboBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag colorComboBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagcomboBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag comboBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagcheckBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag checkBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagdataLink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag dataLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagdataScopeBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag dataScopeBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagedit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag edit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagevent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag event
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagflowLayout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag flowLayout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagflowLineBreak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag flowLineBreak
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagflowPart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag flowPart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag form
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taggroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag group
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TaghorzLine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag horzLine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagimage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagimageCheckBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag imageCheckBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagimport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag import
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taglabel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag label
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Taglayout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag layout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag path
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagpopup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag popup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagpopupForm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag popupForm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagprogressBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag progressBar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagradioButton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag radioButton
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagrecordList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag recordList
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagrectangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag rectangle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagrichEdit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag richEdit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagscript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagscrollBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag scrollBox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagstyle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag style
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagtab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag tab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagtabControl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag tabControl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagtemplate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TagtextEditor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag textEditor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagtimer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tag timer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3" id="__nav_4_9_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frames
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frames
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArquivodeDefinicaodeFrame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquivo de Definição de Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FrameseRegioes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frames e Regiões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9_3_3" id="__nav_4_9_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemplos de frames
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_9_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exemplos de frames
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1Backgroundqueesticaparaonovotam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 - Background que estica para o novo tamanho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2Backgroundqueserepeteparapreenc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 - Background que se repete para preencher o tamanho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3Framecom2partesfixase1parteques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 - Frame com 2 partes fixas e 1 parte que se estica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4Frameretangulardinamicousandova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 - Frame retangular dinâmico, usando vários arquivos de imagens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5Framecomregioes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 - Frame com regiões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliotecas LUA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bibliotecas LUA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_1" id="__nav_4_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async.Promise library
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Async.Promise library
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Promiseobject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Promise object
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaDialogs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Dialogs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaFireDrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca FireDrive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_4" id="__nav_4_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca GUI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca GUI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoInertialMovement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto InertialMovement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoDrag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Drag
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoDrop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Drop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaLocale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Locale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_6" id="__nav_4_10_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Internet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca Internet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoHTTPRequest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto HTTPRequest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_7" id="__nav_4_10_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca NDB
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca NDB
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoNodo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Nodo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoNodeObserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto NodeObserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoNodeTransaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto NodeTransaction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoNodeUndoData/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto NodeUndoData
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_8" id="__nav_4_10_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Firecast
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca Firecast
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoMesa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Mesa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoJogador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Jogador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoRolagem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Rolagem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoBibliotecaItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto BibliotecaItem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoPersonagem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Personagem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneUnitClass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneUnitClass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoChat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoWrappedObject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto WrappedObject
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_9" id="__nav_4_10_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Firecast.Messaging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca Firecast.Messaging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_9_1" id="__nav_4_10_9_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lista de Mensagens-Eventos do RRPG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_10_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lista de Mensagens-Eventos do RRPG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MensagensdeConexao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mensagens de Conexão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MensagensdoGerenciadordePlugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mensagens do Gerenciador de Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MensagensdeChat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mensagens de Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MensagensdeEstadodasMesas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mensagens de Estado das Mesas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaFirecastPlugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Firecast.Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaFirecastRequests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Firecast.Requests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_12" id="__nav_4_10_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca SceneLib
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_10_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca SceneLib
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VisaogeraldaSceneLib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão geral da SceneLib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetricadoMundovsMetricadaTela/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Métrica do Mundo vs Métrica da Tela
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ascamadasdotabuleiro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    As camadas do tabuleiro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoScene/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Scene
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneBaseObject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneBaseObject
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneCanvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneCanvas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneDrawingOp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneDrawingOp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneDrawingOpBitmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneDrawingOpBitmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneDawingOpPath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneDawingOpPath
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneDrawingOpText/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneDrawingOpText
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneEffectArea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneEffectArea
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneFogOfWar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneFogOfWar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneGraphicItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneGraphicItem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneGraphicItemList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneGraphicItemList
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneGridLayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneGridLayer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoScenePluginAttachment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto ScenePluginAttachment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneUserDrawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneUserDrawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoSceneToken/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneToken
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto SceneViewport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EstruturaSceneRect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estrutura SceneRect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10_14" id="__nav_4_10_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca Utils
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_10_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Biblioteca Utils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ObjetoStream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objeto Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaVHD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca VHD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Loglibrary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Macros
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Macros
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BibliotecaparaMacrosemLua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Biblioteca para Macros em Lua
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apêndice
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Apêndice
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AlinguagemdeprogramacaoLUA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A linguagem de programação LUA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DocumentosXML/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentos XML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQPerguntasFrequentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ -  Perguntas Frequentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md - Apendice.md - Arquivosemumprojetodeplugin.md - AsyncPromiselibrary.md - BibliotecaFirecast.md - BibliotecaFirecastMessaging.md - BibliotecaGUI.md - BibliotecaInternet.md - BibliotecaNDB.md - BibliotecaSceneLib.md - BibliotecaUtils.md - BibliotecasLUA.md - Exemplosdeframes.md - Ferramentardk.md - FerramentasdoSDK3.md - Frames.md - Guias.md - InterfacesVisuaisLuaForms.md - ListadeMensagensEventosdoRRPG.md - Macros.md - ProjetosdePlugin.md - Referencias.md - TagssuportadaspeloLuaForm.md - Tutoriais.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HistoricodeVersoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Histórico de Versões
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Introdução
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Criandoprojetodeplugin/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Referências
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Promiseobject/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Bibliotecas LUA
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../VisaogeraldaSceneLib/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Biblioteca SceneLib
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="objeto-sceneviewport">Objeto SceneViewport<a class="headerlink" href="#objeto-sceneviewport" title="Permanent link">&para;</a></h1>
+<h1 id="objeto-sceneviewport_1">Objeto SceneViewport<a class="headerlink" href="#objeto-sceneviewport_1" title="Permanent link">&para;</a></h1>
+<p>O Objeto Viewport representa a tela do usuário, a janela de exibição, onde o scene está sendo renderizado.</p>
+<p>&nbsp;</p>
+<p>O Viewport de um scene pode ser obtido através da propriedade "<a href="../ObjetoScene/#prop%20viewport">viewport</a>" do <a href="../ObjetoScene/">objeto Scene</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="heranca">Herança<a class="headerlink" href="#heranca" title="Permanent link">&para;</a></h2>
+<p>O o**bjeto SceneViewport** herda de <a href="../ObjetoSceneBaseObject/">SceneBaseObject</a> e possui também todas as suas características.</p>
+<p>&nbsp;</p>
+<h2 id="caracteristicas">Características<a class="headerlink" href="#caracteristicas" title="Permanent link">&para;</a></h2>
+<p>Além das características herdadas, o objeto SceneViewport também possui as seguintes características:</p>
+<h3 id="propriedades-e-atributos">Propriedades e atributos<a class="headerlink" href="#propriedades-e-atributos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Propriedade</strong></th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>scene</strong></td>
+<td><a href="../ObjetoScene/">Objeto Scene</a></td>
+<td>(Somente Leitura) Contém o <a href="../ObjetoScene/">Objeto Scene</a> que este Viewport renderiza.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>width</strong></td>
+<td>Double</td>
+<td>(Somente Leitura) Contem a LARGURA em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Tela</a> do viewport, isto é, da janela onde o scene está sendo renderizado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>height</strong></td>
+<td>Double</td>
+<td>(Somente Leitura) Contem a ALTURA em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Tela</a> do viewport, isto é, da janela onde o scene está sendo renderizado. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>worldX</strong></td>
+<td>Double</td>
+<td>Define, em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Mundo</a>, em qual posição do eixo X do mundo o ponto (X: 0, Y: 0) da tela aponta.&nbsp; As propriedades "worldX" e "worldY" servem para fazer "scroll" no scene.&nbsp; Se quiser fazer um scroll para a direita, por exemplo, incrementa-se o valor de worldX. Se quiser fazer um scroll para cima, decrementa-se o valor de worldY;&nbsp; Este é um valor local e não é compartilhado com os outros usuários que estão visualizando o mesmo scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>worldY</strong></td>
+<td>Double</td>
+<td>Define, em <a href="../MetricadoMundovsMetricadaTela/">Métrica de Mundo</a>, em qual posição do eixo Y do mundo o ponto (X: 0, Y: 0) da tela aponta.&nbsp; As propriedades "worldX" e "worldY" servem para fazer "scroll" no scene.&nbsp; Se quiser fazer um scroll para a direita, por exemplo, incrementa-se o valor de worldX. Se quiser fazer um scroll para cima, decrementa-se o valor de worldY;&nbsp; Este é um valor local e não é compartilhado com os outros usuários que estão visualizando o mesmo scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>scale</strong></td>
+<td>Double</td>
+<td>Define a escala entre a <a href="../MetricadoMundovsMetricadaTela/">Métrica do Mundo</a> e a <a href="../MetricadoMundovsMetricadaTela/">Métrica da Tela</a> do Scene.&nbsp; Em outras palavras, esta propriedade controla o "zoom" do Scene.&nbsp; Exemplo: Um valor 32.0 significa que cada unidade métrica do mundo ocupam 32 unidades métricas de tela.&nbsp; Se quiser, por exemplo, efetuar um zoom+ no scene, incrementa-se "scale". Se quiser reduzir o zoom pela metade, divide-se por dois o valor de "scale".&nbsp; Este é um valor local e não é compartilhado com os outros usuários que estão visualizando o mesmo scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>cursor</strong></td>
+<td>Enumerado: "default" "arrow" "handPoint" "hourGlass" "IBeam" "size" "sizeNESW" "sizeNS" "sizeNWSE" "sizeWE" "upArrow" "drag" "noDrop" "hSplit" "vSplit" "multiDrag" "sqlWait" "no" "appStart" "help" "cross"</td>
+<td>Define qual cursor de mouse deve ser apresentado quando o mouse estiver em em cima do viewport do scene.&nbsp; "default" - Cursor padrão, uma seta padrão. "arrow" - Uma seta padrão. "handPoint" - Uma mão com um dedo apontando para cima. Normalmente é usado para identificar um item selecionável/clicável "hourGlass" - Uma ampulheta para indicar um processo em andamento. "IBeam" - Cursor que sinaliza a possibilidade de entrar com texto no controle. "size" - Indicação de possibilidade de redimensionamento. "sizeNESW" - Indicação de possibilidade de redimensionamento no sentido Nordeste-Sudoeste "sizeNS" - Indicação de possibilidade de redimensionamento no sentido Norte-Sul "sizeNWSE" - Indicação de possibilidade de redimensionamento no sentido Noroeste-Sudeste "sizeWE" - Indicação de possibilidade de redimensionamento no sentido Leste-Oeste "upArrow" - Uma seta apontando para cima. "drag" - Um cursor indicando que itens estão sendo arrastados. "noDrop" - Indicação de que não é possível arrastar para este alvo. "hSplit" -&nbsp; Indicação de splitter horizontal "vSplit" - Indicação de splitter vertical. "multiDrag" - Indicação de que vários itens estão sendo arrastados. "sqlWait" - Ampulheta indicando um processo de banco de dados em andamento. "no" - Uma indicação de negação, de que não é possível fazer algo. "appStart" - Combinação de "default" e "hourGlass", normalmente usado para indicar que um aplicativo está sendo aberto. "help" - Uma seta com um ponto de interrogação. "cross" - Um cursor em formato de cruz, usado para indicar um posicionamento preciso.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos">Métodos<a class="headerlink" href="#metodos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>viewport:screenToWorld(screenX, screenY)</strong></td>
+<td>Converte uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a> em uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O ponto (screenX, screenY) da tela do usuário representa qual ponto (worldX, worldY) do tabuleiro?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: screenX - a posição do eixo X do ponto da tela screenY - a posição do eixo Y do ponto da tela&nbsp; Retorno: Esta função retorna 2 valores na seguinte ordem: worldX e worldY contendo o ponto convertido em métricas de mundo.&nbsp; Exemplo de uso: local worldX, worldY = scene.viewport:screenToWorld(10, 50);&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:screenToWorld(screenRect)</strong></td>
+<td>Converte um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a> em um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O retângulo "screenRect" da tela do usuário representa qual retângulo do tabuleiro?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: screenRect - Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo que será convertido.&nbsp; Retorno: Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo convertido em métricas de mundo.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:worldToScreen(worldX, worldY)</strong></td>
+<td>Converte uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a> em uma posição definida em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O ponto (worldX, worldY) do mundo do scene fica em qual posição (screenX, screenY) na tela do usuário?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: worldX - a posição do eixo X do mundo do scene. worldY - a posição do eixo Y do mundo do scene.&nbsp; Retorno: Esta função retorna 2 valores na seguinte ordem: screenX e screenY contendo o ponto convertido em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; Exemplo de uso: local screenX, screenY = scene.viewport:worldToScreen(3, 4.5);&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:worldToScreen(worldRect)</strong></td>
+<td>Converte um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de mundo</a> em um retângulo definido em <a href="../MetricadoMundovsMetricadaTela/">métricas de tela</a>.&nbsp; Em outras palavras, esta função responde a seguinte pergunta: O retângulo "worldRect" do mundo do scene ocupa qual retângulo da tela do usuário?&nbsp; Esta conversão leva em consideração o "scroll" e o "zoom" (propriedades worldX, worldY e scale) do Viewport.&nbsp; Parâmetros: worldRect - Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo que será convertido.&nbsp; Retorno: Uma <a href="../EstruturaSceneRect/">tabela SceneRect</a> contendo o retângulo convertido em métricas de tela.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:getScrollBounds()</strong>&nbsp;</td>
+<td>Retorna os limites de scroll para os valores worldX e worldY.&nbsp; Retorno: Esta função retorna 4 valores numéricos na seguinte ordem e definição: minX - Um número. O scene não deixa a propriedade worldX ficar menor que este valor. minY - Um número. O scene não deixa a propriedade worldY ficar menor que este valor; maxX - Um número. O scene não deixa a propriedade worldX ficar maior que este valor. maxY - Um número. O scene não deixa a propriedade worldY ficar maior que este valor.&nbsp; Exemplo de uso: local minX, minY, maxX, maxY = viewport:getScrollBounds(); &nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:setupToolCategory(name, title, order)</strong></td>
+<td>Atualiza ou cria uma categoria de ferramentas no Scene.&nbsp; Parâmetros: name - Uma cadeia de caracteres contendo o nome da categoria. Este nome pode ser referenciado depois pela função <a href="./#addToolButton()">addToolButton</a> title - Uma cadeia de caracteres contendo a descrição/título da categoria. order - Um número definindo a ordem da categoria. Esta categoria será exibida depois/abaixo de outra categoria de ordem menor. (A grosso modo, quem tiver número de ordem menor fica na frente)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:addToolButton(categoryName, title, &nbsp; iconURL, order, options, callback [, deactivationCallback])</strong></td>
+<td>Adiciona um botão-ferramenta ao Scene.&nbsp; Parâmetros: categoryName - O nome da categoria em que o botão deve ser inserido. Este é o mesmo nome usado na função <a href="./#setupToolCategory">setupToolCategory</a>. Se for especificado uma categoria inexistente, ela será criada. title - Cadeia de caracteres contendo o título do botão. iconURL - Cadeia de caracteres contendo o endereço/caminho de uma imagem que será utilizada como ícone da ferramenta. Pode ser um endereço de internet (exemplo: “<a href="http://xxxx.com.br/a.png">http://xxxx.com.br/a.png</a>”)&nbsp; Pode ser o caminho de um arquivo contido no pacote do plugin. Pode ser um arquivo que se encontra no <a href="../HDVirtual/">HD Virtual</a> do plugin instalado. order - Um número contendo a ordem do botão em sua categoria. A grosso modo, quem tiver um número de ordem menor fica na frente. options - <strong>nil</strong> ou uma tabela LUA podendo conter os seguintes atributos: "selectable" - Booleano, onde true significa que a ferramenta é uma ferramenta selecionável. Uma ferramenta selecionável permanece ativa até que fique "não selecionada". Por padrão, este valor é false e significa que a ferramenta executa algo que não precisa mudar seleção da ferramenta ativa. defaultOfCategory - Booleano onde true significa que esta ferramenta é a padrão da categoria que está e que ela será utilizada quando o usuário clicar na categoria. O padrão é false. dontFocus - Booleano onde true significa que a ferramenta não deve ser focada como ferramenta padrão da categoria após o usuário clicar nela. O padrão é false. DontFocus não funciona se selectable estiver ativo. callback - Uma função que será chamada quando o usuário ativar/clicar esta ferramenta. (OPCIONAL) deactivationCallback - Uma função que será chamada quando esta ferramenta estava selecionada e o usuário selecionou outra. Este callback é chamado apenas se a ferramenta for do tipo "selecionável" e o Scene espera que sua ferramenta pare de fazer o que ela faz quando selecionada.&nbsp; Retorno: Esta função retorna um número identificador do ToolButton no scene. Este mesmo valor pode ser utilizado posteriormente na função <a href="./#removeToolButton()">removeToolButton</a>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:removeToolButton(toolID)</strong></td>
+<td>Remove um botão ferramenta que foi previamente adicionado pela função <a href="./#addToolButton()">addToolButton</a>.&nbsp; Parâmetros: toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:checkToolButton(toolID[, checked])</strong></td>
+<td>Marca ou desmarca um ToolButton. A marcação é uma mera indicação visual para o usuário entender que o Tool está ativo de alguma forma.&nbsp; Podem existir mais de 1 ToolButton marcados ao mesmo tempo.&nbsp; Parâmetros: toolID - toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton. (OPCIONAL) checked - Um booleano, onde <strong>true</strong> significa marcar o tool button e <strong>false</strong> significa desmarcar o tool button. Se não informado, true será utilizado como padrão.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:isToolButtonChecked(toolID)</strong></td>
+<td>Retorna se um determinado ToolButto está marcado. A marcação é uma mera indicação visual para o usuário entender que o Tool está ativo de alguma forma.&nbsp; Podem existir mais de 1 ToolButton marcados ao mesmo tempo.&nbsp; Parâmetros: toolID - toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton.&nbsp; Retorno: Um Boolean, onde <strong>true</strong> significa que o toolbutton está marcado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:selectDefaultToolButton()</strong></td>
+<td>Seleciona a Ferramenta/Tool Button padrão. Pode existir apenas uma ferramenta selecionada ao mesmo tempo e representa a ferramenta que o usuário está trabalhando no momento.&nbsp; A ferramenta padrão normalmente é a de "selecionar/movimentar" itens do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:selectToolButton(toolID)</strong></td>
+<td>Seleciona a Ferramenta/Tool Button especificada pelo padrão. Pode existir apenas uma ferramenta selecionada ao mesmo tempo e representa a ferramenta que o usuário está trabalhando no momento.&nbsp; Parâmetros: toolID - toolID - Um número identificador do ToolButton. Este valor é retornado pela função addToolButton.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:showForm(form[, options])</strong></td>
+<td>Exibe uma janela na interface do usuário na forma de um Popup flutuante acima do viewport do scene.&nbsp; Parâmetros: form - O formulário a ser exibido na interface. Deve ser um <a href="../Tagform/">objeto Lua Form já instanciado.</a> (OPCIONAL) options - Uma tabela/objeto LUA contendo as opções da exibição do popup. As opções são: onClose - [function, padrão = nil] - Uma função lua que será invocada quando o popup for fechado. placement - [string enumerado] - Onde o popup será exibido.. Os possíveis valores são: "center" - no centro da tela "bottom" - na parte de baixo da tela "top" - na parte de cima da tela "left" - à esquerda na tela "right" - à direita na tela "topLeft" -&nbsp; no canto superior esquerdo da tela "topRight - no canto superior direito da tela "bottomLeft" - no canto inferior esquerdo da tela "bottomRight" - no canto inferior direito da tela "mouse" - onde o mouse está atualmente "mouseCenter" - centralizado onde o mouse está atualmente. nil ou não informado - Posição personalizada.&nbsp; &nbsp; &nbsp; Retorno:&nbsp; &nbsp; &nbsp; Se conseguir exibir o form como um popup no viewport, retorna <strong>true</strong>; Senão retorna <strong>false</strong>.&nbsp; Observações: A função não espera o popup fechar para retornar. Após esta chamada, o código LUA continuará sua execução normal enquanto o form é mostrado.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:closeForm(form)</strong></td>
+<td>Fecha uma janela popup que foi previamente aberta pela da função viewport:showPopup.&nbsp; Parâmetros: form - O formulário a ser fechado/tirado da interface. Deve ser um <a href="../Tagform/">objeto Lua Form já instanciado</a>&nbsp; &nbsp; &nbsp; Retorno:&nbsp; &nbsp; &nbsp; Se conseguir fechar o form, retorna <strong>true</strong>; Senão retorna <strong>false</strong>.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:needRepaint()</strong></td>
+<td>Informa ao RRPG que o Scene precisa ser redesenhado.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="metodos-para-renderizacao">Métodos para renderização<a class="headerlink" href="#metodos-para-renderizacao" title="Permanent link">&para;</a></h3>
+<p>Todos os métodos listados abaixos são válidos APENAS dentro de eventos "onBeforeDraw"s e "OnAfterDraw"s</p>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Método</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>viewport:prepareFill(color)</strong></td>
+<td>Prepara o viewport para renderizar o preenchimento de polígonos com uma cor sólida.&nbsp; Parâmetros: color - uma <a href="../StringdecoresnoLuaForm/">cadeia de caracteres contendo uma cor</a>.&nbsp; Observações: Após chamar este método, os métodos viewport:fill*** utilizarão esta cor no desenho.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:prepareDraw(color [, thickness, strokeCap, strokeJoin, strokeDash])</strong></td>
+<td>Prepara o viewport para renderizar o contorno de polígonos com uma cor sólida.&nbsp; Parâmetros: color -&nbsp; uma <a href="../StringdecoresnoLuaForm/">cadeia de caracteres contendo uma cor</a>. (OPCIONAL) thickness - A espessura do contorno <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>. Se omitido, o valor padrão é 1.0; (OPCIONAL) strokeCap - Define o estilo gráfico usado ao desenhar o fim das linhas. Pode ser "flat" (linhas com pontas retangulares) ou "round" (linhas com pontas arredondadas). Se omitido, o valor padrão é "flat". (OPCIONAL) strokeJoin - Define o estilo gráfico usado ao juntar segmentos de linha em uma forma. Pode ser "miter" (As quinas/junções são "quadradas"), "round" (As quinas/junções são arredondadas) ou "bevel" (As quintas/junções são ligadas de forma diagonal). Se omitido, o valor padrão é "miter" (OPCIONAL) strokeDash - Define o estilo gráfico da linha. Pode ser "solid" (A linha é sólida), "dash" (A linha é tracejada), "dot" (A linha é feita de pontos), "dashDot" (A linha é alternada entre traços e pontos), ou "dashDotDot" (A linha é alternada entre traço, ponto e ponto). Se omitido, o valor padrão é "solid"&nbsp; Observações: Após chamar este método, os métodos viewport:draw*** utilizarão estas configurações.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:prepareFont(size [,fontName, bold, italic, underline])</strong></td>
+<td>Prepara o viewport para preencher textos com uma determinada fonte.&nbsp; Parâmetros: size - Um número contendo o tamanho da fonte. Ex: 12 (OPCIONAL) fontName - O nome da fonte a ser usada. Se <strong>nil</strong>, uma fonte padrão será utilizada. (OPCIONAL) bold - True se desejar que a fonte esteja em negrito. (OPCIONAL) italic - True se desejar que a fonte esteja em itálico. (OPCIONAL) underline - True se desejar que a fonte esteja sublinhada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillRect(left, top, right, bottom[, opacity])</strong></td>
+<td>Desenha o preenchimento de um retângulo na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do retângulo, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillEllipse(left, top, right, bottom[, opacity])</strong></td>
+<td>Desenha o preenchimento de uma elipse/figura oval na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor da elipse, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillPolygon(polygon[, opacity])</strong></td>
+<td>Desenha o preenchimento de um polígono na tela do scene.&nbsp; Parâmetros: polygon - Um array de tabelas que contém propriedades x e y, e cada cada item do array representando um vértice do polígono. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do polígono, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillACell(i, j [, opacity])</strong></td>
+<td>Desenha o preenchimento de uma célula do grid do scene.&nbsp; Parâmetros: i - a posição i da célula "Aij" j - a posição j da célula "Aij" (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do retângulo, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:drawRect(left, top, right, bottom[, opacity])</strong></td>
+<td>Desenha o contorno de um retângulo na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o retângulo deve ser preenchido. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor do retângulo, invoque primeiro o método "prepareDraw"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:drawEllipse(left, top, right, bottom[, opacity])</strong>&nbsp;</td>
+<td>Desenha o contorno de uma elipse/figura oval na tela do scene.&nbsp; Parâmetros: left - Posição esquerda (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. top - Posição superior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. right - Posição direita (no eixo X) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. bottom - Posição inferior (no eixo Y) em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a elipse deve ser preenchida. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir o material/cor da elipse, invoque primeiro o método "prepareDraw"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:drawLine(startX, startY, endX, endY [,opacity])</strong></td>
+<td>Desenha uma linha na tela do scene.&nbsp; Parâmetros: startX - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve se originar. startY - Posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve se originar. endX - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve finalizar. endY - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde a linha deve finalizar. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:textSize(txt)</strong></td>
+<td>Calcula o tamanho do texto usando a fonte configurada no viewport.&nbsp; Parâmetros: txt - A cadeia de caracteres que será medida.&nbsp; Retorno: x - A largura do texto em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>&nbsp; y - A altura do texto em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> &nbsp; Observações: Para definir a fonte, invoque primeiro o método "prepareFont"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillText(x, y, txt [, opacity])</strong></td>
+<td>Desenha um texto no scene.&nbsp; Parâmetros: x - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. y - Posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. txt - A cadeia de caracteres que será desenhada. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir a fonte, invoque primeiro o método "prepareFont" Para definir o material/cor do texto, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:fillTextFit(x, y, right, bottom, txt[, horzTextAlign, vertTextAlign, , opacity])</strong></td>
+<td>Desenha um texto no scene de forma a fazer cabe-lo da melhor forma em um retângulo definido.&nbsp; Parâmetros: x - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. y - Posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. right - Posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o texto deve começar a ser desenhado. txt - A cadeia de caracteres que será desenhada. (OPCIONAL) opacity - Um número entre 0.0 e 1.0 definindo a opacidade do desenho, onde 0.0 = totalmente transparente e 1.0 = totalmente opaco. Se este parâmetro não for informado, será utilizado 1.0.&nbsp; Observações: Para definir a fonte, invoque primeiro o método "prepareFont" Para definir o material/cor do texto, invoque primeiro o método "prepareFill"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:pushRenderState()</strong></td>
+<td>Salva as configurações atuais de renderização para que possam ser restauradas mais tardes usando popRenderState.&nbsp; Observação: Para cada chamada de pushRenderState, deve haver uma chamada de popRenderState.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:popRenderState()</strong></td>
+<td>Restaura as configurações de renderização previamente salvadas pelo método pushRenderState.&nbsp; Observação: Para cada chamada de pushRenderState, deve haver uma chamada de popRenderState.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:pushRotationTransform(angle, centerX, centerY)</strong></td>
+<td>Empurra uma transformação de rotação no viewport.&nbsp; Parâmetros: angle - Angulo em graus da rotação que deve ser feita. centerX - Posição do pivô de rotação no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela.</a> centerY - Posição do pivô de rotação no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela.</a>&nbsp; Observações: As próximas renderizações serão rotacionadas com esta configuração até a chamada de popTransform. Para cada chamada de pushRotationTransform deve haver uma chamada de popTransform.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:pushWorldToScreenTransform();</strong></td>
+<td>Empurra uma transformação de coordenadas em <a href="../MetricadoMundovsMetricadaTela/">métrica de mundo</a> para <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> no viewport.&nbsp; Após a chamada desta função, todos os métodos de desenho entenderão que as coordenadas passadas estão em métrica de mundo.&nbsp; Observações: Para cada chamada de pushWorldToScreenTransform deve haver uma chamada de popTransform.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>viewport:popTransform();</strong></td>
+<td>Remove do viewport a última transformação que havia sido empurrada.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="eventos">Eventos<a class="headerlink" href="#eventos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Nome do evento</strong></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>onChange</strong></td>
+<td>Evento que é disparado quando o Viewport do scene mudar.&nbsp; As seguintes situações disparam este evento: Alteração no tamanho da tela (propriedades width e height) Alteração no scroll do viewport (propriedades worldX e worldY) Alteração no zoom do viewport (propriedade scale)&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseDown</strong></td>
+<td>Este evento é invocado quando um botão do mouse é pressionado sobre o Viewport ou quando o dedo toca a tela (touchscreen).&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: button – indica qual botão do mouse foi pressionado, e pode conter um dos seguintes valores: “left”, “middle” ou “right”... Quando o dedo é pressionado (touchscreen), este valor é “left” e isTouch = true. x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi pressionado. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi pressionado. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseMove</strong></td>
+<td>Este evento é invocado quando o mouse se movimenta pelo viewport ou quando o dedo (touchscreen) é arrastado pelo viewport.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando para onde o mouse moveu. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando para onde o mouse moveu. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseUp</strong></td>
+<td>Este evento é invocado quando um botão do mouse é liberado sobre o Viewport ou quando o dedo solta da tela (touchscreen).&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: button – indica qual botão do mouse foi liberado, e pode conter um dos seguintes valores: “left”, “middle” ou “right”... Quando o dedo é levantado (touchscreen), este valor é “left” e isTouch = true. x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi liberado. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde o mouse foi liberado. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseDblClick</strong></td>
+<td>Este evento é invocado quando o usuário realiza a ação duplo clique com o mouse sobre o Viewport.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: x – posição X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde ocorreu o duplo clique. y – posição Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> indicando onde ocorreu o duplo clique. shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também. isTouch - true se este evento foi disparado por causa de um dedo em um display touchscreen. &nbsp; Observação: Este evento é disparado junto com onMouseDown e onMouseUp na seguinte ordem: Mouse Down -&gt; Mouse Up -&gt; Mouse Down -&gt; Dbl Click -&gt; Mouse Up&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onMouseWheel</strong></td>
+<td>Este evento é invocado quando a "rodinha" do mouse é é rolada sobre o Viewport.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos: delta - Um número que indica a distancia que a roda foi rodada. Se for positivo, significa que a rodinha foi rolada para cima e se for negativo significa que ela foi rolada para baixo.&nbsp; shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Se seu evento controlou adequadamente este evento e não quer que nenhum outro plug-in tente manipular mais este evento, retorne explicitamente true usando "return true;"&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onFallbackMouseWheel</strong></td>
+<td>Idêntico ao evento onMouseWheel, porém é chamado apenas quando nenhum código tratar o evento onMouseWheel.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureBeginZoom</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, começa a realizar um gesto de zoom.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô do zoom. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô do zoom.&nbsp; Observações: Neste momento, o usuário ainda não realizou zoom, apenas destacou sua intenção de o fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureZoom</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de zoom.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô do zoom. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô do zoom. delta - Um número contendo a distância em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> do zoom desejado. Se negativo, é um gesto de zoom out. Este valor é a variação da distância deste o último evento onGestureZoom.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureEndZoom</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, finaliza um gesto de zoom.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô do zoom. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô do zoom.&nbsp; Observações: Neste momento, o usuário já realizou todo zoom que queria fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureBeginRotation</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, começa a realizar um gesto de rotação.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô da rotação. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. Esta posição é o pivô da rotação.&nbsp; Observações: Neste momento, o usuário ainda não realizou rotação, apenas destacou sua intenção de o fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureRotation</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de rotação.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô da rotação. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Esta posição é o pivô da rotação. angle - Número contendo o ângulo da rotação em graus. Valor positivo significa rotação em sentido anti-horário, valor negativo em sentido horário.&nbsp; Este valor é a variação do ângulo deste o último evento onGestureRotation.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureEndRotation</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, finaliza um gesto de rotação.&nbsp; Parâmetros: x - Número, a posição CENTRAL no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô da rotação. y - Número, a posição CENTRAL no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. Esta posição é o pivô da rotação.&nbsp; Observações: Neste momento, o usuário já realizou toda rotação que queria fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureBeginPan</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, começa a realizar um gesto de deslize/scroll.&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado. y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi iniciado.&nbsp; Observações: Neste momento, o usuário ainda não realizou deslizamento, apenas destacou sua intenção de o fazer.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGesturePan</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de deslize/scroll.&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Este representa onde, no viewport, está o ponteiro/dedo. y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado. Este representa onde, no viewport, está o ponteiro/dedo.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureEndPan</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, finaliza um gesto de deslize/scroll.&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado. y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi finalizado.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onGestureLongTap</strong></td>
+<td>Este evento é invocado quando o usuário, utilizando o TouchScreen e seus dedos, realiza um gesto de longTap (pressionar e segurar por algum tempo)&nbsp; Parâmetros: x - Número, a posição no eixo X em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado.&nbsp; y - Número, a posição no eixo Y em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a> de onde o gesto foi realizado.&nbsp; Retorne explicitamente <strong>true</strong> para indicar ao Scene que você já lidou com este evento e nenhum outro script precisa se preocupar com ele.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onKeyDown</strong></td>
+<td>Este evento é invocado quando uma tecla (teclado) é pressionada no Scene.&nbsp; Parâmetros: event - uma tabela Lua que contém os seguintes atributos key - Cadeia de caracteres contendo a letra do teclado que foi pressionada keyCode – Código numérico da tecla que foi pressionada (algumas teclas, como F7, por exemplo, não representam uma letra, daí a necessidade do keyCode) shiftKey - true se a tecla shift estiver pressionada também ctrlKey - true se a tecla control estiver pressionada também altKey - true se a tecla alt estiver pressionada também.&nbsp; Observações: Se você alterar o valor de key e/ou keyCode, a mudança é incorporada. Caso queira suprimir/ignorar a tecla que acabou de ser pressionada, atribua event.key = "" e event.keyCode = 0. Se a combinação de teclas pressionada puder ser um atalho, então event.key virá com valor "" (string vazio) e event.keyCode com valor diferente de 0. Se a combinação de teclas pressionada puder ser tratada como um caractere exibível, event.key vira com uma string contendo apenas este caracter e event.keyCode virá com valor igual a 0. &nbsp;</td>
+</tr>
+<tr>
+<td><strong>onKeyUp</strong></td>
+<td>Este evento é invocado quando uma tecla (teclado) é liberada.&nbsp; Parâmetros: event - uma tabela Lua que contém as mesmas propriedades descritas no <a href="./#Evento%20OnKeyDown">evento onKeyDown</a> mas com informações sobre a tecla liberada.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawBkgLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado antes do RRPG pintar a camada background do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawGridLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar a camada background e antes de pintar o grid do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawObjsLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar o grid e antes de pintar a camada objetos do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onBeforeDrawTokensLayer</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar a camada objetos e antes de pintar a camada tokens do scene.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onAfterDrawLayers</strong></td>
+<td>Evento de renderização. Quando estiver neste evento, utilize os <a href="./#Métodos%20para%20renderização">métodos de renderização do viewport</a> para realizar pinturas na tela do usuário. Não realize tarefas pesadas neste evento!&nbsp; Este evento é invocado depois do RRPG pintar a camada tokens.&nbsp;</td>
+</tr>
+<tr>
+<td><strong>onStartDrop</strong></td>
+<td>Evento que é chamado quando alguém arrasta uma informação (drag) em cima do scene e você deseja informar quais ações ou dados existem em um determinado ponto do tabuleiro.&nbsp; Parâmetros: drop - <a href="../ObjetoDrop/">Objeto Drop</a> o qual você deve preencher as informações para o RRPG acasalar o drag com o drop. x - Numero contendo a posição do eixo X, em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>, de onde o drop está tentando ser feito. y - Numero contendo a posição do eixo y, em <a href="../MetricadoMundovsMetricadaTela/">métrica de tela</a>, de onde o drop está tentando ser feito. drag - <a href="../ObjetoDrag/">Objeto Drag</a> representando a informação que está sendo arrastada. Você não deve alterar as propriedades deste objeto.&nbsp; Por favor, consulte <a href="../ArrastandoeSoltandoInformacoesDr/">Arrastando-e-Soltando Informações / Drag and Drop</a> para conhecer melhor sobre o processo drag and drop.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 id="exemplos">Exemplos<a class="headerlink" href="#exemplos" title="Permanent link">&para;</a></h2>
+<h3 id="exemplo-1-um-plugin-que-detecta-quando-o-viewport-de-um-scene-muda">Exemplo 1 - Um plugin que detecta quando o Viewport de um scene muda<a class="headerlink" href="#exemplo-1-um-plugin-que-detecta-quando-o-viewport-de-um-scene-muda" title="Permanent link">&para;</a></h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                            scene.viewport.onChange =  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>function</strong>()                 <strong>local</strong> r = scene.viewport:screenToWorld({left=0, top=0,                                                         right=scene.viewport.width,                                                         bottom=scene.viewport.height});                         <strong>local</strong> texto = "O Viewport mudou..<strong>\n</strong>" ..                               "Dimensões da tela: "    .. scene.viewport.width .. " por " ..                               scene.viewport.height .. "<strong>\n</strong>" ..                               "Posicao do Scroll: " .. scene.viewport.worldX .. " por " ..                               scene.viewport.worldY .. "<strong>\n</strong>" ..                               "Região do Scene que é exibido neste viewport: " ..                               string.format("[(left %f, top %f)(right %f, bottom %f)]",                                             r.left, r.top, r.right, r.bottom);                                               showMessage(texto);             <strong>end</strong>;            <strong>end</strong>);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3 id="exemplo-2-um-plug-in-que-descobre-em-qual-celula-do-grid-o-usuario-clicou">Exemplo 2 - Um plug-in que descobre em qual célula do grid o usuário clicou<a class="headerlink" href="#exemplo-2-um-plug-in-que-descobre-em-qual-celula-do-grid-o-usuario-clicou" title="Permanent link">&para;</a></h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                    <em>-- Manipular o evento onMouseUp do Viewport afim de detectar o click do mouse</em>                 scene.viewport.onMouseUp =             <strong>function</strong> (event)                 <em>-- Converter coordenada de tela do click para coordenada de mundo</em>                 <strong>local</strong> wx, wy = scene.viewport:screenToWorld(event.x,                                                             event.y);                                                                                                                                                     <em>-- Converter coordenada de mundo para coordenada do grid</em>                 <strong>local</strong> i, j = scene.grid:worldToCell(wx, wy);                                         <em>-- Exibir uma Mensagem sobre a célula clicada     *                 showMessage("Click na célula [Linha " .. i ..                             ", Coluna " .. j .. "]");             **end*</em>;                   <strong>end</strong>); &nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="exemplo-3-um-plug-in-que-adicionaremove-uma-marca-personalizada-quando-o-usuario-clica-nos-itens-do-scene">Exemplo 3 - Um plug-in que adiciona/remove uma marca personalizada quando o usuário clica nos itens do scene.<a class="headerlink" href="#exemplo-3-um-plug-in-que-adicionaremove-uma-marca-personalizada-quando-o-usuario-clica-nos-itens-do-scene" title="Permanent link">&para;</a></h3>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th>require("scene.lua");   SceneLib.registerPlugin(     <strong>function</strong> (scene, attachment)                                    <em>-- Manipular o evento OnMouseDown do Viewport</em>                 scene.viewport.onMouseDown = <strong>function</strong>(event)             <em>-- Usuário clicou no Scene</em>             <em>-- Transformar as coordenadas de tela em métrica de mundo</em>             <strong>local</strong> worldX, worldY = scene.viewport:screenToWorld(event.x, event.y);                         <em>-- Localizar o item que o usuário clicou</em>             <strong>local</strong> item = scene.items:itemAtPoint(worldX, worldY);                         <strong>if</strong> item ~= nil <strong>then</strong>                 <em>-- Encontrou um item na posição clicada.             *                 **local*</em> NOME_MINHA_MARCA = "MarcaExemplo";                                 <em>-- Localizar uma operação gráfica neste item com o nosso nome</em>                 <strong>local</strong> opGrafica = item.canvas:findByName(NOME_MINHA_MARCA);                                 <strong>if</strong> opGrafica == nil <strong>then</strong>                     <em>--[[ A operação gráfica da minha marca ainda não</em>                         <em>existe neste token/item. Vamos criar ]]</em>                                             opGrafica = item.canvas:addBitmap();                     opGrafica.name = NOME_MINHA_MARCA; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <em>-- Abaixo, URL da imagem da nossa marca.</em>                     opGrafica.url = "https://wiki.teamfortress.com/w/images/d/dd/Bleed_drop.png?t=20110425044341";                     opGrafica.x = 0.25;                     opGrafica.width = 0.3;                     opGrafica.y = -0.1;                     opGrafica.height = 0.3;                     opGrafica.z = 10;                                       <strong>else</strong>                     <em>-- Vamos apagar nossa operação gráfica previamente criada</em>                     opGrafica:delete();                 <strong>end</strong>;             <strong>end</strong>;                    <strong>end</strong>;                     <strong>end</strong>);&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem222.png" /> Item sem a marca</th>
+<th style="text-align: center;"><img alt="Image" src="../lib/NewItem223.png" /> Item com a marca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Created with the Personal Edition of HelpNDoc: <a href="https://www.helpauthoringsoftware.com/articles/what-is-a-help-authoring-tool/">Simplify Your Help Documentation Process with a Help Authoring Tool</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../ObjetoSceneToken/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Objeto SceneToken">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Objeto SceneToken
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../EstruturaSceneRect/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Estrutura SceneRect">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Estrutura SceneRect
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/YmsuYrhgyZ" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.path", "toc.follow", "header.autohide", "navigation.top", "navigation.sections", "navigation.tracking", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link", "navigation.footer", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
